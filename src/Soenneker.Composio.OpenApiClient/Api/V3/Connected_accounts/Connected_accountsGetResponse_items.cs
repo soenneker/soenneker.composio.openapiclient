@@ -14,6 +14,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>A user-defined alias for the connected account</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Alias { get; set; }
+#nullable restore
+#else
+        public string Alias { get; set; }
+#endif
         /// <summary>The auth_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,6 +117,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
 #else
         public string UserId { get; set; }
 #endif
+        /// <summary>A short, token-friendly identifier for multi-account disambiguation, typically toolkit-prefixed with 1-2 words (e.g., &quot;gmail_red-castle&quot;)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WordId { get; set; }
+#nullable restore
+#else
+        public string WordId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items"/> and sets the default values.
         /// </summary>
@@ -134,6 +150,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "alias", n => { Alias = n.GetStringValue(); } },
                 { "auth_config", n => { AuthConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_auth_config>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_auth_config.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_data>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_data.CreateFromDiscriminatorValue); } },
@@ -147,6 +164,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
                 { "toolkit", n => { Toolkit = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_toolkit>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_toolkit.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
+                { "word_id", n => { WordId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -156,6 +174,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("alias", Alias);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_auth_config>("auth_config", AuthConfig);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_data>("data", Data);
@@ -169,6 +188,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_toolkit>("toolkit", Toolkit);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_id", UserId);
+            writer.WriteStringValue("word_id", WordId);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
