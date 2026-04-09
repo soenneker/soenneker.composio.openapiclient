@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Composio.OpenApiClient.Api.V31;
 using Soenneker.Composio.OpenApiClient.Api.V3;
 using System.Collections.Generic;
 using System.IO;
@@ -20,11 +19,6 @@ namespace Soenneker.Composio.OpenApiClient.Api
         public global::Soenneker.Composio.OpenApiClient.Api.V3.V3RequestBuilder V3
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.V3RequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The v31 property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V31.V31RequestBuilder V31
-        {
-            get => new global::Soenneker.Composio.OpenApiClient.Api.V31.V31RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.ApiRequestBuilder"/> and sets the default values.

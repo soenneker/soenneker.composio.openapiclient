@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Composio.OpenApiClient.Api.V3.Org.Consumer;
 using Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner;
 using Soenneker.Composio.OpenApiClient.Api.V3.Org.Project;
+using Soenneker.Composio.OpenApiClient.Api.V3.Org.Usage;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Org
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Project.ProjectRequestBuilder Project
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Project.ProjectRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The usage property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Usage.UsageRequestBuilder Usage
+        {
+            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Usage.UsageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Org.OrgRequestBuilder"/> and sets the default values.

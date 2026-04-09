@@ -14,6 +14,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Alias { get; set; }
+#nullable restore
+#else
+        public string Alias { get; set; }
+#endif
         /// <summary>The URL to redirect to after connection completion</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,6 +93,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "alias", n => { Alias = n.GetStringValue(); } },
                 { "callback_url", n => { CallbackUrl = n.GetStringValue(); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_data>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_data.CreateFromDiscriminatorValue); } },
                 { "deprecated_is_v1_rerouted", n => { DeprecatedIsV1Rerouted = n.GetBoolValue(); } },
@@ -100,6 +109,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("alias", Alias);
             writer.WriteStringValue("callback_url", CallbackUrl);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_data>("data", Data);
             writer.WriteBoolValue("deprecated_is_v1_rerouted", DeprecatedIsV1Rerouted);
