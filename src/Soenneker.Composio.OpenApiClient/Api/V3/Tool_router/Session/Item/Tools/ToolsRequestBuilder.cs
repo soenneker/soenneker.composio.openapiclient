@@ -46,6 +46,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 413 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 502 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools.ToolsGetResponse?> GetAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools.ToolsGetRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,6 +66,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "413", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "502", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools.ToolsGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools.ToolsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
