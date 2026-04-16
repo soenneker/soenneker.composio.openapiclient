@@ -39,6 +39,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_manage_connections ManageConnections { get; set; }
 #endif
+        /// <summary>Multi-account configuration for this session.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_multi_account? MultiAccount { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_multi_account MultiAccount { get; set; }
+#endif
         /// <summary>MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,6 +115,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
                 { "auth_configs", n => { AuthConfigs = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_auth_configs>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_auth_configs.CreateFromDiscriminatorValue); } },
                 { "connected_accounts", n => { ConnectedAccounts = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_connected_accounts>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_connected_accounts.CreateFromDiscriminatorValue); } },
                 { "manage_connections", n => { ManageConnections = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_manage_connections>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_manage_connections.CreateFromDiscriminatorValue); } },
+                { "multi_account", n => { MultiAccount = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_multi_account>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_multi_account.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_tags>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_tags.CreateFromDiscriminatorValue); } },
                 { "toolkits", n => { Toolkits = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config.SessionPostResponse_config_toolkits>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config.SessionPostResponse_config_toolkits.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_tools>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_tools.CreateFromDiscriminatorValue); } },
@@ -124,6 +133,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_auth_configs>("auth_configs", AuthConfigs);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_connected_accounts>("connected_accounts", ConnectedAccounts);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_manage_connections>("manage_connections", ManageConnections);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_multi_account>("multi_account", MultiAccount);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_tags>("tags", Tags);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config.SessionPostResponse_config_toolkits>("toolkits", Toolkits);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config_tools>("tools", Tools);

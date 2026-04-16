@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Labs.Tool_router.Session
 #else
         public string ChatSessionMcpUrl { get; set; }
 #endif
-        /// <summary>Generated session identifier</summary>
+        /// <summary>Generated session identifier (prefixed with &quot;trs_&quot;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SessionId { get; set; }
