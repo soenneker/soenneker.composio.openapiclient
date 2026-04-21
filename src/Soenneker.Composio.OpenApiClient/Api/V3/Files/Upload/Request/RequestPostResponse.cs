@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Files.Upload.Request
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>Object storage upload location. Example: &quot;projects/prj_xyz789/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx&quot;</summary>
+        /// <summary>Object storage upload location. Example: &quot;projects/pr_1a2b3c4d5e6f/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Key { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Files.Upload.Request
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Files.Upload.Request.RequestPostResponse_metadata Metadata { get; set; }
 #endif
-        /// <summary>Presigned URL for upload. Example: &quot;https://storage.composio.dev/projects/prj_xyz789/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600...&quot;</summary>
+        /// <summary>Presigned URL for upload. Example: &quot;https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600...&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? New_presigned_url { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Files.Upload.Request
 #else
         public string New_presigned_url { get; set; }
 #endif
-        /// <summary>[DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: &quot;https://storage.composio.dev/projects/prj_xyz789/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600...&quot;</summary>
+        /// <summary>[DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: &quot;https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600...&quot;</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
