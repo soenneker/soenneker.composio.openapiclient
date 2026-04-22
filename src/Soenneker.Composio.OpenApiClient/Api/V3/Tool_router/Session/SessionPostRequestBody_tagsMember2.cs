@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Tags that the tool must NOT have any of</summary>
+        /// <summary>The disable property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_tagsMember2_disable?>? Disable { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_tagsMember2_disable?> Disable { get; set; }
 #endif
-        /// <summary>Tags that the tool must have at least one of</summary>
+        /// <summary>The enable property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_tagsMember2_enable?>? Enable { get; set; }
