@@ -31,6 +31,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>User metadata (JSONB). Typed keys are shown; additional keys pass through unchanged.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoGetResponse_org_member_metadata? Metadata { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoGetResponse_org_member_metadata Metadata { get; set; }
+#endif
         /// <summary>Display name of the authenticated user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,6 +82,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info
             {
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoGetResponse_org_member_metadata>(global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoGetResponse_org_member_metadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetStringValue(); } },
             };
@@ -87,6 +96,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoGetResponse_org_member_metadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("role", Role);
             writer.WriteAdditionalData(AdditionalData);
