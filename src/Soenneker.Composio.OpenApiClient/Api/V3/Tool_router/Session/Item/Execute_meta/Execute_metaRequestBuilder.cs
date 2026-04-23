@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
         {
         }
         /// <summary>
-        /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session.
+        /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This endpoint is kept for meta-tool compatibility; clients can also use the primary /execute endpoint.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute_meta.Execute_metaPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute_meta.Execute_metaPostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute_meta.Execute_metaPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session.
+        /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This endpoint is kept for meta-tool compatibility; clients can also use the primary /execute endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

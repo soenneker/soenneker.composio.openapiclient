@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools
         {
         }
         /// <summary>
-        /// Returns the meta tools available in a tool router session with their complete schemas. This includes request and response schemas specific to the session context.
+        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools.ToolsGetResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools.ToolsGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Tools.ToolsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the meta tools available in a tool router session with their complete schemas. This includes request and response schemas specific to the session context.
+        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

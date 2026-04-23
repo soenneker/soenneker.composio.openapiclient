@@ -30,7 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute.ExecutePostRequestBody_arguments Arguments { get; set; }
 #endif
-        /// <summary>The unique slug identifier of the tool to execute</summary>
+        /// <summary>The unique slug identifier of the tool to execute. Supports both meta tools and app tools exposed by the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ToolSlug { get; set; }
