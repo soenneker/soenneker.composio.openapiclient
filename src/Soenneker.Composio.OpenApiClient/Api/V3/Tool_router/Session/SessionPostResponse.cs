@@ -22,6 +22,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config Config { get; set; }
 #endif
+        /// <summary>Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control.</summary>
+        public int? ConfigVersion { get; set; }
         /// <summary>Experimental features including the generated system prompt. Only returned on session creation, not on GET.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,6 +90,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config.CreateFromDiscriminatorValue); } },
+                { "config_version", n => { ConfigVersion = n.GetIntValue(); } },
                 { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_experimental>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_experimental.CreateFromDiscriminatorValue); } },
                 { "mcp", n => { Mcp = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_mcp>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_mcp.CreateFromDiscriminatorValue); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
@@ -103,6 +106,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_config>("config", Config);
+            writer.WriteIntValue("config_version", ConfigVersion);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_experimental>("experimental", Experimental);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_mcp>("mcp", Mcp);
             writer.WriteStringValue("session_id", SessionId);

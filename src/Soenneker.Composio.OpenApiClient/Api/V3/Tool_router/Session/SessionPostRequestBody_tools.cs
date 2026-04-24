@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 {
     /// <summary>
-    /// Tool-level configuration per toolkit - either specify enable tools (whitelist), disable tools (blacklist), or filter by MCP tags for each toolkit
+    /// Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo&apos;d slugs fail session creation with a clear error listing which ones didn&apos;t match.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionPostRequestBody_tools : IAdditionalDataHolder, IParsable

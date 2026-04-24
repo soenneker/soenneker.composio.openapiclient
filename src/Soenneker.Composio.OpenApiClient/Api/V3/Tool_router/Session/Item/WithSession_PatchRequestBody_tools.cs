@@ -5,32 +5,32 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
+namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
 {
     /// <summary>
-    /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn&apos;t match.
+    /// Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo&apos;d slugs fail session creation with a clear error listing which ones didn&apos;t match.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SessionPostRequestBody_connected_accounts : IAdditionalDataHolder, IParsable
+    public partial class WithSession_PatchRequestBody_tools : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_connected_accounts"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_tools"/> and sets the default values.
         /// </summary>
-        public SessionPostRequestBody_connected_accounts()
+        public WithSession_PatchRequestBody_tools()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_connected_accounts"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_tools"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_connected_accounts CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_tools CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_connected_accounts();
+            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_tools();
         }
         /// <summary>
         /// The deserialization information for the current model

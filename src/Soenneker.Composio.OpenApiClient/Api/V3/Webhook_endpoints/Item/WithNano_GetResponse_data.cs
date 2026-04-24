@@ -5,32 +5,32 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
+namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
 {
     /// <summary>
-    /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn&apos;t match.
+    /// Configured fields with secret values masked
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SessionPostRequestBody_connected_accounts : IAdditionalDataHolder, IParsable
+    public partial class WithNano_GetResponse_data : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_connected_accounts"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_GetResponse_data"/> and sets the default values.
         /// </summary>
-        public SessionPostRequestBody_connected_accounts()
+        public WithNano_GetResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_connected_accounts"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_GetResponse_data"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_connected_accounts CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_GetResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_connected_accounts();
+            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_GetResponse_data();
         }
         /// <summary>
         /// The deserialization information for the current model

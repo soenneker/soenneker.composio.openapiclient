@@ -9,7 +9,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class WithSession_GetResponse : IAdditionalDataHolder, IParsable
+    public partial class WithSession_PatchResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -17,28 +17,28 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         /// <summary>The session configuration including user, toolkits, and overrides</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config? Config { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_config? Config { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config Config { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_config Config { get; set; }
 #endif
         /// <summary>Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control.</summary>
         public int? ConfigVersion { get; set; }
         /// <summary>Experimental features</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_experimental? Experimental { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_experimental? Experimental { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_experimental Experimental { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_experimental Experimental { get; set; }
 #endif
         /// <summary>The mcp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_mcp? Mcp { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_mcp? Mcp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_mcp Mcp { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_mcp Mcp { get; set; }
 #endif
         /// <summary>The identifier of the session</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,21 +57,21 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         public List<string> ToolRouterTools { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse"/> and sets the default values.
         /// </summary>
-        public WithSession_GetResponse()
+        public WithSession_PatchResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse();
+            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,10 +81,10 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_config>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_config.CreateFromDiscriminatorValue); } },
                 { "config_version", n => { ConfigVersion = n.GetIntValue(); } },
-                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_experimental>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_experimental.CreateFromDiscriminatorValue); } },
-                { "mcp", n => { Mcp = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_mcp>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_mcp.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_experimental>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_experimental.CreateFromDiscriminatorValue); } },
+                { "mcp", n => { Mcp = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_mcp>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_mcp.CreateFromDiscriminatorValue); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "tool_router_tools", n => { ToolRouterTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -96,10 +96,10 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config>("config", Config);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_config>("config", Config);
             writer.WriteIntValue("config_version", ConfigVersion);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_experimental>("experimental", Experimental);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_mcp>("mcp", Mcp);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_experimental>("experimental", Experimental);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_mcp>("mcp", Mcp);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteCollectionOfPrimitiveValues<string>("tool_router_tools", ToolRouterTools);
             writer.WriteAdditionalData(AdditionalData);

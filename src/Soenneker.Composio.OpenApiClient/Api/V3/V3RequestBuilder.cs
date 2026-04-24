@@ -17,6 +17,7 @@ using Soenneker.Composio.OpenApiClient.Api.V3.Toolkits;
 using Soenneker.Composio.OpenApiClient.Api.V3.Tools;
 using Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances;
 using Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types;
+using Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints;
 using Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions;
 using System.Collections.Generic;
 using System.IO;
@@ -104,6 +105,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesRequestBuilder Triggers_types
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhook_endpoints property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Webhook_endpointsRequestBuilder Webhook_endpoints
+        {
+            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Webhook_endpointsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The webhook_subscriptions property</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Webhook_subscriptionsRequestBuilder Webhook_subscriptions
