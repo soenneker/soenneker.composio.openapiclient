@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Searc
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Known field hints as key:value pairs (e.g., &quot;channel_name:general, user_email:john@example.com&quot;)</summary>
+        /// <summary>Known field hints as key:value pairs (e.g., &quot;channel_name:general, user_email:john@example.com&quot;). Max 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? KnownFields { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Searc
 #else
         public string KnownFields { get; set; }
 #endif
-        /// <summary>The task or use case to search tools for. Provide a detailed description to get the best results.</summary>
+        /// <summary>The task or use case to search tools for. Provide a detailed description to get the best results. Max 1024 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UseCase { get; set; }
