@@ -18,6 +18,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         public bool? Enable { get; set; }
         /// <summary>Whether proxy execution is enabled. When enabled, workbench can call URLs and APIs directly.</summary>
         public bool? EnableProxyExecution { get; set; }
+        /// <summary>Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Patching this value recreates the sandbox on next access — sandbox FS state is lost, but /mnt/files/ R2 mount persists.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_workbench_sandbox_size? SandboxSize { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,6 +41,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
                 { "auto_offload_threshold", n => { AutoOffloadThreshold = n.GetDoubleValue(); } },
                 { "enable", n => { Enable = n.GetBoolValue(); } },
                 { "enable_proxy_execution", n => { EnableProxyExecution = n.GetBoolValue(); } },
+                { "sandbox_size", n => { SandboxSize = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_workbench_sandbox_size>(); } },
             };
         }
         /// <summary>
@@ -51,6 +54,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
             writer.WriteDoubleValue("auto_offload_threshold", AutoOffloadThreshold);
             writer.WriteBoolValue("enable", Enable);
             writer.WriteBoolValue("enable_proxy_execution", EnableProxyExecution);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_workbench_sandbox_size>("sandbox_size", SandboxSize);
         }
     }
 }

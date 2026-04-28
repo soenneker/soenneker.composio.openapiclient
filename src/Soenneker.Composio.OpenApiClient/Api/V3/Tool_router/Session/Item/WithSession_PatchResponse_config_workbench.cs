@@ -21,6 +21,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         public bool? Enable { get; set; }
         /// <summary>Whether proxy execution is enabled in the workbench</summary>
         public bool? ProxyExecutionEnabled { get; set; }
+        /// <summary>Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_config_workbench_sandbox_size? SandboxSize { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_config_workbench"/> and sets the default values.
         /// </summary>
@@ -49,6 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
                 { "auto_offload_threshold", n => { AutoOffloadThreshold = n.GetDoubleValue(); } },
                 { "enable", n => { Enable = n.GetBoolValue(); } },
                 { "proxy_execution_enabled", n => { ProxyExecutionEnabled = n.GetBoolValue(); } },
+                { "sandbox_size", n => { SandboxSize = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_config_workbench_sandbox_size>(); } },
             };
         }
         /// <summary>
@@ -61,6 +64,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
             writer.WriteDoubleValue("auto_offload_threshold", AutoOffloadThreshold);
             writer.WriteBoolValue("enable", Enable);
             writer.WriteBoolValue("proxy_execution_enabled", ProxyExecutionEnabled);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchResponse_config_workbench_sandbox_size>("sandbox_size", SandboxSize);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
