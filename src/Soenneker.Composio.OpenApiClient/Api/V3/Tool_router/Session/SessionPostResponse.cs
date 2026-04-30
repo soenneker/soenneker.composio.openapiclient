@@ -56,7 +56,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public List<string> ToolRouterTools { get; set; }
 #endif
-        /// <summary>Advisory list — session was created, but the listed issues may warrant attention.</summary>
+        /// <summary>Advisory list — the session exists and is usable, but the listed issues may warrant attention.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostResponse_warnings>? Warnings { get; set; }

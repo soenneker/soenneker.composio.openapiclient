@@ -12,7 +12,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
     public partial class ExecutePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Account identifier to specify which connected account to use. Use the account ID (e.g. &quot;coup_hurricane_dal_analytical&quot;) or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts.</summary>
+        /// <summary>Account identifier to specify which connected account to use for direct tool execution. Use the account ID (e.g. &quot;coup_hurricane_dal_analytical&quot;) or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts. Meta/helper tools either ignore this top-level field or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Account { get; set; }
@@ -30,6 +30,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute.ExecutePostRequestBody_arguments Arguments { get; set; }
 #endif
+        /// <summary>When true, direct non-meta tool execution may return a workbench offload preview if the response exceeds the configured threshold and the session workbench is enabled. When omitted or false, direct tool execution returns the normal inline response. Meta/helper tools are unaffected, and COMPOSIO_MULTI_EXECUTE_TOOL uses session.workbench configuration for its own batch-level offload behavior.</summary>
+        public bool? EnableAutoWorkbenchOffload { get; set; }
         /// <summary>The unique slug identifier of the tool to execute. Supports both meta tools and app tools exposed by the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +67,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
             {
                 { "account", n => { Account = n.GetStringValue(); } },
                 { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute.ExecutePostRequestBody_arguments>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute.ExecutePostRequestBody_arguments.CreateFromDiscriminatorValue); } },
+                { "enable_auto_workbench_offload", n => { EnableAutoWorkbenchOffload = n.GetBoolValue(); } },
                 { "tool_slug", n => { ToolSlug = n.GetStringValue(); } },
             };
         }
@@ -77,6 +80,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account", Account);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute.ExecutePostRequestBody_arguments>("arguments", Arguments);
+            writer.WriteBoolValue("enable_auto_workbench_offload", EnableAutoWorkbenchOffload);
             writer.WriteStringValue("tool_slug", ToolSlug);
             writer.WriteAdditionalData(AdditionalData);
         }

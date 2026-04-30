@@ -56,6 +56,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
 #else
         public List<string> ToolRouterTools { get; set; }
 #endif
+        /// <summary>Advisory list — the session exists and is usable, but the listed issues may warrant attention.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_warnings>? Warnings { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_warnings> Warnings { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse"/> and sets the default values.
         /// </summary>
@@ -87,6 +95,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
                 { "mcp", n => { Mcp = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_mcp>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_mcp.CreateFromDiscriminatorValue); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "tool_router_tools", n => { ToolRouterTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_warnings>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_warnings.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -102,6 +111,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_mcp>("mcp", Mcp);
             writer.WriteStringValue("session_id", SessionId);
             writer.WriteCollectionOfPrimitiveValues<string>("tool_router_tools", ToolRouterTools);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_warnings>("warnings", Warnings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

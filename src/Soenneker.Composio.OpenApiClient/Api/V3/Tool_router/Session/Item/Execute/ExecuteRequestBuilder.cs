@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
         {
         }
         /// <summary>
-        /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context.
+        /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context. The top-level account field applies only to direct app tool execution in multi-account sessions. Meta/helper tools either ignore it or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute.ExecutePostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute.ExecutePostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execute.ExecutePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context.
+        /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context. The top-level account field applies only to direct app tool execution in multi-account sessions. Meta/helper tools either ignore it or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

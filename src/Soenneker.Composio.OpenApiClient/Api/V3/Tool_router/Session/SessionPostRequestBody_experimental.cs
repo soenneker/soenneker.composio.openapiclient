@@ -11,8 +11,10 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
     /// Experimental features - not stable, may be modified or removed in future versions.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SessionPostRequestBody_experimental : IParsable
+    public partial class SessionPostRequestBody_experimental : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Customize assistive prompt generation (e.g., timezone).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +39,21 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_tools> CustomTools { get; set; }
 #endif
+        /// <summary>Per-tool elicitation permission config. Default behavior + per-tool always_allow/always_deny overrides. Mutation via PATCH.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_permissions? Permissions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_permissions Permissions { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental"/> and sets the default values.
+        /// </summary>
+        public SessionPostRequestBody_experimental()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -58,6 +75,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
                 { "assistive_prompt_config", n => { AssistivePromptConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_assistive_prompt_config>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_assistive_prompt_config.CreateFromDiscriminatorValue); } },
                 { "custom_toolkits", n => { CustomToolkits = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "custom_tools", n => { CustomTools = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_tools>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_tools.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_permissions>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_permissions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -70,6 +88,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_assistive_prompt_config>("assistive_prompt_config", AssistivePromptConfig);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits>("custom_toolkits", CustomToolkits);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_tools>("custom_tools", CustomTools);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_permissions>("permissions", Permissions);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }
