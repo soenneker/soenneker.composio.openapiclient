@@ -44,8 +44,9 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refres
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 501 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh.RefreshPostResponse?> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh.RefreshPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh.RefreshRequestBuilder.RefreshRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,8 +64,9 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refres
                 { "401", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "501", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh.RefreshPostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh.RefreshPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
