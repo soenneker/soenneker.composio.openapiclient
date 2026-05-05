@@ -12,14 +12,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
     public partial class LinkPostRequestBody_connection_dataMember71 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The access_token property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AccessToken { get; set; }
-#nullable restore
-#else
-        public string AccessToken { get; set; }
-#endif
         /// <summary>The account_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,22 +54,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string BorneoDashboardUrl { get; set; }
 #endif
-        /// <summary>The client_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ClientId { get; set; }
-#nullable restore
-#else
-        public string ClientId { get; set; }
-#endif
-        /// <summary>The client_secret property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ClientSecret { get; set; }
-#nullable restore
-#else
-        public string ClientSecret { get; set; }
-#endif
         /// <summary>The COMPANYDOMAIN property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,22 +77,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string Domain { get; set; }
-#endif
-        /// <summary>The expires_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ExpiresAt { get; set; }
-#nullable restore
-#else
-        public string ExpiresAt { get; set; }
-#endif
-        /// <summary>The expires_in property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_expires_in? ExpiresIn { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_expires_in ExpiresIn { get; set; }
 #endif
         /// <summary>The extension property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -174,14 +134,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string Region { get; set; }
 #endif
-        /// <summary>The scope property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_scope? Scope { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_scope Scope { get; set; }
-#endif
         /// <summary>The server_location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -213,14 +165,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string Subdomain { get; set; }
-#endif
-        /// <summary>The token_type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TokenType { get; set; }
-#nullable restore
-#else
-        public string TokenType { get; set; }
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -271,19 +215,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "access_token", n => { AccessToken = n.GetStringValue(); } },
                 { "account_id", n => { AccountId = n.GetStringValue(); } },
                 { "account_url", n => { AccountUrl = n.GetStringValue(); } },
                 { "api_url", n => { ApiUrl = n.GetStringValue(); } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
-                { "client_id", n => { ClientId = n.GetStringValue(); } },
-                { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
-                { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
-                { "expires_in", n => { ExpiresIn = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_expires_in>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_expires_in.CreateFromDiscriminatorValue); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
@@ -291,12 +230,10 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
                 { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_scope>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_scope.CreateFromDiscriminatorValue); } },
                 { "server_location", n => { ServerLocation = n.GetStringValue(); } },
                 { "shop", n => { Shop = n.GetStringValue(); } },
                 { "site_name", n => { SiteName = n.GetStringValue(); } },
                 { "subdomain", n => { Subdomain = n.GetStringValue(); } },
-                { "token_type", n => { TokenType = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
                 { "your-domain", n => { YourDomain = n.GetStringValue(); } },
                 { "your_server", n => { YourServer = n.GetStringValue(); } },
@@ -309,19 +246,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("access_token", AccessToken);
             writer.WriteStringValue("account_id", AccountId);
             writer.WriteStringValue("account_url", AccountUrl);
             writer.WriteStringValue("api_url", ApiUrl);
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
-            writer.WriteStringValue("client_id", ClientId);
-            writer.WriteStringValue("client_secret", ClientSecret);
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("dc", Dc);
             writer.WriteStringValue("domain", Domain);
-            writer.WriteStringValue("expires_at", ExpiresAt);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_expires_in>("expires_in", ExpiresIn);
             writer.WriteStringValue("extension", Extension);
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
@@ -329,178 +261,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("proxy_password", ProxyPassword);
             writer.WriteStringValue("proxy_username", ProxyUsername);
             writer.WriteStringValue("region", Region);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_scope>("scope", Scope);
             writer.WriteStringValue("server_location", ServerLocation);
             writer.WriteStringValue("shop", Shop);
             writer.WriteStringValue("site_name", SiteName);
             writer.WriteStringValue("subdomain", Subdomain);
-            writer.WriteStringValue("token_type", TokenType);
             writer.WriteStringValue("version", Version);
             writer.WriteStringValue("your-domain", YourDomain);
             writer.WriteStringValue("your_server", YourServer);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="double"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_expires_inMember1"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class LinkPostRequestBody_connection_dataMember71_expires_in : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="double"/></summary>
-            public double? Double { get; set; }
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_expires_inMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_expires_inMember1? LinkPostRequestBodyConnectionDataMember71ExpiresInMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_expires_inMember1 LinkPostRequestBodyConnectionDataMember71ExpiresInMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_expires_in"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_expires_in CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_expires_in();
-                if(parseNode.GetDoubleValue() is double doubleValue)
-                {
-                    result.Double = doubleValue;
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.LinkPostRequestBodyConnectionDataMember71ExpiresInMember1 = new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_expires_inMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(LinkPostRequestBodyConnectionDataMember71ExpiresInMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(LinkPostRequestBodyConnectionDataMember71ExpiresInMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Double != null)
-                {
-                    writer.WriteDoubleValue(null, Double);
-                }
-                else if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_expires_inMember1>(null, LinkPostRequestBodyConnectionDataMember71ExpiresInMember1);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_scopeMember1"/>, <see cref="string"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class LinkPostRequestBody_connection_dataMember71_scope : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_scopeMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_scopeMember1? LinkPostRequestBodyConnectionDataMember71ScopeMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_scopeMember1 LinkPostRequestBodyConnectionDataMember71ScopeMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? LinkPostRequestBodyConnectionDataMember71ScopeString { get; set; }
-#nullable restore
-#else
-            public string LinkPostRequestBodyConnectionDataMember71ScopeString { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_scope"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_scope CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71.LinkPostRequestBody_connection_dataMember71_scope();
-                if(parseNode.GetStringValue() is string linkPostRequestBodyConnectionDataMember71ScopeStringValue)
-                {
-                    result.LinkPostRequestBodyConnectionDataMember71ScopeString = linkPostRequestBodyConnectionDataMember71ScopeStringValue;
-                }
-                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else {
-                    result.LinkPostRequestBodyConnectionDataMember71ScopeMember1 = new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_scopeMember1();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(LinkPostRequestBodyConnectionDataMember71ScopeMember1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(LinkPostRequestBodyConnectionDataMember71ScopeMember1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(LinkPostRequestBodyConnectionDataMember71ScopeString != null)
-                {
-                    writer.WriteStringValue(null, LinkPostRequestBodyConnectionDataMember71ScopeString);
-                }
-                else if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-                else {
-                    writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember71_scopeMember1>(null, LinkPostRequestBodyConnectionDataMember71ScopeMember1);
-                }
-            }
         }
     }
 }

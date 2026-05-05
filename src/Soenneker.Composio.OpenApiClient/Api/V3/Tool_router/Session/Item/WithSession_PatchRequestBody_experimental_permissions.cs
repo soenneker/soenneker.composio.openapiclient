@@ -17,7 +17,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Default elicitation behavior when no override matches. `allow_all` runs every tool without prompting; `ask_every_call` prompts on each invocation; `ask_once_per_session` prompts once and remembers the answer for the rest of the session.</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_experimental_permissions_default? Default { get; set; }
-        /// <summary>Per-tool overrides keyed by `${toolSlug}:${connectedAccountId ?? &quot;__none__&quot;}`. `always_allow` skips the prompt and runs the tool; `always_deny` blocks the tool. Overrides take precedence over `default` and the session cache.</summary>
+        /// <summary>Per-tool overrides keyed by `${toolSlug}:${connectedAccountId ?? &quot;__none__&quot;}`, plus account-wide overrides keyed by `*:${connectedAccountId ?? &quot;__none__&quot;}`. Exact tool overrides take precedence over account-wide overrides. `always_allow` skips the prompt and runs the tool; `always_deny` blocks the tool; `ask_once` prompts once per session (allow/deny) and remembers; `ask_always` prompts on every call with allow-once/allow-session/deny, ignoring any cached session allow. Overrides take precedence over `default`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_experimental_permissions_overrides? Overrides { get; set; }

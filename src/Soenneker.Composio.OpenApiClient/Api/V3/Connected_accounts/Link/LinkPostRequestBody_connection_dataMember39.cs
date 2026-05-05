@@ -78,22 +78,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string Domain { get; set; }
 #endif
-        /// <summary>The error property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Error { get; set; }
-#nullable restore
-#else
-        public string Error { get; set; }
-#endif
-        /// <summary>The error_description property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ErrorDescription { get; set; }
-#nullable restore
-#else
-        public string ErrorDescription { get; set; }
-#endif
         /// <summary>The extension property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -239,8 +223,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
-                { "error", n => { Error = n.GetStringValue(); } },
-                { "error_description", n => { ErrorDescription = n.GetStringValue(); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
@@ -272,8 +254,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("dc", Dc);
             writer.WriteStringValue("domain", Domain);
-            writer.WriteStringValue("error", Error);
-            writer.WriteStringValue("error_description", ErrorDescription);
             writer.WriteStringValue("extension", Extension);
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);

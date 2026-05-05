@@ -62,13 +62,13 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string COMPANYDOMAIN { get; set; }
 #endif
-        /// <summary>The credentials_json property</summary>
+        /// <summary>The composio_link_redirect_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CredentialsJson { get; set; }
+        public string? ComposioLinkRedirectUrl { get; set; }
 #nullable restore
 #else
-        public string CredentialsJson { get; set; }
+        public string ComposioLinkRedirectUrl { get; set; }
 #endif
         /// <summary>The dc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -133,6 +133,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string ProxyUsername { get; set; }
+#endif
+        /// <summary>The redirectUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedirectUrl { get; set; }
+#nullable restore
+#else
+        public string RedirectUrl { get; set; }
 #endif
         /// <summary>The region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -229,7 +237,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
-                { "credentials_json", n => { CredentialsJson = n.GetStringValue(); } },
+                { "composio_link_redirect_url", n => { ComposioLinkRedirectUrl = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
@@ -238,6 +246,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "instanceName", n => { InstanceName = n.GetStringValue(); } },
                 { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
                 { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
+                { "redirectUrl", n => { RedirectUrl = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "server_location", n => { ServerLocation = n.GetStringValue(); } },
                 { "shop", n => { Shop = n.GetStringValue(); } },
@@ -261,7 +270,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
-            writer.WriteStringValue("credentials_json", CredentialsJson);
+            writer.WriteStringValue("composio_link_redirect_url", ComposioLinkRedirectUrl);
             writer.WriteStringValue("dc", Dc);
             writer.WriteStringValue("domain", Domain);
             writer.WriteStringValue("extension", Extension);
@@ -270,6 +279,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("instanceName", InstanceName);
             writer.WriteStringValue("proxy_password", ProxyPassword);
             writer.WriteStringValue("proxy_username", ProxyUsername);
+            writer.WriteStringValue("redirectUrl", RedirectUrl);
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("server_location", ServerLocation);
             writer.WriteStringValue("shop", Shop);

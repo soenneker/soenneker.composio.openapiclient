@@ -78,6 +78,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string Domain { get; set; }
 #endif
+        /// <summary>The expired_at property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExpiredAt { get; set; }
+#nullable restore
+#else
+        public string ExpiredAt { get; set; }
+#endif
         /// <summary>The extension property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,6 +118,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string InstanceName { get; set; }
 #endif
+        /// <summary>Whether to return the redirect url without shortening</summary>
+        public bool? LongRedirectUrl { get; set; }
         /// <summary>The proxy_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,6 +167,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string SiteName { get; set; }
+#endif
+        /// <summary>The oauth2 state prefix for the connection</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StatePrefix { get; set; }
+#nullable restore
+#else
+        public string StatePrefix { get; set; }
 #endif
         /// <summary>The subdomain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -223,16 +241,19 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
+                { "expired_at", n => { ExpiredAt = n.GetStringValue(); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
                 { "instanceName", n => { InstanceName = n.GetStringValue(); } },
+                { "long_redirect_url", n => { LongRedirectUrl = n.GetBoolValue(); } },
                 { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
                 { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "server_location", n => { ServerLocation = n.GetStringValue(); } },
                 { "shop", n => { Shop = n.GetStringValue(); } },
                 { "site_name", n => { SiteName = n.GetStringValue(); } },
+                { "state_prefix", n => { StatePrefix = n.GetStringValue(); } },
                 { "subdomain", n => { Subdomain = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
                 { "your-domain", n => { YourDomain = n.GetStringValue(); } },
@@ -254,16 +275,19 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("dc", Dc);
             writer.WriteStringValue("domain", Domain);
+            writer.WriteStringValue("expired_at", ExpiredAt);
             writer.WriteStringValue("extension", Extension);
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
             writer.WriteStringValue("instanceName", InstanceName);
+            writer.WriteBoolValue("long_redirect_url", LongRedirectUrl);
             writer.WriteStringValue("proxy_password", ProxyPassword);
             writer.WriteStringValue("proxy_username", ProxyUsername);
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("server_location", ServerLocation);
             writer.WriteStringValue("shop", Shop);
             writer.WriteStringValue("site_name", SiteName);
+            writer.WriteStringValue("state_prefix", StatePrefix);
             writer.WriteStringValue("subdomain", Subdomain);
             writer.WriteStringValue("version", Version);
             writer.WriteStringValue("your-domain", YourDomain);

@@ -62,6 +62,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string COMPANYDOMAIN { get; set; }
 #endif
+        /// <summary>The credentials_json property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CredentialsJson { get; set; }
+#nullable restore
+#else
+        public string CredentialsJson { get; set; }
+#endif
         /// <summary>The dc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -221,6 +229,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
+                { "credentials_json", n => { CredentialsJson = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
@@ -252,6 +261,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
+            writer.WriteStringValue("credentials_json", CredentialsJson);
             writer.WriteStringValue("dc", Dc);
             writer.WriteStringValue("domain", Domain);
             writer.WriteStringValue("extension", Extension);

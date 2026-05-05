@@ -166,6 +166,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string Subdomain { get; set; }
 #endif
+        /// <summary>The token property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Token { get; set; }
+#nullable restore
+#else
+        public string Token { get; set; }
+#endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -234,6 +242,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "shop", n => { Shop = n.GetStringValue(); } },
                 { "site_name", n => { SiteName = n.GetStringValue(); } },
                 { "subdomain", n => { Subdomain = n.GetStringValue(); } },
+                { "token", n => { Token = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
                 { "your-domain", n => { YourDomain = n.GetStringValue(); } },
                 { "your_server", n => { YourServer = n.GetStringValue(); } },
@@ -265,6 +274,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("shop", Shop);
             writer.WriteStringValue("site_name", SiteName);
             writer.WriteStringValue("subdomain", Subdomain);
+            writer.WriteStringValue("token", Token);
             writer.WriteStringValue("version", Version);
             writer.WriteStringValue("your-domain", YourDomain);
             writer.WriteStringValue("your_server", YourServer);

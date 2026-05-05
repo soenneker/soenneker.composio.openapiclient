@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 {
     /// <summary>
-    /// Per-tool overrides keyed by `${toolSlug}:${connectedAccountId ?? &quot;__none__&quot;}`. `always_allow` skips the prompt and runs the tool; `always_deny` blocks the tool. Overrides take precedence over `default` and the session cache.
+    /// Per-tool overrides keyed by `${toolSlug}:${connectedAccountId ?? &quot;__none__&quot;}`, plus account-wide overrides keyed by `*:${connectedAccountId ?? &quot;__none__&quot;}`. Exact tool overrides take precedence over account-wide overrides. `always_allow` skips the prompt and runs the tool; `always_deny` blocks the tool; `ask_once` prompts once per session (allow/deny) and remembers; `ask_always` prompts on every call with allow-once/allow-session/deny, ignoring any cached session allow. Overrides take precedence over `default`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionPostRequestBody_experimental_permissions_overrides : IAdditionalDataHolder, IParsable

@@ -54,42 +54,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string BorneoDashboardUrl { get; set; }
 #endif
-        /// <summary>The callback_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CallbackUrl { get; set; }
-#nullable restore
-#else
-        public string CallbackUrl { get; set; }
-#endif
-        /// <summary>Dynamically registered client ID</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ClientId { get; set; }
-#nullable restore
-#else
-        public string ClientId { get; set; }
-#endif
-        /// <summary>The client_id_issued_at property</summary>
-        public double? ClientIdIssuedAt { get; set; }
-        /// <summary>Dynamically registered client secret</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ClientSecret { get; set; }
-#nullable restore
-#else
-        public string ClientSecret { get; set; }
-#endif
-        /// <summary>The client_secret_expires_at property</summary>
-        public double? ClientSecretExpiresAt { get; set; }
-        /// <summary>The code_verifier property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CodeVerifier { get; set; }
-#nullable restore
-#else
-        public string CodeVerifier { get; set; }
-#endif
         /// <summary>The COMPANYDOMAIN property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -121,14 +85,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string Extension { get; set; }
-#endif
-        /// <summary>The finalRedirectUri property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? FinalRedirectUri { get; set; }
-#nullable restore
-#else
-        public string FinalRedirectUri { get; set; }
 #endif
         /// <summary>The form_api_base_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -171,14 +127,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string ProxyUsername { get; set; }
-#endif
-        /// <summary>The redirectUrl property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RedirectUrl { get; set; }
-#nullable restore
-#else
-        public string RedirectUrl { get; set; }
 #endif
         /// <summary>The region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -283,23 +231,15 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
-                { "callback_url", n => { CallbackUrl = n.GetStringValue(); } },
-                { "client_id", n => { ClientId = n.GetStringValue(); } },
-                { "client_id_issued_at", n => { ClientIdIssuedAt = n.GetDoubleValue(); } },
-                { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
-                { "client_secret_expires_at", n => { ClientSecretExpiresAt = n.GetDoubleValue(); } },
-                { "code_verifier", n => { CodeVerifier = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
-                { "finalRedirectUri", n => { FinalRedirectUri = n.GetStringValue(); } },
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
                 { "instanceName", n => { InstanceName = n.GetStringValue(); } },
                 { "long_redirect_url", n => { LongRedirectUrl = n.GetBoolValue(); } },
                 { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
                 { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
-                { "redirectUrl", n => { RedirectUrl = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "server_location", n => { ServerLocation = n.GetStringValue(); } },
                 { "shop", n => { Shop = n.GetStringValue(); } },
@@ -323,24 +263,16 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("api_url", ApiUrl);
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
-            writer.WriteStringValue("callback_url", CallbackUrl);
-            writer.WriteStringValue("client_id", ClientId);
-            writer.WriteDoubleValue("client_id_issued_at", ClientIdIssuedAt);
-            writer.WriteStringValue("client_secret", ClientSecret);
-            writer.WriteDoubleValue("client_secret_expires_at", ClientSecretExpiresAt);
-            writer.WriteStringValue("code_verifier", CodeVerifier);
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("dc", Dc);
             writer.WriteStringValue("domain", Domain);
             writer.WriteStringValue("extension", Extension);
-            writer.WriteStringValue("finalRedirectUri", FinalRedirectUri);
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
             writer.WriteStringValue("instanceName", InstanceName);
             writer.WriteBoolValue("long_redirect_url", LongRedirectUrl);
             writer.WriteStringValue("proxy_password", ProxyPassword);
             writer.WriteStringValue("proxy_username", ProxyUsername);
-            writer.WriteStringValue("redirectUrl", RedirectUrl);
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("server_location", ServerLocation);
             writer.WriteStringValue("shop", Shop);

@@ -70,6 +70,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string Dc { get; set; }
 #endif
+        /// <summary>The devKey property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DevKey { get; set; }
+#nullable restore
+#else
+        public string DevKey { get; set; }
+#endif
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,22 +85,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string Domain { get; set; }
-#endif
-        /// <summary>The error property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Error { get; set; }
-#nullable restore
-#else
-        public string Error { get; set; }
-#endif
-        /// <summary>The error_description property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ErrorDescription { get; set; }
-#nullable restore
-#else
-        public string ErrorDescription { get; set; }
 #endif
         /// <summary>The extension property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -157,6 +149,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string ServerLocation { get; set; }
+#endif
+        /// <summary>The sessionId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SessionId { get; set; }
+#nullable restore
+#else
+        public string SessionId { get; set; }
 #endif
         /// <summary>The shop property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -238,9 +238,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
+                { "devKey", n => { DevKey = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
-                { "error", n => { Error = n.GetStringValue(); } },
-                { "error_description", n => { ErrorDescription = n.GetStringValue(); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
@@ -249,6 +248,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "server_location", n => { ServerLocation = n.GetStringValue(); } },
+                { "sessionId", n => { SessionId = n.GetStringValue(); } },
                 { "shop", n => { Shop = n.GetStringValue(); } },
                 { "site_name", n => { SiteName = n.GetStringValue(); } },
                 { "subdomain", n => { Subdomain = n.GetStringValue(); } },
@@ -271,9 +271,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("dc", Dc);
+            writer.WriteStringValue("devKey", DevKey);
             writer.WriteStringValue("domain", Domain);
-            writer.WriteStringValue("error", Error);
-            writer.WriteStringValue("error_description", ErrorDescription);
             writer.WriteStringValue("extension", Extension);
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
@@ -282,6 +281,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("proxy_username", ProxyUsername);
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("server_location", ServerLocation);
+            writer.WriteStringValue("sessionId", SessionId);
             writer.WriteStringValue("shop", Shop);
             writer.WriteStringValue("site_name", SiteName);
             writer.WriteStringValue("subdomain", Subdomain);

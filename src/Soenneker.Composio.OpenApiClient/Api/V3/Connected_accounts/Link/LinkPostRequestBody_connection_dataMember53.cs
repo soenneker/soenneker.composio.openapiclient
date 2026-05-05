@@ -78,6 +78,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string Domain { get; set; }
 #endif
+        /// <summary>The expired_at property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExpiredAt { get; set; }
+#nullable restore
+#else
+        public string ExpiredAt { get; set; }
+#endif
         /// <summary>The extension property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,6 +117,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string InstanceName { get; set; }
+#endif
+        /// <summary>The password property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Password { get; set; }
+#nullable restore
+#else
+        public string Password { get; set; }
 #endif
         /// <summary>The proxy_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -165,6 +181,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string Subdomain { get; set; }
+#endif
+        /// <summary>The username property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Username { get; set; }
+#nullable restore
+#else
+        public string Username { get; set; }
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -223,10 +247,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
+                { "expired_at", n => { ExpiredAt = n.GetStringValue(); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
                 { "instanceName", n => { InstanceName = n.GetStringValue(); } },
+                { "password", n => { Password = n.GetStringValue(); } },
                 { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
                 { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
@@ -234,6 +260,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "shop", n => { Shop = n.GetStringValue(); } },
                 { "site_name", n => { SiteName = n.GetStringValue(); } },
                 { "subdomain", n => { Subdomain = n.GetStringValue(); } },
+                { "username", n => { Username = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
                 { "your-domain", n => { YourDomain = n.GetStringValue(); } },
                 { "your_server", n => { YourServer = n.GetStringValue(); } },
@@ -254,10 +281,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("dc", Dc);
             writer.WriteStringValue("domain", Domain);
+            writer.WriteStringValue("expired_at", ExpiredAt);
             writer.WriteStringValue("extension", Extension);
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
             writer.WriteStringValue("instanceName", InstanceName);
+            writer.WriteStringValue("password", Password);
             writer.WriteStringValue("proxy_password", ProxyPassword);
             writer.WriteStringValue("proxy_username", ProxyUsername);
             writer.WriteStringValue("region", Region);
@@ -265,6 +294,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("shop", Shop);
             writer.WriteStringValue("site_name", SiteName);
             writer.WriteStringValue("subdomain", Subdomain);
+            writer.WriteStringValue("username", Username);
             writer.WriteStringValue("version", Version);
             writer.WriteStringValue("your-domain", YourDomain);
             writer.WriteStringValue("your_server", YourServer);

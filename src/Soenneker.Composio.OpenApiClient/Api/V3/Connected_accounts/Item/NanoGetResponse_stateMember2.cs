@@ -65,7 +65,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember4"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember5"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember6"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember4"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember5"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember6"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember7"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class NanoGetResponse_stateMember2_val : IComposedTypeWrapper, IParsable
@@ -118,6 +118,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
 #else
             public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember6 NanoGetResponseStateMember2ValMember6 { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember7"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember7? NanoGetResponseStateMember2ValMember7 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember7 NanoGetResponseStateMember2ValMember7 { get; set; }
+#endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
@@ -152,6 +160,10 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 {
                     result.NanoGetResponseStateMember2ValMember6 = new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember6();
                 }
+                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.NanoGetResponseStateMember2ValMember7 = new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember7();
+                }
                 return result;
             }
             /// <summary>
@@ -183,6 +195,10 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 else if(NanoGetResponseStateMember2ValMember6 != null)
                 {
                     return NanoGetResponseStateMember2ValMember6.GetFieldDeserializers();
+                }
+                else if(NanoGetResponseStateMember2ValMember7 != null)
+                {
+                    return NanoGetResponseStateMember2ValMember7.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -216,6 +232,10 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 else if(NanoGetResponseStateMember2ValMember6 != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember6>(null, NanoGetResponseStateMember2ValMember6);
+                }
+                else if(NanoGetResponseStateMember2ValMember7 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember7>(null, NanoGetResponseStateMember2ValMember7);
                 }
             }
         }

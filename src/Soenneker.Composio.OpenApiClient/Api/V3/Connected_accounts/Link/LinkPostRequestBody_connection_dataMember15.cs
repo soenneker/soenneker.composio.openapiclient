@@ -30,14 +30,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The api_key property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ApiKey { get; set; }
-#nullable restore
-#else
-        public string ApiKey { get; set; }
-#endif
         /// <summary>The api_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,22 +45,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string BaseUrl { get; set; }
-#endif
-        /// <summary>The basic_encoded property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BasicEncoded { get; set; }
-#nullable restore
-#else
-        public string BasicEncoded { get; set; }
-#endif
-        /// <summary>The bearer_token property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BearerToken { get; set; }
-#nullable restore
-#else
-        public string BearerToken { get; set; }
 #endif
         /// <summary>The borneo_dashboard_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,14 +93,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string FormApiBaseUrl { get; set; }
-#endif
-        /// <summary>The generic_api_key property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? GenericApiKey { get; set; }
-#nullable restore
-#else
-        public string GenericApiKey { get; set; }
 #endif
         /// <summary>The instanceEndpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -249,18 +217,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             {
                 { "account_id", n => { AccountId = n.GetStringValue(); } },
                 { "account_url", n => { AccountUrl = n.GetStringValue(); } },
-                { "api_key", n => { ApiKey = n.GetStringValue(); } },
                 { "api_url", n => { ApiUrl = n.GetStringValue(); } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
-                { "basic_encoded", n => { BasicEncoded = n.GetStringValue(); } },
-                { "bearer_token", n => { BearerToken = n.GetStringValue(); } },
                 { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
-                { "generic_api_key", n => { GenericApiKey = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
                 { "instanceName", n => { InstanceName = n.GetStringValue(); } },
                 { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
@@ -284,18 +248,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account_id", AccountId);
             writer.WriteStringValue("account_url", AccountUrl);
-            writer.WriteStringValue("api_key", ApiKey);
             writer.WriteStringValue("api_url", ApiUrl);
             writer.WriteStringValue("base_url", BaseUrl);
-            writer.WriteStringValue("basic_encoded", BasicEncoded);
-            writer.WriteStringValue("bearer_token", BearerToken);
             writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("dc", Dc);
             writer.WriteStringValue("domain", Domain);
             writer.WriteStringValue("extension", Extension);
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
-            writer.WriteStringValue("generic_api_key", GenericApiKey);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
             writer.WriteStringValue("instanceName", InstanceName);
             writer.WriteStringValue("proxy_password", ProxyPassword);

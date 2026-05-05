@@ -32,5 +32,9 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         #pragma warning disable CS1591
         INACTIVE,
         #pragma warning restore CS1591
+        [EnumMember(Value = "REVOKED")]
+        #pragma warning disable CS1591
+        REVOKED,
+        #pragma warning restore CS1591
     }
 }

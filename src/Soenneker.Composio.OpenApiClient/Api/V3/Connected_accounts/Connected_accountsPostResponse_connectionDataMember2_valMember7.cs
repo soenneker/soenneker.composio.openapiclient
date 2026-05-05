@@ -5,11 +5,11 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
+namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class LinkPostRequestBody_connection_dataMember61 : IAdditionalDataHolder, IParsable
+    public partial class Connected_accountsPostResponse_connectionDataMember2_valMember7 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The account_id property</summary>
@@ -110,6 +110,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string InstanceName { get; set; }
 #endif
+        /// <summary>Whether to return the redirect url without shortening</summary>
+        public bool? LongRedirectUrl { get; set; }
         /// <summary>The proxy_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -133,6 +135,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string Region { get; set; }
+#endif
+        /// <summary>The revoked_at property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RevokedAt { get; set; }
+#nullable restore
+#else
+        public string RevokedAt { get; set; }
 #endif
         /// <summary>The server_location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -158,6 +168,16 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string SiteName { get; set; }
 #endif
+        /// <summary>The oauth2 state prefix for the connection</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StatePrefix { get; set; }
+#nullable restore
+#else
+        public string StatePrefix { get; set; }
+#endif
+        /// <summary>The status property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_connectionDataMember2_valMember7_status? Status { get; set; }
         /// <summary>The subdomain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -191,21 +211,21 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
         public string YourServer { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember61"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_connectionDataMember2_valMember7"/> and sets the default values.
         /// </summary>
-        public LinkPostRequestBody_connection_dataMember61()
+        public Connected_accountsPostResponse_connectionDataMember2_valMember7()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember61"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_connectionDataMember2_valMember7"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember61 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_connectionDataMember2_valMember7 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_connection_dataMember61();
+            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_connectionDataMember2_valMember7();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -227,12 +247,16 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
                 { "instanceName", n => { InstanceName = n.GetStringValue(); } },
+                { "long_redirect_url", n => { LongRedirectUrl = n.GetBoolValue(); } },
                 { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
                 { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
+                { "revoked_at", n => { RevokedAt = n.GetStringValue(); } },
                 { "server_location", n => { ServerLocation = n.GetStringValue(); } },
                 { "shop", n => { Shop = n.GetStringValue(); } },
                 { "site_name", n => { SiteName = n.GetStringValue(); } },
+                { "state_prefix", n => { StatePrefix = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_connectionDataMember2_valMember7_status>(); } },
                 { "subdomain", n => { Subdomain = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
                 { "your-domain", n => { YourDomain = n.GetStringValue(); } },
@@ -258,12 +282,16 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
             writer.WriteStringValue("instanceName", InstanceName);
+            writer.WriteBoolValue("long_redirect_url", LongRedirectUrl);
             writer.WriteStringValue("proxy_password", ProxyPassword);
             writer.WriteStringValue("proxy_username", ProxyUsername);
             writer.WriteStringValue("region", Region);
+            writer.WriteStringValue("revoked_at", RevokedAt);
             writer.WriteStringValue("server_location", ServerLocation);
             writer.WriteStringValue("shop", Shop);
             writer.WriteStringValue("site_name", SiteName);
+            writer.WriteStringValue("state_prefix", StatePrefix);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_connectionDataMember2_valMember7_status>("status", Status);
             writer.WriteStringValue("subdomain", Subdomain);
             writer.WriteStringValue("version", Version);
             writer.WriteStringValue("your-domain", YourDomain);

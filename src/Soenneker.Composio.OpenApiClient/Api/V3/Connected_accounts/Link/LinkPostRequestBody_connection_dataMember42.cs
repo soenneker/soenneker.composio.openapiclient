@@ -126,14 +126,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string ProxyUsername { get; set; }
 #endif
-        /// <summary>The redirectUrl property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RedirectUrl { get; set; }
-#nullable restore
-#else
-        public string RedirectUrl { get; set; }
-#endif
         /// <summary>The region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -237,7 +229,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "instanceName", n => { InstanceName = n.GetStringValue(); } },
                 { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
                 { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
-                { "redirectUrl", n => { RedirectUrl = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "server_location", n => { ServerLocation = n.GetStringValue(); } },
                 { "shop", n => { Shop = n.GetStringValue(); } },
@@ -269,7 +260,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("instanceName", InstanceName);
             writer.WriteStringValue("proxy_password", ProxyPassword);
             writer.WriteStringValue("proxy_username", ProxyUsername);
-            writer.WriteStringValue("redirectUrl", RedirectUrl);
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("server_location", ServerLocation);
             writer.WriteStringValue("shop", Shop);

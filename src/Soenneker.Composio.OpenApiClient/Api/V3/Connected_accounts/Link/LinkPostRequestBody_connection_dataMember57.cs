@@ -38,6 +38,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string ApiUrl { get; set; }
 #endif
+        /// <summary>The application_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApplicationId { get; set; }
+#nullable restore
+#else
+        public string ApplicationId { get; set; }
+#endif
         /// <summary>The base_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,6 +102,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public string FormApiBaseUrl { get; set; }
 #endif
+        /// <summary>The installation_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InstallationId { get; set; }
+#nullable restore
+#else
+        public string InstallationId { get; set; }
+#endif
         /// <summary>The instanceEndpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,6 +125,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string InstanceName { get; set; }
+#endif
+        /// <summary>The private_key property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PrivateKey { get; set; }
+#nullable restore
+#else
+        public string PrivateKey { get; set; }
 #endif
         /// <summary>The proxy_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -218,6 +242,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "account_id", n => { AccountId = n.GetStringValue(); } },
                 { "account_url", n => { AccountUrl = n.GetStringValue(); } },
                 { "api_url", n => { ApiUrl = n.GetStringValue(); } },
+                { "application_id", n => { ApplicationId = n.GetStringValue(); } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
@@ -225,8 +250,10 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
+                { "installation_id", n => { InstallationId = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
                 { "instanceName", n => { InstanceName = n.GetStringValue(); } },
+                { "private_key", n => { PrivateKey = n.GetStringValue(); } },
                 { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
                 { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
@@ -249,6 +276,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("account_id", AccountId);
             writer.WriteStringValue("account_url", AccountUrl);
             writer.WriteStringValue("api_url", ApiUrl);
+            writer.WriteStringValue("application_id", ApplicationId);
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
@@ -256,8 +284,10 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
             writer.WriteStringValue("domain", Domain);
             writer.WriteStringValue("extension", Extension);
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
+            writer.WriteStringValue("installation_id", InstallationId);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
             writer.WriteStringValue("instanceName", InstanceName);
+            writer.WriteStringValue("private_key", PrivateKey);
             writer.WriteStringValue("proxy_password", ProxyPassword);
             writer.WriteStringValue("proxy_username", ProxyUsername);
             writer.WriteStringValue("region", Region);
