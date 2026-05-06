@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
 {
     /// <summary>
-    /// Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session.
+    /// Per-toolkit connected account override (single nano-ID). Returns the first override when multi-account is enabled; see `all_connected_accounts` for the full list.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSession_GetResponse_config_connected_accounts : IAdditionalDataHolder, IParsable

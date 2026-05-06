@@ -46,6 +46,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools_output_schema OutputSchema { get; set; }
 #endif
+        /// <summary>SDK hint for direct custom-tool exposure. Not stored in session config; echoed in create/attach responses for inline custom definitions.</summary>
+        public bool? Preload { get; set; }
         /// <summary>Tool slug. Combined with toolkit slug to form LOCAL_&lt;TOOLKIT&gt;_&lt;TOOL&gt; (max 60 chars total).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +85,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
                 { "input_schema", n => { InputSchema = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools_input_schema>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools_input_schema.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools_output_schema>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools_output_schema.CreateFromDiscriminatorValue); } },
+                { "preload", n => { Preload = n.GetBoolValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
             };
         }
@@ -97,6 +100,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools_input_schema>("input_schema", InputSchema);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools_output_schema>("output_schema", OutputSchema);
+            writer.WriteBoolValue("preload", Preload);
             writer.WriteStringValue("slug", Slug);
             writer.WriteAdditionalData(AdditionalData);
         }

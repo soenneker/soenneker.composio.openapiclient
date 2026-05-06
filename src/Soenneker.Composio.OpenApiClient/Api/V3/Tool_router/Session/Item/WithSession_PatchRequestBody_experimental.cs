@@ -9,11 +9,17 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class WithSession_PatchRequestBody_experimental : IAdditionalDataHolder, IParsable
+    public partial class WithSession_PatchRequestBody_experimental : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LinkUrlOverwrite { get; set; }
+#nullable restore
+#else
+        public string LinkUrlOverwrite { get; set; }
+#endif
         /// <summary>Per-tool elicitation permission config. Replaces the stored block when provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,13 +28,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_experimental_permissions Permissions { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_experimental"/> and sets the default values.
-        /// </summary>
-        public WithSession_PatchRequestBody_experimental()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,6 +46,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "link_url_overwrite", n => { LinkUrlOverwrite = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_experimental_permissions>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_experimental_permissions.CreateFromDiscriminatorValue); } },
             };
         }
@@ -57,8 +57,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("link_url_overwrite", LinkUrlOverwrite);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_experimental_permissions>("permissions", Permissions);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

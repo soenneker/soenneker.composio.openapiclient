@@ -8,12 +8,12 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
 {
     /// <summary>
-    /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
+    /// Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSession_PatchRequestBody_preload : IParsable
     {
-        /// <summary>Tool slugs to preload. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`) and exist either in the Composio tool catalog or in `custom_tools` / `custom_toolkits` — unknown or blocked slugs return a 400 at session creation.</summary>
+        /// <summary>Composio tool slugs to preload. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`) — unknown, blocked, meta, or custom slugs return a 400 at session creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tools { get; set; }

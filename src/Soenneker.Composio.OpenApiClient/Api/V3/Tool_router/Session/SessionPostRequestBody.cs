@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_auth_configs AuthConfigs { get; set; }
 #endif
-        /// <summary>The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn&apos;t match.</summary>
+        /// <summary>Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_connected_accounts? ConnectedAccounts { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_multi_account MultiAccount { get; set; }
 #endif
-        /// <summary>Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.</summary>
+        /// <summary>Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_preload? Preload { get; set; }

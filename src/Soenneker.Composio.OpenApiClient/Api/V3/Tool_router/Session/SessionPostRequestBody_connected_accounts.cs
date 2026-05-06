@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 {
     /// <summary>
-    /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn&apos;t match.
+    /// Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionPostRequestBody_connected_accounts : IAdditionalDataHolder, IParsable

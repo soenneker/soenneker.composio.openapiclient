@@ -39,6 +39,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_tools> CustomTools { get; set; }
 #endif
+        /// <summary>Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LinkUrlOverwrite { get; set; }
+#nullable restore
+#else
+        public string LinkUrlOverwrite { get; set; }
+#endif
         /// <summary>Per-tool elicitation permission config. Default behavior + per-tool always_allow/always_deny overrides. Mutation via PATCH.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +83,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
                 { "assistive_prompt_config", n => { AssistivePromptConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_assistive_prompt_config>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_assistive_prompt_config.CreateFromDiscriminatorValue); } },
                 { "custom_toolkits", n => { CustomToolkits = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "custom_tools", n => { CustomTools = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_tools>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_tools.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "link_url_overwrite", n => { LinkUrlOverwrite = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_permissions>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_permissions.CreateFromDiscriminatorValue); } },
             };
         }
@@ -88,6 +97,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_assistive_prompt_config>("assistive_prompt_config", AssistivePromptConfig);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits>("custom_toolkits", CustomToolkits);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_tools>("custom_tools", CustomTools);
+            writer.WriteStringValue("link_url_overwrite", LinkUrlOverwrite);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_permissions>("permissions", Permissions);
             writer.WriteAdditionalData(AdditionalData);
         }

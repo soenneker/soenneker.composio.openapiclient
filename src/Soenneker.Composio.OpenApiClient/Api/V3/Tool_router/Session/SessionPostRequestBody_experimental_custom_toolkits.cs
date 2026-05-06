@@ -30,6 +30,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>SDK hint for direct custom-tool exposure. Not stored in session config; echoed in create/attach responses for inline custom definitions.</summary>
+        public bool? Preload { get; set; }
         /// <summary>Unique slug for the toolkit. Must not conflict with existing Composio toolkit slugs. Alphanumeric, underscores, and hyphens only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +75,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "preload", n => { Preload = n.GetBoolValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -86,6 +89,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("preload", Preload);
             writer.WriteStringValue("slug", Slug);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.SessionPostRequestBody_experimental_custom_toolkits_tools>("tools", Tools);
             writer.WriteAdditionalData(AdditionalData);

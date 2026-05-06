@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
 {
     /// <summary>
-    /// Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.
+    /// Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithSession_PatchRequestBody_connected_accounts : IAdditionalDataHolder, IParsable
+    public partial class WithSession_GetResponse_config_all_connected_accounts : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_connected_accounts"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_all_connected_accounts"/> and sets the default values.
         /// </summary>
-        public WithSession_PatchRequestBody_connected_accounts()
+        public WithSession_GetResponse_config_all_connected_accounts()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_connected_accounts"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_all_connected_accounts"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_connected_accounts CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_all_connected_accounts CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_PatchRequestBody_connected_accounts();
+            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_all_connected_accounts();
         }
         /// <summary>
         /// The deserialization information for the current model

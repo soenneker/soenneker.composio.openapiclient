@@ -15,6 +15,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_all_connected_accounts? AllConnectedAccounts { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_all_connected_accounts AllConnectedAccounts { get; set; }
+#endif
         /// <summary>Auth config overrides per toolkit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,7 +31,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_auth_configs AuthConfigs { get; set; }
 #endif
-        /// <summary>Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session.</summary>
+        /// <summary>Per-toolkit connected account override (single nano-ID). Returns the first override when multi-account is enabled; see `all_connected_accounts` for the full list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_connected_accounts? ConnectedAccounts { get; set; }
@@ -120,6 +128,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "all_connected_accounts", n => { AllConnectedAccounts = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_all_connected_accounts>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_all_connected_accounts.CreateFromDiscriminatorValue); } },
                 { "auth_configs", n => { AuthConfigs = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_auth_configs>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_auth_configs.CreateFromDiscriminatorValue); } },
                 { "connected_accounts", n => { ConnectedAccounts = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_connected_accounts>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_connected_accounts.CreateFromDiscriminatorValue); } },
                 { "manage_connections", n => { ManageConnections = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_manage_connections>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_manage_connections.CreateFromDiscriminatorValue); } },
@@ -139,6 +148,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_all_connected_accounts>("all_connected_accounts", AllConnectedAccounts);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_auth_configs>("auth_configs", AuthConfigs);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_connected_accounts>("connected_accounts", ConnectedAccounts);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.WithSession_GetResponse_config_manage_connections>("manage_connections", ManageConnections);
