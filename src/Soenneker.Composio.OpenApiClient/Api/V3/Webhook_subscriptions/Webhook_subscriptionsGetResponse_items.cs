@@ -38,7 +38,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>Masked signing secret (full secret only on create/rotate)</summary>
+        /// <summary>Signing secret for HMAC verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Secret { get; set; }

@@ -54,6 +54,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesGetResponse_items_payload Payload { get; set; }
 #endif
+        /// <summary>True when the developer must register a Composio-issued webhook URL with the upstream provider (e.g. Slack Event Subscriptions, Notion integration webhooks). See the webhook_endpoint API for the setup.</summary>
+        public bool? RequiresWebhookEndpointSetup { get; set; }
         /// <summary>Unique identifier for the trigger type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,6 +112,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesGetResponse_items_payload>(global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesGetResponse_items_payload.CreateFromDiscriminatorValue); } },
+                { "requires_webhook_endpoint_setup", n => { RequiresWebhookEndpointSetup = n.GetBoolValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "toolkit", n => { Toolkit = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesGetResponse_items_toolkit>(global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesGetResponse_items_toolkit.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesGetResponse_items_type>(); } },
@@ -128,6 +131,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesGetResponse_items_payload>("payload", Payload);
+            writer.WriteBoolValue("requires_webhook_endpoint_setup", RequiresWebhookEndpointSetup);
             writer.WriteStringValue("slug", Slug);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesGetResponse_items_toolkit>("toolkit", Toolkit);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types.Triggers_typesGetResponse_items_type>("type", Type);

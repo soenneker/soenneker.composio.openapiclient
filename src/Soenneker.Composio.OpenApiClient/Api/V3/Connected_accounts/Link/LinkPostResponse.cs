@@ -12,6 +12,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
     public partial class LinkPostResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The persisted sharing model for this connected account (PRIVATE | SHARED). Echoes back the value supplied at creation time so callers can confirm what landed without a follow-up GET.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_account_type? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connected account ID that was created</summary>
@@ -71,6 +73,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_account_type>(); } },
                 { "connected_account_id", n => { ConnectedAccountId = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "link_token", n => { LinkToken = n.GetStringValue(); } },
@@ -84,6 +87,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_account_type>("account_type", AccountType);
             writer.WriteStringValue("connected_account_id", ConnectedAccountId);
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteStringValue("link_token", LinkToken);

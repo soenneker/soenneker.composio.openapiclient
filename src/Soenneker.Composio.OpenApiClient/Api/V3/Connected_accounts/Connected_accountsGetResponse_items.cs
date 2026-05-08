@@ -12,6 +12,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
     public partial class Connected_accountsGetResponse_items : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_account_type? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A user-defined alias for the connected account</summary>
@@ -150,6 +152,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_account_type>(); } },
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "auth_config", n => { AuthConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_auth_config>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_auth_config.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
@@ -174,6 +177,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_account_type>("account_type", AccountType);
             writer.WriteStringValue("alias", Alias);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_auth_config>("auth_config", AuthConfig);
             writer.WriteStringValue("created_at", CreatedAt);

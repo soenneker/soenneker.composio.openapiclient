@@ -12,6 +12,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
     public partial class Connected_accountsPostResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The persisted sharing model for this connected account (PRIVATE | SHARED). Echoes back the value supplied at creation time so callers can confirm what landed without a follow-up GET.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_account_type? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connection data of the connected account</summary>
@@ -85,6 +87,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_account_type>(); } },
                 { "connectionData", n => { ConnectionData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse.Connected_accountsPostResponse_connectionData>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse.Connected_accountsPostResponse_connectionData.CreateFromDiscriminatorValue); } },
                 { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_deprecated>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_deprecated.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -100,6 +103,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_account_type>("account_type", AccountType);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse.Connected_accountsPostResponse_connectionData>("connectionData", ConnectionData);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_deprecated>("deprecated", Deprecated);
             writer.WriteStringValue("id", Id);

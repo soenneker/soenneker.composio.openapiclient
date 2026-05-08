@@ -80,7 +80,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Webhook_subscriptionsGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Webhook_subscriptionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned only on creation.
+        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned in subscription responses.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Webhook_subscriptionsPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions
             return requestInfo;
         }
         /// <summary>
-        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned only on creation.
+        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned in subscription responses.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

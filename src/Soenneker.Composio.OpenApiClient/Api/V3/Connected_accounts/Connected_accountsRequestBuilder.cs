@@ -41,7 +41,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Connected_accountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts{?auth_config_ids*,connected_account_ids*,cursor*,limit*,order_by*,order_direction*,statuses*,toolkit_slugs*,user_ids*}", pathParameters)
+        public Connected_accountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts{?account_type*,auth_config_ids*,connected_account_ids*,cursor*,limit*,order_by*,order_direction*,statuses*,toolkit_slugs*,user_ids*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Connected_accountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts{?auth_config_ids*,connected_account_ids*,cursor*,limit*,order_by*,order_direction*,statuses*,toolkit_slugs*,user_ids*}", rawUrl)
+        public Connected_accountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts{?account_type*,auth_config_ids*,connected_account_ids*,cursor*,limit*,order_by*,order_direction*,statuses*,toolkit_slugs*,user_ids*}", rawUrl)
         {
         }
         /// <summary>
@@ -172,6 +172,9 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Connected_accountsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter by sharing model. Default (omitted) returns PRIVATE only — shared accounts must be requested explicitly. Pass SHARED for only shared accounts, or ALL for PRIVATE + SHARED.</summary>
+            [QueryParameter("account_type")]
+            public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.GetAccount_typeQueryParameterType? AccountType { get; set; }
             /// <summary>The auth config ids of the connected accounts</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

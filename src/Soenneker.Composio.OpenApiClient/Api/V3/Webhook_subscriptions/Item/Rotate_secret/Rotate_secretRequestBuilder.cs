@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Item.Rot
         {
         }
         /// <summary>
-        /// Generates a new signing secret for the webhook subscription. The new secret is returned only in this response.
+        /// Generates a new signing secret for the webhook subscription.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Item.Rotate_secret.Rotate_secretPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Item.Rot
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Item.Rotate_secret.Rotate_secretPostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Item.Rotate_secret.Rotate_secretPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Generates a new signing secret for the webhook subscription. The new secret is returned only in this response.
+        /// Generates a new signing secret for the webhook subscription.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
