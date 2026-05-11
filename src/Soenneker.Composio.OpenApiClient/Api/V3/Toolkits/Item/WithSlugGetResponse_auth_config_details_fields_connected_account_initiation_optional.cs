@@ -14,6 +14,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The advanced property</summary>
+        public bool? Advanced { get; set; }
         /// <summary>The default property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +40,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.Item
 #else
         public string DisplayName { get; set; }
 #endif
+        /// <summary>The is_secret property</summary>
+        public bool? IsSecret { get; set; }
         /// <summary>The legacy_template_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,9 +93,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "advanced", n => { Advanced = n.GetBoolValue(); } },
                 { "default", n => { Default = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "is_secret", n => { IsSecret = n.GetBoolValue(); } },
                 { "legacy_template_name", n => { LegacyTemplateName = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
@@ -105,9 +111,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("advanced", Advanced);
             writer.WriteStringValue("default", Default);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteBoolValue("is_secret", IsSecret);
             writer.WriteStringValue("legacy_template_name", LegacyTemplateName);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("required", Required);

@@ -110,6 +110,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
 #else
         public string Extension { get; set; }
 #endif
+        /// <summary>The extra_token_data property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3_extra_token_data? ExtraTokenData { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3_extra_token_data ExtraTokenData { get; set; }
+#endif
         /// <summary>The form_api_base_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -303,6 +311,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "expires_in", n => { ExpiresIn = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3.NanoGetResponse_stateMember2_valMember3_expires_in>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3.NanoGetResponse_stateMember2_valMember3_expires_in.CreateFromDiscriminatorValue); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
+                { "extra_token_data", n => { ExtraTokenData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3_extra_token_data>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3_extra_token_data.CreateFromDiscriminatorValue); } },
                 { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
                 { "id_token", n => { IdToken = n.GetStringValue(); } },
                 { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
@@ -345,6 +354,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
             writer.WriteStringValue("domain", Domain);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3.NanoGetResponse_stateMember2_valMember3_expires_in>("expires_in", ExpiresIn);
             writer.WriteStringValue("extension", Extension);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_stateMember2_valMember3_extra_token_data>("extra_token_data", ExtraTokenData);
             writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
             writer.WriteStringValue("id_token", IdToken);
             writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
