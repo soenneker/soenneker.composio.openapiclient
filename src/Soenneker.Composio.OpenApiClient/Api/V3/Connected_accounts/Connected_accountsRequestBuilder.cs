@@ -172,7 +172,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Connected_accountsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by sharing model. Default (omitted) returns PRIVATE only — shared accounts must be requested explicitly. Pass SHARED for only shared accounts, or ALL for PRIVATE + SHARED.</summary>
+            /// <summary>[Experimental] Filter by sharing model. Default (omitted) returns PRIVATE only — shared accounts must be requested explicitly. Pass SHARED for only shared accounts, or ALL for PRIVATE + SHARED.</summary>
             [QueryParameter("account_type")]
             public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.GetAccount_typeQueryParameterType? AccountType { get; set; }
             /// <summary>The auth config ids of the connected accounts</summary>

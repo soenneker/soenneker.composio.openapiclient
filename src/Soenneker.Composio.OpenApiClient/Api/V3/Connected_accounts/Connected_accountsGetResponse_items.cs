@@ -12,16 +12,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
     public partial class Connected_accountsGetResponse_items : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_account_type? AccountType { get; set; }
-        /// <summary>Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_acl_config_for_shared? AclConfigForShared { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_acl_config_for_shared AclConfigForShared { get; set; }
-#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A user-defined alias for the connected account</summary>
@@ -65,6 +55,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
 #nullable restore
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_deprecated Deprecated { get; set; }
+#endif
+        /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_experimental? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_experimental Experimental { get; set; }
 #endif
         /// <summary>The id of the connection</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -160,13 +158,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_account_type>(); } },
-                { "acl_config_for_shared", n => { AclConfigForShared = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_acl_config_for_shared>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_acl_config_for_shared.CreateFromDiscriminatorValue); } },
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "auth_config", n => { AuthConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_auth_config>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_auth_config.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_data>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_data.CreateFromDiscriminatorValue); } },
                 { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_deprecated>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_deprecated.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_experimental>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_experimental.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_disabled", n => { IsDisabled = n.GetBoolValue(); } },
                 { "state", n => { State = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items.Connected_accountsGetResponse_items_state>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items.Connected_accountsGetResponse_items_state.CreateFromDiscriminatorValue); } },
@@ -186,13 +183,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_account_type>("account_type", AccountType);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_acl_config_for_shared>("acl_config_for_shared", AclConfigForShared);
             writer.WriteStringValue("alias", Alias);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_auth_config>("auth_config", AuthConfig);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_data>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_deprecated>("deprecated", Deprecated);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_experimental>("experimental", Experimental);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_disabled", IsDisabled);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items.Connected_accountsGetResponse_items_state>("state", State);

@@ -3,9 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 {
-    /// <summary>The persisted sharing model for this connected account (PRIVATE | SHARED). Echoes back the value supplied at creation time so callers can confirm what landed without a follow-up GET.</summary>
+    /// <summary>Sharing model for this connected account. PRIVATE is usable only by the owning user_id. SHARED is reachable from a tool-router session only when explicitly pinned in the session config.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum LinkPostResponse_account_type
+    public enum LinkPostResponse_experimental_account_type
     {
         [EnumMember(Value = "PRIVATE")]
         #pragma warning disable CS1591

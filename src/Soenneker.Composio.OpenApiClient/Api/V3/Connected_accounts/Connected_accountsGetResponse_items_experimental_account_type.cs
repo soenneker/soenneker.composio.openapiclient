@@ -3,9 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
 {
-    /// <summary>Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly.</summary>
+    /// <summary>Sharing model for this connected account. PRIVATE is usable only by the owning user_id. SHARED is reachable from a tool-router session only when explicitly pinned in the session config.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum Connected_accountsGetResponse_items_account_type
+    public enum Connected_accountsGetResponse_items_experimental_account_type
     {
         [EnumMember(Value = "PRIVATE")]
         #pragma warning disable CS1591

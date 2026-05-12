@@ -12,16 +12,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
     public partial class Connected_accountsPostRequestBody_connection : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_account_type? AccountType { get; set; }
-        /// <summary>Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_acl_config_for_shared? AclConfigForShared { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_acl_config_for_shared AclConfigForShared { get; set; }
-#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.</summary>
@@ -52,6 +42,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         /// <summary>DEPRECATED: This parameter will be removed in a future version.</summary>
         [Obsolete("")]
         public bool? DeprecatedIsV1Rerouted { get; set; }
+        /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_experimental? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_experimental Experimental { get; set; }
+#endif
         /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use callback_url instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -103,12 +101,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_account_type>(); } },
-                { "acl_config_for_shared", n => { AclConfigForShared = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_acl_config_for_shared>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_acl_config_for_shared.CreateFromDiscriminatorValue); } },
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "callback_url", n => { CallbackUrl = n.GetStringValue(); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_data>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_data.CreateFromDiscriminatorValue); } },
                 { "deprecated_is_v1_rerouted", n => { DeprecatedIsV1Rerouted = n.GetBoolValue(); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_experimental>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_experimental.CreateFromDiscriminatorValue); } },
                 { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
                 { "state", n => { State = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection.Connected_accountsPostRequestBody_connection_state>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection.Connected_accountsPostRequestBody_connection_state.CreateFromDiscriminatorValue); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
@@ -121,12 +118,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_account_type>("account_type", AccountType);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_acl_config_for_shared>("acl_config_for_shared", AclConfigForShared);
             writer.WriteStringValue("alias", Alias);
             writer.WriteStringValue("callback_url", CallbackUrl);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_data>("data", Data);
             writer.WriteBoolValue("deprecated_is_v1_rerouted", DeprecatedIsV1Rerouted);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_experimental>("experimental", Experimental);
             writer.WriteStringValue("redirect_uri", RedirectUri);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection.Connected_accountsPostRequestBody_connection_state>("state", State);
             writer.WriteStringValue("user_id", UserId);

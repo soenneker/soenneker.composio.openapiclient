@@ -12,8 +12,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
     public partial class Connected_accountsPostResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The persisted sharing model for this connected account (PRIVATE | SHARED). Echoes back the value supplied at creation time so callers can confirm what landed without a follow-up GET.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_account_type? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connection data of the connected account</summary>
@@ -32,6 +30,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
 #nullable restore
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_deprecated Deprecated { get; set; }
+#endif
+        /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_experimental? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_experimental Experimental { get; set; }
 #endif
         /// <summary>The id of the connected account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,9 +93,9 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_account_type>(); } },
                 { "connectionData", n => { ConnectionData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse.Connected_accountsPostResponse_connectionData>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse.Connected_accountsPostResponse_connectionData.CreateFromDiscriminatorValue); } },
                 { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_deprecated>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_deprecated.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_experimental>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_experimental.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
                 { "redirect_url", n => { RedirectUrl = n.GetStringValue(); } },
@@ -103,9 +109,9 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_account_type>("account_type", AccountType);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse.Connected_accountsPostResponse_connectionData>("connectionData", ConnectionData);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_deprecated>("deprecated", Deprecated);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_experimental>("experimental", Experimental);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("redirect_uri", RedirectUri);
             writer.WriteStringValue("redirect_url", RedirectUrl);

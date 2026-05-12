@@ -11,7 +11,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PatchConnectedAccountBody_acl_config_for_shared : IAdditionalDataHolder, IParsable
+    public partial class PatchConnectedAccountBody_experimental_acl_config_for_shared : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -34,21 +34,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public List<string> NotAllowedUserIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_acl_config_for_shared"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_acl_config_for_shared"/> and sets the default values.
         /// </summary>
-        public PatchConnectedAccountBody_acl_config_for_shared()
+        public PatchConnectedAccountBody_experimental_acl_config_for_shared()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_acl_config_for_shared"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_acl_config_for_shared"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_acl_config_for_shared CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_acl_config_for_shared CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_acl_config_for_shared();
+            return new global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_acl_config_for_shared();
         }
         /// <summary>
         /// The deserialization information for the current model

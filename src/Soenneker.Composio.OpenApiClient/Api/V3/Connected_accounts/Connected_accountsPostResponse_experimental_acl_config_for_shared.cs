@@ -5,13 +5,13 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
+namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
 {
     /// <summary>
-    /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY.
+    /// Access control for SHARED connections. Visible only to the connection creator and project/org API key callers; non-creator cookie callers receive the response without this block.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class NanoGetResponse_acl_config_for_shared : IAdditionalDataHolder, IParsable
+    public partial class Connected_accountsPostResponse_experimental_acl_config_for_shared : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -34,21 +34,21 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
         public List<string> NotAllowedUserIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_acl_config_for_shared"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_experimental_acl_config_for_shared"/> and sets the default values.
         /// </summary>
-        public NanoGetResponse_acl_config_for_shared()
+        public Connected_accountsPostResponse_experimental_acl_config_for_shared()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_acl_config_for_shared"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_experimental_acl_config_for_shared"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_acl_config_for_shared CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_experimental_acl_config_for_shared CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse_acl_config_for_shared();
+            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse_experimental_acl_config_for_shared();
         }
         /// <summary>
         /// The deserialization information for the current model

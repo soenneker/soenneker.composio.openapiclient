@@ -8,16 +8,16 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
 {
     /// <summary>
-    /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
+    /// Access control for SHARED connections. Visible only to the connection creator and project/org API key callers; non-creator cookie callers receive the response without this block.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Connected_accountsPostRequestBody_connection_acl_config_for_shared : IAdditionalDataHolder, IParsable
+    public partial class Connected_accountsGetResponse_items_experimental_acl_config_for_shared : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Wildcard &quot;any user_id in the project&quot; allow toggle. Only valid on SHARED connections.</summary>
+        /// <summary>The allow_all_users property</summary>
         public bool? AllowAllUsers { get; set; }
-        /// <summary>Explicit allow list of user_ids who can use this SHARED connection.</summary>
+        /// <summary>The allowed_user_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? AllowedUserIds { get; set; }
@@ -25,7 +25,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
 #else
         public List<string> AllowedUserIds { get; set; }
 #endif
-        /// <summary>Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids.</summary>
+        /// <summary>The not_allowed_user_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? NotAllowedUserIds { get; set; }
@@ -34,21 +34,21 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         public List<string> NotAllowedUserIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_acl_config_for_shared"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_experimental_acl_config_for_shared"/> and sets the default values.
         /// </summary>
-        public Connected_accountsPostRequestBody_connection_acl_config_for_shared()
+        public Connected_accountsGetResponse_items_experimental_acl_config_for_shared()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_acl_config_for_shared"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_experimental_acl_config_for_shared"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_acl_config_for_shared CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_experimental_acl_config_for_shared CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody_connection_acl_config_for_shared();
+            return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse_items_experimental_acl_config_for_shared();
         }
         /// <summary>
         /// The deserialization information for the current model

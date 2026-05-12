@@ -12,8 +12,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
     public partial class LinkPostResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The persisted sharing model for this connected account (PRIVATE | SHARED). Echoes back the value supplied at creation time so callers can confirm what landed without a follow-up GET.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_account_type? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connected account ID that was created</summary>
@@ -23,6 +21,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #nullable restore
 #else
         public string ConnectedAccountId { get; set; }
+#endif
+        /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_experimental? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_experimental Experimental { get; set; }
 #endif
         /// <summary>ISO timestamp when the link expires</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,8 +79,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_account_type>(); } },
                 { "connected_account_id", n => { ConnectedAccountId = n.GetStringValue(); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_experimental>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_experimental.CreateFromDiscriminatorValue); } },
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "link_token", n => { LinkToken = n.GetStringValue(); } },
                 { "redirect_url", n => { RedirectUrl = n.GetStringValue(); } },
@@ -87,8 +93,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_account_type>("account_type", AccountType);
             writer.WriteStringValue("connected_account_id", ConnectedAccountId);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostResponse_experimental>("experimental", Experimental);
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteStringValue("link_token", LinkToken);
             writer.WriteStringValue("redirect_url", RedirectUrl);

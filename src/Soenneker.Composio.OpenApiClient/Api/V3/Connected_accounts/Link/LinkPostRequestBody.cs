@@ -12,16 +12,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
     public partial class LinkPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_account_type? AccountType { get; set; }
-        /// <summary>Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_acl_config_for_shared? AclConfigForShared { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_acl_config_for_shared AclConfigForShared { get; set; }
-#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.</summary>
@@ -56,6 +46,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
 #else
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody.LinkPostRequestBody_connection_data ConnectionData { get; set; }
 #endif
+        /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_experimental? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_experimental Experimental { get; set; }
+#endif
         /// <summary>The user id to create a link for</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,12 +87,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_account_type>(); } },
-                { "acl_config_for_shared", n => { AclConfigForShared = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_acl_config_for_shared>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_acl_config_for_shared.CreateFromDiscriminatorValue); } },
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "auth_config_id", n => { AuthConfigId = n.GetStringValue(); } },
                 { "callback_url", n => { CallbackUrl = n.GetStringValue(); } },
                 { "connection_data", n => { ConnectionData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody.LinkPostRequestBody_connection_data>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody.LinkPostRequestBody_connection_data.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_experimental>(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_experimental.CreateFromDiscriminatorValue); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -105,12 +102,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_account_type>("account_type", AccountType);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_acl_config_for_shared>("acl_config_for_shared", AclConfigForShared);
             writer.WriteStringValue("alias", Alias);
             writer.WriteStringValue("auth_config_id", AuthConfigId);
             writer.WriteStringValue("callback_url", CallbackUrl);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody.LinkPostRequestBody_connection_data>("connection_data", ConnectionData);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Link.LinkPostRequestBody_experimental>("experimental", Experimental);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }

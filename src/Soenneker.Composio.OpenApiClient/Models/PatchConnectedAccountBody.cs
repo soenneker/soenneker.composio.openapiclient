@@ -12,14 +12,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
     public partial class PatchConnectedAccountBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_acl_config_for_shared? AclConfigForShared { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_acl_config_for_shared AclConfigForShared { get; set; }
-#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A human-readable alias for this connected account. Pass an empty string to clear the alias. Must be unique per entity and toolkit within the project.</summary>
@@ -37,6 +29,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_connection Connection { get; set; }
+#endif
+        /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental Experimental { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody"/> and sets the default values.
@@ -63,9 +63,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "acl_config_for_shared", n => { AclConfigForShared = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_acl_config_for_shared>(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_acl_config_for_shared.CreateFromDiscriminatorValue); } },
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_connection>(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_connection.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental>(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,9 +75,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_acl_config_for_shared>("acl_config_for_shared", AclConfigForShared);
             writer.WriteStringValue("alias", Alias);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_connection>("connection", Connection);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental>("experimental", Experimental);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
