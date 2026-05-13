@@ -22,6 +22,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Searc
 #endif
         /// <summary>When &quot;required&quot;, the agent must specify which account to use. Present only when multiple accounts exist.</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_account_selection? AccountSelection { get; set; }
+        /// <summary>Sharing model for the connected account when has_active_connection is true. PRIVATE is owner-only; SHARED is reachable only when explicitly pinned to the session.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_account_type? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Connection details including auth config and connected account IDs. Only present when has_active_connection is true.</summary>
@@ -92,6 +94,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Searc
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "account_selection", n => { AccountSelection = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_account_selection>(); } },
+                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_account_type>(); } },
                 { "accounts", n => { Accounts = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_accounts>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_accounts.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "connection_details", n => { ConnectionDetails = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_connection_details>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_connection_details.CreateFromDiscriminatorValue); } },
                 { "current_user_info", n => { CurrentUserInfo = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_current_user_info>(global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_current_user_info.CreateFromDiscriminatorValue); } },
@@ -110,6 +113,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Searc
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_accounts>("accounts", Accounts);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_account_selection>("account_selection", AccountSelection);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_account_type>("account_type", AccountType);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_connection_details>("connection_details", ConnectionDetails);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_current_user_info>("current_user_info", CurrentUserInfo);
             writer.WriteStringValue("description", Description);

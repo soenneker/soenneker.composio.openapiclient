@@ -12,6 +12,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Searc
     public partial class SearchPostResponse_toolkit_connection_statuses_accounts : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Sharing model for this connected account. PRIVATE is owner-only; SHARED is reachable from a tool-router session only when explicitly pinned.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_accounts_account_type? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>User-assigned alias for this account</summary>
@@ -81,6 +83,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Searc
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_accounts_account_type>(); } },
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -96,6 +99,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Searc
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Search.SearchPostResponse_toolkit_connection_statuses_accounts_account_type>("account_type", AccountType);
             writer.WriteStringValue("alias", Alias);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);

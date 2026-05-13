@@ -21,6 +21,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoGetResponse_org_member_metadata_onboarding_platform? OnboardingPlatform { get; set; }
         /// <summary>If true, the user will be redirected to the legacy dashboard at platform.composio.dev.</summary>
         public bool? PrefersOldDashboard { get; set; }
+        /// <summary>True once the user has dismissed the Composio For You announcement modal in the developer dashboard.</summary>
+        public bool? SeenConnectAnnouncement { get; set; }
         /// <summary>True once the user has completed the CLI onboarding flow.</summary>
         public bool? SeenFlowCli { get; set; }
         /// <summary>True once the user has completed the consumer onboarding flow.</summary>
@@ -55,6 +57,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info
                 { "createdInBetterAuth", n => { CreatedInBetterAuth = n.GetBoolValue(); } },
                 { "onboarding_platform", n => { OnboardingPlatform = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoGetResponse_org_member_metadata_onboarding_platform>(); } },
                 { "prefers_old_dashboard", n => { PrefersOldDashboard = n.GetBoolValue(); } },
+                { "seen_connect_announcement", n => { SeenConnectAnnouncement = n.GetBoolValue(); } },
                 { "seen_flow_cli", n => { SeenFlowCli = n.GetBoolValue(); } },
                 { "seen_flow_consumer", n => { SeenFlowConsumer = n.GetBoolValue(); } },
                 { "seen_flow_developer", n => { SeenFlowDeveloper = n.GetBoolValue(); } },
@@ -70,6 +73,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info
             writer.WriteBoolValue("createdInBetterAuth", CreatedInBetterAuth);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoGetResponse_org_member_metadata_onboarding_platform>("onboarding_platform", OnboardingPlatform);
             writer.WriteBoolValue("prefers_old_dashboard", PrefersOldDashboard);
+            writer.WriteBoolValue("seen_connect_announcement", SeenConnectAnnouncement);
             writer.WriteBoolValue("seen_flow_cli", SeenFlowCli);
             writer.WriteBoolValue("seen_flow_consumer", SeenFlowConsumer);
             writer.WriteBoolValue("seen_flow_developer", SeenFlowDeveloper);
