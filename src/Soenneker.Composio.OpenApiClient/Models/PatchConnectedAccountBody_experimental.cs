@@ -13,6 +13,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchConnectedAccountBody_experimental : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Mutate the sharing model. PRIVATE → SHARED promotes the existing connection without re-auth; SHARED → PRIVATE revokes all non-creator access and clears the stored ACL atomically. Omit to leave unchanged.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_account_type? AccountType { get; set; }
         /// <summary>Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,6 +50,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_account_type>(); } },
                 { "acl_config_for_shared", n => { AclConfigForShared = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_acl_config_for_shared>(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_acl_config_for_shared.CreateFromDiscriminatorValue); } },
             };
         }
@@ -58,6 +61,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_account_type>("account_type", AccountType);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental_acl_config_for_shared>("acl_config_for_shared", AclConfigForShared);
             writer.WriteAdditionalData(AdditionalData);
         }

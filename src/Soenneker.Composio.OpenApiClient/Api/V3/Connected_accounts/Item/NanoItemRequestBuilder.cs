@@ -110,7 +110,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
+        /// Update a connected account. Supports updating alias, credentials, sharing model (`experimental.account_type`), and per-user ACL (`experimental.acl_config_for_shared`). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling `experimental.account_type` between PRIVATE and SHARED reuses the stored credentials — no re-auth is required. Demoting SHARED → PRIVATE atomically clears the stored ACL; supplying `acl_config_for_shared` in the same call is rejected as `acl_config_for_shared is only valid on SHARED connections`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoPatchResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -181,7 +181,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
+        /// Update a connected account. Supports updating alias, credentials, sharing model (`experimental.account_type`), and per-user ACL (`experimental.acl_config_for_shared`). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling `experimental.account_type` between PRIVATE and SHARED reuses the stored credentials — no re-auth is required. Demoting SHARED → PRIVATE atomically clears the stored ACL; supplying `acl_config_for_shared` in the same call is rejected as `acl_config_for_shared is only valid on SHARED connections`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
