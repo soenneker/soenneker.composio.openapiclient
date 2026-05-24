@@ -24,7 +24,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.Project.Item
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The actual API key value used for authentication</summary>
+        /// <summary>Masked API key value</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Key { get; set; }
