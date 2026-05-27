@@ -8,7 +8,6 @@ using Soenneker.Composio.OpenApiClient.Api.V3.Cli;
 using Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts;
 using Soenneker.Composio.OpenApiClient.Api.V3.Files;
 using Soenneker.Composio.OpenApiClient.Api.V3.Internal;
-using Soenneker.Composio.OpenApiClient.Api.V3.Labs;
 using Soenneker.Composio.OpenApiClient.Api.V3.Mcp;
 using Soenneker.Composio.OpenApiClient.Api.V3.Migration;
 using Soenneker.Composio.OpenApiClient.Api.V3.Org;
@@ -60,11 +59,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.InternalRequestBuilder Internal
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.InternalRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The labs property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Labs.LabsRequestBuilder Labs
-        {
-            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Labs.LabsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The mcp property</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.McpRequestBuilder Mcp
