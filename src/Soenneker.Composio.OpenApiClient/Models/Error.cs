@@ -18,10 +18,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.Error_error? ErrorProp { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ErrorError? ErrorProp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.Error_error ErrorProp { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ErrorError ErrorProp { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -50,7 +50,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "error", n => { ErrorProp = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Error_error>(global::Soenneker.Composio.OpenApiClient.Models.Error_error.CreateFromDiscriminatorValue); } },
+                { "error", n => { ErrorProp = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ErrorError>(global::Soenneker.Composio.OpenApiClient.Models.ErrorError.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Error_error>("error", ErrorProp);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ErrorError>("error", ErrorProp);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

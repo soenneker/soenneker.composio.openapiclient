@@ -36,7 +36,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
         /// <summary>
         /// Retrieves a single webhook endpoint. Secret values are redacted. Use GET /webhook_endpoints/schema to discover field definitions.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_GetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpointsByNanoId200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -45,11 +45,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_GetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpointsByNanoId200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_GetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpointsByNanoId200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -60,12 +60,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_GetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpointsByNanoId200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpointsByNanoId200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates app-specific secrets and credentials. Uses merge semantics — only included fields are updated; omitted fields are preserved. Can be called on active endpoints (e.g., to rotate a signing secret).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchWebhookEndpointsByNanoId200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -75,11 +75,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PatchResponse?> PatchAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchWebhookEndpointsByNanoId200?> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchWebhookEndpointsByNanoId body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PatchResponse> PatchAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchWebhookEndpointsByNanoId200> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchWebhookEndpointsByNanoId body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -91,12 +91,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PatchResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchWebhookEndpointsByNanoId200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchWebhookEndpointsByNanoId200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Full replacement of webhook endpoint configuration. All required setup fields must be provided. Use PATCH to update individual fields.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsByNanoId200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,11 +106,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PostResponse?> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsByNanoId200?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsByNanoId body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PostResponse> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsByNanoId200> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsByNanoId body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -122,7 +122,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsByNanoId200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsByNanoId200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a single webhook endpoint. Secret values are redacted. Use GET /webhook_endpoints/schema to discover field definitions.
@@ -151,11 +151,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PatchWebhookEndpointsByNanoId body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PatchWebhookEndpointsByNanoId body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -173,11 +173,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsByNanoId body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_PostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsByNanoId body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

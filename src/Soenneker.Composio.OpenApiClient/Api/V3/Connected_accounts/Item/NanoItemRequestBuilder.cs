@@ -48,21 +48,21 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
         /// <summary>
         /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Nano404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.DeleteConnectedAccountsByNanoid200404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -71,15 +71,15 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 { "400", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Nano404Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.DeleteConnectedAccountsByNanoid200404Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoDeleteResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves comprehensive details of a connected account, including authentication configuration, connection status, and all parameters needed for API requests.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -90,11 +90,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 501 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -107,12 +107,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "501", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,11 +123,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoPatchResponse?> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200?> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoPatchResponse> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -140,7 +140,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoPatchResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes.

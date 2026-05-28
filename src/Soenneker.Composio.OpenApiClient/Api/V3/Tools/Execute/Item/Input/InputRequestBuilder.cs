@@ -36,7 +36,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input
         /// <summary>
         /// Uses AI to translate a natural language description into structured arguments for a specific tool. This endpoint is useful when you want to let users describe what they want to do in plain language instead of providing structured parameters.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -48,11 +48,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputPostResponse?> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput200?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputPostResponse> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput200> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -66,7 +66,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input
                 { "429", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputPostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Uses AI to translate a natural language description into structured arguments for a specific tool. This endpoint is useful when you want to let users describe what they want to do in plain language instead of providing structured parameters.
@@ -76,11 +76,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

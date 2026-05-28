@@ -174,7 +174,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
             [QueryParameter("scopes")]
             public string[] Scopes { get; set; }
 #endif
-            /// <summary>Deprecated: use &quot;query&quot; instead. Free-text search query to find tools by name, description, or functionality.</summary>
+            /// <summary>&quot;Deprecated: use \&quot;query\&quot; instead. Free-text search query to find tools by name, description, or functionality.&quot;</summary>
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

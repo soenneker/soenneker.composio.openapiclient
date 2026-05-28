@@ -49,7 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         /// <summary>
         /// Retrieves all auth configs for your project. Auth configs define how users authenticate with external services (OAuth, API keys, etc.). Use filters to find configs for specific toolkits or to distinguish between Composio-managed and custom configurations.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -58,11 +58,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsRequestBuilder.Auth_configsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsRequestBuilder.Auth_configsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsRequestBuilder.Auth_configsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsRequestBuilder.Auth_configsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -73,12 +73,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new auth config for a toolkit, allowing you to use your own OAuth credentials or API keys instead of Composio-managed authentication. This is required when you want to use custom OAuth apps (bring your own client ID/secret) or configure specific authentication parameters for a toolkit.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -88,11 +88,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsPostResponse?> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsPostResponse> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -104,7 +104,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsPostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves all auth configs for your project. Auth configs define how users authenticate with external services (OAuth, API keys, etc.). Use filters to find configs for specific toolkits or to distinguish between Composio-managed and custom configurations.
@@ -133,11 +133,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

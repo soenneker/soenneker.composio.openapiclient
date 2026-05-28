@@ -36,7 +36,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs
         /// <summary>
         /// Search and retrieve action execution logs
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +45,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsPostResponse?> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsPostResponse> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -60,7 +60,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs
                 { "401", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsPostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Search and retrieve action execution logs
@@ -70,11 +70,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

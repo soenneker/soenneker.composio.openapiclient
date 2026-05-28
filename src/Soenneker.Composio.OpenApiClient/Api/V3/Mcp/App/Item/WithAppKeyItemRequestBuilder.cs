@@ -36,7 +36,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item
         /// <summary>
         /// Retrieves a paginated list of Model Control Protocol (MCP) servers that are configured for a specific application or toolkit. This endpoint allows you to find all MCP server instances that have access to a particular application, such as GitHub, Slack, or Jira.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetMcpAppByAppKey200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyItemRequestBuilder.WithAppKeyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetMcpAppByAppKey200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyItemRequestBuilder.WithAppKeyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyItemRequestBuilder.WithAppKeyItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetMcpAppByAppKey200> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyItemRequestBuilder.WithAppKeyItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,7 +62,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetMcpAppByAppKey200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetMcpAppByAppKey200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a paginated list of Model Control Protocol (MCP) servers that are configured for a specific application or toolkit. This endpoint allows you to find all MCP server instances that have access to a particular application, such as GitHub, Slack, or Jira.
@@ -108,7 +108,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item
             [QueryParameter("auth_config_ids")]
             public string AuthConfigIds { get; set; }
 #endif
-            /// <summary>Number of items per page (default: 10)</summary>
+            /// <summary>&quot;Number of items per page (default: 10)&quot;</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }
             /// <summary>Filter MCP servers by name (case-insensitive partial match)</summary>

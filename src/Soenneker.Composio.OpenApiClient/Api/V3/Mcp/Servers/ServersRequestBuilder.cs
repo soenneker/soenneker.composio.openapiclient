@@ -61,7 +61,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// <summary>
         /// Retrieves a paginated list of MCP servers associated with the authenticated project. Results can be filtered by name, toolkit, or authentication configuration ID. MCP servers are used to provide Model Control Protocol integration points for connecting AI assistants to your applications and services.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetMcpServers200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -70,11 +70,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder.ServersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServers200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder.ServersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder.ServersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServers200> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder.ServersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -85,12 +85,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
                 { "403", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServers200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetMcpServers200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new Model Control Protocol (MCP) server instance for the authenticated project. An MCP server provides a connection point for AI assistants to access your applications and services. The server is configured with specific authentication and tool permissions that determine what actions the connected assistants can perform.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers201"/></returns>
         /// <param name="body">Request parameters for creating a new MCP server with specific authentication configuration</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,11 +101,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersPostResponse?> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers201?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersPostResponse> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers201> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -118,7 +118,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersPostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers201>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a paginated list of MCP servers associated with the authenticated project. Results can be filtered by name, toolkit, or authentication configuration ID. MCP servers are used to provide Model Control Protocol integration points for connecting AI assistants to your applications and services.
@@ -147,11 +147,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -186,7 +186,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
             [QueryParameter("auth_config_ids")]
             public string AuthConfigIds { get; set; }
 #endif
-            /// <summary>Number of items per page (default: 10)</summary>
+            /// <summary>&quot;Number of items per page (default: 10)&quot;</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }
             /// <summary>Filter MCP servers by name (case-insensitive partial match)</summary>

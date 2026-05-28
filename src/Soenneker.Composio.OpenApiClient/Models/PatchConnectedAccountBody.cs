@@ -25,18 +25,18 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The connection property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_connection? Connection { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnection? Connection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_connection Connection { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnection Connection { get; set; }
 #endif
         /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental? Experimental { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimental? Experimental { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental Experimental { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimental Experimental { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody"/> and sets the default values.
@@ -64,8 +64,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "alias", n => { Alias = n.GetStringValue(); } },
-                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_connection>(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_connection.CreateFromDiscriminatorValue); } },
-                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental>(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental.CreateFromDiscriminatorValue); } },
+                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnection>(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnection.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimental>(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimental.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,8 +76,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alias", Alias);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_connection>("connection", Connection);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBody_experimental>("experimental", Experimental);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnection>("connection", Connection);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimental>("experimental", Experimental);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -25,10 +25,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The deprecated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_deprecated? Deprecated { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolDeprecated? Deprecated { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_deprecated Deprecated { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolDeprecated Deprecated { get; set; }
 #endif
         /// <summary>Detailed explanation of the tool&apos;s functionality and purpose</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,10 +109,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The toolkit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_toolkit? Toolkit { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolToolkit? Toolkit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_toolkit Toolkit { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolToolkit Toolkit { get; set; }
 #endif
         /// <summary>Current version of the tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -148,7 +148,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "available_versions", n => { AvailableVersions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_deprecated>(global::Soenneker.Composio.OpenApiClient.Models.Tool_deprecated.CreateFromDiscriminatorValue); } },
+                { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolDeprecated>(global::Soenneker.Composio.OpenApiClient.Models.ToolDeprecated.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "human_description", n => { HumanDescription = n.GetStringValue(); } },
                 { "input_parameters", n => { InputParameters = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_input_parameters>(global::Soenneker.Composio.OpenApiClient.Models.Tool_input_parameters.CreateFromDiscriminatorValue); } },
@@ -160,7 +160,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "toolkit", n => { Toolkit = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_toolkit>(global::Soenneker.Composio.OpenApiClient.Models.Tool_toolkit.CreateFromDiscriminatorValue); } },
+                { "toolkit", n => { Toolkit = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolToolkit>(global::Soenneker.Composio.OpenApiClient.Models.ToolToolkit.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -172,7 +172,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("available_versions", AvailableVersions);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_deprecated>("deprecated", Deprecated);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolDeprecated>("deprecated", Deprecated);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("human_description", HumanDescription);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_input_parameters>("input_parameters", InputParameters);
@@ -184,7 +184,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteStringValue("slug", Slug);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_toolkit>("toolkit", Toolkit);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolToolkit>("toolkit", Toolkit);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }

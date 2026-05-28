@@ -78,7 +78,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// <summary>
         /// Retrieves detailed information about a specific authentication configuration using its unique identifier.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -87,11 +87,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -102,7 +102,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Modifies an existing authentication configuration with new credentials or other settings. Only specified fields will be updated.
@@ -117,11 +117,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchResponse?> PatchAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchResponse?> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchResponse> PatchAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchResponse> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -181,11 +181,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -203,81 +203,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember2"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithNanoPatchRequestBody : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember1? WithNanoPatchRequestBodyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember1 WithNanoPatchRequestBodyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember2? WithNanoPatchRequestBodyMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember2 WithNanoPatchRequestBodyMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoPatchRequestBody"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoPatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoPatchRequestBody();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WithNanoPatchRequestBodyMember1 = new global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WithNanoPatchRequestBodyMember2 = new global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember2();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(WithNanoPatchRequestBodyMember1 != null)
-                {
-                    return WithNanoPatchRequestBodyMember1.GetFieldDeserializers();
-                }
-                else if(WithNanoPatchRequestBodyMember2 != null)
-                {
-                    return WithNanoPatchRequestBodyMember2.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(WithNanoPatchRequestBodyMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember1>(null, WithNanoPatchRequestBodyMember1);
-                }
-                else if(WithNanoPatchRequestBodyMember2 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoPatchRequestBodyMember2>(null, WithNanoPatchRequestBodyMember2);
-                }
-            }
         }
     }
 }

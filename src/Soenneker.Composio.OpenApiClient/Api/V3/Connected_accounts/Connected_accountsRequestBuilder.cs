@@ -55,7 +55,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         /// <summary>
         /// Retrieves all connected accounts for your project. Connected accounts represent authenticated user connections to external services (e.g., a user&apos;s Gmail account, Slack workspace). Filter by toolkit, status, user ID, or auth config to find specific connections.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -65,11 +65,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsRequestBuilder.Connected_accountsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsRequestBuilder.Connected_accountsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsRequestBuilder.Connected_accountsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsRequestBuilder.Connected_accountsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -81,12 +81,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
                 { "422", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Initiates a new connection to an external service for a user. For OAuth-based toolkits, this returns a redirect URL to complete authentication. For API key-based toolkits, provide the credentials directly in the request body. Use the `user_id` field to associate the connection with a specific user in your system.**Deprecated for Composio-managed OAuth:** For Composio-managed auth configs on OAuth1, OAuth2, or DCR_OAUTH schemes, this endpoint is being retired and will start returning `400 BadRequest` on **2026-05-08** for new organizations and **2026-07-03** for all remaining organizations. Migrate those calls to `POST /api/v3/connected_accounts/link`. Custom auth configs and non-OAuth schemes (API key, bearer, basic) continue to be supported here. Responses on the retiring path carry a `Deprecation` header (RFC 9745) and a `Sunset` header (RFC 8594) for client-side detection.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -97,11 +97,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 501 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse?> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse> PostAsync(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -114,7 +114,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "501", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse>(requestInfo, global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves all connected accounts for your project. Connected accounts represent authenticated user connections to external services (e.g., a user&apos;s Gmail account, Slack workspace). Filter by toolkit, status, user ID, or auth config to find specific connections.
@@ -143,11 +143,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
