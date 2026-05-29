@@ -771,9 +771,6 @@
           },
           {
             "UserApiKeyAuth": [ ]
-          },
-          {
-            "CookieAuth": [ ]
           }
         ]
       }
@@ -1531,9 +1528,6 @@
         },
         "security": [
           {
-            "CookieAuth": [ ]
-          },
-          {
             "ApiKeyAuth": [ ]
           },
           {
@@ -1861,9 +1855,6 @@
           },
           {
             "UserApiKeyAuth": [ ]
-          },
-          {
-            "CookieAuth": [ ]
           }
         ]
       }
@@ -1995,9 +1986,6 @@
           },
           {
             "UserApiKeyAuth": [ ]
-          },
-          {
-            "CookieAuth": [ ]
           }
         ]
       }
@@ -2097,9 +2085,6 @@
           },
           {
             "UserApiKeyAuth": [ ]
-          },
-          {
-            "CookieAuth": [ ]
           }
         ]
       }
@@ -2406,173 +2391,6 @@
           },
           "500": {
             "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "CookieAuth": [ ]
-          },
-          {
-            "ApiKeyAuth": [ ]
-          },
-          {
-            "UserApiKeyAuth": [ ]
-          }
-        ]
-      }
-    },
-    "/api/v3/org/project/config": {
-      "get": {
-        "tags": [
-          "Projects",
-          "Configuration"
-        ],
-        "summary": "Get project configuration",
-        "description": "Retrieves the current project configuration including 2FA settings.",
-        "operationId": "getOrgProjectConfig",
-        "responses": {
-          "200": {
-            "description": "Project configuration retrieved successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetOrgProjectConfig200"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request. The project configuration data may be invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized. Authentication is required or the provided credentials are invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Project not found. The specified project does not exist or has been deleted.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error. An unexpected error occurred while processing the request.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "CookieAuth": [ ]
-          },
-          {
-            "ApiKeyAuth": [ ]
-          },
-          {
-            "UserApiKeyAuth": [ ]
-          }
-        ]
-      },
-      "patch": {
-        "tags": [
-          "Projects",
-          "Configuration"
-        ],
-        "summary": "Update project configuration",
-        "description": "Updates the project configuration settings.",
-        "operationId": "patchOrgProjectConfig",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PatchOrgProjectConfig"
-              },
-              "examples": {
-                "Enable 2FA": {
-                  "value": {
-                    "is_2FA_enabled": true
-                  }
-                },
-                "Disable 2FA": {
-                  "value": {
-                    "is_2FA_enabled": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Project configuration updated successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PatchOrgProjectConfig200"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request. The configuration data may be invalid or missing.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized. Authentication is required or the provided credentials are invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Project not found. The specified project does not exist or has been deleted.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error. An unexpected error occurred while processing the request.",
             "content": {
               "application/json": {
                 "schema": {
@@ -7996,9 +7814,6 @@
           },
           {
             "UserApiKeyAuth": [ ]
-          },
-          {
-            "CookieAuth": [ ]
           }
         ]
       }
@@ -8166,9 +7981,6 @@
           },
           {
             "UserApiKeyAuth": [ ]
-          },
-          {
-            "CookieAuth": [ ]
           }
         ]
       }
@@ -49892,127 +49704,6 @@
             "additionalProperties": {
               "nullable": true
             }
-          }
-        }
-      },
-      "GetOrgProjectConfig200": {
-        "required": [
-          "is_2FA_enabled",
-          "mask_secret_keys_in_connected_account",
-          "log_visibility_setting"
-        ],
-        "type": "object",
-        "properties": {
-          "is_2FA_enabled": {
-            "type": "boolean"
-          },
-          "logo_url": {
-            "type": "string"
-          },
-          "display_name": {
-            "type": "string"
-          },
-          "mask_secret_keys_in_connected_account": {
-            "type": "boolean"
-          },
-          "log_visibility_setting": {
-            "enum": [
-              "show_all",
-              "dont_store_data"
-            ],
-            "type": "string",
-            "additionalProperties": false
-          },
-          "require_mcp_api_key": {
-            "type": "boolean"
-          },
-          "is_composio_link_enabled_for_managed_auth": {
-            "type": "boolean",
-            "description": "Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key."
-          },
-          "signed_url_file_expiry_in_seconds": {
-            "maximum": 86400,
-            "minimum": 1,
-            "type": "number"
-          }
-        }
-      },
-      "PatchOrgProjectConfig": {
-        "type": "object",
-        "properties": {
-          "is_2FA_enabled": {
-            "type": "boolean"
-          },
-          "logo_url": {
-            "type": "string"
-          },
-          "display_name": {
-            "type": "string"
-          },
-          "mask_secret_keys_in_connected_account": {
-            "type": "boolean"
-          },
-          "log_visibility_setting": {
-            "enum": [
-              "show_all",
-              "dont_store_data"
-            ],
-            "type": "string",
-            "additionalProperties": false
-          },
-          "require_mcp_api_key": {
-            "type": "boolean"
-          },
-          "is_composio_link_enabled_for_managed_auth": {
-            "type": "boolean",
-            "description": "Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key."
-          },
-          "signed_url_file_expiry_in_seconds": {
-            "maximum": 86400,
-            "minimum": 1,
-            "type": "number"
-          }
-        }
-      },
-      "PatchOrgProjectConfig200": {
-        "required": [
-          "is_2FA_enabled",
-          "mask_secret_keys_in_connected_account",
-          "log_visibility_setting"
-        ],
-        "type": "object",
-        "properties": {
-          "is_2FA_enabled": {
-            "type": "boolean"
-          },
-          "logo_url": {
-            "type": "string"
-          },
-          "display_name": {
-            "type": "string"
-          },
-          "mask_secret_keys_in_connected_account": {
-            "type": "boolean"
-          },
-          "log_visibility_setting": {
-            "enum": [
-              "show_all",
-              "dont_store_data"
-            ],
-            "type": "string",
-            "additionalProperties": false
-          },
-          "require_mcp_api_key": {
-            "type": "boolean"
-          },
-          "is_composio_link_enabled_for_managed_auth": {
-            "type": "boolean",
-            "description": "Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key."
-          },
-          "signed_url_file_expiry_in_seconds": {
-            "maximum": 86400,
-            "minimum": 1,
-            "type": "number"
           }
         }
       },
