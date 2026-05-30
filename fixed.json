@@ -5167,7 +5167,7 @@
           "Proxy"
         ],
         "summary": "Execute proxy request",
-        "description": "Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.",
+        "description": "Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details. The v3 endpoint is retired except for orgs explicitly allowlisted in LaunchDarkly during migration.",
         "operationId": "postToolsExecuteProxy",
         "requestBody": {
           "content": {

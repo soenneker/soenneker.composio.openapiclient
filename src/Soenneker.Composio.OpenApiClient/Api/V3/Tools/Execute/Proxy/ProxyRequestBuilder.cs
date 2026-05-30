@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Proxy
         {
         }
         /// <summary>
-        /// Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.
+        /// Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details. The v3 endpoint is retired except for orgs explicitly allowlisted in LaunchDarkly during migration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxy200"/></returns>
         /// <param name="body">The request body</param>
@@ -77,7 +77,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Proxy
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxy200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxy200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.
+        /// Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details. The v3 endpoint is retired except for orgs explicitly allowlisted in LaunchDarkly during migration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
