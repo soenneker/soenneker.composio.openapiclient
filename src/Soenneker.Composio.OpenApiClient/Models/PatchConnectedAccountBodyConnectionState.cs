@@ -15,7 +15,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The auth scheme of the connected account. Must match the connection&apos;s actual auth scheme.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionState_authScheme? AuthScheme { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionStateAuthScheme? AuthScheme { get; set; }
         /// <summary>Credential fields to update. Only provided fields are changed — omitted fields are preserved. Set a field to null to remove it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "authScheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionState_authScheme>(); } },
+                { "authScheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionStateAuthScheme>(); } },
                 { "val", n => { Val = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionStateVal>(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionStateVal.CreateFromDiscriminatorValue); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionState_authScheme>("authScheme", AuthScheme);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionStateAuthScheme>("authScheme", AuthScheme);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionStateVal>("val", Val);
             writer.WriteAdditionalData(AdditionalData);
         }

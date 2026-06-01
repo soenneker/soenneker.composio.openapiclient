@@ -29,14 +29,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.Project
         }
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.org.owner.project.item collection</summary>
         /// <param name="position">Unique identifier (Nano ID) of the project to retrieve</param>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.Project.Item.WithNano_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.Project.Item.WithNano_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.Project.Item.WithNanoItemRequestBuilder"/></returns>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.Project.Item.WithNanoItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("nano_id", position);
-                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.Project.Item.WithNano_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("nanoId", position);
+                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.Project.Item.WithNanoItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -49,10 +49,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Schema definition of required input parameters for the tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_input_parameters? InputParameters { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolInputParametersProperty? InputParameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_input_parameters InputParameters { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolInputParametersProperty InputParameters { get; set; }
 #endif
         /// <summary>Indicates if this tool is deprecated and may be removed in the future</summary>
         public bool? IsDeprecated { get; set; }
@@ -69,18 +69,18 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Schema definition of return values from the tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_output_parameters? OutputParameters { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolOutputParametersProperty? OutputParameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_output_parameters OutputParameters { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolOutputParametersProperty OutputParameters { get; set; }
 #endif
         /// <summary>Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_scope_requirements? ScopeRequirements { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirements? ScopeRequirements { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.Tool_scope_requirements ScopeRequirements { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirements ScopeRequirements { get; set; }
 #endif
         /// <summary>List of scopes associated with the tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -151,12 +151,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolDeprecated>(global::Soenneker.Composio.OpenApiClient.Models.ToolDeprecated.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "human_description", n => { HumanDescription = n.GetStringValue(); } },
-                { "input_parameters", n => { InputParameters = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_input_parameters>(global::Soenneker.Composio.OpenApiClient.Models.Tool_input_parameters.CreateFromDiscriminatorValue); } },
+                { "input_parameters", n => { InputParameters = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolInputParametersProperty>(global::Soenneker.Composio.OpenApiClient.Models.ToolInputParametersProperty.CreateFromDiscriminatorValue); } },
                 { "is_deprecated", n => { IsDeprecated = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "no_auth", n => { NoAuth = n.GetBoolValue(); } },
-                { "output_parameters", n => { OutputParameters = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_output_parameters>(global::Soenneker.Composio.OpenApiClient.Models.Tool_output_parameters.CreateFromDiscriminatorValue); } },
-                { "scope_requirements", n => { ScopeRequirements = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_scope_requirements>(global::Soenneker.Composio.OpenApiClient.Models.Tool_scope_requirements.CreateFromDiscriminatorValue); } },
+                { "output_parameters", n => { OutputParameters = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolOutputParametersProperty>(global::Soenneker.Composio.OpenApiClient.Models.ToolOutputParametersProperty.CreateFromDiscriminatorValue); } },
+                { "scope_requirements", n => { ScopeRequirements = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirements>(global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirements.CreateFromDiscriminatorValue); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -175,12 +175,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolDeprecated>("deprecated", Deprecated);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("human_description", HumanDescription);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_input_parameters>("input_parameters", InputParameters);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolInputParametersProperty>("input_parameters", InputParameters);
             writer.WriteBoolValue("is_deprecated", IsDeprecated);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("no_auth", NoAuth);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_output_parameters>("output_parameters", OutputParameters);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.Tool_scope_requirements>("scope_requirements", ScopeRequirements);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolOutputParametersProperty>("output_parameters", OutputParameters);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirements>("scope_requirements", ScopeRequirements);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteStringValue("slug", Slug);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

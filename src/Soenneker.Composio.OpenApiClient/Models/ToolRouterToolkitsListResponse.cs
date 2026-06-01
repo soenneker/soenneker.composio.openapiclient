@@ -19,10 +19,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponse_items>? Items { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponseItemsItem>? Items { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponse_items> Items { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponseItemsItem> Items { get; set; }
 #endif
         /// <summary>The next_cursor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "current_page", n => { CurrentPage = n.GetDoubleValue(); } },
-                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponse_items>(global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponse_items.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponseItemsItem>(global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponseItemsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "next_cursor", n => { NextCursor = n.GetStringValue(); } },
                 { "total_items", n => { TotalItems = n.GetDoubleValue(); } },
                 { "total_pages", n => { TotalPages = n.GetDoubleValue(); } },
@@ -76,7 +76,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("current_page", CurrentPage);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponse_items>("items", Items);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponseItemsItem>("items", Items);
             writer.WriteStringValue("next_cursor", NextCursor);
             writer.WriteDoubleValue("total_items", TotalItems);
             writer.WriteDoubleValue("total_pages", TotalPages);

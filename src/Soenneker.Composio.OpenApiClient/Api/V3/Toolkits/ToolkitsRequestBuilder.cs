@@ -67,7 +67,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
         /// <summary>
         /// Retrieves a comprehensive list of toolkits of their latest versions that are available to the authenticated project. Toolkits represent integration points with external services and applications, each containing a collection of tools and triggers. This endpoint supports filtering by category and management type, as well as different sorting options.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -76,11 +76,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.ToolkitsRequestBuilder.ToolkitsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.ToolkitsRequestBuilder.ToolkitsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.ToolkitsRequestBuilder.ToolkitsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.ToolkitsRequestBuilder.ToolkitsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -91,7 +91,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a comprehensive list of toolkits of their latest versions that are available to the authenticated project. Toolkits represent integration points with external services and applications, each containing a collection of tools and triggers. This endpoint supports filtering by category and management type, as well as different sorting options.
@@ -155,7 +155,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
             public double? Limit { get; set; }
             /// <summary>Filter toolkits by who manages them</summary>
             [QueryParameter("managed_by")]
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.GetManaged_byQueryParameterType? ManagedBy { get; set; }
+            public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsManagedByParameter? ManagedBy { get; set; }
             /// <summary>Search query to filter toolkits by name, slug, or description</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -168,7 +168,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
 #endif
             /// <summary>Sort order for returned toolkits</summary>
             [QueryParameter("sort_by")]
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.GetSort_byQueryParameterType? SortBy { get; set; }
+            public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsSortByParameter? SortBy { get; set; }
         }
     }
 }

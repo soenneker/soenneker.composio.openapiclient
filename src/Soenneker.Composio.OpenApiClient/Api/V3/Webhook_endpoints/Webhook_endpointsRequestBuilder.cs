@@ -20,14 +20,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints
     {
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.webhook_endpoints.item collection</summary>
         /// <param name="position">Webhook endpoint nano ID (e.g., we_abc123)</param>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNanoItemRequestBuilder"/></returns>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNanoItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("nano_id", position);
-                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNano_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("nanoId", position);
+                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Item.WithNanoItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,18 +49,18 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints
         /// <summary>
         /// Lists webhook endpoints for the authenticated project, optionally filtered by toolkit.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Webhook_endpointsRequestBuilder.Webhook_endpointsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Webhook_endpointsRequestBuilder.Webhook_endpointsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Webhook_endpointsRequestBuilder.Webhook_endpointsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints.Webhook_endpointsRequestBuilder.Webhook_endpointsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -69,12 +69,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints
                 { "401", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetWebhookEndpoints200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a shared webhook endpoint for a toolkit + OAuth app + project. Returns the webhook URL that the customer registers in their app dashboard. Idempotent — returns existing endpoint if one already exists for this toolkit + client_id + project.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -84,11 +84,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200Response?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200Response> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -100,7 +100,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists webhook endpoints for the authenticated project, optionally filtered by toolkit.
@@ -129,11 +129,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_endpoints
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpoints body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostWebhookEndpointsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

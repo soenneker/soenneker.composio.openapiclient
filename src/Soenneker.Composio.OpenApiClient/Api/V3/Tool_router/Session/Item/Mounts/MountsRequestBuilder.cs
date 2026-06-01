@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mounts
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\v3\tool_router\session\{session_id}\mounts
+    /// Builds and executes requests for operations under \api\v3\tool_router\session\{sessionId}\mounts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MountsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.tool_router.session.item.mounts.item collection</summary>
         /// <param name="position">ID of the storage mount</param>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mounts.Item.WithMount_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mounts.Item.WithMount_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mounts.Item.WithMountItemRequestBuilder"/></returns>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mounts.Item.WithMountItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("mount_id", position);
-                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mounts.Item.WithMount_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("mountId", position);
+                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mounts.Item.WithMountItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mount
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tool_router/session/{session_id}/mounts", pathParameters)
+        public MountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tool_router/session/{sessionId}/mounts", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mount
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tool_router/session/{session_id}/mounts", rawUrl)
+        public MountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tool_router/session/{sessionId}/mounts", rawUrl)
         {
         }
     }

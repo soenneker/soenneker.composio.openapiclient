@@ -23,14 +23,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute
         }
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.tools.execute.item collection</summary>
         /// <param name="position">The tool slug to execute</param>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.WithTool_slugItemRequestBuilder"/></returns>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.WithTool_slugItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.WithToolSlugItemRequestBuilder"/></returns>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.WithToolSlugItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("tool_slug", position);
-                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.WithTool_slugItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("toolSlug", position);
+                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.WithToolSlugItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

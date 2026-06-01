@@ -32,14 +32,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
         }
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.tools.item collection</summary>
         /// <param name="position">The unique slug identifier of the tool</param>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item.WithTool_slugItemRequestBuilder"/></returns>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item.WithTool_slugItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item.WithToolSlugItemRequestBuilder"/></returns>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item.WithToolSlugItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("tool_slug", position);
-                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item.WithTool_slugItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("toolSlug", position);
+                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item.WithToolSlugItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -147,7 +147,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
 #endif
             /// <summary>Filter to only show important/featured tools (set to &quot;true&quot; to enable)</summary>
             [QueryParameter("important")]
-            public global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.GetImportantQueryParameterType? Important { get; set; }
+            public global::Soenneker.Composio.OpenApiClient.Models.GetToolsImportantParameter? Important { get; set; }
             /// <summary>Include deprecated tools in the response</summary>
             [QueryParameter("include_deprecated")]
             public bool? IncludeDeprecated { get; set; }
