@@ -2375,6 +2375,182 @@
         ]
       }
     },
+    "/api/v3/org/list": {
+      "get": {
+        "tags": [
+          "Organization Management"
+        ],
+        "summary": "List organizations",
+        "description": "Retrieves a list of organizations that the authenticated user has access to. This includes organizations where the user is a member with any role.",
+        "operationId": "GetOrgList",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page, max allowed is 50",
+            "schema": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Cursor for pagination. The cursor is a base64 encoded string of the page and limit. The page is the page number and the limit is the number of items per page. The cursor is used to paginate through the items. The cursor is not required for the first page.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved list of organizations with pagination.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOrgList200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. This may occur if there are invalid query parameters or the request is malformed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Authentication is required or the provided credentials are invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found. The user or organization was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error. An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "UserApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v3/org/project/list": {
+      "get": {
+        "tags": [
+          "Projects",
+          "Organization Management"
+        ],
+        "summary": "List all projects",
+        "description": "Retrieves projects belonging to the authenticated organization by default, or all organizations the authenticated user belongs to when list_all_org_projects is true. Projects are returned in descending order of creation date (newest first). This endpoint is useful for displaying project selection in dashboards or for integrations that need to list all available projects.",
+        "operationId": "GetOrgProjectList",
+        "parameters": [
+          {
+            "name": "list_all_org_projects",
+            "in": "query",
+            "description": "List projects from all organizations the authenticated user belongs to",
+            "schema": {
+              "type": "boolean",
+              "description": "List projects from all organizations the authenticated user belongs to",
+              "default": false,
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page, max allowed is 50",
+            "schema": {
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Cursor for pagination. The cursor is a base64 encoded string of the page and limit. The page is the page number and the limit is the number of items per page. The cursor is used to paginate through the items. The cursor is not required for the first page.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Projects retrieved successfully with pagination. Returns an array of project objects with their complete details and pagination info.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOrgProjectList200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. This may occur if there are invalid query parameters or the request is malformed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Authentication is required or the provided credentials are invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error. An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "UserApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/api/v3/org/owner/project/new": {
       "post": {
         "tags": [
@@ -11712,6 +11888,66 @@
           }
         }
       },
+      "GetOrgList200Response": {
+        "required": [
+          "organizations",
+          "total_pages",
+          "current_page",
+          "total_items"
+        ],
+        "type": "object",
+        "properties": {
+          "organizations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetOrgList200ResponseOrganizationsItem"
+            }
+          },
+          "next_cursor": {
+            "type": "string",
+            "nullable": true
+          },
+          "total_pages": {
+            "type": "number"
+          },
+          "current_page": {
+            "type": "number"
+          },
+          "total_items": {
+            "type": "number"
+          }
+        }
+      },
+      "GetOrgProjectList200Response": {
+        "required": [
+          "data",
+          "total_pages",
+          "current_page",
+          "total_items"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetOrgProjectList200ResponseDataItem"
+            }
+          },
+          "next_cursor": {
+            "type": "string",
+            "nullable": true
+          },
+          "total_pages": {
+            "type": "number"
+          },
+          "current_page": {
+            "type": "number"
+          },
+          "total_items": {
+            "type": "number"
+          }
+        }
+      },
       "PostOrgOwnerProjectNewRequest": {
         "required": [
           "name"
@@ -16631,6 +16867,136 @@
         "type": "object",
         "additionalProperties": {
           "nullable": true
+        }
+      },
+      "GetOrgList200ResponseOrganizationsItem": {
+        "required": [
+          "id",
+          "name",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the organization",
+            "format": "orgId"
+          },
+          "name": {
+            "maxLength": 32,
+            "minLength": 3,
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_]*[a-zA-Z0-9]$",
+            "type": "string",
+            "description": "Name of the organization"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the organization was created"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "When the organization was last updated"
+          }
+        }
+      },
+      "GetOrgProjectList200ResponseDataItem": {
+        "required": [
+          "id",
+          "org_id",
+          "name",
+          "email",
+          "created_at",
+          "updated_at",
+          "webhook_url",
+          "event_webhook_url",
+          "webhook_secret",
+          "webhook_version",
+          "deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the project",
+            "format": "projectId",
+            "example": "pr_1a2b3c4d5e6f"
+          },
+          "org_id": {
+            "type": "string",
+            "description": "Identifier of the organization that owns this project",
+            "format": "orgId",
+            "example": "ok_1a2b3c4d5e6f"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the project",
+            "example": "My Awesome Project"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address associated with the project",
+            "example": "project-123@composio.dev"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO timestamp when the project was created",
+            "example": "2023-05-16T14:30:00.000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO timestamp when the project was last updated",
+            "example": "2023-05-18T09:15:30.000Z"
+          },
+          "webhook_url": {
+            "type": "string",
+            "description": "\u0022DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook URL.\u0022",
+            "format": "uri",
+            "nullable": true,
+            "example": "https://example.com/webhook",
+            "deprecated": true
+          },
+          "event_webhook_url": {
+            "type": "string",
+            "description": "\u0022DEPRECATED: No longer used.\u0022",
+            "format": "uri",
+            "nullable": true,
+            "example": "https://example.com/events",
+            "deprecated": true
+          },
+          "webhook_secret": {
+            "type": "string",
+            "description": "\u0022DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook secret.\u0022",
+            "nullable": true,
+            "example": "whsec_abcdef123456789",
+            "deprecated": true
+          },
+          "triggers_enabled": {
+            "type": "boolean",
+            "description": "Whether triggers are enabled for this project",
+            "example": true
+          },
+          "last_subscribed_at": {
+            "type": "string",
+            "description": "ISO timestamp when the project last subscribed to updates",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2023-05-17T10:00:00.000Z"
+          },
+          "is_new_webhook": {
+            "type": "boolean",
+            "description": "\u0022Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)\u0022",
+            "example": true,
+            "deprecated": true
+          },
+          "webhook_version": {
+            "$ref": "#/components/schemas/GetOrgProjectList200ResponseDataItemWebhookVersion"
+          },
+          "deleted": {
+            "type": "boolean",
+            "description": "Whether this project has been soft-deleted",
+            "example": false
+          }
         }
       },
       "PostOrgOwnerProjectNewRequestConfig": {
@@ -25363,6 +25729,17 @@
             }
           ]
         }
+      },
+      "GetOrgProjectList200ResponseDataItemWebhookVersion": {
+        "enum": [
+          "V1",
+          "V2",
+          "V3"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Payload format version for Pusher real-time events only. For webhook configuration, use GET /api/v3/webhook_subscriptions.",
+        "example": "V2"
       },
       "PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting": {
         "enum": [

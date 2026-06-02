@@ -3,7 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Composio.OpenApiClient.Api.V3.Org.Consumer;
+using Soenneker.Composio.OpenApiClient.Api.V3.Org.List;
 using Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner;
+using Soenneker.Composio.OpenApiClient.Api.V3.Org.Project;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -21,10 +23,20 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Org
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Consumer.ConsumerRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The list property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Org.List.ListRequestBuilder List
+        {
+            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Org.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The owner property</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.OwnerRequestBuilder Owner
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.OwnerRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The project property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Project.ProjectRequestBuilder Project
+        {
+            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Org.Project.ProjectRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Org.OrgRequestBuilder"/> and sets the default values.
