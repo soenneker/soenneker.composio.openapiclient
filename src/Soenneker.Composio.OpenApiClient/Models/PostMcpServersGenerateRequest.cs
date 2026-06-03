@@ -47,6 +47,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public PostMcpServersGenerateRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            ManagedAuthByComposio = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

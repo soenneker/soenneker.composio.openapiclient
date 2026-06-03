@@ -28,6 +28,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>When true, the COMPOSIO_WAIT_FOR_CONNECTIONS tool is available for agents to poll connection status after sharing auth URLs. Default is false (disabled). May not work reliably with GPT models.</summary>
         public bool? EnableWaitForConnections { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections"/> and sets the default values.
+        /// </summary>
+        public PostToolRouterSessionRequestManageConnections()
+        {
+            Enable = true;
+            EnableConnectionRemoval = true;
+            EnableWaitForConnections = false;
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections"/></returns>

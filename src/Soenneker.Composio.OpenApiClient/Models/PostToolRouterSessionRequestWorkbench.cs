@@ -26,6 +26,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// </summary>
         public PostToolRouterSessionRequestWorkbench()
         {
+            Enable = true;
+            EnableProxyExecution = true;
             SandboxSize = global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbenchSandboxSize.Standard;
         }
         /// <summary>

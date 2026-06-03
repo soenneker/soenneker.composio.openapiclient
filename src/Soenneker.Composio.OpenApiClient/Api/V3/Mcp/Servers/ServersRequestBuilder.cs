@@ -47,7 +47,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ServersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/mcp/servers{?auth_config_ids*,limit*,name*,order_by*,order_direction*,page_no*,toolkits*}", pathParameters)
+        public ServersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ServersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/mcp/servers{?auth_config_ids*,limit*,name*,order_by*,order_direction*,page_no*,toolkits*}", rawUrl)
+        public ServersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
         {
         }
         /// <summary>

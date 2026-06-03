@@ -81,6 +81,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public PostConnectedAccountsRequestConnection()
         {
             AdditionalData = new Dictionary<string, object>();
+            DeprecatedIsV1Rerouted = false;
             UserId = "default";
         }
         /// <summary>

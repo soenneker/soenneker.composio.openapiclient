@@ -35,6 +35,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public PatchToolRouterSessionBySessionId200ResponseConfigManageConnections()
         {
             AdditionalData = new Dictionary<string, object>();
+            EnableConnectionRemoval = true;
+            Enabled = true;
+            EnableWaitForConnections = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

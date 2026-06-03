@@ -35,7 +35,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Auth_configsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/auth_configs{?cursor*,deprecated_app_id*,deprecated_status*,is_composio_managed*,limit*,search*,show_disabled*,toolkit_slug*}", pathParameters)
+        public Auth_configsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Auth_configsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/auth_configs{?cursor*,deprecated_app_id*,deprecated_status*,is_composio_managed*,limit*,search*,show_disabled*,toolkit_slug*}", rawUrl)
+        public Auth_configsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
         {
         }
         /// <summary>

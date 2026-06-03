@@ -74,6 +74,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public PostInternalTriggerLogsRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            IncludePayload = true;
+            Limit = 20;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

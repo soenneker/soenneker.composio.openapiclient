@@ -41,7 +41,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Connected_accountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts{?account_type*,auth_config_ids*,connected_account_ids*,cursor*,limit*,order_by*,order_direction*,statuses*,toolkit_slugs*,user_ids*}", pathParameters)
+        public Connected_accountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Connected_accountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts{?account_type*,auth_config_ids*,connected_account_ids*,cursor*,limit*,order_by*,order_direction*,statuses*,toolkit_slugs*,user_ids*}", rawUrl)
+        public Connected_accountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
         {
         }
         /// <summary>
