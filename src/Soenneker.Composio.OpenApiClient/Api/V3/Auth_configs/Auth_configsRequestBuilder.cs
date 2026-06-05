@@ -35,7 +35,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Auth_configsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+        public Auth_configsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/auth_configs{?cursor*,deprecated_app_id*,deprecated_status*,is_composio_managed*,limit*,search*,show_disabled*,toolkit_slug*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Auth_configsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+        public Auth_configsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/auth_configs{?cursor*,deprecated_app_id*,deprecated_status*,is_composio_managed*,limit*,search*,show_disabled*,toolkit_slug*}", rawUrl)
         {
         }
         /// <summary>
@@ -120,7 +120,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Auth_configsRequestBuilder.Auth_configsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/v3/auth_configs{?cursor*,deprecated_app_id*,deprecated_status*,is_composio_managed*,limit*,search*,show_disabled*,toolkit_slug*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -141,7 +141,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/api/v3/auth_configs", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

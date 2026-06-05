@@ -35,7 +35,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InstancesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+        public InstancesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/mcp/servers/{serverId}/instances{?limit*,order_by*,order_direction*,page_no*,search*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InstancesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+        public InstancesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/mcp/servers/{serverId}/instances{?limit*,order_by*,order_direction*,page_no*,search*}", rawUrl)
         {
         }
         /// <summary>
@@ -124,7 +124,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.InstancesRequestBuilder.InstancesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api/v3/mcp/servers/{serverId}/instances{?limit*,order_by*,order_direction*,page_no*,search*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -145,7 +145,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/api/v3/mcp/servers/{serverId}/instances", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
