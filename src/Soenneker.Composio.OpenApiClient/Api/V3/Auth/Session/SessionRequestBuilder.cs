@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info;
-using Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Logout;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -20,11 +19,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoRequestBuilder Info
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Info.InfoRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The logout property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Logout.LogoutRequestBuilder Logout
-        {
-            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.Logout.LogoutRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth.Session.SessionRequestBuilder"/> and sets the default values.

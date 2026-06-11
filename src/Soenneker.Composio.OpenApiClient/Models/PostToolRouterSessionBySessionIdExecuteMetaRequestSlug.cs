@@ -35,13 +35,5 @@ namespace Soenneker.Composio.OpenApiClient.Models
         #pragma warning disable CS1591
         ComposioGetToolSchemas,
         #pragma warning restore CS1591
-        [EnumMember(Value = "COMPOSIO_UPSERT_RECIPE")]
-        #pragma warning disable CS1591
-        ComposioUpsertRecipe,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "COMPOSIO_GET_RECIPE")]
-        #pragma warning disable CS1591
-        ComposioGetRecipe,
-        #pragma warning restore CS1591
     }
 }

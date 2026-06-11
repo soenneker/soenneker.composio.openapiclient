@@ -133,6 +133,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The type of the authentication configuration (custom or default)</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseType? Type { get; set; }
         /// <summary>The UUID of the authentication configuration (for backward compatibility)</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Uuid { get; set; }

@@ -83,6 +83,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseParams Params { get; set; }
 #endif
+        /// <summary>OAuth scopes requested when this connection was most recently initiated (create or refresh). Absent for connections created before scope snapshots were captured and for non-OAuth auth schemes.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RequestedScopes { get; set; }
+#nullable restore
+#else
+        public List<string> RequestedScopes { get; set; }
+#endif
+        /// <summary>OAuth user-token scopes requested at the most recent initiation. Only meaningful for Slackbot auth configs (user-token scopes); absent otherwise.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RequestedUserScopes { get; set; }
+#nullable restore
+#else
+        public List<string> RequestedUserScopes { get; set; }
+#endif
         /// <summary>The state of the connection</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -176,6 +192,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_disabled", n => { IsDisabled = n.GetBoolValue(); } },
                 { "params", n => { Params = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseParams>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseParams.CreateFromDiscriminatorValue); } },
+                { "requested_scopes", n => { RequestedScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "requested_user_scopes", n => { RequestedUserScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "state", n => { State = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseState>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseState.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStatus>(); } },
                 { "status_reason", n => { StatusReason = n.GetStringValue(); } },
@@ -202,6 +220,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_disabled", IsDisabled);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseParams>("params", Params);
+            writer.WriteCollectionOfPrimitiveValues<string>("requested_scopes", RequestedScopes);
+            writer.WriteCollectionOfPrimitiveValues<string>("requested_user_scopes", RequestedUserScopes);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseState>("state", State);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStatus>("status", Status);
             writer.WriteStringValue("status_reason", StatusReason);

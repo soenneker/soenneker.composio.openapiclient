@@ -11,26 +11,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// Credential fields to update. Only provided fields are changed — omitted fields are preserved. Set a field to null to remove it.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PatchConnectedAccountBodyConnectionStateVal : IAdditionalDataHolder, IParsable
+    public partial class PatchConnectedAccountBodyConnectionStateVal : IParsable
     {
-        /// <summary>The account_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AccountId { get; set; }
-#nullable restore
-#else
-        public string AccountId { get; set; }
-#endif
-        /// <summary>The account_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AccountUrl { get; set; }
-#nullable restore
-#else
-        public string AccountUrl { get; set; }
-#endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,13 +21,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string ApiKey { get; set; }
 #endif
-        /// <summary>The api_url property</summary>
+        /// <summary>The api_key_prefix property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiUrl { get; set; }
+        public string? ApiKeyPrefix { get; set; }
 #nullable restore
 #else
-        public string ApiUrl { get; set; }
+        public string ApiKeyPrefix { get; set; }
 #endif
         /// <summary>The application_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,14 +36,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public string ApplicationId { get; set; }
-#endif
-        /// <summary>The base_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BaseUrl { get; set; }
-#nullable restore
-#else
-        public string BaseUrl { get; set; }
 #endif
         /// <summary>The basic_encoded property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,22 +53,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string BearerToken { get; set; }
 #endif
-        /// <summary>The borneo_dashboard_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BorneoDashboardUrl { get; set; }
-#nullable restore
-#else
-        public string BorneoDashboardUrl { get; set; }
-#endif
-        /// <summary>The COMPANYDOMAIN property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? COMPANYDOMAIN { get; set; }
-#nullable restore
-#else
-        public string COMPANYDOMAIN { get; set; }
-#endif
         /// <summary>The credentials_json property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -102,38 +60,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public string CredentialsJson { get; set; }
-#endif
-        /// <summary>The dc property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Dc { get; set; }
-#nullable restore
-#else
-        public string Dc { get; set; }
-#endif
-        /// <summary>The domain property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Domain { get; set; }
-#nullable restore
-#else
-        public string Domain { get; set; }
-#endif
-        /// <summary>The extension property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Extension { get; set; }
-#nullable restore
-#else
-        public string Extension { get; set; }
-#endif
-        /// <summary>The form_api_base_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? FormApiBaseUrl { get; set; }
-#nullable restore
-#else
-        public string FormApiBaseUrl { get; set; }
 #endif
         /// <summary>The generic_api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -143,6 +69,30 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string GenericApiKey { get; set; }
 #endif
+        /// <summary>The generic_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GenericId { get; set; }
+#nullable restore
+#else
+        public string GenericId { get; set; }
+#endif
+        /// <summary>The generic_secret property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GenericSecret { get; set; }
+#nullable restore
+#else
+        public string GenericSecret { get; set; }
+#endif
+        /// <summary>The generic_token property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GenericToken { get; set; }
+#nullable restore
+#else
+        public string GenericToken { get; set; }
+#endif
         /// <summary>The installation_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -150,22 +100,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public string InstallationId { get; set; }
-#endif
-        /// <summary>The instanceEndpoint property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? InstanceEndpoint { get; set; }
-#nullable restore
-#else
-        public string InstanceEndpoint { get; set; }
-#endif
-        /// <summary>The instanceName property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? InstanceName { get; set; }
-#nullable restore
-#else
-        public string InstanceName { get; set; }
 #endif
         /// <summary>The password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -183,62 +117,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string PrivateKey { get; set; }
 #endif
-        /// <summary>The proxy_password property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProxyPassword { get; set; }
-#nullable restore
-#else
-        public string ProxyPassword { get; set; }
-#endif
-        /// <summary>The proxy_username property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProxyUsername { get; set; }
-#nullable restore
-#else
-        public string ProxyUsername { get; set; }
-#endif
-        /// <summary>The region property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Region { get; set; }
-#nullable restore
-#else
-        public string Region { get; set; }
-#endif
-        /// <summary>The server_location property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ServerLocation { get; set; }
-#nullable restore
-#else
-        public string ServerLocation { get; set; }
-#endif
-        /// <summary>The shop property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Shop { get; set; }
-#nullable restore
-#else
-        public string Shop { get; set; }
-#endif
-        /// <summary>The site_name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SiteName { get; set; }
-#nullable restore
-#else
-        public string SiteName { get; set; }
-#endif
-        /// <summary>The subdomain property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Subdomain { get; set; }
-#nullable restore
-#else
-        public string Subdomain { get; set; }
-#endif
         /// <summary>The token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -246,6 +124,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public string Token { get; set; }
+#endif
+        /// <summary>The user_agent property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserAgent { get; set; }
+#nullable restore
+#else
+        public string UserAgent { get; set; }
 #endif
         /// <summary>The username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -255,37 +141,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Username { get; set; }
 #endif
-        /// <summary>The version property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Version { get; set; }
-#nullable restore
-#else
-        public string Version { get; set; }
-#endif
-        /// <summary>The yourDomain property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? YourDomain { get; set; }
-#nullable restore
-#else
-        public string YourDomain { get; set; }
-#endif
-        /// <summary>The your_server property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? YourServer { get; set; }
-#nullable restore
-#else
-        public string YourServer { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyConnectionStateVal"/> and sets the default values.
-        /// </summary>
-        public PatchConnectedAccountBodyConnectionStateVal()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -304,39 +159,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account_id", n => { AccountId = n.GetStringValue(); } },
-                { "account_url", n => { AccountUrl = n.GetStringValue(); } },
                 { "api_key", n => { ApiKey = n.GetStringValue(); } },
-                { "api_url", n => { ApiUrl = n.GetStringValue(); } },
+                { "api_key_prefix", n => { ApiKeyPrefix = n.GetStringValue(); } },
                 { "application_id", n => { ApplicationId = n.GetStringValue(); } },
-                { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "basic_encoded", n => { BasicEncoded = n.GetStringValue(); } },
                 { "bearer_token", n => { BearerToken = n.GetStringValue(); } },
-                { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
-                { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
                 { "credentials_json", n => { CredentialsJson = n.GetStringValue(); } },
-                { "dc", n => { Dc = n.GetStringValue(); } },
-                { "domain", n => { Domain = n.GetStringValue(); } },
-                { "extension", n => { Extension = n.GetStringValue(); } },
-                { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
                 { "generic_api_key", n => { GenericApiKey = n.GetStringValue(); } },
+                { "generic_id", n => { GenericId = n.GetStringValue(); } },
+                { "generic_secret", n => { GenericSecret = n.GetStringValue(); } },
+                { "generic_token", n => { GenericToken = n.GetStringValue(); } },
                 { "installation_id", n => { InstallationId = n.GetStringValue(); } },
-                { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
-                { "instanceName", n => { InstanceName = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "private_key", n => { PrivateKey = n.GetStringValue(); } },
-                { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
-                { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetStringValue(); } },
-                { "server_location", n => { ServerLocation = n.GetStringValue(); } },
-                { "shop", n => { Shop = n.GetStringValue(); } },
-                { "site_name", n => { SiteName = n.GetStringValue(); } },
-                { "subdomain", n => { Subdomain = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
+                { "user_agent", n => { UserAgent = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
-                { "version", n => { Version = n.GetStringValue(); } },
-                { "your-domain", n => { YourDomain = n.GetStringValue(); } },
-                { "your_server", n => { YourServer = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -346,40 +184,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("account_id", AccountId);
-            writer.WriteStringValue("account_url", AccountUrl);
             writer.WriteStringValue("api_key", ApiKey);
-            writer.WriteStringValue("api_url", ApiUrl);
+            writer.WriteStringValue("api_key_prefix", ApiKeyPrefix);
             writer.WriteStringValue("application_id", ApplicationId);
-            writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("basic_encoded", BasicEncoded);
             writer.WriteStringValue("bearer_token", BearerToken);
-            writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
-            writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("credentials_json", CredentialsJson);
-            writer.WriteStringValue("dc", Dc);
-            writer.WriteStringValue("domain", Domain);
-            writer.WriteStringValue("extension", Extension);
-            writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
             writer.WriteStringValue("generic_api_key", GenericApiKey);
+            writer.WriteStringValue("generic_id", GenericId);
+            writer.WriteStringValue("generic_secret", GenericSecret);
+            writer.WriteStringValue("generic_token", GenericToken);
             writer.WriteStringValue("installation_id", InstallationId);
-            writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
-            writer.WriteStringValue("instanceName", InstanceName);
             writer.WriteStringValue("password", Password);
             writer.WriteStringValue("private_key", PrivateKey);
-            writer.WriteStringValue("proxy_password", ProxyPassword);
-            writer.WriteStringValue("proxy_username", ProxyUsername);
-            writer.WriteStringValue("region", Region);
-            writer.WriteStringValue("server_location", ServerLocation);
-            writer.WriteStringValue("shop", Shop);
-            writer.WriteStringValue("site_name", SiteName);
-            writer.WriteStringValue("subdomain", Subdomain);
             writer.WriteStringValue("token", Token);
+            writer.WriteStringValue("user_agent", UserAgent);
             writer.WriteStringValue("username", Username);
-            writer.WriteStringValue("version", Version);
-            writer.WriteStringValue("your-domain", YourDomain);
-            writer.WriteStringValue("your_server", YourServer);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

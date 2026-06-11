@@ -106,61 +106,6 @@
         ]
       }
     },
-    "/api/v3/auth/session/logout": {
-      "post": {
-        "tags": [
-          "Authentication",
-          "Session",
-          "x-internal"
-        ],
-        "summary": "End user session and clear authentication",
-        "description": "Terminates the current user session by invalidating authentication cookies and tokens. This effectively signs the user out of the application. After logout, the user will need to authenticate again to access protected resources.",
-        "operationId": "PostAuthSessionLogout",
-        "responses": {
-          "201": {
-            "description": "Logout operation completed successfully. The session has been terminated and authentication cookies have been invalidated.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PostAuthSessionLogout201Response"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized. The request requires valid authentication which was not provided.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PostAuthSessionLogout401Response"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error. An unexpected error occurred while processing the logout request.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PostAuthSessionLogout500Response"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "CookieAuth": []
-          },
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          }
-        ]
-      }
-    },
     "/api/v3/auth_configs": {
       "post": {
         "tags": [
@@ -8052,119 +7997,6 @@
         ]
       }
     },
-    "/api/v3/migration/get-nanoid": {
-      "get": {
-        "tags": [
-          "Migration",
-          "UUID Conversion"
-        ],
-        "summary": "Get NanoId from UUID",
-        "description": "Convert a legacy UUID to its corresponding NanoId for migration purposes. This endpoint facilitates the transition from UUID-based identifiers to the more compact NanoId format used in the v3 API.",
-        "operationId": "GetMigrationGetNanoid",
-        "parameters": [
-          {
-            "name": "uuid",
-            "in": "query",
-            "description": "The legacy UUID that needs to be converted to a NanoId",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid",
-              "example": "123e4567-e89b-12d3-a456-426614174000"
-            }
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "description": "The type of resource that the UUID belongs to",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/GetMigrationGetNanoidTypeParameter"
-            }
-          },
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Your Composio API key used for authentication",
-              "example": "ak_a1b2c3d4e5f6g7h8i9j0"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved NanoId for the given UUID",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetMigrationGetNanoid200Response"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - Invalid UUID or resource not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized - Invalid or missing API key",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found - The UUID does not correspond to any resource of the specified type",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "410": {
-            "description": "Gone - The UUID does not correspond to any resource of the specified type",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error - An unexpected error occurred during processing",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          }
-        ]
-      }
-    },
     "/api/v3/tool_router/session": {
       "post": {
         "tags": [
@@ -10688,94 +10520,6 @@
       "PatchConnectedAccountBodyConnectionStateVal": {
         "type": "object",
         "properties": {
-          "subdomain": {
-            "type": "string",
-            "nullable": true
-          },
-          "your-domain": {
-            "type": "string",
-            "nullable": true
-          },
-          "region": {
-            "type": "string",
-            "nullable": true
-          },
-          "shop": {
-            "type": "string",
-            "nullable": true
-          },
-          "account_url": {
-            "type": "string",
-            "nullable": true
-          },
-          "COMPANYDOMAIN": {
-            "type": "string",
-            "nullable": true
-          },
-          "extension": {
-            "type": "string",
-            "nullable": true
-          },
-          "form_api_base_url": {
-            "type": "string",
-            "nullable": true
-          },
-          "instanceEndpoint": {
-            "type": "string",
-            "nullable": true
-          },
-          "api_url": {
-            "type": "string",
-            "nullable": true
-          },
-          "borneo_dashboard_url": {
-            "type": "string",
-            "nullable": true
-          },
-          "proxy_username": {
-            "type": "string",
-            "nullable": true
-          },
-          "proxy_password": {
-            "type": "string",
-            "nullable": true
-          },
-          "domain": {
-            "type": "string",
-            "nullable": true
-          },
-          "version": {
-            "type": "string",
-            "nullable": true
-          },
-          "dc": {
-            "type": "string",
-            "nullable": true
-          },
-          "site_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "instanceName": {
-            "type": "string",
-            "nullable": true
-          },
-          "account_id": {
-            "type": "string",
-            "nullable": true
-          },
-          "your_server": {
-            "type": "string",
-            "nullable": true
-          },
-          "server_location": {
-            "type": "string",
-            "nullable": true
-          },
-          "base_url": {
-            "type": "string",
-            "nullable": true
-          },
           "token": {
             "type": "string",
             "nullable": true
@@ -10793,6 +10537,26 @@
             "nullable": true
           },
           "basic_encoded": {
+            "type": "string",
+            "nullable": true
+          },
+          "generic_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "api_key_prefix": {
+            "type": "string",
+            "nullable": true
+          },
+          "generic_secret": {
+            "type": "string",
+            "nullable": true
+          },
+          "generic_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_agent": {
             "type": "string",
             "nullable": true
           },
@@ -10821,9 +10585,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": {
-          "nullable": true
-        },
+        "additionalProperties": false,
         "description": "Credential fields to update. Only provided fields are changed \u2014 omitted fields are preserved. Set a field to null to remove it."
       },
       "ToolRouterToolkitsListResponseItemsItemConnectedAccountAuthConfig": {
@@ -10868,55 +10630,6 @@
           }
         },
         "description": "Response containing user session information"
-      },
-      "PostAuthSessionLogout201Response": {
-        "required": [
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "Human-readable result message of the logout operation",
-            "example": "Logout successful"
-          }
-        }
-      },
-      "PostAuthSessionLogout401Response": {
-        "required": [
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "Human-readable description of the error that occurred",
-            "example": "Authentication required"
-          },
-          "code": {
-            "type": "string",
-            "description": "Optional machine-readable error code for programmatic handling",
-            "example": "AUTH_REQUIRED"
-          }
-        }
-      },
-      "PostAuthSessionLogout500Response": {
-        "required": [
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "Human-readable description of the error that occurred",
-            "example": "Authentication required"
-          },
-          "code": {
-            "type": "string",
-            "description": "Optional machine-readable error code for programmatic handling",
-            "example": "AUTH_REQUIRED"
-          }
-        }
       },
       "PostAuthConfigsRequest": {
         "required": [
@@ -10997,7 +10710,8 @@
           },
           "uuid": {
             "type": "string",
-            "description": "The UUID of the authentication configuration (for backward compatibility)"
+            "description": "The UUID of the authentication configuration (for backward compatibility)",
+            "deprecated": true
           },
           "type": {
             "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseType"
@@ -11354,8 +11068,7 @@
           "connectionData",
           "status",
           "redirect_url",
-          "redirect_uri",
-          "deprecated"
+          "redirect_uri"
         ],
         "type": "object",
         "properties": {
@@ -11473,6 +11186,20 @@
           },
           "params": {
             "$ref": "#/components/schemas/GetConnectedAccountsByNanoid200ResponseParams"
+          },
+          "requested_scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "OAuth scopes requested when this connection was most recently initiated (create or refresh). Absent for connections created before scope snapshots were captured and for non-OAuth auth schemes."
+          },
+          "requested_user_scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "OAuth user-token scopes requested at the most recent initiation. Only meaningful for Slackbot auth configs (user-token scopes); absent otherwise."
           }
         }
       },
@@ -13147,8 +12874,7 @@
       },
       "PostTriggerInstancesBySlugUpsert200Response": {
         "required": [
-          "trigger_id",
-          "deprecated"
+          "trigger_id"
         ],
         "type": "object",
         "properties": {
@@ -13163,8 +12889,7 @@
       },
       "PostTriggerInstancesBySlugUpsert201Response": {
         "required": [
-          "trigger_id",
-          "deprecated"
+          "trigger_id"
         ],
         "type": "object",
         "properties": {
@@ -14121,21 +13846,6 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/PostFilesUploadRequest200ResponseMetadata"
-          }
-        }
-      },
-      "GetMigrationGetNanoid200Response": {
-        "required": [
-          "nanoid"
-        ],
-        "type": "object",
-        "properties": {
-          "nanoid": {
-            "maxLength": 10,
-            "minLength": 10,
-            "type": "string",
-            "description": "The NanoId corresponding to the provided UUID. This is the new identifier that should be used in place of the legacy UUID.",
-            "example": "XqXrPalt3v"
           }
         }
       },
@@ -15771,7 +15481,8 @@
           },
           "uuid": {
             "type": "string",
-            "description": "The UUID of the authentication configuration (for backward compatibility)"
+            "description": "The UUID of the authentication configuration (for backward compatibility)",
+            "deprecated": true
           },
           "type": {
             "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemType"
@@ -24462,9 +24173,7 @@
           "COMPOSIO_WAIT_FOR_CONNECTIONS",
           "COMPOSIO_REMOTE_WORKBENCH",
           "COMPOSIO_REMOTE_BASH_TOOL",
-          "COMPOSIO_GET_TOOL_SCHEMAS",
-          "COMPOSIO_UPSERT_RECIPE",
-          "COMPOSIO_GET_RECIPE"
+          "COMPOSIO_GET_TOOL_SCHEMAS"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -24501,14 +24210,6 @@
             {
               "value": "COMPOSIO_GET_TOOL_SCHEMAS",
               "name": "ComposioGetToolSchemas"
-            },
-            {
-              "value": "COMPOSIO_UPSERT_RECIPE",
-              "name": "ComposioUpsertRecipe"
-            },
-            {
-              "value": "COMPOSIO_GET_RECIPE",
-              "name": "ComposioGetRecipe"
             }
           ]
         }
@@ -27951,34 +27652,6 @@
             }
           ]
         }
-      },
-      "GetMigrationGetNanoidTypeParameter": {
-        "enum": [
-          "CONNECTED_ACCOUNT",
-          "AUTH_CONFIG",
-          "TRIGGER_INSTANCE"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "example": "CONNECTED_ACCOUNT",
-        "x-ms-enum": {
-          "name": "GetMigrationGetNanoidTypeParameter",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "CONNECTED_ACCOUNT",
-              "name": "ConnectedAccount"
-            },
-            {
-              "value": "AUTH_CONFIG",
-              "name": "AuthConfig"
-            },
-            {
-              "value": "TRIGGER_INSTANCE",
-              "name": "TriggerInstance"
-            }
-          ]
-        }
       }
     },
     "securitySchemes": {
@@ -28072,10 +27745,6 @@
       "description": "Tool execution endpoints"
     },
     {
-      "name": "Recipes",
-      "description": "Recipe management and execution. Recipes are reusable code modules that combine multiple tools."
-    },
-    {
       "name": "Triggers",
       "description": "Trigger management and execution"
     },
@@ -28096,20 +27765,12 @@
       "description": "MCP server management"
     },
     {
-      "name": "Migration",
-      "description": "Endpoints to help with migration from v1 to v3"
-    },
-    {
       "name": "MCP Partner",
       "description": "MCP partner management"
     },
     {
       "name": "Profiling",
       "description": "Profiling endpoints"
-    },
-    {
-      "name": "Recipe",
-      "description": "Recipe endpoints"
     },
     {
       "name": "Tool Router",

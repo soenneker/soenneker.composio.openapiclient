@@ -9,7 +9,6 @@ using Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts;
 using Soenneker.Composio.OpenApiClient.Api.V3.Files;
 using Soenneker.Composio.OpenApiClient.Api.V3.Internal;
 using Soenneker.Composio.OpenApiClient.Api.V3.Mcp;
-using Soenneker.Composio.OpenApiClient.Api.V3.Migration;
 using Soenneker.Composio.OpenApiClient.Api.V3.Org;
 using Soenneker.Composio.OpenApiClient.Api.V3.Tool_router;
 using Soenneker.Composio.OpenApiClient.Api.V3.Toolkits;
@@ -64,11 +63,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.McpRequestBuilder Mcp
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.McpRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The migration property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Migration.MigrationRequestBuilder Migration
-        {
-            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Migration.MigrationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The org property</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Org.OrgRequestBuilder Org
