@@ -56,6 +56,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig TriggerConfig { get; set; }
 #endif
+        /// <summary>The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; set; }
+#nullable restore
+#else
+        public string UserId { get; set; }
+#endif
         /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use toolkit_versions instead.&quot;</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,6 +102,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "connectedAuthId", n => { ConnectedAuthId = n.GetStringValue(); } },
                 { "toolkit_versions", n => { ToolkitVersions = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions.CreateFromDiscriminatorValue); } },
                 { "triggerConfig", n => { TriggerConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig.CreateFromDiscriminatorValue); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
                 { "trigger_config", n => { Trigger_config = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty.CreateFromDiscriminatorValue); } },
             };
@@ -110,6 +119,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions>("toolkit_versions", ToolkitVersions);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty>("trigger_config", Trigger_config);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig>("triggerConfig", TriggerConfig);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }

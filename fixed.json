@@ -99,9 +99,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -181,9 +178,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -335,9 +329,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -421,9 +412,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -531,9 +519,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -542,7 +527,7 @@
           "Auth Configs"
         ],
         "summary": "Delete an authentication configuration",
-        "description": "Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone.",
+        "description": "Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the upstream credentials of every connection using this auth config via a background job.",
         "operationId": "DeleteAuthConfigsByNanoid",
         "parameters": [
           {
@@ -555,6 +540,17 @@
               "description": "The unique identifier of the authentication configuration to delete",
               "format": "authConfigId"
             }
+          },
+          {
+            "name": "revoke_on_delete",
+            "in": "query",
+            "description": "When \u0060true\u0060, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a \u0060revoke_job_id\u0060. Defaults to \u0060false\u0060. Revocation is irreversible \u2014 recovering a deleted entity does not restore working credentials.",
+            "schema": {
+              "type": "boolean",
+              "description": "When \u0060true\u0060, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a \u0060revoke_job_id\u0060. Defaults to \u0060false\u0060. Revocation is irreversible \u2014 recovering a deleted entity does not restore working credentials.",
+              "default": false,
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -563,7 +559,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteAuthConfigsByNanoid200ResponseResponseJson"
+                  "$ref": "#/components/schemas/DeleteAuthConfigsByNanoid200Response"
                 }
               }
             }
@@ -615,9 +611,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -707,9 +700,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -931,9 +921,6 @@
           }
         },
         "security": [
-          {
-            "CookieAuth": []
-          },
           {}
         ]
       }
@@ -972,9 +959,6 @@
           }
         },
         "security": [
-          {
-            "ApiKeyAuth": []
-          },
           {
             "UserApiKeyAuth": []
           }
@@ -1044,9 +1028,6 @@
           }
         },
         "security": [
-          {
-            "ApiKeyAuth": []
-          },
           {
             "UserApiKeyAuth": []
           }
@@ -1242,9 +1223,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -1329,12 +1307,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -1448,7 +1420,7 @@
           "Account Management"
         ],
         "summary": "Delete a connected account",
-        "description": "Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes.",
+        "description": "Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the account\u0027s upstream credentials via a background job.",
         "operationId": "DeleteConnectedAccountsByNanoid",
         "parameters": [
           {
@@ -1461,6 +1433,17 @@
               "format": "connectedAccountId"
             },
             "example": "ca_1a2b3c4d5e6f"
+          },
+          {
+            "name": "revoke_on_delete",
+            "in": "query",
+            "description": "When \u0060true\u0060, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a \u0060revoke_job_id\u0060. Defaults to \u0060false\u0060. Revocation is irreversible \u2014 recovering a deleted entity does not restore working credentials.",
+            "schema": {
+              "type": "boolean",
+              "description": "When \u0060true\u0060, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a \u0060revoke_job_id\u0060. Defaults to \u0060false\u0060. Revocation is irreversible \u2014 recovering a deleted entity does not restore working credentials.",
+              "default": false,
+              "nullable": true
+            }
           }
         ],
         "responses": {
@@ -1526,9 +1509,6 @@
           }
         },
         "security": [
-          {
-            "CookieAuth": []
-          },
           {
             "ApiKeyAuth": []
           },
@@ -1653,12 +1633,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -1759,9 +1733,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -1890,9 +1861,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -2058,13 +2026,7 @@
         },
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -2131,13 +2093,7 @@
         },
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -2203,13 +2159,7 @@
         },
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -2236,13 +2186,7 @@
         },
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -2309,13 +2253,7 @@
         },
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -2734,7 +2672,7 @@
           "Organization Management"
         ],
         "summary": "Delete a project",
-        "description": "Soft-deletes a project within the organization by its unique identifier. When a project is deleted, it is marked as deleted but not immediately removed from the database. This operation affects all resources associated with the project including API keys, webhook configurations, and connected services. This action cannot be undone through the API.",
+        "description": "Soft-deletes a project within the organization by its unique identifier. When a project is deleted, it is marked as deleted but not immediately removed from the database. This operation affects all resources associated with the project including API keys, webhook configurations, and connected services. This action cannot be undone through the API. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the upstream credentials of every connection in the project via a background job.",
         "operationId": "DeleteOrgOwnerProjectByNanoId",
         "parameters": [
           {
@@ -2747,6 +2685,17 @@
               "description": "Unique identifier (Nano ID) of the project to delete",
               "format": "projectId",
               "example": "pr_1a2b3c4d5e6f"
+            }
+          },
+          {
+            "name": "revoke_on_delete",
+            "in": "query",
+            "description": "When \u0060true\u0060, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a \u0060revoke_job_id\u0060. Defaults to \u0060false\u0060. Revocation is irreversible \u2014 recovering a deleted entity does not restore working credentials.",
+            "schema": {
+              "type": "boolean",
+              "description": "When \u0060true\u0060, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a \u0060revoke_job_id\u0060. Defaults to \u0060false\u0060. Revocation is irreversible \u2014 recovering a deleted entity does not restore working credentials.",
+              "default": false,
+              "nullable": true
             }
           }
         ],
@@ -3191,12 +3140,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -3271,12 +3214,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -3347,12 +3284,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -3440,12 +3371,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -3514,12 +3439,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -3590,12 +3509,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -3643,12 +3556,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -3735,12 +3642,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -3797,12 +3698,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -3882,12 +3777,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -3974,12 +3863,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -4066,12 +3949,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -4210,9 +4087,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -4281,12 +4155,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -4382,9 +4250,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -4622,9 +4487,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -4705,9 +4567,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -4832,9 +4691,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -4912,12 +4768,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -5217,9 +5067,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -5357,9 +5204,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -5436,6 +5280,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -5521,9 +5375,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -5777,9 +5628,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -5883,9 +5731,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -6006,9 +5851,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -6074,9 +5916,6 @@
           }
         },
         "security": [
-          {
-            "CookieAuth": []
-          },
           {
             "ApiKeyAuth": []
           },
@@ -6200,9 +6039,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -6344,9 +6180,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -6483,12 +6316,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -6603,12 +6430,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -6711,12 +6532,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -6833,12 +6648,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -6930,12 +6739,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -7095,12 +6898,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -7190,12 +6987,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -7354,12 +7145,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -7492,12 +7277,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -7614,12 +7393,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -7713,12 +7486,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -7823,9 +7590,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -7990,9 +7754,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -8399,9 +8160,6 @@
           {
             "ApiKeyAuth": []
           },
-          {
-            "UserApiKeyAuth": []
-          },
           {}
         ]
       }
@@ -8531,9 +8289,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ]
       }
@@ -8615,12 +8370,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       },
@@ -8729,12 +8478,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -8835,12 +8578,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -9117,12 +8854,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -9251,12 +8982,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -9387,12 +9112,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -9518,12 +9237,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -9626,12 +9339,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -9734,12 +9441,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -9842,12 +9543,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -9915,12 +9610,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ]
       }
@@ -10812,7 +10501,14 @@
         "type": "object"
       },
       "DeleteAuthConfigsByNanoid200Response": {
-        "type": "object"
+        "type": "object",
+        "properties": {
+          "revoke_job_id": {
+            "type": "string",
+            "description": "Identifier of the background revoke job started for this delete. Present only when \u0060revoke_on_delete=true\u0060. Track the job and its per-connection results from the Composio dashboard \u2014 a programmatic endpoint to poll this job is not yet generally available.",
+            "example": "pj_1a2b3c4d5e6f"
+          }
+        }
       },
       "DeleteAuthConfigsByNanoid404Response": {
         "type": "object"
@@ -11212,6 +10908,11 @@
           "success": {
             "type": "boolean",
             "description": "Indicates whether the connected account was successfully deleted"
+          },
+          "revoke_job_id": {
+            "type": "string",
+            "description": "Identifier of the background revoke job started for this delete. Present only when \u0060revoke_on_delete=true\u0060. Track the job and its per-connection results from the Composio dashboard \u2014 a programmatic endpoint to poll this job is not yet generally available.",
+            "example": "pj_1a2b3c4d5e6f"
           }
         },
         "description": "Response returned after successfully deleting a connected account",
@@ -11871,6 +11572,11 @@
         "properties": {
           "status": {
             "$ref": "#/components/schemas/DeleteOrgOwnerProjectByNanoId200ResponseStatus"
+          },
+          "revoke_job_id": {
+            "type": "string",
+            "description": "Identifier of the background revoke job started for this delete. Present only when \u0060revoke_on_delete=true\u0060. Track the job and its per-connection results from the Composio dashboard \u2014 a programmatic endpoint to poll this job is not yet generally available.",
+            "example": "oj_1a2b3c4d5e6f"
           }
         },
         "description": "Response indicating successful project deletion"
@@ -12857,6 +12563,10 @@
             "type": "string",
             "description": "Connected account nanoid",
             "format": "connectedAccountId"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id."
           },
           "trigger_config": {
             "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty"
@@ -14598,9 +14308,6 @@
         }
       },
       "PatchAuthConfigsByNanoid200ResponseResponseJson": {
-        "type": "object"
-      },
-      "DeleteAuthConfigsByNanoid200ResponseResponseJson": {
         "type": "object"
       },
       "DeleteAuthConfigsByNanoid404ResponseResponseJson": {

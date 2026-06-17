@@ -35,7 +35,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithNanoItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/auth_configs/{nanoid}", pathParameters)
+        public WithNanoItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/auth_configs/{nanoid}{?revoke_on_delete*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,13 +43,13 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithNanoItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/auth_configs/{nanoid}", rawUrl)
+        public WithNanoItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/auth_configs/{nanoid}{?revoke_on_delete*}", rawUrl)
         {
         }
         /// <summary>
-        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone.
+        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
@@ -58,11 +58,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200ResponseResponseJson?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200Response?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200ResponseResponseJson> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200Response> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -73,7 +73,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid404ResponseResponseJson.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200ResponseResponseJson>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves detailed information about a specific authentication configuration using its unique identifier.
@@ -136,17 +136,17 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200ResponseResponseJson>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone.
+        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder.WithNanoItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
@@ -203,6 +203,16 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithNanoItemRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials.</summary>
+            [QueryParameter("revoke_on_delete")]
+            public bool? RevokeOnDelete { get; set; }
         }
     }
 }

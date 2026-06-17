@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NanoItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts/{nano%2Did}", pathParameters)
+        public NanoItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts/{nano%2Did}{?revoke_on_delete*}", pathParameters)
         {
         }
         /// <summary>
@@ -42,11 +42,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NanoItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts/{nano%2Did}", rawUrl)
+        public NanoItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts/{nano%2Did}{?revoke_on_delete*}", rawUrl)
         {
         }
         /// <summary>
-        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes.
+        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account&apos;s upstream credentials via a background job.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -58,11 +58,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200Response?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder.NanoItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200Response> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder.NanoItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -143,17 +143,17 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes.
+        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account&apos;s upstream credentials via a background job.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder.NanoItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder.NanoItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
@@ -210,6 +210,16 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account&apos;s upstream credentials via a background job.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class NanoItemRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials.</summary>
+            [QueryParameter("revoke_on_delete")]
+            public bool? RevokeOnDelete { get; set; }
         }
     }
 }

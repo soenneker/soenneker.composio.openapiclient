@@ -15,6 +15,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Identifier of the background revoke job started for this delete. Present only when `revoke_on_delete=true`. Track the job and its per-connection results from the Composio dashboard — a programmatic endpoint to poll this job is not yet generally available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RevokeJobId { get; set; }
+#nullable restore
+#else
+        public string RevokeJobId { get; set; }
+#endif
         /// <summary>Indicates whether the connected account was successfully deleted</summary>
         public bool? Success { get; set; }
         /// <summary>
@@ -42,6 +50,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "revoke_job_id", n => { RevokeJobId = n.GetStringValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
             };
         }
@@ -52,6 +61,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("revoke_job_id", RevokeJobId);
             writer.WriteBoolValue("success", Success);
             writer.WriteAdditionalData(AdditionalData);
         }
