@@ -95,9 +95,6 @@
         },
         "security": [
           {
-            "ApiKeyAuth": []
-          },
-          {
             "UserApiKeyAuth": []
           }
         ]
@@ -19175,10 +19172,6 @@
       "GetAuthSessionInfo200ResponseOrgMemberMetadata": {
         "type": "object",
         "properties": {
-          "createdInBetterAuth": {
-            "type": "boolean",
-            "description": "Whether the user was created via Better Auth (dashboard signup)."
-          },
           "prefers_old_dashboard": {
             "type": "boolean",
             "description": "If true, the user will be redirected to the legacy dashboard at platform.composio.dev."
@@ -27474,6 +27467,10 @@
     {
       "name": "MCP Partner",
       "description": "MCP partner management"
+    },
+    {
+      "name": "Stripe Projects",
+      "description": "Stripe Projects provisioning"
     },
     {
       "name": "Profiling",

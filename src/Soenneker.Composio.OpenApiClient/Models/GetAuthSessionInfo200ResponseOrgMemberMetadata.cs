@@ -15,8 +15,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether the user was created via Better Auth (dashboard signup).</summary>
-        public bool? CreatedInBetterAuth { get; set; }
         /// <summary>Platform the user onboarded on.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadataOnboardingPlatform? OnboardingPlatform { get; set; }
         /// <summary>If true, the user will be redirected to the legacy dashboard at platform.composio.dev.</summary>
@@ -54,7 +52,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "createdInBetterAuth", n => { CreatedInBetterAuth = n.GetBoolValue(); } },
                 { "onboarding_platform", n => { OnboardingPlatform = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadataOnboardingPlatform>(); } },
                 { "prefers_old_dashboard", n => { PrefersOldDashboard = n.GetBoolValue(); } },
                 { "seen_connect_announcement", n => { SeenConnectAnnouncement = n.GetBoolValue(); } },
@@ -70,7 +67,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("createdInBetterAuth", CreatedInBetterAuth);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadataOnboardingPlatform>("onboarding_platform", OnboardingPlatform);
             writer.WriteBoolValue("prefers_old_dashboard", PrefersOldDashboard);
             writer.WriteBoolValue("seen_connect_announcement", SeenConnectAnnouncement);
