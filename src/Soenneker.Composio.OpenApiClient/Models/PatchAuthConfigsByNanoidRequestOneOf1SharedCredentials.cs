@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Shared credentials that will be inherited by connected accounts. For eg: this can be used to share the API key for a tool with all connected accounts using this auth config.&quot;
+    /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchAuthConfigsByNanoidRequestOneOf1SharedCredentials : IAdditionalDataHolder, IParsable

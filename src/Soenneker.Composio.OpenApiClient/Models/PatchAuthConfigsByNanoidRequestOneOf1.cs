@@ -49,7 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<string> RestrictToFollowingTools { get; set; }
 #endif
-        /// <summary>&quot;Shared credentials that will be inherited by connected accounts. For eg: this can be used to share the API key for a tool with all connected accounts using this auth config.&quot;</summary>
+        /// <summary>Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1SharedCredentials? SharedCredentials { get; set; }
