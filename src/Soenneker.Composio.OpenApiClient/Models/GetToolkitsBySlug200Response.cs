@@ -39,6 +39,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string BaseUrl { get; set; }
 #endif
+        /// <summary>Managed-auth-only metadata, including the supported OAuth scope ceiling.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItem>? ComposioManagedAuth { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItem> ComposioManagedAuth { get; set; }
+#endif
         /// <summary>List of authentication methods that Composio manages for this toolkit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,6 +136,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "auth_config_details", n => { AuthConfigDetails = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItem>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "auth_guide_url", n => { AuthGuideUrl = n.GetStringValue(); } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
+                { "composio_managed_auth", n => { ComposioManagedAuth = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItem>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "composio_managed_auth_schemes", n => { ComposioManagedAuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecated>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecated.CreateFromDiscriminatorValue); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
@@ -149,6 +158,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItem>("auth_config_details", AuthConfigDetails);
             writer.WriteStringValue("auth_guide_url", AuthGuideUrl);
             writer.WriteStringValue("base_url", BaseUrl);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItem>("composio_managed_auth", ComposioManagedAuth);
             writer.WriteCollectionOfPrimitiveValues<string>("composio_managed_auth_schemes", ComposioManagedAuthSchemes);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecated>("deprecated", Deprecated);
             writer.WriteBoolValue("enabled", Enabled);

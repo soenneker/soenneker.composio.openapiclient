@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The scopes property</summary>
+        /// <summary>OAuth scopes requested for the managed auth config.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsScopes? Scopes { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsScopes Scopes { get; set; }
 #endif
-        /// <summary>The user_scopes property</summary>
+        /// <summary>OAuth user-token scopes requested for the managed auth config. This is primarily used by Slack OAuth v2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsUserScopes? UserScopes { get; set; }

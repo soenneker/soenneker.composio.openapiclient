@@ -12210,6 +12210,7 @@
           "slug",
           "name",
           "enabled",
+          "composio_managed_auth",
           "is_local_toolkit",
           "meta",
           "deprecated"
@@ -12237,6 +12238,13 @@
               "type": "string"
             },
             "description": "List of authentication methods that Composio manages for this toolkit"
+          },
+          "composio_managed_auth": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseComposioManagedAuthItem"
+            },
+            "description": "Managed-auth-only metadata, including the supported OAuth scope ceiling."
           },
           "is_local_toolkit": {
             "type": "boolean",
@@ -14383,7 +14391,8 @@
               "type": "string"
             }
           }
-        ]
+        ],
+        "description": "OAuth scopes requested for the managed auth config."
       },
       "PostAuthConfigsRequestAuthConfigCredentialsUserScopes": {
         "type": "object",
@@ -14397,7 +14406,8 @@
               "type": "string"
             }
           }
-        ]
+        ],
+        "description": "OAuth user-token scopes requested for the managed auth config. This is primarily used by Slack OAuth v2."
       },
       "PatchAuthConfigsByNanoidRequestOneOf1": {
         "required": [
@@ -14708,7 +14718,8 @@
               "type": "string"
             }
           }
-        ]
+        ],
+        "description": "OAuth scopes requested for the auth config."
       },
       "PatchAuthConfigsByNanoidRequestOneOf1CredentialsUserScopes": {
         "type": "object",
@@ -14722,7 +14733,8 @@
               "type": "string"
             }
           }
-        ]
+        ],
+        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
       },
       "PatchAuthConfigsByNanoidRequestOneOf2Scopes": {
         "type": "object",
@@ -14736,7 +14748,8 @@
               "type": "string"
             }
           }
-        ]
+        ],
+        "description": "OAuth scopes requested for the auth config."
       },
       "PatchAuthConfigsByNanoidRequestOneOf2UserScopes": {
         "type": "object",
@@ -14750,7 +14763,8 @@
               "type": "string"
             }
           }
-        ]
+        ],
+        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
       },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2": {
         "type": "object",
@@ -16841,6 +16855,26 @@
           }
         },
         "description": "Information about a single toolkit category"
+      },
+      "GetToolkitsBySlug200ResponseComposioManagedAuthItem": {
+        "required": [
+          "mode",
+          "scopes"
+        ],
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "description": "Authentication mode for the Composio-managed auth config",
+            "example": "OAUTH2"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseComposioManagedAuthItemScopes"
+          },
+          "user_scopes": {
+            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseComposioManagedAuthItemUserScopes"
+          }
+        }
       },
       "GetToolkitsBySlug200ResponseAuthConfigDetailsItem": {
         "required": [
@@ -20133,6 +20167,50 @@
           }
         },
         "description": "Additional metadata about the toolkit"
+      },
+      "GetToolkitsBySlug200ResponseComposioManagedAuthItemScopes": {
+        "required": [
+          "available"
+        ],
+        "type": "object",
+        "properties": {
+          "available": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Available OAuth scopes"
+          }
+        },
+        "description": "OAuth scopes available in the Composio-managed auth config for this auth mode.",
+        "example": {
+          "available": [
+            "read",
+            "write"
+          ]
+        }
+      },
+      "GetToolkitsBySlug200ResponseComposioManagedAuthItemUserScopes": {
+        "required": [
+          "available"
+        ],
+        "type": "object",
+        "properties": {
+          "available": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Available OAuth user scopes"
+          }
+        },
+        "description": "OAuth user scopes available in the Composio-managed auth config for this auth mode. Only present for Slack toolkits.",
+        "example": {
+          "available": [
+            "search:read",
+            "users:read"
+          ]
+        }
       },
       "GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields": {
         "required": [

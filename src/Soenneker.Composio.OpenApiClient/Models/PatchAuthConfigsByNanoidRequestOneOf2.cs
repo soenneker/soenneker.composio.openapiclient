@@ -33,7 +33,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<string> RestrictToFollowingTools { get; set; }
 #endif
-        /// <summary>The scopes property</summary>
+        /// <summary>OAuth scopes requested for the auth config.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf2Scopes? Scopes { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf2Type? Type { get; set; }
-        /// <summary>The user_scopes property</summary>
+        /// <summary>OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf2UserScopes? UserScopes { get; set; }
