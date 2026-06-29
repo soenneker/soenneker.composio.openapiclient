@@ -22667,9 +22667,6 @@
           },
           "legacy_template_name": {
             "type": "string"
-          },
-          "advanced": {
-            "type": "boolean"
           }
         }
       },
@@ -22707,9 +22704,6 @@
           },
           "legacy_template_name": {
             "type": "string"
-          },
-          "advanced": {
-            "type": "boolean"
           }
         }
       },
@@ -22747,9 +22741,6 @@
           },
           "legacy_template_name": {
             "type": "string"
-          },
-          "advanced": {
-            "type": "boolean"
           }
         }
       },
@@ -22787,9 +22778,6 @@
           },
           "legacy_template_name": {
             "type": "string"
-          },
-          "advanced": {
-            "type": "boolean"
           }
         }
       },
