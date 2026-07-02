@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Connected account nanoid</summary>
+        /// <summary>Connected account nanoid. Optional when user_id is provided — the first active connection for that user and the trigger&apos;s toolkit is auto-resolved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ConnectedAccountId { get; set; }
@@ -56,7 +56,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig TriggerConfig { get; set; }
 #endif
-        /// <summary>The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.</summary>
+        /// <summary>The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger&apos;s toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }
