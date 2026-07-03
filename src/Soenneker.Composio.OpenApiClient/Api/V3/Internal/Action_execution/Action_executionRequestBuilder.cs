@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Fields;
 using Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Log;
 using Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs;
 using System.Collections.Generic;
@@ -17,11 +16,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Action_executionRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The fields property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Fields.FieldsRequestBuilder Fields
-        {
-            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Fields.FieldsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The log property</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Log.LogRequestBuilder Log
         {

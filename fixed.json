@@ -2161,33 +2161,6 @@
         ]
       }
     },
-    "/api/v3/internal/action_execution/fields": {
-      "get": {
-        "tags": [
-          "Logs",
-          "x-internal"
-        ],
-        "summary": "Get action log fields for filtering",
-        "operationId": "GetInternalActionExecutionFields",
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved action execution fields",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetInternalActionExecutionFields200Response"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
-      }
-    },
     "/api/v3/internal/action_execution/log/{id}": {
       "get": {
         "tags": [
@@ -11128,17 +11101,6 @@
           }
         }
       },
-      "GetInternalActionExecutionFields200Response": {
-        "required": [
-          "fields"
-        ],
-        "type": "object",
-        "properties": {
-          "fields": {
-            "$ref": "#/components/schemas/GetInternalActionExecutionFields200ResponseFields"
-          }
-        }
-      },
       "GetInternalActionExecutionLogById200Response": {
         "required": [
           "actionLogId",
@@ -16025,38 +15987,6 @@
           },
           "createdAt": {
             "type": "number"
-          }
-        }
-      },
-      "GetInternalActionExecutionFields200ResponseFields": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "required": [
-              "id",
-              "displayName",
-              "type"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "The id of the field"
-              },
-              "displayName": {
-                "type": "string",
-                "description": "The display name of the field"
-              },
-              "type": {
-                "type": "string",
-                "description": "The type of the field"
-              },
-              "regex": {
-                "type": "string",
-                "description": "The regex of the field"
-              }
-            }
           }
         }
       },
