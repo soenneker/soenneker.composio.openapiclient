@@ -2,7 +2,7 @@
   "descriptionHash": "79711F748010C1B07405B16264A5D759796ECAC18BD65650EF843F4ED43D13F60C4F29A6866A0CD04D65F565683CD73029BB1FBE15FF84515FD1A4CCD7908CF7",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.32.4",
+  "kiotaVersion": "1.32.5",
   "clientClassName": "ComposioOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Composio.OpenApiClient",
@@ -30,5 +30,6 @@
   ],
   "includePatterns": [],
   "excludePatterns": [],
-  "disabledValidationRules": []
+  "disabledValidationRules": [],
+  "allowedExternalOrigins": []
 }
