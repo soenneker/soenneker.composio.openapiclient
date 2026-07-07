@@ -7,40 +7,39 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
+    /// <summary>
+    /// Deprecated toolkit ID
+    /// </summary>
+    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PostConnectedAccountsByNanoidRefreshRequest : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class DeprecatedToolkitInfo : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The redirect_url property</summary>
+        /// <summary>The toolkitId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedirectUrl { get; set; }
+        public string? ToolkitId { get; set; }
 #nullable restore
 #else
-        public string RedirectUrl { get; set; }
+        public string ToolkitId { get; set; }
 #endif
-        /// <summary>[EXPERIMENTAL] Whether to validate the provided credentials, validates only for API Key Auth scheme</summary>
-        public bool? ValidateCredentials { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsByNanoidRefreshRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo"/> and sets the default values.
         /// </summary>
-        public PostConnectedAccountsByNanoidRefreshRequest()
+        public DeprecatedToolkitInfo()
         {
             AdditionalData = new Dictionary<string, object>();
-            ValidateCredentials = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsByNanoidRefreshRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsByNanoidRefreshRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsByNanoidRefreshRequest();
+            return new global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,8 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "redirect_url", n => { RedirectUrl = n.GetStringValue(); } },
-                { "validate_credentials", n => { ValidateCredentials = n.GetBoolValue(); } },
+                { "toolkitId", n => { ToolkitId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,8 +59,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("redirect_url", RedirectUrl);
-            writer.WriteBoolValue("validate_credentials", ValidateCredentials);
+            writer.WriteStringValue("toolkitId", ToolkitId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

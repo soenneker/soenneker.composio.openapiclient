@@ -1734,134 +1734,6 @@
         ]
       }
     },
-    "/api/v3/connected_accounts/{nanoid}/refresh": {
-      "post": {
-        "tags": [
-          "Connected Accounts",
-          "Authentication"
-        ],
-        "summary": "Refresh authentication for a connected account",
-        "description": "Initiates a new authentication flow for a connected account when credentials have expired or become invalid. This may generate a new authentication URL for OAuth flows or refresh tokens for other auth schemes.",
-        "operationId": "PostConnectedAccountsByNanoidRefresh",
-        "parameters": [
-          {
-            "name": "nanoid",
-            "in": "path",
-            "description": "The unique identifier of the connected account",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "connectedAccountId"
-            },
-            "example": "ca_1a2b3c4d5e6f"
-          },
-          {
-            "name": "redirect_url",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uri"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PostConnectedAccountsByNanoidRefreshRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successfully refreshed the connected account authentication. For OAuth flows, a new redirect URL is provided.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PostConnectedAccountsByNanoidRefresh200Response"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request - Invalid nanoid format or the account cannot be refreshed in its current state",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized - Authentication failed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden - Insufficient permissions to refresh this connected account",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found - Connected account does not exist or was deleted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict - The connection cannot be refreshed because of a permanent attribute (e.g. its auth scheme does not support refresh, such as API_KEY or BEARER_TOKEN)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable entity - The connection is in an invalid state for refresh (e.g. connection-data validation failed, or the stored connection status is incompatible with reinitiation)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error - Failed to refresh the connected account authentication",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
-      }
-    },
     "/api/v3/connected_accounts/link": {
       "post": {
         "tags": [
@@ -3949,6 +3821,14 @@
             "description": "Filter toolkits by who manages them",
             "schema": {
               "$ref": "#/components/schemas/GetToolkitsManagedByParameter"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter toolkits by provenance (alias over managed_by)",
+            "schema": {
+              "$ref": "#/components/schemas/GetToolkitsTypeParameter"
             }
           },
           {
@@ -9509,32 +9389,21 @@
           }
         }
       },
-      "ToolScopeRequirementsAllOfItem": {
+      "DeprecatedToolkitInfo": {
         "required": [
-          "type"
+          "toolkitId"
         ],
         "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemBranch1"
-          },
-          {
-            "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2"
-          }
-        ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
+          "toolkitId": {
+            "type": "string"
           }
         },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ToolScopeRequirementsAllOfItem_1": "#/components/schemas/ToolScopeRequirementsAllOfItemBranch1",
-            "ToolScopeRequirementsAllOfItemAnyOf2": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2"
-          }
-        }
+        "description": "Deprecated toolkit ID",
+        "example": {
+          "toolkitId": "550e8400-e29b-41d4-a716-446655440000"
+        },
+        "deprecated": true
       },
       "Tool": {
         "required": [
@@ -9685,6 +9554,33 @@
           },
           "total_items": {
             "type": "number"
+          }
+        }
+      },
+      "ToolScopeRequirementsAllOfItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ToolScopeRequirementsAllOfItem_1": "#/components/schemas/ToolScopeRequirementsAllOfItemBranch1",
+            "ToolScopeRequirementsAllOfItemAnyOf2": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2"
           }
         }
       },
@@ -10850,49 +10746,6 @@
       },
       "PatchConnectedAccountsByNanoIdStatus404Response": {
         "type": "object"
-      },
-      "PostConnectedAccountsByNanoidRefreshRequest": {
-        "type": "object",
-        "properties": {
-          "redirect_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "validate_credentials": {
-            "type": "boolean",
-            "description": "[EXPERIMENTAL] Whether to validate the provided credentials, validates only for API Key Auth scheme",
-            "default": false,
-            "x-experimental": true
-          }
-        }
-      },
-      "PostConnectedAccountsByNanoidRefresh200Response": {
-        "required": [
-          "id",
-          "status",
-          "redirect_url"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the connected account"
-          },
-          "status": {
-            "$ref": "#/components/schemas/PostConnectedAccountsByNanoidRefresh200ResponseStatus"
-          },
-          "redirect_url": {
-            "type": "string",
-            "description": "The URL to which the user should be redirected to complete the authentication process (null for auth schemes that do not require redirection)",
-            "nullable": true
-          }
-        },
-        "description": "Response schema for a refreshed connected account authentication",
-        "example": {
-          "id": "ca_1a2b3c4d5e6f",
-          "status": "ACTIVE",
-          "redirect_url": "https://app.example.com/oauth/callback"
-        }
       },
       "PostConnectedAccountsLinkRequest": {
         "required": [
@@ -12067,6 +11920,7 @@
         "required": [
           "slug",
           "name",
+          "type",
           "enabled",
           "composio_managed_auth",
           "is_local_toolkit",
@@ -12084,6 +11938,9 @@
             "type": "string",
             "description": "Human-readable name of the toolkit",
             "example": "GitHub"
+          },
+          "type": {
+            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseType"
           },
           "enabled": {
             "type": "boolean",
@@ -16576,6 +16433,7 @@
         "required": [
           "slug",
           "name",
+          "type",
           "is_local_toolkit",
           "deprecated",
           "meta"
@@ -16591,6 +16449,9 @@
             "type": "string",
             "description": "Human-readable name of the toolkit",
             "example": "GitHub"
+          },
+          "type": {
+            "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemType"
           },
           "auth_schemes": {
             "type": "array",
@@ -16624,7 +16485,7 @@
             "example": "https://composio.dev/auth/github"
           },
           "deprecated": {
-            "type": "string"
+            "$ref": "#/components/schemas/DeprecatedToolkitInfo"
           },
           "meta": {
             "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemMeta"
@@ -16805,6 +16666,7 @@
         "required": [
           "slug",
           "name",
+          "type",
           "is_local_toolkit",
           "deprecated",
           "meta"
@@ -16820,6 +16682,9 @@
             "type": "string",
             "description": "Human-readable name of the toolkit",
             "example": "GitHub"
+          },
+          "type": {
+            "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemType"
           },
           "auth_schemes": {
             "type": "array",
@@ -16853,7 +16718,7 @@
             "example": "https://composio.dev/auth/github"
           },
           "deprecated": {
-            "type": "string"
+            "$ref": "#/components/schemas/DeprecatedToolkitInfo"
           },
           "meta": {
             "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemMeta"
@@ -23026,7 +22891,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Key scope. \u0027project\u0027 (default) returns a project-level API key; \u0027user\u0027 returns a user-level API key valid across projects.",
-        "default": "project",
         "x-ms-enum": {
           "name": "PostCliCreateSessionRequestScope",
           "modelAsString": false,
@@ -23260,54 +23124,6 @@
           ]
         }
       },
-      "PostConnectedAccountsByNanoidRefresh200ResponseStatus": {
-        "enum": [
-          "INITIALIZING",
-          "INITIATED",
-          "ACTIVE",
-          "FAILED",
-          "EXPIRED",
-          "INACTIVE",
-          "REVOKED"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The current status of the connected account (e.g., active, pending, failed)",
-        "x-ms-enum": {
-          "name": "PostConnectedAccountsByNanoidRefresh200ResponseStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "INITIALIZING",
-              "name": "Initializing"
-            },
-            {
-              "value": "INITIATED",
-              "name": "Initiated"
-            },
-            {
-              "value": "ACTIVE",
-              "name": "Active"
-            },
-            {
-              "value": "FAILED",
-              "name": "Failed"
-            },
-            {
-              "value": "EXPIRED",
-              "name": "Expired"
-            },
-            {
-              "value": "INACTIVE",
-              "name": "Inactive"
-            },
-            {
-              "value": "REVOKED",
-              "name": "Revoked"
-            }
-          ]
-        }
-      },
       "PostInternalTriggerLogsRequestTime": {
         "enum": [
           "5m",
@@ -23474,8 +23290,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Webhook payload version",
-        "default": "V3"
+        "description": "Webhook payload version"
       },
       "PostWebhookSubscriptions201ResponseVersion": {
         "enum": [
@@ -23516,6 +23331,30 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Webhook payload version"
+      },
+      "GetToolkitsBySlug200ResponseType": {
+        "enum": [
+          "native",
+          "custom"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0022Toolkit provenance: \\\u0022native\\\u0022 for Composio-managed toolkits, \\\u0022custom\\\u0022 for a project-registered custom (MCP) toolkit\u0022",
+        "example": "native",
+        "x-ms-enum": {
+          "name": "GetToolkitsBySlug200ResponseType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "native",
+              "name": "Native"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
       },
       "PostToolkitsMultiRequestManagedBy": {
         "enum": [
@@ -25024,6 +24863,54 @@
         "type": "string",
         "additionalProperties": false
       },
+      "GetToolkits200ResponseItemsItemType": {
+        "enum": [
+          "native",
+          "custom"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0022Toolkit provenance: \\\u0022native\\\u0022 for Composio-managed toolkits, \\\u0022custom\\\u0022 for a project-registered custom (MCP) toolkit\u0022",
+        "example": "native",
+        "x-ms-enum": {
+          "name": "GetToolkits200ResponseItemsItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "native",
+              "name": "Native"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "PostToolkitsMulti200ResponseItemsItemType": {
+        "enum": [
+          "native",
+          "custom"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0022Toolkit provenance: \\\u0022native\\\u0022 for Composio-managed toolkits, \\\u0022custom\\\u0022 for a project-registered custom (MCP) toolkit\u0022",
+        "example": "native",
+        "x-ms-enum": {
+          "name": "PostToolkitsMulti200ResponseItemsItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "native",
+              "name": "Native"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
       "PostToolsExecuteByToolSlugRequestCustomConnectionDataAuthScheme": {
         "enum": [
           "OAUTH2",
@@ -25239,7 +25126,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "\u0022Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.\u0022",
-        "default": "standard",
         "example": "standard",
         "x-ms-enum": {
           "name": "PostToolRouterSessionRequestWorkbenchSandboxSize",
@@ -26891,7 +26777,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The order by of the connected accounts",
-        "default": "created_at",
         "x-ms-enum": {
           "name": "GetConnectedAccountsOrderByParameter",
           "modelAsString": false,
@@ -26915,7 +26800,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "The order direction of the connected accounts",
-        "default": "desc",
         "x-ms-enum": {
           "name": "GetConnectedAccountsOrderDirectionParameter",
           "modelAsString": false,
@@ -26988,6 +26872,35 @@
           ]
         }
       },
+      "GetToolkitsTypeParameter": {
+        "enum": [
+          "native",
+          "custom",
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0022Filter by toolkit provenance: \\\u0022native\\\u0022 (Composio-managed), \\\u0022custom\\\u0022 (project-registered custom toolkits), or \\\u0022all\\\u0022. Takes precedence over managed_by when both are supplied.\u0022",
+        "example": "custom",
+        "x-ms-enum": {
+          "name": "GetToolkitsTypeParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "native",
+              "name": "Native"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            },
+            {
+              "value": "all",
+              "name": "All"
+            }
+          ]
+        }
+      },
       "GetToolkitsSortByParameter": {
         "enum": [
           "usage",
@@ -27041,7 +26954,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Field to use for ordering the results",
-        "default": "updated_at",
         "example": "updated_at",
         "x-ms-enum": {
           "name": "GetMcpServersOrderByParameter",
@@ -27066,7 +26978,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Sort direction (ascending or descending)",
-        "default": "desc",
         "example": "desc",
         "x-ms-enum": {
           "name": "GetMcpServersOrderDirectionParameter",
@@ -27091,7 +27002,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Field to use for ordering the results",
-        "default": "updated_at",
         "example": "updated_at",
         "x-ms-enum": {
           "name": "GetMcpAppByAppKeyOrderByParameter",
@@ -27116,7 +27026,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Sort direction (ascending or descending)",
-        "default": "desc",
         "example": "desc",
         "x-ms-enum": {
           "name": "GetMcpAppByAppKeyOrderDirectionParameter",
@@ -27141,7 +27050,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Field to use for ordering the results",
-        "default": "updated_at",
         "example": "updated_at",
         "x-ms-enum": {
           "name": "GetMcpServersByServerIdInstancesOrderByParameter",
@@ -27166,7 +27074,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Sort direction (ascending or descending)",
-        "default": "desc",
         "example": "desc",
         "x-ms-enum": {
           "name": "GetMcpServersByServerIdInstancesOrderDirectionParameter",

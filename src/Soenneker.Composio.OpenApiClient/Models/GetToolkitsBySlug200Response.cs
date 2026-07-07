@@ -108,6 +108,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Slug { get; set; }
 #endif
+        /// <summary>&quot;Toolkit provenance: \&quot;native\&quot; for Composio-managed toolkits, \&quot;custom\&quot; for a project-registered custom (MCP) toolkit&quot;</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200Response"/> and sets the default values.
         /// </summary>
@@ -146,6 +148,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseMeta>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseMeta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseType>(); } },
             };
         }
         /// <summary>
@@ -168,6 +171,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseMeta>("meta", Meta);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("slug", Slug);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

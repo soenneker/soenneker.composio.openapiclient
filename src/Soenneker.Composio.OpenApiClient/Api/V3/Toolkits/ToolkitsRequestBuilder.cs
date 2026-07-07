@@ -53,7 +53,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolkitsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/toolkits{?category*,cursor*,include_deprecated*,limit*,managed_by*,search*,sort_by*}", pathParameters)
+        public ToolkitsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/toolkits{?category*,cursor*,include_deprecated*,limit*,managed_by*,search*,sort_by*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolkitsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/toolkits{?category*,cursor*,include_deprecated*,limit*,managed_by*,search*,sort_by*}", rawUrl)
+        public ToolkitsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/toolkits{?category*,cursor*,include_deprecated*,limit*,managed_by*,search*,sort_by*,type*}", rawUrl)
         {
         }
         /// <summary>
@@ -169,6 +169,9 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
             /// <summary>Sort order for returned toolkits</summary>
             [QueryParameter("sort_by")]
             public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsSortByParameter? SortBy { get; set; }
+            /// <summary>Filter toolkits by provenance (alias over managed_by)</summary>
+            [QueryParameter("type")]
+            public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsTypeParameter? Type { get; set; }
         }
     }
 }

@@ -39,13 +39,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<string> ComposioManagedAuthSchemes { get; set; }
 #endif
-        /// <summary>The deprecated property</summary>
+        /// <summary>Deprecated toolkit ID</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Deprecated { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo? Deprecated { get; set; }
 #nullable restore
 #else
-        public string Deprecated { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo Deprecated { get; set; }
 #endif
         /// <summary>&quot;DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.&quot;</summary>
         [Obsolete("")]
@@ -76,6 +77,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Slug { get; set; }
 #endif
+        /// <summary>&quot;Toolkit provenance: \&quot;native\&quot; for Composio-managed toolkits, \&quot;custom\&quot; for a project-registered custom (MCP) toolkit&quot;</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItem"/> and sets the default values.
         /// </summary>
@@ -104,12 +107,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "auth_guide_url", n => { AuthGuideUrl = n.GetStringValue(); } },
                 { "auth_schemes", n => { AuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "composio_managed_auth_schemes", n => { ComposioManagedAuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "deprecated", n => { Deprecated = n.GetStringValue(); } },
+                { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo>(global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo.CreateFromDiscriminatorValue); } },
                 { "is_local_toolkit", n => { IsLocalToolkit = n.GetBoolValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemMeta>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemMeta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "no_auth", n => { NoAuth = n.GetBoolValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemType>(); } },
             };
         }
         /// <summary>
@@ -122,12 +126,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("auth_guide_url", AuthGuideUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("auth_schemes", AuthSchemes);
             writer.WriteCollectionOfPrimitiveValues<string>("composio_managed_auth_schemes", ComposioManagedAuthSchemes);
-            writer.WriteStringValue("deprecated", Deprecated);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo>("deprecated", Deprecated);
             writer.WriteBoolValue("is_local_toolkit", IsLocalToolkit);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemMeta>("meta", Meta);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("no_auth", NoAuth);
             writer.WriteStringValue("slug", Slug);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

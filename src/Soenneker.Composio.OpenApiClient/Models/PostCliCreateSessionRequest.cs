@@ -30,7 +30,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public PostCliCreateSessionRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            Scope = global::Soenneker.Composio.OpenApiClient.Models.PostCliCreateSessionRequestScope.Project;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

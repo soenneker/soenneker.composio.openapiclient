@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh;
 using Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status;
 using Soenneker.Composio.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -19,11 +18,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NanoItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The refresh property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh.RefreshRequestBuilder Refresh
-        {
-            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh.RefreshRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The status property</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status.StatusRequestBuilder Status
         {

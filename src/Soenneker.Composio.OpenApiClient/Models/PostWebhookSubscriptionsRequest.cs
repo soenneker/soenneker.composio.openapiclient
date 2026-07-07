@@ -38,7 +38,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public PostWebhookSubscriptionsRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            Version = global::Soenneker.Composio.OpenApiClient.Models.PostWebhookSubscriptionsRequestVersion.V3;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
