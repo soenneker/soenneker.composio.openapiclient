@@ -17,15 +17,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>the authScheme is part of the connection state use it there</summary>
         [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigAuthScheme? AuthScheme { get; set; }
-        /// <summary>The deprecated property</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigDeprecated? Deprecated { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigDeprecated Deprecated { get; set; }
-#endif
         /// <summary>The id of the auth config</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,7 +55,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auth_scheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigAuthScheme>(); } },
-                { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigDeprecated>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigDeprecated.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_composio_managed", n => { IsComposioManaged = n.GetBoolValue(); } },
                 { "is_disabled", n => { IsDisabled = n.GetBoolValue(); } },
@@ -78,7 +68,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigAuthScheme>("auth_scheme", AuthScheme);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigDeprecated>("deprecated", Deprecated);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_composio_managed", IsComposioManaged);
             writer.WriteBoolValue("is_disabled", IsDisabled);

@@ -14,14 +14,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The deprecated property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsert200ResponseDeprecated? Deprecated { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsert200ResponseDeprecated Deprecated { get; set; }
-#endif
         /// <summary>ID of the updated trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +47,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsert200ResponseDeprecated>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsert200ResponseDeprecated.CreateFromDiscriminatorValue); } },
                 { "trigger_id", n => { TriggerId = n.GetStringValue(); } },
             };
         }
@@ -66,7 +57,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsert200ResponseDeprecated>("deprecated", Deprecated);
             writer.WriteStringValue("trigger_id", TriggerId);
             writer.WriteAdditionalData(AdditionalData);
         }

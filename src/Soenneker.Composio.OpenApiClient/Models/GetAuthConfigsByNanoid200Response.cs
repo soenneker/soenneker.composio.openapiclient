@@ -40,15 +40,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials Credentials { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version.&quot;</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseDeprecatedParams? DeprecatedParams { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseDeprecatedParams DeprecatedParams { get; set; }
-#endif
         /// <summary>Fields expected during connection initialization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -170,7 +161,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "credentials", n => { Credentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials>(global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials.CreateFromDiscriminatorValue); } },
-                { "deprecated_params", n => { DeprecatedParams = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseDeprecatedParams>(global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseDeprecatedParams.CreateFromDiscriminatorValue); } },
                 { "expected_input_fields", n => { ExpectedInputFields = n.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_composio_managed", n => { IsComposioManaged = n.GetBoolValue(); } },
@@ -199,7 +189,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials>("credentials", Credentials);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseDeprecatedParams>("deprecated_params", DeprecatedParams);
             writer.WriteCollectionOfPrimitiveValues<UntypedNode>("expected_input_fields", ExpectedInputFields);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_composio_managed", IsComposioManaged);

@@ -47,15 +47,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemData Data { get; set; }
 #endif
-        /// <summary>The deprecated property</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemDeprecated? Deprecated { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemDeprecated Deprecated { get; set; }
-#endif
         /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -162,7 +153,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "auth_config", n => { AuthConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfig>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfig.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemData>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemData.CreateFromDiscriminatorValue); } },
-                { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemDeprecated>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemDeprecated.CreateFromDiscriminatorValue); } },
                 { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemExperimental>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemExperimental.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_disabled", n => { IsDisabled = n.GetBoolValue(); } },
@@ -187,7 +177,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfig>("auth_config", AuthConfig);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemData>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemDeprecated>("deprecated", Deprecated);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemExperimental>("experimental", Experimental);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_disabled", IsDisabled);

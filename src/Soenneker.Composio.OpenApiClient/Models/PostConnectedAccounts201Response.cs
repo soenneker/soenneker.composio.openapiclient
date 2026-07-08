@@ -22,15 +22,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionData ConnectionData { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This field will be removed in a future version. Please use id and auth_config.id instead.&quot;</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseDeprecated? Deprecated { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseDeprecated Deprecated { get; set; }
-#endif
         /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,7 +85,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "connectionData", n => { ConnectionData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionData>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionData.CreateFromDiscriminatorValue); } },
-                { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseDeprecated>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseDeprecated.CreateFromDiscriminatorValue); } },
                 { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseExperimental>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseExperimental.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
@@ -110,7 +100,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionData>("connectionData", ConnectionData);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseDeprecated>("deprecated", Deprecated);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseExperimental>("experimental", Experimental);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("redirect_uri", RedirectUri);

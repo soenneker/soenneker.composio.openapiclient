@@ -1900,73 +1900,6 @@
         ]
       }
     },
-    "/api/v3/internal/trigger/log/{id}": {
-      "get": {
-        "tags": [
-          "Logs",
-          "x-internal"
-        ],
-        "summary": "Get detailed trigger log by ID",
-        "operationId": "GetInternalTriggerLogById",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved trigger log",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetInternalTriggerLogById200Response"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
-      }
-    },
     "/api/v3/internal/action_execution/logs": {
       "post": {
         "tags": [
@@ -10230,9 +10163,6 @@
           "is_enabled_for_tool_router": {
             "type": "boolean",
             "description": "Whether this auth config is enabled for tool router"
-          },
-          "deprecated_params": {
-            "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseDeprecatedParams"
           }
         }
       },
@@ -10553,9 +10483,6 @@
             "nullable": true,
             "deprecated": true
           },
-          "deprecated": {
-            "$ref": "#/components/schemas/PostConnectedAccounts201ResponseDeprecated"
-          },
           "experimental": {
             "$ref": "#/components/schemas/PostConnectedAccounts201ResponseExperimental"
           }
@@ -10638,9 +10565,6 @@
           "test_request_endpoint": {
             "type": "string",
             "description": "The endpoint to make test request for verification"
-          },
-          "deprecated": {
-            "$ref": "#/components/schemas/GetConnectedAccountsByNanoid200ResponseDeprecated"
           },
           "params": {
             "$ref": "#/components/schemas/GetConnectedAccountsByNanoid200ResponseParams"
@@ -10885,17 +10809,6 @@
               "$ref": "#/components/schemas/PostInternalTriggerLogs200ResponseDataItem"
             },
             "default": []
-          }
-        }
-      },
-      "GetInternalTriggerLogById200Response": {
-        "required": [
-          "log"
-        ],
-        "type": "object",
-        "properties": {
-          "log": {
-            "$ref": "#/components/schemas/GetInternalTriggerLogById200ResponseLog"
           }
         }
       },
@@ -12311,9 +12224,6 @@
           "trigger_id": {
             "type": "string",
             "description": "ID of the updated trigger"
-          },
-          "deprecated": {
-            "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert200ResponseDeprecated"
           }
         }
       },
@@ -12326,9 +12236,6 @@
           "trigger_id": {
             "type": "string",
             "description": "ID of the updated trigger"
-          },
-          "deprecated": {
-            "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert201ResponseDeprecated"
           }
         }
       },
@@ -14953,9 +14860,6 @@
           "is_enabled_for_tool_router": {
             "type": "boolean",
             "description": "Whether this auth config is enabled for tool router"
-          },
-          "deprecated_params": {
-            "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemDeprecatedParams"
           }
         }
       },
@@ -15040,36 +14944,6 @@
         },
         "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
         "x-experimental": true
-      },
-      "GetAuthConfigsByNanoid200ResponseDeprecatedParams": {
-        "required": [
-          "default_connector_id"
-        ],
-        "type": "object",
-        "properties": {
-          "default_connector_id": {
-            "type": "string",
-            "description": "\u0022Deprecated: Default connector ID\u0022",
-            "nullable": true
-          },
-          "member_uuid": {
-            "type": "string",
-            "description": "\u0022Deprecated: Member UUID\u0022"
-          },
-          "toolkit_id": {
-            "type": "string",
-            "description": "\u0022Deprecated: Toolkit ID\u0022"
-          },
-          "expected_input_fields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseDeprecatedParamsExpectedInputFieldsItem"
-            },
-            "description": "\u0022Deprecated: Fields expected during connection initialization\u0022"
-          }
-        },
-        "description": "\u0022DEPRECATED: This parameter will be removed in a future version.\u0022",
-        "deprecated": true
       },
       "PostCliCodactFailuresRequestToolInfo": {
         "type": "object",
@@ -15219,9 +15093,6 @@
           "test_request_endpoint": {
             "type": "string",
             "description": "The endpoint to make test request for verification"
-          },
-          "deprecated": {
-            "$ref": "#/components/schemas/GetConnectedAccounts200ResponseItemsItemDeprecated"
           }
         }
       },
@@ -15294,27 +15165,6 @@
         },
         "description": "The connection data of the connected account"
       },
-      "PostConnectedAccounts201ResponseDeprecated": {
-        "required": [
-          "uuid",
-          "authConfigUuid"
-        ],
-        "type": "object",
-        "properties": {
-          "uuid": {
-            "type": "string",
-            "description": "The uuid of the connected account",
-            "format": "uuid"
-          },
-          "authConfigUuid": {
-            "type": "string",
-            "description": "The uuid of the auth config",
-            "format": "uuid"
-          }
-        },
-        "description": "\u0022DEPRECATED: This field will be removed in a future version. Please use id and auth_config.id instead.\u0022",
-        "deprecated": true
-      },
       "PostConnectedAccounts201ResponseExperimental": {
         "required": [
           "account_type"
@@ -15367,9 +15217,6 @@
           "is_disabled": {
             "type": "boolean",
             "description": "Whether the auth config is disabled"
-          },
-          "deprecated": {
-            "$ref": "#/components/schemas/GetConnectedAccountsByNanoid200ResponseAuthConfigDeprecated"
           }
         }
       },
@@ -15411,28 +15258,6 @@
           "nullable": true
         },
         "description": "This is deprecated, use \u0060state\u0060 instead",
-        "deprecated": true
-      },
-      "GetConnectedAccountsByNanoid200ResponseDeprecated": {
-        "required": [
-          "labels",
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "labels": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The labels of the connection"
-          },
-          "uuid": {
-            "type": "string",
-            "description": "The uuid of the connection",
-            "format": "uuid"
-          }
-        },
         "deprecated": true
       },
       "GetConnectedAccountsByNanoid200ResponseParams": {
@@ -15736,49 +15561,6 @@
           },
           "meta": {
             "$ref": "#/components/schemas/PostInternalTriggerLogs200ResponseDataItemMeta"
-          }
-        }
-      },
-      "GetInternalTriggerLogById200ResponseLog": {
-        "required": [
-          "id",
-          "connectionId",
-          "clientId",
-          "entityId",
-          "status",
-          "appName",
-          "createdAt",
-          "type",
-          "meta"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "connectionId": {
-            "type": "string"
-          },
-          "clientId": {
-            "type": "string"
-          },
-          "entityId": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "appName": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "type": {
-            "$ref": "#/components/schemas/GetInternalTriggerLogById200ResponseLogType"
-          },
-          "meta": {
-            "$ref": "#/components/schemas/GetInternalTriggerLogById200ResponseLogMeta"
           }
         }
       },
@@ -16941,30 +16723,6 @@
           "nullable": true
         },
         "description": "Trigger configuration"
-      },
-      "PostTriggerInstancesBySlugUpsert200ResponseDeprecated": {
-        "required": [
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "uuid": {
-            "type": "string",
-            "description": "ID of the updated trigger"
-          }
-        }
-      },
-      "PostTriggerInstancesBySlugUpsert201ResponseDeprecated": {
-        "required": [
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "uuid": {
-            "type": "string",
-            "description": "ID of the updated trigger"
-          }
-        }
       },
       "GetTriggerInstancesActive200ResponseItemsItem": {
         "required": [
@@ -18996,42 +18754,6 @@
         "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
         "x-experimental": true
       },
-      "GetAuthConfigs200ResponseItemsItemDeprecatedParams": {
-        "required": [
-          "default_connector_id"
-        ],
-        "type": "object",
-        "properties": {
-          "default_connector_id": {
-            "type": "string",
-            "description": "\u0022Deprecated: Default connector ID\u0022",
-            "nullable": true
-          },
-          "member_uuid": {
-            "type": "string",
-            "description": "\u0022Deprecated: Member UUID\u0022"
-          },
-          "toolkit_id": {
-            "type": "string",
-            "description": "\u0022Deprecated: Toolkit ID\u0022"
-          },
-          "expected_input_fields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemDeprecatedParamsExpectedInputFieldsItem"
-            },
-            "description": "\u0022Deprecated: Fields expected during connection initialization\u0022"
-          }
-        },
-        "description": "\u0022DEPRECATED: This parameter will be removed in a future version.\u0022",
-        "deprecated": true
-      },
-      "GetAuthConfigsByNanoid200ResponseDeprecatedParamsExpectedInputFieldsItem": {
-        "type": "object",
-        "additionalProperties": {
-          "nullable": true
-        }
-      },
       "PostCliCodactFailuresRequestToolInfoTool": {
         "required": [
           "slug",
@@ -19085,9 +18807,6 @@
           "is_disabled": {
             "type": "boolean",
             "description": "Whether the auth config is disabled"
-          },
-          "deprecated": {
-            "$ref": "#/components/schemas/GetConnectedAccounts200ResponseItemsItemAuthConfigDeprecated"
           }
         }
       },
@@ -19129,28 +18848,6 @@
           "nullable": true
         },
         "description": "This is deprecated, use \u0060state\u0060 instead",
-        "deprecated": true
-      },
-      "GetConnectedAccounts200ResponseItemsItemDeprecated": {
-        "required": [
-          "labels",
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "labels": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The labels of the connection"
-          },
-          "uuid": {
-            "type": "string",
-            "description": "The uuid of the connection",
-            "format": "uuid"
-          }
-        },
         "deprecated": true
       },
       "PostConnectedAccountsRequestConnectionState": {
@@ -19326,20 +19023,6 @@
         },
         "description": "Access control for SHARED connections. Visible only to the connection creator and project/org API key callers; non-creator cookie callers receive the response without this block.",
         "x-experimental": true
-      },
-      "GetConnectedAccountsByNanoid200ResponseAuthConfigDeprecated": {
-        "required": [
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "uuid": {
-            "type": "string",
-            "description": "The uuid of the auth config",
-            "format": "uuid"
-          }
-        },
-        "deprecated": true
       },
       "GetConnectedAccountsByNanoid200ResponseExperimentalAclConfigForShared": {
         "required": [
@@ -19571,62 +19254,6 @@
           },
           "type": {
             "$ref": "#/components/schemas/PostInternalTriggerLogs200ResponseDataItemMetaType"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
-          },
-          "provider": {
-            "type": "string"
-          },
-          "clientId": {
-            "type": "string"
-          },
-          "connectionId": {
-            "type": "string"
-          },
-          "triggerProviderPayload": {
-            "type": "string"
-          },
-          "triggerClientPayload": {
-            "type": "string"
-          },
-          "triggerClientError": {
-            "type": "string"
-          },
-          "triggerName": {
-            "type": "string"
-          },
-          "triggerClientResponse": {
-            "type": "string"
-          },
-          "triggerId": {
-            "type": "string"
-          },
-          "triggerNanoId": {
-            "type": "string"
-          }
-        }
-      },
-      "GetInternalTriggerLogById200ResponseLogMeta": {
-        "required": [
-          "id",
-          "type",
-          "createdAt",
-          "updatedAt",
-          "provider",
-          "clientId",
-          "connectionId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "type": {
-            "$ref": "#/components/schemas/GetInternalTriggerLogById200ResponseLogMetaType"
           },
           "createdAt": {
             "type": "string"
@@ -21609,26 +21236,6 @@
             "description": "Changelog for this version"
           }
         }
-      },
-      "GetAuthConfigs200ResponseItemsItemDeprecatedParamsExpectedInputFieldsItem": {
-        "type": "object",
-        "additionalProperties": {
-          "nullable": true
-        }
-      },
-      "GetConnectedAccounts200ResponseItemsItemAuthConfigDeprecated": {
-        "required": [
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "uuid": {
-            "type": "string",
-            "description": "The uuid of the auth config",
-            "format": "uuid"
-          }
-        },
-        "deprecated": true
       },
       "GetConnectedAccounts200ResponseItemsItemExperimentalAclConfigForShared": {
         "required": [
@@ -24705,30 +24312,6 @@
           ]
         }
       },
-      "GetInternalTriggerLogById200ResponseLogType": {
-        "enum": [
-          "trigger",
-          "action"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Log entity type (trigger or action)",
-        "example": "trigger",
-        "x-ms-enum": {
-          "name": "GetInternalTriggerLogById200ResponseLogType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "trigger",
-              "name": "Trigger"
-            },
-            {
-              "value": "action",
-              "name": "Action"
-            }
-          ]
-        }
-      },
       "PostInternalActionExecutionLogs200ResponseDataItemStatus": {
         "enum": [
           "success",
@@ -25889,30 +25472,6 @@
         "example": "trigger",
         "x-ms-enum": {
           "name": "PostInternalTriggerLogs200ResponseDataItemMetaType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "trigger",
-              "name": "Trigger"
-            },
-            {
-              "value": "action",
-              "name": "Action"
-            }
-          ]
-        }
-      },
-      "GetInternalTriggerLogById200ResponseLogMetaType": {
-        "enum": [
-          "trigger",
-          "action"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Log entity type (trigger or action)",
-        "example": "trigger",
-        "x-ms-enum": {
-          "name": "GetInternalTriggerLogById200ResponseLogMetaType",
           "modelAsString": false,
           "values": [
             {
