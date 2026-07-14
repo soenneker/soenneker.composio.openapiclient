@@ -104,7 +104,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Org.Owner.Project.List
             [QueryParameter("cursor")]
             public string Cursor { get; set; }
 #endif
-            /// <summary>Number of items per page, max allowed is 1000</summary>
+            /// <summary>Number of items per page, max allowed is 50</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }
         }

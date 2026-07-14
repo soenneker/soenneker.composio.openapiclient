@@ -164,7 +164,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Active
             [QueryParameter("deprecatedConnectedAccountUuids")]
             public string[] DeprecatedConnectedAccountUuids { get; set; }
 #endif
-            /// <summary>Number of items per page, max allowed is 1000</summary>
+            /// <summary>Number of items per page, max allowed is 50</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }
             /// <summary>When set to true, includes disabled triggers in the response.</summary>

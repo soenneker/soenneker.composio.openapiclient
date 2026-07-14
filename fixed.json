@@ -253,7 +253,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "schema": {
               "type": "number",
               "nullable": true
@@ -2296,7 +2296,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "schema": {
               "type": "number",
               "nullable": true
@@ -2929,7 +2929,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "schema": {
               "type": "number",
               "nullable": true
@@ -5348,7 +5348,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "schema": {
               "type": "number",
               "nullable": true
@@ -5890,7 +5890,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "schema": {
               "type": "number",
               "nullable": true

@@ -125,7 +125,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Triggers_types
             [QueryParameter("cursor")]
             public string Cursor { get; set; }
 #endif
-            /// <summary>Number of items per page, max allowed is 1000</summary>
+            /// <summary>Number of items per page, max allowed is 50</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }
             /// <summary>Array of toolkit slugs to filter triggers by</summary>
