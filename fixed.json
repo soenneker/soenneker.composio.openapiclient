@@ -2015,6 +2015,16 @@
               }
             }
           },
+          "404": {
+            "description": "Log not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error",
             "content": {
