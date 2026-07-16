@@ -8,26 +8,34 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolsExecuteByToolSlugRequestCustomConnectionDataValScope : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeString { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1? PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1 { get; set; }
 #nullable restore
 #else
-        public string PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeString { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1 PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type List&lt;string&gt;</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? String { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2? PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2 { get; set; }
 #nullable restore
 #else
-        public List<string> String { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2 PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1? PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1 PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,14 +46,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataValScope();
-            if(parseNode.GetStringValue() is string postToolsExecuteByToolSlugRequestCustomConnectionDataValScopeStringValue)
-            {
-                result.PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeString = postToolsExecuteByToolSlugRequestCustomConnectionDataValScopeStringValue;
-            }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-            {
-                result.String = stringValue;
-            }
+            result.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1();
+            result.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2();
+            result.PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1();
             return result;
         }
         /// <summary>
@@ -54,6 +57,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if(PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1 != null || PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2 != null || PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1 != null)
+            {
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1, PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2, PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1);
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -63,14 +70,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeString != null)
-            {
-                writer.WriteStringValue(null, PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeString);
-            }
-            else if(String != null)
-            {
-                writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-            }
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1>(null, PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1, PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2, PostToolsExecuteByToolSlugRequestCustomConnectionDataValScopeMember1);
         }
     }
 }

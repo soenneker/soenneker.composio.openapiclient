@@ -43,10 +43,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Fields expected during connection initialization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UntypedNode>? ExpectedInputFields { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemExpectedInputFieldsItem>? ExpectedInputFields { get; set; }
 #nullable restore
 #else
-        public List<UntypedNode> ExpectedInputFields { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemExpectedInputFieldsItem> ExpectedInputFields { get; set; }
 #endif
         /// <summary>The unique ID of the authentication configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -161,7 +161,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "credentials", n => { Credentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemCredentials>(global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemCredentials.CreateFromDiscriminatorValue); } },
-                { "expected_input_fields", n => { ExpectedInputFields = n.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList(); } },
+                { "expected_input_fields", n => { ExpectedInputFields = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemExpectedInputFieldsItem>(global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemExpectedInputFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_composio_managed", n => { IsComposioManaged = n.GetBoolValue(); } },
                 { "is_enabled_for_tool_router", n => { IsEnabledForToolRouter = n.GetBoolValue(); } },
@@ -189,7 +189,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemCredentials>("credentials", Credentials);
-            writer.WriteCollectionOfPrimitiveValues<UntypedNode>("expected_input_fields", ExpectedInputFields);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemExpectedInputFieldsItem>("expected_input_fields", ExpectedInputFields);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_composio_managed", IsComposioManaged);
             writer.WriteBoolValue("is_enabled_for_tool_router", IsEnabledForToolRouter);

@@ -41,10 +41,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Optional session information for tools that return session context</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? SessionInfo { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200ResponseSessionInfo? SessionInfo { get; set; }
 #nullable restore
 #else
-        public UntypedNode SessionInfo { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200ResponseSessionInfo SessionInfo { get; set; }
 #endif
         /// <summary>Indicates if the tool execution was successful</summary>
         public bool? Successful { get; set; }
@@ -76,7 +76,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200ResponseData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200ResponseData.CreateFromDiscriminatorValue); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "log_id", n => { LogId = n.GetStringValue(); } },
-                { "session_info", n => { SessionInfo = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "session_info", n => { SessionInfo = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200ResponseSessionInfo>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200ResponseSessionInfo.CreateFromDiscriminatorValue); } },
                 { "successful", n => { Successful = n.GetBoolValue(); } },
             };
         }
@@ -90,7 +90,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200ResponseData>("data", Data);
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("log_id", LogId);
-            writer.WriteObjectValue<UntypedNode>("session_info", SessionInfo);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200ResponseSessionInfo>("session_info", SessionInfo);
             writer.WriteBoolValue("successful", Successful);
             writer.WriteAdditionalData(AdditionalData);
         }

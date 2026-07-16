@@ -17,10 +17,18 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The any_of property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AnyOf { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem>? AnyOf { get; set; }
 #nullable restore
 #else
-        public List<string> AnyOf { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem> AnyOf { get; set; }
+#endif
+        /// <summary>The when property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2WhenProperty? When { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2WhenProperty When { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2"/> and sets the default values.
@@ -47,7 +55,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "any_of", n => { AnyOf = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "any_of", n => { AnyOf = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem>(global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "when", n => { When = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2WhenProperty>(global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2WhenProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +66,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("any_of", AnyOf);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem>("any_of", AnyOf);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2WhenProperty>("when", When);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

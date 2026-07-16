@@ -8,20 +8,34 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="double"/>, <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolsExecuteProxyRequestCustomConnectionDataValExpiresIn : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="double"/></summary>
-        public double? Double { get; set; }
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? String { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1? PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1 { get; set; }
 #nullable restore
 #else
-        public string String { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1 PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2? PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2 PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1? PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1 PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -32,14 +46,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataValExpiresIn();
-            if(parseNode.GetDoubleValue() is double doubleValue)
-            {
-                result.Double = doubleValue;
-            }
-            else if(parseNode.GetStringValue() is string stringValue)
-            {
-                result.String = stringValue;
-            }
+            result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1();
+            result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2();
+            result.PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1();
             return result;
         }
         /// <summary>
@@ -48,6 +57,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1 != null || PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2 != null || PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1 != null)
+            {
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1, PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2, PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1);
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -57,14 +70,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Double != null)
-            {
-                writer.WriteDoubleValue(null, Double);
-            }
-            else if(String != null)
-            {
-                writer.WriteStringValue(null, String);
-            }
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1, PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2, PostToolsExecuteProxyRequestCustomConnectionDataValExpiresInMember1);
         }
     }
 }

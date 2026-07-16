@@ -586,7 +586,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteAuthConfigsByNanoid404ResponseResponseJson"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -4157,6 +4157,11 @@
               "type": "object",
               "oneOf": [
                 {
+                  "enum": [
+                    null
+                  ]
+                },
+                {
                   "$ref": "#/components/schemas/GetToolsToolkitVersionsBranch2"
                 },
                 {
@@ -4166,8 +4171,7 @@
                   },
                   "description": "Object representation of parsed bracket notation"
                 }
-              ],
-              "nullable": true
+              ]
             },
             "examples": {
               "latest_version": {
@@ -4398,6 +4402,11 @@
               "type": "object",
               "oneOf": [
                 {
+                  "enum": [
+                    null
+                  ]
+                },
+                {
                   "$ref": "#/components/schemas/GetToolsByToolSlugToolkitVersionsBranch2"
                 },
                 {
@@ -4407,8 +4416,7 @@
                   },
                   "description": "Object representation of parsed bracket notation"
                 }
-              ],
-              "nullable": true
+              ]
             },
             "examples": {
               "latest_version": {
@@ -5746,6 +5754,11 @@
               "type": "object",
               "oneOf": [
                 {
+                  "enum": [
+                    null
+                  ]
+                },
+                {
                   "$ref": "#/components/schemas/GetTriggersTypesBySlugToolkitVersionsBranch2"
                 },
                 {
@@ -5755,8 +5768,7 @@
                   },
                   "description": "Object representation of parsed bracket notation"
                 }
-              ],
-              "nullable": true
+              ]
             },
             "examples": {
               "latest_version": {
@@ -5870,6 +5882,11 @@
               "type": "object",
               "oneOf": [
                 {
+                  "enum": [
+                    null
+                  ]
+                },
+                {
                   "$ref": "#/components/schemas/GetTriggersTypesToolkitVersionsBranch2"
                 },
                 {
@@ -5879,8 +5896,7 @@
                   },
                   "description": "Object representation of parsed bracket notation"
                 }
-              ],
-              "nullable": true
+              ]
             },
             "examples": {
               "latest_version": {
@@ -9537,6 +9553,51 @@
             "minItems": 1,
             "type": "array",
             "items": {
+              "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem"
+            }
+          },
+          "when": {
+            "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2WhenProperty"
+          }
+        }
+      },
+      "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemAnyOf2"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem_1": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemBranch1",
+            "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemAnyOf2": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemAnyOf2"
+          }
+        }
+      },
+      "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemAnyOf2": {
+        "required": [
+          "all_of"
+        ],
+        "type": "object",
+        "properties": {
+          "all_of": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
               "type": "string"
             }
           }
@@ -9626,7 +9687,7 @@
       "ToolInputParameters": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/ToolInputParametersAdditionalProperties"
         },
         "description": "Schema definition of required input parameters for the tool",
         "example": {
@@ -9647,7 +9708,7 @@
       "ToolOutputParameters": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/ToolOutputParametersAdditionalProperties"
         },
         "description": "Schema definition of return values from the tool",
         "example": {
@@ -9795,6 +9856,16 @@
           },
           "connected_account": {
             "$ref": "#/components/schemas/ToolRouterToolkitsListResponseItemsItemConnectedAccount"
+          }
+        }
+      },
+      "ToolScopeRequirementsAllOfItemAnyOf2When": {
+        "type": "object",
+        "additionalProperties": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         }
       },
@@ -10152,7 +10223,7 @@
           "expected_input_fields": {
             "type": "array",
             "items": {
-              "nullable": true
+              "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseExpectedInputFieldsItem"
             },
             "description": "Fields expected during connection initialization"
           },
@@ -10211,9 +10282,6 @@
             "example": "pj_1a2b3c4d5e6f"
           }
         }
-      },
-      "DeleteAuthConfigsByNanoid404Response": {
-        "type": "object"
       },
       "PatchAuthConfigsByNanoidByStatus200Response": {
         "type": "object"
@@ -12063,12 +12131,7 @@
             "example": true
           },
           "session_info": {
-            "description": "Optional session information for tools that return session context",
-            "nullable": true,
-            "example": {
-              "session_id": "session-12345",
-              "expires_at": "2023-01-01T13:00:00Z"
-            }
+            "$ref": "#/components/schemas/PostToolsExecuteByToolSlug200ResponseSessionInfo"
           },
           "log_id": {
             "type": "string",
@@ -12140,12 +12203,7 @@
             "$ref": "#/components/schemas/PostToolsExecuteProxyRequestMethod"
           },
           "body": {
-            "description": "The request body (for POST, PUT, and PATCH requests)",
-            "nullable": true,
-            "example": {
-              "name": "New Resource",
-              "description": "This is a new resource"
-            }
+            "$ref": "#/components/schemas/PostToolsExecuteProxyRequestBody"
           },
           "binary_body": {
             "$ref": "#/components/schemas/PostToolsExecuteProxyRequestBinaryBody"
@@ -12169,13 +12227,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "description": "The response data returned from the proxied API",
-            "nullable": true,
-            "example": {
-              "id": "123",
-              "name": "Resource Name",
-              "created_at": "2023-01-01T00:00:00Z"
-            }
+            "$ref": "#/components/schemas/PostToolsExecuteProxy200ResponseData"
           },
           "binary_data": {
             "$ref": "#/components/schemas/PostToolsExecuteProxy200ResponseBinaryData"
@@ -13550,12 +13602,7 @@
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestMethod"
           },
           "body": {
-            "description": "The request body (for POST, PUT, and PATCH requests)",
-            "nullable": true,
-            "example": {
-              "name": "New Resource",
-              "description": "This is a new resource"
-            }
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestBody"
           },
           "binary_body": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestBinaryBody"
@@ -13579,13 +13626,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "description": "The response data returned from the proxied API",
-            "nullable": true,
-            "example": {
-              "id": "123",
-              "name": "Resource Name",
-              "created_at": "2023-01-01T00:00:00Z"
-            }
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecute200ResponseData"
           },
           "binary_data": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData"
@@ -13843,9 +13884,1712 @@
           }
         }
       },
+      "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf9ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf9ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf10ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf10ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf10ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf10ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf66ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf66ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf66ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf66ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf67ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf67ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf67ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf67ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf2ValExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf2ValExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf2ValScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf2ValScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf11ValExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf11ValExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf11ValScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf11ValScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf2ValExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf2ValExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf2ValScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf2ValScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf11ValExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf11ValExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf11ValScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf11ValScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       },
       "PostTriggerInstancesBySlugUpsertRequestToolkitVersionsBranch1": {
         "required": [
@@ -13914,10 +15658,148 @@
           }
         }
       },
-      "PatchAuthConfigsByNanoid200ResponseResponseJson": {
-        "type": "object"
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
       },
-      "DeleteAuthConfigsByNanoid404ResponseResponseJson": {
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2ValExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2ValExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2ValScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2ValScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11ValExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11ValExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11ValScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11ValScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PatchAuthConfigsByNanoid200ResponseResponseJson": {
         "type": "object"
       },
       "PatchAuthConfigsByNanoidByStatus200ResponseResponseJson": {
@@ -14095,28 +15977,29 @@
         "type": "object",
         "anyOf": [
           {
-            "type": "number"
+            "$ref": "#/components/schemas/PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1"
           },
           {
-            "type": "string"
+            "$ref": "#/components/schemas/PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2"
+          },
+          {
+            "type": "object"
           }
-        ],
-        "nullable": true
+        ]
       },
       "PostConnectedAccountsLinkRequestConnectionDataScope": {
         "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/PostConnectedAccountsLinkRequestConnectionDataAnyOf9ScopeBranch1"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/PostConnectedAccountsLinkRequestConnectionDataAnyOf9ScopeBranch2"
+          },
+          {
+            "type": "object"
           }
-        ],
-        "nullable": true
+        ]
       },
       "PostToolsExecuteByToolSlugRequestCustomAuthParamsParametersItemValue": {
         "type": "object",
@@ -14134,55 +16017,57 @@
         "type": "object",
         "anyOf": [
           {
-            "type": "number"
+            "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValExpiresInBranch1"
           },
           {
-            "type": "string"
+            "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValExpiresInBranch2"
+          },
+          {
+            "type": "object"
           }
-        ],
-        "nullable": true
+        ]
       },
       "PostToolsExecuteByToolSlugRequestCustomConnectionDataValScope": {
         "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch1"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScopeBranch2"
+          },
+          {
+            "type": "object"
           }
-        ],
-        "nullable": true
+        ]
       },
       "PostToolsExecuteProxyRequestCustomConnectionDataValExpiresIn": {
         "type": "object",
         "anyOf": [
           {
-            "type": "number"
+            "$ref": "#/components/schemas/PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch1"
           },
           {
-            "type": "string"
+            "$ref": "#/components/schemas/PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresInBranch2"
+          },
+          {
+            "type": "object"
           }
-        ],
-        "nullable": true
+        ]
       },
       "PostToolsExecuteProxyRequestCustomConnectionDataValScope": {
         "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValScopeBranch1"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValScopeBranch2"
+          },
+          {
+            "type": "object"
           }
-        ],
-        "nullable": true
+        ]
       },
       "PostTriggerInstancesBySlugUpsertRequestToolkitVersions": {
         "type": "object",
@@ -14195,10 +16080,12 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          {
+            "type": "object"
           }
         ],
         "description": "Toolkit version specification. Supports \u0022latest\u0022 string or a record mapping toolkit slugs to specific versions.",
-        "nullable": true,
         "example": "latest"
       },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTags": {
@@ -14285,28 +16172,29 @@
         "type": "object",
         "anyOf": [
           {
-            "type": "number"
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValExpiresInBranch1"
           },
           {
-            "type": "string"
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValExpiresInBranch2"
+          },
+          {
+            "type": "object"
           }
-        ],
-        "nullable": true
+        ]
       },
       "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValScope": {
         "type": "object",
         "anyOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValScopeBranch1"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValScopeBranch2"
+          },
+          {
+            "type": "object"
           }
-        ],
-        "nullable": true
+        ]
       },
       "PatchAuthConfigsByNanoidRequestOneOf1CredentialsScopes": {
         "type": "object",
@@ -14439,16 +16327,32 @@
       "ToolInputParametersProperty": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/ToolInputParametersPropertyAdditionalProperties"
         },
         "description": "Schema definition of required input parameters for the tool"
       },
       "ToolOutputParametersProperty": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/ToolOutputParametersPropertyAdditionalProperties"
         },
         "description": "Schema definition of return values from the tool"
+      },
+      "ToolScopeRequirementsAllOfItemAnyOf2WhenProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "ToolInputParametersAdditionalProperties": {
+        "type": "object"
+      },
+      "ToolOutputParametersAdditionalProperties": {
+        "type": "object"
       },
       "GetAuthSessionInfo200ResponseProject": {
         "required": [
@@ -14849,7 +16753,7 @@
           "expected_input_fields": {
             "type": "array",
             "items": {
-              "nullable": true
+              "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemExpectedInputFieldsItem"
             },
             "description": "Fields expected during connection initialization"
           },
@@ -14904,7 +16808,7 @@
       "GetAuthConfigsByNanoid200ResponseCredentials": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseCredentialsAdditionalProperties"
         },
         "description": "The authentication credentials (tokens, keys, etc.) - may be partially hidden for security"
       },
@@ -14925,6 +16829,9 @@
           }
         },
         "nullable": true
+      },
+      "GetAuthConfigsByNanoid200ResponseExpectedInputFieldsItem": {
+        "type": "object"
       },
       "GetAuthConfigsByNanoid200ResponseToolAccessConfig": {
         "type": "object",
@@ -14950,7 +16857,7 @@
       "GetAuthConfigsByNanoid200ResponseSharedCredentials": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseSharedCredentialsAdditionalProperties"
         },
         "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
         "x-experimental": true
@@ -14978,7 +16885,7 @@
       "PostCliCodactFailuresRequestCtx": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostCliCodactFailuresRequestCtxAdditionalProperties"
         },
         "description": "Arbitrary failure context from the CLI.",
         "example": {
@@ -14991,7 +16898,7 @@
       "PostCliCodactFailuresRequestSession": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostCliCodactFailuresRequestSessionAdditionalProperties"
         },
         "description": "Arbitrary session payload from the CLI.",
         "example": {
@@ -15265,7 +17172,7 @@
       "GetConnectedAccountsByNanoid200ResponseData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetConnectedAccountsByNanoid200ResponseDataAdditionalProperties"
         },
         "description": "This is deprecated, use \u0060state\u0060 instead",
         "deprecated": true
@@ -15273,7 +17180,7 @@
       "GetConnectedAccountsByNanoid200ResponseParams": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetConnectedAccountsByNanoid200ResponseParamsAdditionalProperties"
         },
         "description": "The initialization data of the connection, including configuration parameters",
         "deprecated": true
@@ -15676,13 +17583,13 @@
       "GetInternalActionExecutionLogById200ResponseSession": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseSessionAdditionalProperties"
         }
       },
       "GetInternalActionExecutionLogById200ResponseExecutionMetadata": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseExecutionMetadataAdditionalProperties"
         }
       },
       "GetInternalActionExecutionLogById200ResponseStepsItem": {
@@ -15728,19 +17635,19 @@
       "GetInternalActionExecutionLogById200ResponsePayloadReceived": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponsePayloadReceivedAdditionalProperties"
         }
       },
       "GetInternalActionExecutionLogById200ResponseResponse": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseResponseAdditionalProperties"
         }
       },
       "GetInternalActionExecutionLogById200ResponseError": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseErrorAdditionalProperties"
         }
       },
       "GetOrgList200ResponseOrganizationsItem": {
@@ -16577,7 +18484,7 @@
       "PostToolsExecuteByToolSlugRequestArguments": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestArgumentsAdditionalProperties"
         },
         "description": "Key-value pairs of arguments required by the tool (mutually exclusive with text)",
         "example": {
@@ -16592,7 +18499,7 @@
       "PostToolsExecuteByToolSlug200ResponseData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolsExecuteByToolSlug200ResponseDataAdditionalProperties"
         },
         "description": "Tool execution output data that varies based on the specific tool",
         "example": {
@@ -16602,10 +18509,18 @@
           "html_url": "https://github.com/octocat/Hello-World/actions/runs/12345678"
         }
       },
+      "PostToolsExecuteByToolSlug200ResponseSessionInfo": {
+        "type": "object",
+        "description": "Optional session information for tools that return session context",
+        "example": {
+          "session_id": "session-12345",
+          "expires_at": "2023-01-01T13:00:00Z"
+        }
+      },
       "PostToolsExecuteByToolSlugInput200ResponseArguments": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolsExecuteByToolSlugInput200ResponseArgumentsAdditionalProperties"
         },
         "description": "Key-value pairs of arguments required by the tool to accomplish the described task",
         "example": {
@@ -16615,6 +18530,14 @@
           "inputs": {
             "environment": "production"
           }
+        }
+      },
+      "PostToolsExecuteProxyRequestBody": {
+        "type": "object",
+        "description": "The request body (for POST, PUT, and PATCH requests)",
+        "example": {
+          "name": "New Resource",
+          "description": "This is a new resource"
         }
       },
       "PostToolsExecuteProxyRequestBinaryBody": {
@@ -16680,6 +18603,15 @@
         },
         "deprecated": true
       },
+      "PostToolsExecuteProxy200ResponseData": {
+        "type": "object",
+        "description": "The response data returned from the proxied API",
+        "example": {
+          "id": "123",
+          "name": "Resource Name",
+          "created_at": "2023-01-01T00:00:00Z"
+        }
+      },
       "PostToolsExecuteProxy200ResponseBinaryData": {
         "required": [
           "url",
@@ -16722,7 +18654,7 @@
       "PostTriggerInstancesBySlugUpsertRequestTriggerConfig": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsertRequestTriggerConfigAdditionalProperties"
         },
         "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.\u0022",
         "deprecated": true
@@ -16730,7 +18662,7 @@
       "PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsertRequestTriggerConfigPropertyAdditionalProperties"
         },
         "description": "Trigger configuration"
       },
@@ -16860,7 +18792,7 @@
       "GetTriggersTypesBySlug200ResponseConfig": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetTriggersTypesBySlug200ResponseConfigAdditionalProperties"
         },
         "description": "Configuration schema required to set up this trigger",
         "example": {
@@ -16881,7 +18813,7 @@
       "GetTriggersTypesBySlug200ResponsePayload": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetTriggersTypesBySlug200ResponsePayloadAdditionalProperties"
         },
         "description": "Schema of the data payload this trigger will deliver when it fires",
         "example": {
@@ -17656,7 +19588,7 @@
       "PostToolRouterSessionBySessionIdExecuteRequestArguments": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteRequestArgumentsAdditionalProperties"
         },
         "description": "The arguments required by the tool",
         "example": {
@@ -17671,7 +19603,7 @@
       "PostToolRouterSessionBySessionIdExecute200ResponseData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200ResponseDataAdditionalProperties"
         },
         "description": "The data returned by the tool execution",
         "example": {
@@ -17682,7 +19614,7 @@
       "PostToolRouterSessionBySessionIdExecuteMetaRequestArguments": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMetaRequestArgumentsAdditionalProperties"
         },
         "description": "The arguments required by the meta tool",
         "example": {
@@ -17695,7 +19627,7 @@
       "PostToolRouterSessionBySessionIdExecuteMeta200ResponseData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200ResponseDataAdditionalProperties"
         },
         "description": "The data returned by the tool execution",
         "example": {
@@ -18133,6 +20065,14 @@
         "description": "Experimental features - not stable, may be modified or removed in future versions.",
         "x-experimental": true
       },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestBody": {
+        "type": "object",
+        "description": "The request body (for POST, PUT, and PATCH requests)",
+        "example": {
+          "name": "New Resource",
+          "description": "This is a new resource"
+        }
+      },
       "PostToolRouterSessionBySessionIdProxyExecuteRequestBinaryBody": {
         "type": "object",
         "properties": {
@@ -18193,6 +20133,15 @@
           "val": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVal"
           }
+        }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecute200ResponseData": {
+        "type": "object",
+        "description": "The response data returned from the proxied API",
+        "example": {
+          "id": "123",
+          "name": "Resource Name",
+          "created_at": "2023-01-01T00:00:00Z"
         }
       },
       "PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData": {
@@ -18543,7 +20492,7 @@
       "PatchAuthConfigsByNanoidRequestOneOf1SharedCredentials": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1SharedCredentialsAdditionalProperties"
         },
         "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
@@ -18569,9 +20518,15 @@
       "PatchAuthConfigsByNanoidRequestOneOf2SharedCredentials": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf2SharedCredentialsAdditionalProperties"
         },
         "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
+      },
+      "ToolInputParametersPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "ToolOutputParametersPropertyAdditionalProperties": {
+        "type": "object"
       },
       "GetAuthSessionInfo200ResponseProjectOrg": {
         "required": [
@@ -18659,7 +20614,7 @@
       "PostAuthConfigsRequestAuthConfigSharedCredentials": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigSharedCredentialsAdditionalProperties"
         },
         "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
         "x-experimental": true
@@ -18713,7 +20668,7 @@
       "GetAuthConfigs200ResponseItemsItemCredentials": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemCredentialsAdditionalProperties"
         },
         "description": "The authentication credentials (tokens, keys, etc.) - may be partially hidden for security"
       },
@@ -18734,6 +20689,9 @@
           }
         },
         "nullable": true
+      },
+      "GetAuthConfigs200ResponseItemsItemExpectedInputFieldsItem": {
+        "type": "object"
       },
       "GetAuthConfigs200ResponseItemsItemToolAccessConfig": {
         "type": "object",
@@ -18759,10 +20717,16 @@
       "GetAuthConfigs200ResponseItemsItemSharedCredentials": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemSharedCredentialsAdditionalProperties"
         },
         "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
         "x-experimental": true
+      },
+      "GetAuthConfigsByNanoid200ResponseCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "GetAuthConfigsByNanoid200ResponseSharedCredentialsAdditionalProperties": {
+        "type": "object"
       },
       "PostCliCodactFailuresRequestToolInfoTool": {
         "required": [
@@ -18780,6 +20744,12 @@
             "type": "string"
           }
         }
+      },
+      "PostCliCodactFailuresRequestCtxAdditionalProperties": {
+        "type": "object"
+      },
+      "PostCliCodactFailuresRequestSessionAdditionalProperties": {
+        "type": "object"
       },
       "GetConnectedAccounts200ResponseItemsItemToolkit": {
         "required": [
@@ -18855,7 +20825,7 @@
       "GetConnectedAccounts200ResponseItemsItemData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetConnectedAccounts200ResponseItemsItemDataAdditionalProperties"
         },
         "description": "This is deprecated, use \u0060state\u0060 instead",
         "deprecated": true
@@ -18879,7 +20849,7 @@
       "PostConnectedAccountsRequestConnectionData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostConnectedAccountsRequestConnectionDataAdditionalProperties"
         },
         "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use state instead.\u0022",
         "deprecated": true
@@ -19171,6 +21141,12 @@
           }
         }
       },
+      "GetConnectedAccountsByNanoid200ResponseDataAdditionalProperties": {
+        "type": "object"
+      },
+      "GetConnectedAccountsByNanoid200ResponseParamsAdditionalProperties": {
+        "type": "object"
+      },
       "PostConnectedAccountsLinkRequestConnectionDataAuthedUser": {
         "type": "object",
         "properties": {
@@ -19186,7 +21162,7 @@
       "PostConnectedAccountsLinkRequestConnectionDataExtraTokenData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostConnectedAccountsLinkRequestConnectionDataExtraTokenDataAdditionalProperties"
         }
       },
       "PostConnectedAccountsLinkRequestExperimentalAclConfigForShared": {
@@ -19326,6 +21302,12 @@
           }
         }
       },
+      "GetInternalActionExecutionLogById200ResponseSessionAdditionalProperties": {
+        "type": "object"
+      },
+      "GetInternalActionExecutionLogById200ResponseExecutionMetadataAdditionalProperties": {
+        "type": "object"
+      },
       "GetInternalActionExecutionLogById200ResponseStepsItemMetadata": {
         "type": "object",
         "properties": {
@@ -19369,6 +21351,15 @@
             "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseStepsItemLogsItemResponse"
           }
         }
+      },
+      "GetInternalActionExecutionLogById200ResponsePayloadReceivedAdditionalProperties": {
+        "type": "object"
+      },
+      "GetInternalActionExecutionLogById200ResponseResponseAdditionalProperties": {
+        "type": "object"
+      },
+      "GetInternalActionExecutionLogById200ResponseErrorAdditionalProperties": {
+        "type": "object"
       },
       "GetToolkits200ResponseItemsItemMeta": {
         "required": [
@@ -19543,7 +21534,7 @@
       "GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItem": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItemAdditionalProperties"
         }
       },
       "PostToolkitsMulti200ResponseItemsItemMeta": {
@@ -19633,7 +21624,7 @@
       "PostToolsExecuteByToolSlugRequestCustomAuthParamsBody": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomAuthParamsBodyAdditionalProperties"
         },
         "description": "\u0022The body to be sent to the endpoint for authentication. This is a JSON object. Note: This is very rarely needed and is only required by very few apps.\u0022"
       },
@@ -19748,8 +21739,17 @@
           }
         },
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomConnectionDataValAdditionalProperties"
         }
+      },
+      "PostToolsExecuteByToolSlugRequestArgumentsAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolsExecuteByToolSlug200ResponseDataAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolsExecuteByToolSlugInput200ResponseArgumentsAdditionalProperties": {
+        "type": "object"
       },
       "PostToolsExecuteProxyRequestCustomConnectionDataVal": {
         "required": [
@@ -19862,20 +21862,26 @@
           }
         },
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolsExecuteProxyRequestCustomConnectionDataValAdditionalProperties"
         }
+      },
+      "PostTriggerInstancesBySlugUpsertRequestTriggerConfigAdditionalProperties": {
+        "type": "object"
+      },
+      "PostTriggerInstancesBySlugUpsertRequestTriggerConfigPropertyAdditionalProperties": {
+        "type": "object"
       },
       "GetTriggerInstancesActive200ResponseItemsItemTriggerConfig": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetTriggerInstancesActive200ResponseItemsItemTriggerConfigAdditionalProperties"
         },
         "description": "Configuration for the trigger"
       },
       "GetTriggerInstancesActive200ResponseItemsItemState": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetTriggerInstancesActive200ResponseItemsItemStateAdditionalProperties"
         },
         "description": "\u0022DEPRECATED: This field exposes internal state and will be removed in a future version.\u0022",
         "deprecated": true
@@ -19883,7 +21889,7 @@
       "GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetTriggerInstancesActive200ResponseItemsItemTriggerConfigPropertyAdditionalProperties"
         },
         "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.\u0022",
         "deprecated": true
@@ -19900,6 +21906,12 @@
           }
         },
         "description": "Deprecated fields for the trigger instance"
+      },
+      "GetTriggersTypesBySlug200ResponseConfigAdditionalProperties": {
+        "type": "object"
+      },
+      "GetTriggersTypesBySlug200ResponsePayloadAdditionalProperties": {
+        "type": "object"
       },
       "GetTriggersTypes200ResponseItemsItemToolkit": {
         "required": [
@@ -19930,7 +21942,7 @@
       "GetTriggersTypes200ResponseItemsItemConfig": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetTriggersTypes200ResponseItemsItemConfigAdditionalProperties"
         },
         "description": "Configuration schema required to set up this trigger",
         "example": {
@@ -19951,7 +21963,7 @@
       "GetTriggersTypes200ResponseItemsItemPayload": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetTriggersTypes200ResponseItemsItemPayloadAdditionalProperties"
         },
         "description": "Schema of the data payload this trigger will deliver when it fires",
         "example": {
@@ -20435,6 +22447,18 @@
             "description": "Original tool slug as provided by the user"
           }
         }
+      },
+      "PostToolRouterSessionBySessionIdExecuteRequestArgumentsAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionBySessionIdExecute200ResponseDataAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionBySessionIdExecuteMetaRequestArgumentsAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionBySessionIdExecuteMeta200ResponseDataAdditionalProperties": {
+        "type": "object"
       },
       "GetToolRouterSessionBySessionId200ResponseConfigToolkits": {
         "type": "object",
@@ -21115,7 +23139,7 @@
           }
         },
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValAdditionalProperties"
         }
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseResultsItemReferenceWorkbenchSnippetsItem": {
@@ -21148,14 +23172,14 @@
       "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemConnectionDetails": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemConnectionDetailsAdditionalProperties"
         },
         "description": "Connection details including auth config and connected account IDs. Only present when has_active_connection is true."
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfo": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfoAdditionalProperties"
         },
         "description": "Information about the currently connected user (email, name, etc.)"
       },
@@ -21246,6 +23270,21 @@
             "description": "Changelog for this version"
           }
         }
+      },
+      "PatchAuthConfigsByNanoidRequestOneOf1SharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "PatchAuthConfigsByNanoidRequestOneOf2SharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "PostAuthConfigsRequestAuthConfigSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "GetAuthConfigs200ResponseItemsItemCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "GetAuthConfigs200ResponseItemsItemSharedCredentialsAdditionalProperties": {
+        "type": "object"
       },
       "GetConnectedAccounts200ResponseItemsItemExperimentalAclConfigForShared": {
         "required": [
@@ -21384,6 +23423,9 @@
           }
         }
       },
+      "GetConnectedAccounts200ResponseItemsItemDataAdditionalProperties": {
+        "type": "object"
+      },
       "PostConnectedAccountsRequestConnectionStateVal": {
         "required": [
           "status"
@@ -21494,6 +23536,9 @@
           }
         }
       },
+      "PostConnectedAccountsRequestConnectionDataAdditionalProperties": {
+        "type": "object"
+      },
       "PostConnectedAccountsRequestConnectionExperimentalAclConfigForShared": {
         "type": "object",
         "properties": {
@@ -21524,6 +23569,9 @@
         },
         "description": "\u0022Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids \u2192 DENY; allow_all_users=true \u2192 ALLOW; user in allowed_user_ids \u2192 ALLOW; else DENY. Default state (omitted or {}) is deny-by-default \u2014 only the creator can use.\u0022",
         "x-experimental": true
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataExtraTokenDataAdditionalProperties": {
+        "type": "object"
       },
       "GetInternalActionExecutionLogById200ResponseStepsItemLogsItemRequest": {
         "required": [
@@ -21630,6 +23678,9 @@
         },
         "description": "Form fields needed when connecting a user account with this authentication method"
       },
+      "GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItemAdditionalProperties": {
+        "type": "object"
+      },
       "PostToolkitsMulti200ResponseItemsItemMetaCategoriesItem": {
         "required": [
           "id",
@@ -21649,6 +23700,12 @@
           }
         }
       },
+      "PostToolsExecuteByToolSlugRequestCustomAuthParamsBodyAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataValAdditionalProperties": {
+        "type": "object"
+      },
       "PostToolsExecuteByToolSlugRequestCustomConnectionDataValAuthedUser": {
         "type": "object",
         "properties": {
@@ -21664,8 +23721,11 @@
       "PostToolsExecuteByToolSlugRequestCustomConnectionDataValExtraTokenData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomConnectionDataValExtraTokenDataAdditionalProperties"
         }
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataValAdditionalProperties": {
+        "type": "object"
       },
       "PostToolsExecuteProxyRequestCustomConnectionDataValAuthedUser": {
         "type": "object",
@@ -21682,8 +23742,23 @@
       "PostToolsExecuteProxyRequestCustomConnectionDataValExtraTokenData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolsExecuteProxyRequestCustomConnectionDataValExtraTokenDataAdditionalProperties"
         }
+      },
+      "GetTriggerInstancesActive200ResponseItemsItemTriggerConfigAdditionalProperties": {
+        "type": "object"
+      },
+      "GetTriggerInstancesActive200ResponseItemsItemStateAdditionalProperties": {
+        "type": "object"
+      },
+      "GetTriggerInstancesActive200ResponseItemsItemTriggerConfigPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "GetTriggersTypes200ResponseItemsItemConfigAdditionalProperties": {
+        "type": "object"
+      },
+      "GetTriggersTypes200ResponseItemsItemPayloadAdditionalProperties": {
+        "type": "object"
       },
       "PostToolRouterSessionRequestExperimentalCustomToolkitsItemToolsItem": {
         "required": [
@@ -21730,7 +23805,7 @@
       "PostToolRouterSessionRequestExperimentalCustomToolsItemInputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalCustomToolsItemInputSchemaAdditionalProperties"
         },
         "description": "\u0022Must have type: \\\u0022object\\\u0022 and a properties field.\u0022",
         "example": {
@@ -21746,7 +23821,7 @@
       "PostToolRouterSessionRequestExperimentalCustomToolsItemOutputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalCustomToolsItemOutputSchemaAdditionalProperties"
         },
         "description": "JSON Schema describing tool output (optional)"
       },
@@ -21816,13 +23891,13 @@
       "PostToolRouterSession201ResponseExperimentalCustomToolsItemInputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSession201ResponseExperimentalCustomToolsItemInputSchemaAdditionalProperties"
         }
       },
       "PostToolRouterSession201ResponseExperimentalCustomToolsItemOutputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSession201ResponseExperimentalCustomToolsItemOutputSchemaAdditionalProperties"
         }
       },
       "GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalProperties": {
@@ -21884,13 +23959,13 @@
       "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemInputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemInputSchemaAdditionalProperties"
         }
       },
       "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchemaAdditionalProperties"
         }
       },
       "PatchToolRouterSessionBySessionIdRequestExperimentalPermissionsOverrides": {
@@ -21959,14 +24034,17 @@
       "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemInputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemInputSchemaAdditionalProperties"
         }
       },
       "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchemaAdditionalProperties"
         }
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValAdditionalProperties": {
+        "type": "object"
       },
       "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValAuthedUser": {
         "type": "object",
@@ -21983,27 +24061,33 @@
       "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValExtraTokenData": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValExtraTokenDataAdditionalProperties"
         }
+      },
+      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemConnectionDetailsAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfoAdditionalProperties": {
+        "type": "object"
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItemUserInfo": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItemUserInfoAdditionalProperties"
         },
         "description": "Information about the connected user (email, name, etc.)"
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesInputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesInputSchemaAdditionalProperties"
         },
         "description": "Input schema for the tool (only present when hasFullSchema is true)"
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesOutputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesOutputSchemaAdditionalProperties"
         },
         "description": "Output/response schema for the tool. Only included when include_output_schemas is true."
       },
@@ -22036,13 +24120,13 @@
       "GetInternalActionExecutionLogById200ResponseStepsItemLogsItemRequestParams": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseStepsItemLogsItemRequestParamsAdditionalProperties"
         }
       },
       "GetInternalActionExecutionLogById200ResponseStepsItemLogsItemRequestJson": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseStepsItemLogsItemRequestJsonAdditionalProperties"
         }
       },
       "GetToolkitsBySlug200ResponseAuthConfigDetailsItemFieldsAuthConfigCreationRequiredItem": {
@@ -22193,10 +24277,16 @@
           }
         }
       },
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataValExtraTokenDataAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolsExecuteProxyRequestCustomConnectionDataValExtraTokenDataAdditionalProperties": {
+        "type": "object"
+      },
       "PostToolRouterSessionRequestExperimentalCustomToolkitsItemToolsItemInputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalCustomToolkitsItemToolsItemInputSchemaAdditionalProperties"
         },
         "description": "\u0022Must have type: \\\u0022object\\\u0022 and a properties field.\u0022",
         "example": {
@@ -22215,9 +24305,15 @@
       "PostToolRouterSessionRequestExperimentalCustomToolkitsItemToolsItemOutputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalCustomToolkitsItemToolsItemOutputSchemaAdditionalProperties"
         },
         "description": "Optional output schema for the tool response."
+      },
+      "PostToolRouterSessionRequestExperimentalCustomToolsItemInputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionRequestExperimentalCustomToolsItemOutputSchemaAdditionalProperties": {
+        "type": "object"
       },
       "PostToolRouterSession201ResponseConfigToolsAdditionalPropertiesTags": {
         "type": "object",
@@ -22241,14 +24337,20 @@
       "PostToolRouterSession201ResponseExperimentalCustomToolkitsItemToolsItemInputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSession201ResponseExperimentalCustomToolkitsItemToolsItemInputSchemaAdditionalProperties"
         }
       },
       "PostToolRouterSession201ResponseExperimentalCustomToolkitsItemToolsItemOutputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PostToolRouterSession201ResponseExperimentalCustomToolkitsItemToolsItemOutputSchemaAdditionalProperties"
         }
+      },
+      "PostToolRouterSession201ResponseExperimentalCustomToolsItemInputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSession201ResponseExperimentalCustomToolsItemOutputSchemaAdditionalProperties": {
+        "type": "object"
       },
       "GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTags": {
         "type": "object",
@@ -22272,14 +24374,20 @@
       "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemInputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemInputSchemaAdditionalProperties"
         }
       },
       "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemOutputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemOutputSchemaAdditionalProperties"
         }
+      },
+      "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemInputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchemaAdditionalProperties": {
+        "type": "object"
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTags": {
         "type": "object",
@@ -22303,14 +24411,32 @@
       "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemInputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemInputSchemaAdditionalProperties"
         }
       },
       "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemOutputSchema": {
         "type": "object",
         "additionalProperties": {
-          "nullable": true
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemOutputSchemaAdditionalProperties"
         }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemInputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValExtraTokenDataAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItemUserInfoAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesInputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesOutputSchemaAdditionalProperties": {
+        "type": "object"
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesSchemaRefArgs": {
         "required": [
@@ -22327,6 +24453,36 @@
           }
         },
         "description": "Arguments to pass to the tool"
+      },
+      "GetInternalActionExecutionLogById200ResponseStepsItemLogsItemRequestParamsAdditionalProperties": {
+        "type": "object"
+      },
+      "GetInternalActionExecutionLogById200ResponseStepsItemLogsItemRequestJsonAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionRequestExperimentalCustomToolkitsItemToolsItemInputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSessionRequestExperimentalCustomToolkitsItemToolsItemOutputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSession201ResponseExperimentalCustomToolkitsItemToolsItemInputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PostToolRouterSession201ResponseExperimentalCustomToolkitsItemToolsItemOutputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemInputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemOutputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemInputSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemOutputSchemaAdditionalProperties": {
+        "type": "object"
       },
       "PatchConnectedAccountBodyConnectionStateAuthScheme": {
         "enum": [

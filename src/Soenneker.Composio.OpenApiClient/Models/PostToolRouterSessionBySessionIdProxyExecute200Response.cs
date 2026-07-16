@@ -25,10 +25,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The response data returned from the proxied API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Data { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData? Data { get; set; }
 #nullable restore
 #else
-        public UntypedNode Data { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData Data { get; set; }
 #endif
         /// <summary>The HTTP headers returned from the proxied API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,7 +66,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "binary_data", n => { BinaryData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData.CreateFromDiscriminatorValue); } },
-                { "data", n => { Data = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData.CreateFromDiscriminatorValue); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
             };
@@ -79,7 +79,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData>("binary_data", BinaryData);
-            writer.WriteObjectValue<UntypedNode>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders>("headers", Headers);
             writer.WriteDoubleValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);

@@ -25,10 +25,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The request body (for POST, PUT, and PATCH requests)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Body { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBody? Body { get; set; }
 #nullable restore
 #else
-        public UntypedNode Body { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBody Body { get; set; }
 #endif
         /// <summary>The ID of the connected account to use for authentication (if not provided, will use the default account for the project)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,7 +91,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "binary_body", n => { BinaryBody = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody.CreateFromDiscriminatorValue); } },
-                { "body", n => { Body = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "body", n => { Body = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBody>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBody.CreateFromDiscriminatorValue); } },
                 { "connected_account_id", n => { ConnectedAccountId = n.GetStringValue(); } },
                 { "custom_connection_data", n => { CustomConnectionData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData.CreateFromDiscriminatorValue); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
@@ -107,7 +107,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody>("binary_body", BinaryBody);
-            writer.WriteObjectValue<UntypedNode>("body", Body);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBody>("body", Body);
             writer.WriteStringValue("connected_account_id", ConnectedAccountId);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData>("custom_connection_data", CustomConnectionData);
             writer.WriteStringValue("endpoint", Endpoint);

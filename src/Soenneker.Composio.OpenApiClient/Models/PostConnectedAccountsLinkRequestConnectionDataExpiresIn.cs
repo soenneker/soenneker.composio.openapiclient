@@ -8,20 +8,34 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="double"/>, <see cref="string"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostConnectedAccountsLinkRequestConnectionDataExpiresIn : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="double"/></summary>
-        public double? Double { get; set; }
-        /// <summary>Composed type representation for type <see cref="string"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? String { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1? PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1 { get; set; }
 #nullable restore
 #else
-        public string String { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1 PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2? PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2 PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1? PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1 PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -32,14 +46,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresIn();
-            if(parseNode.GetDoubleValue() is double doubleValue)
-            {
-                result.Double = doubleValue;
-            }
-            else if(parseNode.GetStringValue() is string stringValue)
-            {
-                result.String = stringValue;
-            }
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2();
+            result.PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1();
             return result;
         }
         /// <summary>
@@ -48,6 +57,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if(PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2 != null || PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1 != null)
+            {
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1, PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2, PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1);
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -57,14 +70,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Double != null)
-            {
-                writer.WriteDoubleValue(null, Double);
-            }
-            else if(String != null)
-            {
-                writer.WriteStringValue(null, String);
-            }
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1>(null, PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1, PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch2, PostConnectedAccountsLinkRequestConnectionDataExpiresInMember1);
         }
     }
 }
