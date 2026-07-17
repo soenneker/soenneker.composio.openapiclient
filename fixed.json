@@ -4980,26 +4980,6 @@
                 }
               }
             }
-          },
-          "502": {
-            "description": "Bad gateway - Error communicating with the upstream API",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "504": {
-            "description": "Gateway timeout - Upstream API timed out",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
           }
         },
         "security": [

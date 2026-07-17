@@ -48,8 +48,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Proxy
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 501 status code</exception>
-        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 502 status code</exception>
-        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxy200Response?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -71,8 +69,6 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Proxy
                 { "429", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "501", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "502", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "504", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxy200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxy200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
