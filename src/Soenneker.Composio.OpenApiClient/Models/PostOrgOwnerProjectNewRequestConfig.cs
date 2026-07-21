@@ -39,6 +39,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting? LogVisibilitySetting { get; set; }
         /// <summary>The mask_secret_keys_in_connected_account property</summary>
         public bool? MaskSecretKeysInConnectedAccount { get; set; }
+        /// <summary>Developer-hosted OAuth callback verifier URL. Setting it enables per-user callback identity verification; null disables it. Must be https and pass SSRF checks.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OauthCallbackVerifierUrl { get; set; }
+#nullable restore
+#else
+        public string OauthCallbackVerifierUrl { get; set; }
+#endif
         /// <summary>The require_mcp_api_key property</summary>
         public bool? RequireMcpApiKey { get; set; }
         /// <summary>The signed_url_file_expiry_in_seconds property</summary>
@@ -74,6 +82,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "log_visibility_setting", n => { LogVisibilitySetting = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting>(); } },
                 { "logo_url", n => { LogoUrl = n.GetStringValue(); } },
                 { "mask_secret_keys_in_connected_account", n => { MaskSecretKeysInConnectedAccount = n.GetBoolValue(); } },
+                { "oauth_callback_verifier_url", n => { OauthCallbackVerifierUrl = n.GetStringValue(); } },
                 { "require_mcp_api_key", n => { RequireMcpApiKey = n.GetBoolValue(); } },
                 { "signed_url_file_expiry_in_seconds", n => { SignedUrlFileExpiryInSeconds = n.GetDoubleValue(); } },
             };
@@ -91,6 +100,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("logo_url", LogoUrl);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting>("log_visibility_setting", LogVisibilitySetting);
             writer.WriteBoolValue("mask_secret_keys_in_connected_account", MaskSecretKeysInConnectedAccount);
+            writer.WriteStringValue("oauth_callback_verifier_url", OauthCallbackVerifierUrl);
             writer.WriteBoolValue("require_mcp_api_key", RequireMcpApiKey);
             writer.WriteDoubleValue("signed_url_file_expiry_in_seconds", SignedUrlFileExpiryInSeconds);
             writer.WriteAdditionalData(AdditionalData);
