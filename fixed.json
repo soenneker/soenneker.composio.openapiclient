@@ -9558,6 +9558,14 @@
           },
           "when": {
             "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2WhenProperty"
+          },
+          "source": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            }
           }
         }
       },
@@ -9598,6 +9606,14 @@
             "minItems": 1,
             "type": "array",
             "items": {
+              "type": "string"
+            }
+          },
+          "source": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
               "type": "string"
             }
           }
@@ -9762,6 +9778,14 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItem"
+            }
+          },
+          "source": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
             }
           }
         },

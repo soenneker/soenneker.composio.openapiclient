@@ -22,6 +22,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem> AnyOf { get; set; }
 #endif
+        /// <summary>The source property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Source { get; set; }
+#nullable restore
+#else
+        public List<string> Source { get; set; }
+#endif
         /// <summary>The when property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "any_of", n => { AnyOf = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem>(global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "source", n => { Source = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "when", n => { When = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2WhenProperty>(global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2WhenProperty.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,6 +76,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem>("any_of", AnyOf);
+            writer.WriteCollectionOfPrimitiveValues<string>("source", Source);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2WhenProperty>("when", When);
             writer.WriteAdditionalData(AdditionalData);
         }

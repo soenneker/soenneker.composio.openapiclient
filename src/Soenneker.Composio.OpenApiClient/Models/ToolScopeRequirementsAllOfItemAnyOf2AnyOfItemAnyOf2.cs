@@ -22,6 +22,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<string> AllOf { get; set; }
 #endif
+        /// <summary>The source property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Source { get; set; }
+#nullable restore
+#else
+        public List<string> Source { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemAnyOf2"/> and sets the default values.
         /// </summary>
@@ -48,6 +56,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "all_of", n => { AllOf = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "source", n => { Source = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,6 +67,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("all_of", AllOf);
+            writer.WriteCollectionOfPrimitiveValues<string>("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
