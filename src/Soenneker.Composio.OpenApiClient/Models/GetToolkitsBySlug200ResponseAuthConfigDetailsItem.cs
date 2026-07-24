@@ -64,6 +64,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy Proxy { get; set; }
 #endif
+        /// <summary>OAuth scopes that are always requested for this authentication method regardless of the tool-specific scopes selected, such as token-refresh (e.g. offline_access) and identity/whoami scopes. Consumers handling authentication themselves should union these with per-tool scopes.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RequiredScopes { get; set; }
+#nullable restore
+#else
+        public List<string> RequiredScopes { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItem"/> and sets the default values.
         /// </summary>
@@ -95,6 +103,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "mode", n => { Mode = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "proxy", n => { Proxy = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy.CreateFromDiscriminatorValue); } },
+                { "required_scopes", n => { RequiredScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -110,6 +119,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("mode", Mode);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy>("proxy", Proxy);
+            writer.WriteCollectionOfPrimitiveValues<string>("required_scopes", RequiredScopes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
