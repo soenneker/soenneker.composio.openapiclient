@@ -6215,6 +6215,16 @@
               }
             }
           },
+          "409": {
+            "description": "Conflict. An MCP server with the specified name already exists in this project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error. An unexpected error occurred while processing the request.",
             "content": {
@@ -6319,6 +6329,16 @@
           },
           "404": {
             "description": "Not Found. One or more of the specified auth_config_ids do not exist or are not accessible to the authenticated user.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A custom MCP server with the specified name already exists in this project.",
             "content": {
               "application/json": {
                 "schema": {
@@ -8569,7 +8589,7 @@
           "Tool Router"
         ],
         "summary": "List tools with schemas for a tool router session",
-        "description": "Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.",
+        "description": "Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session. Tools are returned in alphabetical order.",
         "operationId": "GetToolRouterSessionBySessionIdTools",
         "parameters": [
           {
