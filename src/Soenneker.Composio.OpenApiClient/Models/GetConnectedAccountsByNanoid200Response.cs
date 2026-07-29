@@ -30,6 +30,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseAuthConfig AuthConfig { get; set; }
 #endif
+        /// <summary>Duplicates state.authScheme. Kept for backward compatibility with existing readers; use state.authScheme instead.</summary>
+        [Obsolete("")]
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseAuthScheme? AuthScheme { get; set; }
         /// <summary>The created at of the connection</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +103,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>The status of the connection</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStatus? Status { get; set; }
-        /// <summary>&quot;The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete&quot;</summary>
+        /// <summary>&quot;The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StatusReason { get; set; }
@@ -176,6 +179,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "auth_config", n => { AuthConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseAuthConfig>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseAuthConfig.CreateFromDiscriminatorValue); } },
+                { "authScheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseAuthScheme>(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseData>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseData.CreateFromDiscriminatorValue); } },
                 { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimental>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimental.CreateFromDiscriminatorValue); } },
@@ -203,6 +207,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alias", Alias);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseAuthConfig>("auth_config", AuthConfig);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseAuthScheme>("authScheme", AuthScheme);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseData>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimental>("experimental", Experimental);

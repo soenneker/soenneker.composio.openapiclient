@@ -23,6 +23,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>Duplicates the top-level is_no_auth field. Kept for backward compatibility with existing readers; use is_no_auth instead.</summary>
+        [Obsolete("")]
+        public bool? IsNoAuth { get; set; }
         /// <summary>URL to the toolkit logo</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +60,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "isNoAuth", n => { IsNoAuth = n.GetBoolValue(); } },
                 { "logo", n => { Logo = n.GetStringValue(); } },
             };
         }
@@ -68,6 +72,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
+            writer.WriteBoolValue("isNoAuth", IsNoAuth);
             writer.WriteStringValue("logo", Logo);
             writer.WriteAdditionalData(AdditionalData);
         }

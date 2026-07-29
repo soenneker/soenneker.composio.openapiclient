@@ -107,7 +107,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// <summary>
         /// Modifies an existing authentication configuration with new credentials or other settings. Only specified fields will be updated.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -117,11 +117,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200ResponseResponseJson?> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200Response?> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200ResponseResponseJson> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200Response> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -133,7 +133,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200ResponseResponseJson>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.

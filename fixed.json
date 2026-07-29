@@ -464,7 +464,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PatchAuthConfigsByNanoid200ResponseResponseJson"
+                  "$ref": "#/components/schemas/PatchAuthConfigsByNanoid200Response"
                 }
               }
             }
@@ -9987,6 +9987,11 @@
           "description": {
             "type": "string",
             "description": "Description of the toolkit"
+          },
+          "isNoAuth": {
+            "type": "boolean",
+            "description": "Duplicates the top-level is_no_auth field. Kept for backward compatibility with existing readers; use is_no_auth instead.",
+            "deprecated": true
           }
         },
         "description": "Toolkit metadata"
@@ -10315,11 +10320,37 @@
         }
       },
       "PatchAuthConfigsByNanoid200Response": {
-        "type": "object"
-      },
-      "DeleteAuthConfigsByNanoid200Response": {
+        "required": [
+          "success",
+          "message"
+        ],
         "type": "object",
         "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Whether the auth config was updated"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable result message"
+          }
+        }
+      },
+      "DeleteAuthConfigsByNanoid200Response": {
+        "required": [
+          "success",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Whether the auth config was deleted"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable result message"
+          },
           "revoke_job_id": {
             "type": "string",
             "description": "Identifier of the background revoke job started for this delete. Present only when \u0060revoke_on_delete=true\u0060. Track the job and its per-connection results from the Composio dashboard \u2014 a programmatic endpoint to poll this job is not yet generally available.",
@@ -10640,6 +10671,9 @@
             "description": "The id of the connection",
             "format": "connectedAccountId"
           },
+          "authScheme": {
+            "$ref": "#/components/schemas/GetConnectedAccountsByNanoid200ResponseAuthScheme"
+          },
           "word_id": {
             "type": "string",
             "description": "A short, token-friendly identifier for multi-account disambiguation, typically toolkit-prefixed with 1-2 words (e.g., \u0022gmail_red-castle\u0022)",
@@ -10677,7 +10711,7 @@
           },
           "status_reason": {
             "type": "string",
-            "description": "\u0022The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete\u0022",
+            "description": "\u0022The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed\u0022",
             "nullable": true
           },
           "is_disabled": {
@@ -15165,53 +15199,6 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf66ExpiresInBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number"
-          }
-        }
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf66ExpiresInBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf66ScopeBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf66ScopeBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "PostConnectedAccountsLinkRequestConnectionDataAnyOf67ExpiresInBranch1": {
         "required": [
           "value"
@@ -15259,7 +15246,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ExpiresInBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf68ExpiresInBranch1": {
         "required": [
           "value"
         ],
@@ -15270,7 +15257,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ExpiresInBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf68ExpiresInBranch2": {
         "required": [
           "value"
         ],
@@ -15281,7 +15268,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ScopeBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf68ScopeBranch1": {
         "required": [
           "value"
         ],
@@ -15292,7 +15279,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ScopeBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf68ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15340,6 +15327,53 @@
         }
       },
       "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf74ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf74ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf74ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf74ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15842,9 +15876,6 @@
             }
           }
         }
-      },
-      "PatchAuthConfigsByNanoid200ResponseResponseJson": {
-        "type": "object"
       },
       "PatchAuthConfigsByNanoidByStatus200ResponseResponseJson": {
         "type": "object"
@@ -17007,6 +17038,9 @@
             "description": "The id of the connection",
             "format": "connectedAccountId"
           },
+          "authScheme": {
+            "$ref": "#/components/schemas/GetConnectedAccounts200ResponseItemsItemAuthScheme"
+          },
           "word_id": {
             "type": "string",
             "description": "A short, token-friendly identifier for multi-account disambiguation, typically toolkit-prefixed with 1-2 words (e.g., \u0022gmail_red-castle\u0022)",
@@ -17044,7 +17078,7 @@
           },
           "status_reason": {
             "type": "string",
-            "description": "\u0022The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete\u0022",
+            "description": "\u0022The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed\u0022",
             "nullable": true
           },
           "is_disabled": {
@@ -17686,7 +17720,8 @@
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseResponseAdditionalProperties"
-        }
+        },
+        "nullable": true
       },
       "GetInternalActionExecutionLogById200ResponseError": {
         "type": "object",
@@ -21942,6 +21977,7 @@
           "$ref": "#/components/schemas/GetTriggerInstancesActive200ResponseItemsItemStateAdditionalProperties"
         },
         "description": "\u0022DEPRECATED: This field exposes internal state and will be removed in a future version.\u0022",
+        "nullable": true,
         "deprecated": true
       },
       "GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty": {
@@ -24907,6 +24943,90 @@
           ]
         }
       },
+      "GetConnectedAccountsByNanoid200ResponseAuthScheme": {
+        "enum": [
+          "OAUTH2",
+          "OAUTH1",
+          "API_KEY",
+          "BASIC",
+          "BILLCOM_AUTH",
+          "BEARER_TOKEN",
+          "GOOGLE_SERVICE_ACCOUNT",
+          "NO_AUTH",
+          "BASIC_WITH_JWT",
+          "CALCOM_AUTH",
+          "SERVICE_ACCOUNT",
+          "SAML",
+          "DCR_OAUTH",
+          "S2S_OAUTH2"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Duplicates state.authScheme. Kept for backward compatibility with existing readers; use state.authScheme instead.",
+        "deprecated": true,
+        "x-ms-enum": {
+          "name": "GetConnectedAccountsByNanoid200ResponseAuthScheme",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "OAUTH2",
+              "name": "OAuth2"
+            },
+            {
+              "value": "OAUTH1",
+              "name": "OAuth1"
+            },
+            {
+              "value": "API_KEY",
+              "name": "ApiKey"
+            },
+            {
+              "value": "BASIC",
+              "name": "Basic"
+            },
+            {
+              "value": "BILLCOM_AUTH",
+              "name": "BillcomAuth"
+            },
+            {
+              "value": "BEARER_TOKEN",
+              "name": "BearerToken"
+            },
+            {
+              "value": "GOOGLE_SERVICE_ACCOUNT",
+              "name": "GoogleServiceAccount"
+            },
+            {
+              "value": "NO_AUTH",
+              "name": "NoAuth"
+            },
+            {
+              "value": "BASIC_WITH_JWT",
+              "name": "BasicWithJwt"
+            },
+            {
+              "value": "CALCOM_AUTH",
+              "name": "CalcomAuth"
+            },
+            {
+              "value": "SERVICE_ACCOUNT",
+              "name": "ServiceAccount"
+            },
+            {
+              "value": "SAML",
+              "name": "Saml"
+            },
+            {
+              "value": "DCR_OAUTH",
+              "name": "DcrOAuth"
+            },
+            {
+              "value": "S2S_OAUTH2",
+              "name": "S2SOAuth2"
+            }
+          ]
+        }
+      },
       "GetConnectedAccountsByNanoid200ResponseStatus": {
         "enum": [
           "INITIALIZING",
@@ -26116,6 +26236,90 @@
             {
               "value": "DISABLED",
               "name": "Disabled"
+            }
+          ]
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemAuthScheme": {
+        "enum": [
+          "OAUTH2",
+          "OAUTH1",
+          "API_KEY",
+          "BASIC",
+          "BILLCOM_AUTH",
+          "BEARER_TOKEN",
+          "GOOGLE_SERVICE_ACCOUNT",
+          "NO_AUTH",
+          "BASIC_WITH_JWT",
+          "CALCOM_AUTH",
+          "SERVICE_ACCOUNT",
+          "SAML",
+          "DCR_OAUTH",
+          "S2S_OAUTH2"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Duplicates state.authScheme. Kept for backward compatibility with existing readers; use state.authScheme instead.",
+        "deprecated": true,
+        "x-ms-enum": {
+          "name": "GetConnectedAccounts200ResponseItemsItemAuthScheme",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "OAUTH2",
+              "name": "OAuth2"
+            },
+            {
+              "value": "OAUTH1",
+              "name": "OAuth1"
+            },
+            {
+              "value": "API_KEY",
+              "name": "ApiKey"
+            },
+            {
+              "value": "BASIC",
+              "name": "Basic"
+            },
+            {
+              "value": "BILLCOM_AUTH",
+              "name": "BillcomAuth"
+            },
+            {
+              "value": "BEARER_TOKEN",
+              "name": "BearerToken"
+            },
+            {
+              "value": "GOOGLE_SERVICE_ACCOUNT",
+              "name": "GoogleServiceAccount"
+            },
+            {
+              "value": "NO_AUTH",
+              "name": "NoAuth"
+            },
+            {
+              "value": "BASIC_WITH_JWT",
+              "name": "BasicWithJwt"
+            },
+            {
+              "value": "CALCOM_AUTH",
+              "name": "CalcomAuth"
+            },
+            {
+              "value": "SERVICE_ACCOUNT",
+              "name": "ServiceAccount"
+            },
+            {
+              "value": "SAML",
+              "name": "Saml"
+            },
+            {
+              "value": "DCR_OAUTH",
+              "name": "DcrOAuth"
+            },
+            {
+              "value": "S2S_OAUTH2",
+              "name": "S2SOAuth2"
             }
           ]
         }
