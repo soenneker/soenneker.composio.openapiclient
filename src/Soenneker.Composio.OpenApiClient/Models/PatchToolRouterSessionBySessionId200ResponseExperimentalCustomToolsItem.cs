@@ -62,6 +62,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchema OutputSchema { get; set; }
 #endif
+        /// <summary>Echoes the SDK-local preload hint provided for this tool</summary>
+        public bool? Preload { get; set; }
         /// <summary>Prefixed tool slug (e.g. LOCAL_GMAIL_GET_IMPORTANT_EMAILS)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,6 +103,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "original_slug", n => { OriginalSlug = n.GetStringValue(); } },
                 { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchema>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchema.CreateFromDiscriminatorValue); } },
+                { "preload", n => { Preload = n.GetBoolValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
             };
         }
@@ -117,6 +120,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("original_slug", OriginalSlug);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItemOutputSchema>("output_schema", OutputSchema);
+            writer.WriteBoolValue("preload", Preload);
             writer.WriteStringValue("slug", Slug);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -78,7 +78,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>The status of the connection</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStatus? Status { get; set; }
-        /// <summary>&quot;The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed&quot;</summary>
+        /// <summary>The reason the connection status changed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StatusReason { get; set; }

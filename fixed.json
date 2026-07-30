@@ -648,7 +648,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PatchAuthConfigsByNanoidByStatus200ResponseResponseJson"
+                  "$ref": "#/components/schemas/PatchAuthConfigsByNanoidByStatus200Response"
                 }
               }
             }
@@ -1489,7 +1489,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteConnectedAccountsByNanoid404ResponseResponseJson"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -10359,7 +10359,21 @@
         }
       },
       "PatchAuthConfigsByNanoidByStatus200Response": {
-        "type": "object"
+        "required": [
+          "success",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Whether the status update succeeded"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable result message"
+          }
+        }
       },
       "PostCliCreateSessionRequest": {
         "type": "object",
@@ -10711,7 +10725,7 @@
           },
           "status_reason": {
             "type": "string",
-            "description": "\u0022The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed\u0022",
+            "description": "The reason the connection status changed.",
             "nullable": true
           },
           "is_disabled": {
@@ -10761,9 +10775,6 @@
         "example": {
           "success": true
         }
-      },
-      "DeleteConnectedAccountsByNanoid404Response": {
-        "type": "object"
       },
       "PatchConnectedAccountsByNanoid200Response": {
         "required": [
@@ -15199,7 +15210,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf67ExpiresInBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf69ExpiresInBranch1": {
         "required": [
           "value"
         ],
@@ -15210,7 +15221,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf67ExpiresInBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf69ExpiresInBranch2": {
         "required": [
           "value"
         ],
@@ -15221,7 +15232,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf67ScopeBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf69ScopeBranch1": {
         "required": [
           "value"
         ],
@@ -15232,7 +15243,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf67ScopeBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf69ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15246,7 +15257,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf68ExpiresInBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf70ExpiresInBranch1": {
         "required": [
           "value"
         ],
@@ -15257,7 +15268,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf68ExpiresInBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf70ExpiresInBranch2": {
         "required": [
           "value"
         ],
@@ -15268,7 +15279,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf68ScopeBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf70ScopeBranch1": {
         "required": [
           "value"
         ],
@@ -15279,7 +15290,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf68ScopeBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf70ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15293,7 +15304,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ExpiresInBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf75ExpiresInBranch1": {
         "required": [
           "value"
         ],
@@ -15304,7 +15315,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ExpiresInBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf75ExpiresInBranch2": {
         "required": [
           "value"
         ],
@@ -15315,7 +15326,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ScopeBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf75ScopeBranch1": {
         "required": [
           "value"
         ],
@@ -15326,7 +15337,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ScopeBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf75ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15340,7 +15351,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf74ExpiresInBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf76ExpiresInBranch1": {
         "required": [
           "value"
         ],
@@ -15351,7 +15362,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf74ExpiresInBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf76ExpiresInBranch2": {
         "required": [
           "value"
         ],
@@ -15362,7 +15373,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf74ScopeBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf76ScopeBranch1": {
         "required": [
           "value"
         ],
@@ -15373,7 +15384,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf74ScopeBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf76ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15876,12 +15887,6 @@
             }
           }
         }
-      },
-      "PatchAuthConfigsByNanoidByStatus200ResponseResponseJson": {
-        "type": "object"
-      },
-      "DeleteConnectedAccountsByNanoid404ResponseResponseJson": {
-        "type": "object"
       },
       "PatchConnectedAccountsByNanoIdStatus404ResponseResponseJson": {
         "type": "object"
@@ -17078,7 +17083,7 @@
           },
           "status_reason": {
             "type": "string",
-            "description": "\u0022The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed\u0022",
+            "description": "The reason the connection status changed.",
             "nullable": true
           },
           "is_disabled": {
@@ -22499,6 +22504,10 @@
             "items": {
               "$ref": "#/components/schemas/PostToolRouterSession201ResponseExperimentalCustomToolkitsItemToolsItem"
             }
+          },
+          "preload": {
+            "type": "boolean",
+            "description": "Echoes the SDK-local preload hint provided for this toolkit"
           }
         }
       },
@@ -22539,6 +22548,10 @@
           "original_slug": {
             "type": "string",
             "description": "Original tool slug as provided by the user"
+          },
+          "preload": {
+            "type": "boolean",
+            "description": "Echoes the SDK-local preload hint provided for this tool"
           }
         }
       },
@@ -22744,6 +22757,10 @@
             "items": {
               "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItem"
             }
+          },
+          "preload": {
+            "type": "boolean",
+            "description": "Echoes the SDK-local preload hint provided for this toolkit"
           }
         }
       },
@@ -22784,6 +22801,10 @@
           "original_slug": {
             "type": "string",
             "description": "Original tool slug as provided by the user"
+          },
+          "preload": {
+            "type": "boolean",
+            "description": "Echoes the SDK-local preload hint provided for this tool"
           }
         }
       },
@@ -23021,6 +23042,10 @@
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItem"
             }
+          },
+          "preload": {
+            "type": "boolean",
+            "description": "Echoes the SDK-local preload hint provided for this toolkit"
           }
         }
       },
@@ -23061,6 +23086,10 @@
           "original_slug": {
             "type": "string",
             "description": "Original tool slug as provided by the user"
+          },
+          "preload": {
+            "type": "boolean",
+            "description": "Echoes the SDK-local preload hint provided for this tool"
           }
         }
       },
@@ -23979,6 +24008,10 @@
           "original_slug": {
             "type": "string",
             "description": "Original tool slug as provided by the user"
+          },
+          "preload": {
+            "type": "boolean",
+            "description": "Echoes the SDK-local preload hint provided for this tool"
           }
         }
       },
@@ -24047,6 +24080,10 @@
           "original_slug": {
             "type": "string",
             "description": "Original tool slug as provided by the user"
+          },
+          "preload": {
+            "type": "boolean",
+            "description": "Echoes the SDK-local preload hint provided for this tool"
           }
         }
       },
@@ -24122,6 +24159,10 @@
           "original_slug": {
             "type": "string",
             "description": "Original tool slug as provided by the user"
+          },
+          "preload": {
+            "type": "boolean",
+            "description": "Echoes the SDK-local preload hint provided for this tool"
           }
         }
       },

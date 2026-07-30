@@ -30,6 +30,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Echoes the SDK-local preload hint provided for this toolkit</summary>
+        public bool? Preload { get; set; }
         /// <summary>The slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +75,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "preload", n => { Preload = n.GetBoolValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItem>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -86,6 +89,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("preload", Preload);
             writer.WriteStringValue("slug", Slug);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItem>("tools", Tools);
             writer.WriteAdditionalData(AdditionalData);
