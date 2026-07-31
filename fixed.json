@@ -1616,6 +1616,16 @@
               }
             }
           },
+          "409": {
+            "description": "Conflict - A concurrent write holds the connection lease; retry the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error - Failed to update connected account",
             "content": {
@@ -1711,7 +1721,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PatchConnectedAccountsByNanoIdStatus404ResponseResponseJson"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -2267,6 +2277,16 @@
           },
           "401": {
             "description": "Unauthorized. Authentication is required or the provided credentials are invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A project with this name already exists in the organization.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10835,9 +10855,6 @@
           "success": true
         }
       },
-      "PatchConnectedAccountsByNanoIdStatus404Response": {
-        "type": "object"
-      },
       "PostConnectedAccountsLinkRequest": {
         "required": [
           "auth_config_id",
@@ -11393,6 +11410,7 @@
           "project_name",
           "org_id",
           "project_type",
+          "config",
           "consumer_user_id"
         ],
         "type": "object",
@@ -11418,6 +11436,9 @@
           },
           "project_type": {
             "$ref": "#/components/schemas/PostOrgConsumerProjectResolve200ResponseProjectType"
+          },
+          "config": {
+            "$ref": "#/components/schemas/PostOrgConsumerProjectResolve200ResponseConfig"
           },
           "consumer_user_id": {
             "type": "string",
@@ -15210,7 +15231,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf69ExpiresInBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ExpiresInBranch1": {
         "required": [
           "value"
         ],
@@ -15221,7 +15242,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf69ExpiresInBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ExpiresInBranch2": {
         "required": [
           "value"
         ],
@@ -15232,7 +15253,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf69ScopeBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ScopeBranch1": {
         "required": [
           "value"
         ],
@@ -15243,7 +15264,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf69ScopeBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15257,7 +15278,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf70ExpiresInBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ExpiresInBranch1": {
         "required": [
           "value"
         ],
@@ -15268,7 +15289,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf70ExpiresInBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ExpiresInBranch2": {
         "required": [
           "value"
         ],
@@ -15279,7 +15300,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf70ScopeBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ScopeBranch1": {
         "required": [
           "value"
         ],
@@ -15290,7 +15311,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf70ScopeBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15304,7 +15325,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf75ExpiresInBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf78ExpiresInBranch1": {
         "required": [
           "value"
         ],
@@ -15315,7 +15336,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf75ExpiresInBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf78ExpiresInBranch2": {
         "required": [
           "value"
         ],
@@ -15326,7 +15347,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf75ScopeBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf78ScopeBranch1": {
         "required": [
           "value"
         ],
@@ -15337,7 +15358,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf75ScopeBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf78ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15351,7 +15372,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf76ExpiresInBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf79ExpiresInBranch1": {
         "required": [
           "value"
         ],
@@ -15362,7 +15383,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf76ExpiresInBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf79ExpiresInBranch2": {
         "required": [
           "value"
         ],
@@ -15373,7 +15394,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf76ScopeBranch1": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf79ScopeBranch1": {
         "required": [
           "value"
         ],
@@ -15384,7 +15405,7 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf76ScopeBranch2": {
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf79ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -15887,9 +15908,6 @@
             }
           }
         }
-      },
-      "PatchConnectedAccountsByNanoIdStatus404ResponseResponseJson": {
-        "type": "object"
       },
       "GetToolsEnum200ResponseResponseJson": {
         "type": "array",
@@ -18070,6 +18088,28 @@
           }
         },
         "description": "The newly generated API key for this project"
+      },
+      "PostOrgConsumerProjectResolve200ResponseConfig": {
+        "required": [
+          "consumer_experience_enabled",
+          "enhanced_controls"
+        ],
+        "type": "object",
+        "properties": {
+          "consumer_experience_enabled": {
+            "type": "boolean",
+            "description": "Whether the consumer experience is enabled for this project."
+          },
+          "enhanced_controls": {
+            "type": "boolean",
+            "description": "Whether enhanced controls are enabled for this consumer project."
+          },
+          "clanker": {
+            "type": "boolean",
+            "description": "Whether org members share a single clanker bot identity for connected accounts."
+          }
+        },
+        "description": "Consumer project configuration bag (consumer-experience and enhanced-controls flags, plus any provider-specific keys)."
       },
       "GetWebhookSubscriptions200ResponseItemsItem": {
         "required": [

@@ -2,37 +2,41 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
+    /// <summary>
+    /// Consumer project configuration bag (consumer-experience and enhanced-controls flags, plus any provider-specific keys).
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PatchConnectedAccountsByNanoIdStatus404ResponseResponseJson : ApiException, IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class PostOrgConsumerProjectResolve200ResponseConfig : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => base.Message; }
+        /// <summary>Whether org members share a single clanker bot identity for connected accounts.</summary>
+        public bool? Clanker { get; set; }
+        /// <summary>Whether the consumer experience is enabled for this project.</summary>
+        public bool? ConsumerExperienceEnabled { get; set; }
+        /// <summary>Whether enhanced controls are enabled for this consumer project.</summary>
+        public bool? EnhancedControls { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatus404ResponseResponseJson"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig"/> and sets the default values.
         /// </summary>
-        public PatchConnectedAccountsByNanoIdStatus404ResponseResponseJson()
+        public PostOrgConsumerProjectResolve200ResponseConfig()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatus404ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatus404ResponseResponseJson CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatus404ResponseResponseJson();
+            return new global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,6 +46,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "clanker", n => { Clanker = n.GetBoolValue(); } },
+                { "consumer_experience_enabled", n => { ConsumerExperienceEnabled = n.GetBoolValue(); } },
+                { "enhanced_controls", n => { EnhancedControls = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -51,6 +58,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("clanker", Clanker);
+            writer.WriteBoolValue("consumer_experience_enabled", ConsumerExperienceEnabled);
+            writer.WriteBoolValue("enhanced_controls", EnhancedControls);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

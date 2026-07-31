@@ -14,6 +14,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Consumer project configuration bag (consumer-experience and enhanced-controls flags, plus any provider-specific keys).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig? Config { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig Config { get; set; }
+#endif
         /// <summary>Derived internal Composio user ID for the authenticated user in this consumer org context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +83,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig.CreateFromDiscriminatorValue); } },
                 { "consumer_user_id", n => { ConsumerUserId = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "project_id", n => { ProjectId = n.GetGuidValue(); } },
@@ -90,6 +99,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig>("config", Config);
             writer.WriteStringValue("consumer_user_id", ConsumerUserId);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteGuidValue("project_id", ProjectId);
