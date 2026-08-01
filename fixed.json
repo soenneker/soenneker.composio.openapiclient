@@ -4322,7 +4322,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetToolsEnum200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetToolsEnum200ResponseSchema"
                 }
               }
             }
@@ -5064,7 +5064,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert204ResponseResponseJson"
+                  "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert204ResponseSchema"
                 }
               }
             }
@@ -5670,7 +5670,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetTriggersTypesListEnum200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetTriggersTypesListEnum200ResponseSchema"
                 }
               }
             }
@@ -6817,7 +6817,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteMcpById404ResponseResponseJson"
+                  "$ref": "#/components/schemas/DeleteMcpById404ResponseSchema"
                 }
               }
             }
@@ -15909,24 +15909,24 @@
           }
         }
       },
-      "GetToolsEnum200ResponseResponseJson": {
+      "GetToolsEnum200ResponseSchema": {
         "type": "array",
         "items": {
           "type": "string"
         },
         "description": "JSON string containing all tool enum values from latest version of each toolkit"
       },
-      "PostTriggerInstancesBySlugUpsert204ResponseResponseJson": {
+      "PostTriggerInstancesBySlugUpsert204ResponseSchema": {
         "type": "object"
       },
-      "GetTriggersTypesListEnum200ResponseResponseJson": {
+      "GetTriggersTypesListEnum200ResponseSchema": {
         "type": "array",
         "items": {
           "type": "string"
         },
         "description": "JSON string containing all trigger enum values"
       },
-      "DeleteMcpById404ResponseResponseJson": {
+      "DeleteMcpById404ResponseSchema": {
         "type": "object"
       },
       "GetToolRouterSessionBySessionIdToolsRequestRequestBody": {
