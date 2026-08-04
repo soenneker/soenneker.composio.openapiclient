@@ -6,6 +6,7 @@ using Soenneker.Composio.OpenApiClient.Api.V3.Auth;
 using Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs;
 using Soenneker.Composio.OpenApiClient.Api.V3.Cli;
 using Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts;
+using Soenneker.Composio.OpenApiClient.Api.V3.Custom;
 using Soenneker.Composio.OpenApiClient.Api.V3.Files;
 using Soenneker.Composio.OpenApiClient.Api.V3.Internal;
 using Soenneker.Composio.OpenApiClient.Api.V3.Mcp;
@@ -48,6 +49,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsRequestBuilder Connected_accounts
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Connected_accountsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The custom property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Custom.CustomRequestBuilder Custom
+        {
+            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Custom.CustomRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The files property</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Files.FilesRequestBuilder Files

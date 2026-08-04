@@ -3972,6 +3972,206 @@
         ]
       }
     },
+    "/api/v3/custom/toolkits/upsert": {
+      "post": {
+        "tags": [
+          "Toolkits"
+        ],
+        "summary": "Upsert a new custom toolkit",
+        "description": "\u0022Experimental: custom toolkits are in pilot and this contract may change. Registers a custom toolkit for the project with the provided slug. Registration is insert-only: a slug that already exists returns 409; delete the toolkit and re-register it to replace it.\u0022",
+        "operationId": "PostCustomToolkitsUpsert",
+        "requestBody": {
+          "description": "Toolkit creation data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully upserted toolkit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostCustomToolkitsUpsert200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing admin credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - Toolkit not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - Toolkit already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error - Failed to sync toolkit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "UserApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v3/custom/toolkits/sync": {
+      "post": {
+        "tags": [
+          "Toolkits"
+        ],
+        "summary": "Sync a custom toolkit",
+        "description": "\u0022Experimental: custom toolkits are in pilot and this contract may change. Re-fetches tool definitions from the remote MCP server for the custom toolkit with the provided slug. Call it when automatic sync fails or the remote tool definitions change.\u0022",
+        "operationId": "PostCustomToolkitsSync",
+        "requestBody": {
+          "description": "Toolkit sync data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostCustomToolkitsSyncRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully synced toolkit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostCustomToolkitsSync200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - Toolkit not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - Toolkit already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error - Failed to sync toolkit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "UserApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/api/v3/toolkits/{slug}": {
       "get": {
         "tags": [
@@ -6817,7 +7017,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteMcpById404ResponseSchema"
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -12017,6 +12217,87 @@
           }
         }
       },
+      "PostCustomToolkitsUpsertRequest": {
+        "required": [
+          "slug",
+          "toolkit_config"
+        ],
+        "type": "object",
+        "properties": {
+          "slug": {
+            "maxLength": 30,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_\\s]\u002B$",
+            "type": "string",
+            "description": "Unique slug identifier for the toolkit. Your slug will be prefixed with CUSTOM_ to avoid collision with composio managed toolkits. Spaces will be converted to underscores.",
+            "example": "MY_TOOLKIT"
+          },
+          "toolkit_config": {
+            "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PostCustomToolkitsUpsert200Response": {
+        "required": [
+          "slug"
+        ],
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Slug to be used with composio",
+            "example": "CUSTOM_MY_TOOLKIT"
+          }
+        }
+      },
+      "PostCustomToolkitsSyncRequest": {
+        "required": [
+          "slug"
+        ],
+        "type": "object",
+        "properties": {
+          "slug": {
+            "maxLength": 37,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_]\u002B$",
+            "type": "string",
+            "description": "Toolkit slug to sync",
+            "example": "CUSTOM_MY_TOOLKIT"
+          },
+          "connected_account_id": {
+            "type": "string",
+            "description": "The unique identifier for the connected account",
+            "format": "connectedAccountId",
+            "example": "ca_1a2b3c4d5e6f"
+          }
+        }
+      },
+      "PostCustomToolkitsSync200Response": {
+        "required": [
+          "slug",
+          "version",
+          "synced_count"
+        ],
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Synced toolkit slug",
+            "example": "CUSTOM_MY_TOOLKIT"
+          },
+          "version": {
+            "type": "string",
+            "description": "Version of the toolkit created after sync",
+            "example": "00000000_00"
+          },
+          "synced_count": {
+            "type": "number",
+            "description": "Number of tools synced for toolkit",
+            "example": 1
+          }
+        }
+      },
       "GetToolkitsBySlug200Response": {
         "required": [
           "slug",
@@ -13120,9 +13401,6 @@
           }
         },
         "description": "Response indicating the success of the delete operation"
-      },
-      "DeleteMcpById404Response": {
-        "type": "object"
       },
       "GetMcpAppByAppKey200Response": {
         "required": [
@@ -15926,9 +16204,6 @@
         },
         "description": "JSON string containing all trigger enum values"
       },
-      "DeleteMcpById404ResponseSchema": {
-        "type": "object"
-      },
       "GetToolRouterSessionBySessionIdToolsRequestRequestBody": {
         "type": "object"
       },
@@ -18341,6 +18616,39 @@
           }
         },
         "description": "Information about a single toolkit category"
+      },
+      "PostCustomToolkitsUpsertRequestToolkitConfig": {
+        "required": [
+          "name",
+          "app_url",
+          "auth_schemes"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string",
+            "description": "Human readable name for your application"
+          },
+          "app_url": {
+            "type": "string",
+            "description": "App URL for the toolkit. For MCP apps, please provide the MCP URL here",
+            "format": "uri"
+          },
+          "logo_file": {
+            "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigLogoFile"
+          },
+          "auth_schemes": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem"
+            },
+            "description": "Authentication schemes for the toolkit"
+          }
+        },
+        "additionalProperties": false
       },
       "GetToolkitsBySlug200ResponseComposioManagedAuthItem": {
         "required": [
@@ -21563,6 +21871,49 @@
         },
         "description": "Additional metadata about the toolkit"
       },
+      "PostCustomToolkitsUpsertRequestToolkitConfigLogoFile": {
+        "required": [
+          "content",
+          "mime_type"
+        ],
+        "type": "object",
+        "properties": {
+          "content": {
+            "maxLength": 4000000,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9\u002B/]\u002B={0,2}$",
+            "type": "string",
+            "description": "Base64-encoded image bytes, max 3MB decoded"
+          },
+          "mime_type": {
+            "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Square logo image (PNG or JPEG, 256-1024px, max 3MB) shown for this toolkit in the dashboard and on connect pages. Uploaded to Composio-hosted storage; defaults to the Composio logo when omitted."
+      },
+      "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem": {
+        "required": [
+          "mode"
+        ],
+        "type": "object",
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemMode"
+          },
+          "headers": {
+            "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders"
+          },
+          "api_key_field": {
+            "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField"
+          },
+          "discovery_url": {
+            "type": "string",
+            "description": "URL to fetch the full auth scheme from, usually the /.well-known/oauth-authorization-server path of your MCP URL",
+            "format": "uri"
+          }
+        }
+      },
       "GetToolkitsBySlug200ResponseComposioManagedAuthItemScopes": {
         "required": [
           "available"
@@ -23796,6 +24147,32 @@
             "example": "Developer Tools"
           }
         }
+      },
+      "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Headers to be used for the API key authentication. Please replace your actual api key with {{generic_api_key}}"
+      },
+      "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField": {
+        "type": "object",
+        "properties": {
+          "display_name": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string",
+            "description": "Label shown to end users for the API key input on the connect page"
+          },
+          "description": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string",
+            "description": "Help text shown to end users below the API key input on the connect page"
+          }
+        },
+        "additionalProperties": false,
+        "description": "End-user-facing copy for the API key input on the connect page"
       },
       "GetToolkitsBySlug200ResponseAuthConfigDetailsItemFieldsAuthConfigCreation": {
         "required": [
@@ -28012,6 +28389,56 @@
             {
               "value": "system",
               "name": "System"
+            }
+          ]
+        }
+      },
+      "PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType": {
+        "enum": [
+          "image/png",
+          "image/jpeg"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Image MIME type of the encoded bytes",
+        "x-ms-enum": {
+          "name": "PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "image/png",
+              "name": "ImagePng"
+            },
+            {
+              "value": "image/jpeg",
+              "name": "ImageJpeg"
+            }
+          ]
+        }
+      },
+      "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemMode": {
+        "enum": [
+          "NO_AUTH",
+          "API_KEY",
+          "DCR_OAUTH"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "NO_AUTH",
+              "name": "NoAuth"
+            },
+            {
+              "value": "API_KEY",
+              "name": "ApiKey"
+            },
+            {
+              "value": "DCR_OAUTH",
+              "name": "DcrOAuth"
             }
           ]
         }
