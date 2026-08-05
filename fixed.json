@@ -1577,7 +1577,7 @@
             }
           },
           "400": {
-            "description": "Bad request - Invalid nanoid, duplicate alias, or invalid credential values",
+            "description": "Bad request - Invalid nanoid or invalid credential values",
             "content": {
               "application/json": {
                 "schema": {
@@ -1617,7 +1617,7 @@
             }
           },
           "409": {
-            "description": "Conflict - A concurrent write holds the connection lease; retry the request",
+            "description": "Conflict - Duplicate alias, or a concurrent write holds the connection lease; retry the request",
             "content": {
               "application/json": {
                 "schema": {
