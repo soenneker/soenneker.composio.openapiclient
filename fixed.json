@@ -3997,8 +3997,8 @@
         "tags": [
           "Toolkits"
         ],
-        "summary": "Upsert a new custom toolkit",
-        "description": "\u0022Experimental: custom toolkits are in pilot and this contract may change. Registers a custom toolkit for the project with the provided slug. Registration is insert-only: a slug that already exists returns 409; delete the toolkit and re-register it to replace it.\u0022",
+        "summary": "Upsert a custom toolkit",
+        "description": "\u0022Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. app_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).\u0022",
         "operationId": "PostCustomToolkitsUpsert",
         "requestBody": {
           "description": "Toolkit creation data",
@@ -4062,7 +4062,7 @@
             }
           },
           "409": {
-            "description": "Conflict - Toolkit already exists",
+            "description": "Conflict - app_url or auth_schemes differ from the registered toolkit; delete and re-register to change them",
             "content": {
               "application/json": {
                 "schema": {
@@ -6290,10 +6290,11 @@
             "in": "query",
             "description": "Page number for pagination (1-based)",
             "schema": {
-              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true,
+              "type": "integer",
               "description": "Page number to retrieve",
               "default": 1,
-              "nullable": true,
               "example": 1
             }
           },
@@ -6302,10 +6303,11 @@
             "in": "query",
             "description": "\u0022Number of items per page (default: 10)\u0022",
             "schema": {
-              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true,
+              "type": "integer",
               "description": "Number of servers to return per page",
               "default": 10,
-              "nullable": true,
               "example": 10
             }
           }
@@ -7149,10 +7151,11 @@
             "in": "query",
             "description": "Page number for pagination (1-based)",
             "schema": {
-              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true,
+              "type": "integer",
               "description": "Page number to retrieve",
               "default": 1,
-              "nullable": true,
               "example": 1
             }
           },
@@ -7161,10 +7164,11 @@
             "in": "query",
             "description": "\u0022Number of items per page (default: 10)\u0022",
             "schema": {
-              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true,
+              "type": "integer",
               "description": "Number of servers to return per page",
               "default": 10,
-              "nullable": true,
               "example": 10
             }
           }

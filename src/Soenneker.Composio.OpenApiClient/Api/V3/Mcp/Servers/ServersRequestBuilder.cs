@@ -192,7 +192,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
 #endif
             /// <summary>&quot;Number of items per page (default: 10)&quot;</summary>
             [QueryParameter("limit")]
-            public double? Limit { get; set; }
+            public int? Limit { get; set; }
             /// <summary>Filter MCP servers by name (case-insensitive partial match)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -211,7 +211,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
             public global::Soenneker.Composio.OpenApiClient.Models.GetMcpServersOrderDirectionParameter? OrderDirection { get; set; }
             /// <summary>Page number for pagination (1-based)</summary>
             [QueryParameter("page_no")]
-            public double? PageNo { get; set; }
+            public int? PageNo { get; set; }
             /// <summary>Comma-separated list of toolkit slugs to filter servers by</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
