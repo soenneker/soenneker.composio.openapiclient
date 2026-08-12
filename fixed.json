@@ -1280,6 +1280,16 @@
               }
             }
           },
+          "422": {
+            "description": "Unprocessable entity. The auth scheme could not be resolved or the connected account is in an invalid state for this operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error",
             "content": {
@@ -18271,6 +18281,9 @@
             "description": "Developer-hosted OAuth callback verifier URL. Setting it enables per-user callback identity verification; null disables it. Must be https and pass SSRF checks.",
             "format": "uri",
             "nullable": true
+          },
+          "theme": {
+            "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestConfigTheme"
           }
         },
         "description": "Configuration for the project"
@@ -21881,6 +21894,13 @@
       "GetInternalActionExecutionLogById200ResponseErrorAdditionalProperties": {
         "type": "object"
       },
+      "PostOrgOwnerProjectNewRequestConfigTheme": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestConfigThemeAdditionalProperties"
+        },
+        "description": "Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation."
+      },
       "GetToolkits200ResponseItemsItemMeta": {
         "required": [
           "created_at",
@@ -24202,6 +24222,9 @@
             "type": "string"
           }
         }
+      },
+      "PostOrgOwnerProjectNewRequestConfigThemeAdditionalProperties": {
+        "type": "object"
       },
       "GetToolkits200ResponseItemsItemMetaCategoriesItem": {
         "required": [

@@ -51,6 +51,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public bool? RequireMcpApiKey { get; set; }
         /// <summary>The signed_url_file_expiry_in_seconds property</summary>
         public double? SignedUrlFileExpiryInSeconds { get; set; }
+        /// <summary>Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme? Theme { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme Theme { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig"/> and sets the default values.
         /// </summary>
@@ -85,6 +93,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "oauth_callback_verifier_url", n => { OauthCallbackVerifierUrl = n.GetStringValue(); } },
                 { "require_mcp_api_key", n => { RequireMcpApiKey = n.GetBoolValue(); } },
                 { "signed_url_file_expiry_in_seconds", n => { SignedUrlFileExpiryInSeconds = n.GetDoubleValue(); } },
+                { "theme", n => { Theme = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme>(global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -103,6 +112,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("oauth_callback_verifier_url", OauthCallbackVerifierUrl);
             writer.WriteBoolValue("require_mcp_api_key", RequireMcpApiKey);
             writer.WriteDoubleValue("signed_url_file_expiry_in_seconds", SignedUrlFileExpiryInSeconds);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme>("theme", Theme);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
