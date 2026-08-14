@@ -191,13 +191,12 @@
             "in": "query",
             "description": "Whether to filter by composio managed auth configs",
             "schema": {
-              "type": "object",
               "anyOf": [
                 {
-                  "type": "string"
+                  "type": "boolean"
                 },
                 {
-                  "type": "boolean"
+                  "type": "string"
                 }
               ],
               "description": "Whether to filter by composio managed auth configs"
@@ -4409,7 +4408,8 @@
                 {
                   "enum": [
                     null
-                  ]
+                  ],
+                  "nullable": true
                 },
                 {
                   "$ref": "#/components/schemas/GetToolsToolkitVersionsBranch2"
@@ -4654,7 +4654,8 @@
                 {
                   "enum": [
                     null
-                  ]
+                  ],
+                  "nullable": true
                 },
                 {
                   "$ref": "#/components/schemas/GetToolsByToolSlugToolkitVersionsBranch2"
@@ -6006,7 +6007,8 @@
                 {
                   "enum": [
                     null
-                  ]
+                  ],
+                  "nullable": true
                 },
                 {
                   "$ref": "#/components/schemas/GetTriggersTypesBySlugToolkitVersionsBranch2"
@@ -6134,7 +6136,8 @@
                 {
                   "enum": [
                     null
-                  ]
+                  ],
+                  "nullable": true
                 },
                 {
                   "$ref": "#/components/schemas/GetTriggersTypesToolkitVersionsBranch2"
@@ -16306,20 +16309,6 @@
           }
         }
       },
-      "GetAuthSessionInfo200ResponseOrgMemberMetadataAdditionalProperties": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "boolean"
-          },
-          {
-            "type": "number"
-          }
-        ]
-      },
       "PostAuthConfigsRequestAuthConfigCredentialsScopes": {
         "type": "object",
         "anyOf": [
@@ -16457,18 +16446,6 @@
             "type": "object"
           }
         ]
-      },
-      "PostToolsExecuteByToolSlugRequestCustomAuthParamsParametersItemValue": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "number"
-          }
-        ],
-        "description": "The value of the parameter. For example, \u00271234567890\u0027, \u0027application/json\u0027, etc."
       },
       "PostToolsExecuteByToolSlugRequestCustomConnectionDataValExpiresIn": {
         "type": "object",
@@ -21116,7 +21093,17 @@
           }
         },
         "additionalProperties": {
-          "$ref": "#/components/schemas/GetAuthSessionInfo200ResponseOrgMemberMetadataAdditionalProperties"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "description": "User metadata (JSONB). Typed keys are shown; additional keys pass through unchanged."
       },
@@ -22200,7 +22187,15 @@
             "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomAuthParamsParametersItemIn"
           },
           "value": {
-            "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomAuthParamsParametersItemValue"
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The value of the parameter. For example, \u00271234567890\u0027, \u0027application/json\u0027, etc."
           }
         }
       },
