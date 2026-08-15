@@ -22,6 +22,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1Credentials Credentials { get; set; }
 #endif
+        /// <summary>[EXPERIMENTAL] Opt-in auth-config features.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1Experimental? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1Experimental Experimental { get; set; }
+#endif
         /// <summary>Whether this auth config is enabled for tool router</summary>
         public bool? IsEnabledForToolRouter { get; set; }
         /// <summary>The display name of the authentication configuration</summary>
@@ -93,6 +101,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "credentials", n => { Credentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1Credentials>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1Credentials.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1Experimental>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1Experimental.CreateFromDiscriminatorValue); } },
                 { "is_enabled_for_tool_router", n => { IsEnabledForToolRouter = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "proxy_config", n => { ProxyConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1ProxyConfig>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1ProxyConfig.CreateFromDiscriminatorValue); } },
@@ -110,6 +119,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1Credentials>("credentials", Credentials);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1Experimental>("experimental", Experimental);
             writer.WriteBoolValue("is_enabled_for_tool_router", IsEnabledForToolRouter);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1ProxyConfig>("proxy_config", ProxyConfig);

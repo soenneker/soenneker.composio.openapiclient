@@ -24,6 +24,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials Credentials { get; set; }
 #endif
+        /// <summary>[EXPERIMENTAL] Opt-in auth-config features.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigExperimental? Experimental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigExperimental Experimental { get; set; }
+#endif
         /// <summary>Whether this auth config is enabled for tool router</summary>
         public bool? IsEnabledForToolRouter { get; set; }
         /// <summary>The name of the integration</summary>
@@ -96,6 +104,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "authScheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigAuthScheme>(); } },
                 { "credentials", n => { Credentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigExperimental>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigExperimental.CreateFromDiscriminatorValue); } },
                 { "is_enabled_for_tool_router", n => { IsEnabledForToolRouter = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "proxy_config", n => { ProxyConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigProxyConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigProxyConfig.CreateFromDiscriminatorValue); } },
@@ -114,6 +123,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigAuthScheme>("authScheme", AuthScheme);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials>("credentials", Credentials);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigExperimental>("experimental", Experimental);
             writer.WriteBoolValue("is_enabled_for_tool_router", IsEnabledForToolRouter);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigProxyConfig>("proxy_config", ProxyConfig);

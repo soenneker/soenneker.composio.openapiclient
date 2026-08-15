@@ -905,6 +905,16 @@
               }
             }
           },
+          "429": {
+            "description": "\u0022Rate limited: too many lookups for this IP or session code, or too many key retrievals for this session. Re-run the CLI login flow.\u0022",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error. An unexpected error occurred while processing the request.",
             "content": {
@@ -16356,6 +16366,9 @@
           "credentials": {
             "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1Credentials"
           },
+          "experimental": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1Experimental"
+          },
           "proxy_config": {
             "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1ProxyConfig"
           },
@@ -17065,6 +17078,9 @@
           },
           "authScheme": {
             "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigAuthScheme"
+          },
+          "experimental": {
+            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigExperimental"
           },
           "proxy_config": {
             "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigProxyConfig"
@@ -20962,6 +20978,16 @@
           }
         }
       },
+      "PatchAuthConfigsByNanoidRequestOneOf1Experimental": {
+        "type": "object",
+        "properties": {
+          "sealed_credentials": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1ExperimentalSealedCredentials"
+          }
+        },
+        "description": "[EXPERIMENTAL] Opt-in auth-config features.",
+        "x-experimental": true
+      },
       "PatchAuthConfigsByNanoidRequestOneOf1ProxyConfig": {
         "required": [
           "proxy_url"
@@ -21137,6 +21163,16 @@
           "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigSharedCredentialsAdditionalProperties"
         },
         "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
+        "x-experimental": true
+      },
+      "PostAuthConfigsRequestAuthConfigExperimental": {
+        "type": "object",
+        "properties": {
+          "sealed_credentials": {
+            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigExperimentalSealedCredentials"
+          }
+        },
+        "description": "[EXPERIMENTAL] Opt-in auth-config features.",
         "x-experimental": true
       },
       "PostAuthConfigsRequestAuthConfigProxyConfig": {
@@ -23874,6 +23910,15 @@
           }
         }
       },
+      "PatchAuthConfigsByNanoidRequestOneOf1ExperimentalSealedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 16384,
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it."
+      },
       "PatchAuthConfigsByNanoidRequestOneOf1SharedCredentialsAdditionalProperties": {
         "type": "object"
       },
@@ -23882,6 +23927,15 @@
       },
       "PostAuthConfigsRequestAuthConfigSharedCredentialsAdditionalProperties": {
         "type": "object"
+      },
+      "PostAuthConfigsRequestAuthConfigExperimentalSealedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 16384,
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials."
       },
       "GetAuthConfigs200ResponseItemsItemCredentialsAdditionalProperties": {
         "type": "object"
