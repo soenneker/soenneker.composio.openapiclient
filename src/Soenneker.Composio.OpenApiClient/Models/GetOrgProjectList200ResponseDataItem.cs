@@ -32,7 +32,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: No longer used.&quot;</summary>
+        /// <summary>DEPRECATED: No longer used.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>&quot;Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)&quot;</summary>
+        /// <summary>Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)</summary>
         [Obsolete("")]
         public bool? IsNewWebhook { get; set; }
         /// <summary>ISO timestamp when the project last subscribed to updates</summary>
@@ -80,7 +80,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string UpdatedAt { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook secret.&quot;</summary>
+        /// <summary>DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook secret.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,7 +89,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string WebhookSecret { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook URL.&quot;</summary>
+        /// <summary>DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook URL.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

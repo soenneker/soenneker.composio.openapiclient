@@ -57,7 +57,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string ProjectNanoId { get; set; }
 #endif
         /// <summary>Resolved project type.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseProjectType? ProjectType { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType? ProjectType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200Response"/> and sets the default values.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "project_id", n => { ProjectId = n.GetGuidValue(); } },
                 { "project_name", n => { ProjectName = n.GetStringValue(); } },
                 { "project_nano_id", n => { ProjectNanoId = n.GetStringValue(); } },
-                { "project_type", n => { ProjectType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseProjectType>(); } },
+                { "project_type", n => { ProjectType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType>(); } },
             };
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteGuidValue("project_id", ProjectId);
             writer.WriteStringValue("project_name", ProjectName);
             writer.WriteStringValue("project_nano_id", ProjectNanoId);
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseProjectType>("project_type", ProjectType);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType>("project_type", ProjectType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

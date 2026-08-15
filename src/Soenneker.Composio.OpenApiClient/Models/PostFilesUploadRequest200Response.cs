@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;ID of the request file. Example: \&quot;req_file_9mZn4qR8sXwT\&quot;&quot;</summary>
+        /// <summary>ID of the request file. Example: &quot;req_file_9mZn4qR8sXwT&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>&quot;Object storage upload location. Example: \&quot;projects/pr_1a2b3c4d5e6f/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx\&quot;&quot;</summary>
+        /// <summary>Object storage upload location. Example: &quot;projects/pr_1a2b3c4d5e6f/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Key { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadata Metadata { get; set; }
 #endif
-        /// <summary>&quot;Presigned URL for upload. Example: \&quot;https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600...\&quot;&quot;</summary>
+        /// <summary>Presigned URL for upload. Example: &quot;https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600...&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? New_presigned_url { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string New_presigned_url { get; set; }
 #endif
-        /// <summary>&quot;[DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: \&quot;https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600...\&quot;&quot;</summary>
+        /// <summary>[DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: &quot;https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600...&quot;</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +57,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>[DEPRECATED] Indicates this is a new file that needs to be uploaded</summary>
         [Obsolete("")]
-        public global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseType? Type { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.NewValueType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200Response"/> and sets the default values.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadata>(global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadata.CreateFromDiscriminatorValue); } },
                 { "newPresignedUrl", n => { NewPresignedUrl = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.NewValueType>(); } },
                 { "new_presigned_url", n => { New_presigned_url = n.GetStringValue(); } },
             };
         }
@@ -103,7 +103,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadata>("metadata", Metadata);
             writer.WriteStringValue("new_presigned_url", New_presigned_url);
             writer.WriteStringValue("newPresignedUrl", NewPresignedUrl);
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.NewValueType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

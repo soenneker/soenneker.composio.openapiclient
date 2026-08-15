@@ -14,8 +14,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Status of the operation</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerId200ResponseStatus? Status { get; set; }
+        /// <summary>Status indicating successful deletion</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.SuccessStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerId200Response"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerId200ResponseStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.SuccessStatus>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerId200ResponseStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.SuccessStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

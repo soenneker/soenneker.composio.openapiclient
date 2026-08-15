@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>&quot;Filter by toolkit provenance: \&quot;native\&quot; (Composio-managed), \&quot;custom\&quot; (project-registered custom toolkits), or \&quot;all\&quot;. Takes precedence over managed_by when both are supplied.&quot;</summary>
+    /// <summary>Filter by toolkit provenance: &quot;native&quot; (Composio-managed), &quot;custom&quot; (project-registered custom toolkits), or &quot;all&quot;. Takes precedence over managed_by when both are supplied.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum GetToolkitsTypeParameter
     {

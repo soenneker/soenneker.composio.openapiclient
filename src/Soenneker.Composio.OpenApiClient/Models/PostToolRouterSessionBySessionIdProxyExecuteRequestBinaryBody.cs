@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Binary body to send. For binary upload via URL: use {url: \&quot;https://...\&quot;, content_type?: \&quot;...\&quot;}. For binary upload via base64: use {base64: \&quot;...\&quot;, content_type?: \&quot;...\&quot;}.&quot;
+    /// Binary body to send. For binary upload via URL: use {url: &quot;https://...&quot;, content_type?: &quot;...&quot;}. For binary upload via base64: use {base64: &quot;...&quot;, content_type?: &quot;...&quot;}.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSessionBySessionIdProxyExecuteRequestBinaryBody : IAdditionalDataHolder, IParsable

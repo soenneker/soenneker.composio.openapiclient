@@ -190,7 +190,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
             [QueryParameter("auth_config_ids")]
             public string AuthConfigIds { get; set; }
 #endif
-            /// <summary>&quot;Number of items per page (default: 10)&quot;</summary>
+            /// <summary>Number of items per page (default: 10)</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
             /// <summary>Filter MCP servers by name (case-insensitive partial match)</summary>

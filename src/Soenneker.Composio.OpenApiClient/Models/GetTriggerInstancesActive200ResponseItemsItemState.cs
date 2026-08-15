@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;DEPRECATED: This field exposes internal state and will be removed in a future version.&quot;
+    /// DEPRECATED: This field exposes internal state and will be removed in a future version.
     /// </summary>
     [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]

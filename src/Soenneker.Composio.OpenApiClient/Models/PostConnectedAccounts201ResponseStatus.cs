@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>&quot;DEPRECATED: This field will be removed in a future version&quot;</summary>
+    /// <summary>DEPRECATED: This field will be removed in a future version</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     [Obsolete("")]
     public enum PostConnectedAccounts201ResponseStatus

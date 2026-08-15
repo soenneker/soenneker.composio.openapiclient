@@ -31,7 +31,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<string> AuthConfigIds { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: Use allowed_tools instead. Tool identifiers to enable that aren&apos;t part of standard toolkits&quot;</summary>
+        /// <summary>DEPRECATED: Use allowed_tools instead. Tool identifiers to enable that aren&apos;t part of standard toolkits</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? CustomTools { get; set; }

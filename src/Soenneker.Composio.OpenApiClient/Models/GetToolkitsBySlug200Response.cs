@@ -81,7 +81,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string GetCurrentUserEndpointMethod { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.&quot;</summary>
+        /// <summary>DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.</summary>
         [Obsolete("")]
         public bool? IsLocalToolkit { get; set; }
         /// <summary>Comprehensive metadata for the toolkit including dates, descriptions, and statistics</summary>
@@ -108,7 +108,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Slug { get; set; }
 #endif
-        /// <summary>&quot;Toolkit provenance: \&quot;native\&quot; for Composio-managed toolkits, \&quot;custom\&quot; for a project-registered custom (MCP) toolkit&quot;</summary>
+        /// <summary>Toolkit provenance: &quot;native&quot; for Composio-managed toolkits, &quot;custom&quot; for a project-registered custom (MCP) toolkit</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200Response"/> and sets the default values.

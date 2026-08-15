@@ -15,7 +15,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestExperimentalAccountType? AccountType { get; set; }
-        /// <summary>&quot;Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.&quot;</summary>
+        /// <summary>Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestExperimentalAclConfigForShared? AclConfigForShared { get; set; }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Must have type: \&quot;object\&quot; and a properties field.&quot;
+    /// Must have type: &quot;object&quot; and a properties field.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSessionRequestExperimentalCustomToolsItemInputSchema : IAdditionalDataHolder, IParsable

@@ -7,28 +7,97 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf2"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PatchAuthConfigsByNanoidRequest : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class PatchAuthConfigsByNanoidRequest : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The credentials property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1? PatchAuthConfigsByNanoidRequestOneOf1 { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestCredentials? Credentials { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1 PatchAuthConfigsByNanoidRequestOneOf1 { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestCredentials Credentials { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf2"/></summary>
+        /// <summary>[EXPERIMENTAL] Opt-in auth-config features.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf2? PatchAuthConfigsByNanoidRequestOneOf2 { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestExperimental? Experimental { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf2 PatchAuthConfigsByNanoidRequestOneOf2 { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestExperimental Experimental { get; set; }
 #endif
+        /// <summary>Whether this auth config is enabled for tool router</summary>
+        public bool? IsEnabledForToolRouter { get; set; }
+        /// <summary>The display name of the authentication configuration</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
+        /// <summary>The proxy_config property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestProxyConfig? ProxyConfig { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestProxyConfig ProxyConfig { get; set; }
+#endif
+        /// <summary>Use tool_access_config instead. This field will be deprecated in the future.</summary>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RestrictToFollowingTools { get; set; }
+#nullable restore
+#else
+        public List<string> RestrictToFollowingTools { get; set; }
+#endif
+        /// <summary>OAuth scopes requested for the auth config.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestScopes? Scopes { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestScopes Scopes { get; set; }
+#endif
+        /// <summary>Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestSharedCredentials? SharedCredentials { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestSharedCredentials SharedCredentials { get; set; }
+#endif
+        /// <summary>The tool_access_config property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestToolAccessConfig? ToolAccessConfig { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestToolAccessConfig ToolAccessConfig { get; set; }
+#endif
+        /// <summary>The type property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestType? Type { get; set; }
+        /// <summary>OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestUserScopes? UserScopes { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestUserScopes UserScopes { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequest"/> and sets the default values.
+        /// </summary>
+        public PatchAuthConfigsByNanoidRequest()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,17 +106,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-            var result = new global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequest();
-            if("PatchAuthConfigsByNanoidRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.PatchAuthConfigsByNanoidRequestOneOf1 = new global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1();
-            }
-            else if("PatchAuthConfigsByNanoidRequestOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.PatchAuthConfigsByNanoidRequestOneOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf2();
-            }
-            return result;
+            return new global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,15 +114,20 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(PatchAuthConfigsByNanoidRequestOneOf1 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return PatchAuthConfigsByNanoidRequestOneOf1.GetFieldDeserializers();
-            }
-            else if(PatchAuthConfigsByNanoidRequestOneOf2 != null)
-            {
-                return PatchAuthConfigsByNanoidRequestOneOf2.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "credentials", n => { Credentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestCredentials>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestCredentials.CreateFromDiscriminatorValue); } },
+                { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestExperimental>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestExperimental.CreateFromDiscriminatorValue); } },
+                { "is_enabled_for_tool_router", n => { IsEnabledForToolRouter = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "proxy_config", n => { ProxyConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestProxyConfig>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestProxyConfig.CreateFromDiscriminatorValue); } },
+                { "restrict_to_following_tools", n => { RestrictToFollowingTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "scopes", n => { Scopes = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestScopes>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestScopes.CreateFromDiscriminatorValue); } },
+                { "shared_credentials", n => { SharedCredentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestSharedCredentials>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestSharedCredentials.CreateFromDiscriminatorValue); } },
+                { "tool_access_config", n => { ToolAccessConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestToolAccessConfig>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestToolAccessConfig.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestType>(); } },
+                { "user_scopes", n => { UserScopes = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestUserScopes>(global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestUserScopes.CreateFromDiscriminatorValue); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -72,14 +136,18 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(PatchAuthConfigsByNanoidRequestOneOf1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf1>(null, PatchAuthConfigsByNanoidRequestOneOf1);
-            }
-            else if(PatchAuthConfigsByNanoidRequestOneOf2 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestOneOf2>(null, PatchAuthConfigsByNanoidRequestOneOf2);
-            }
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestCredentials>("credentials", Credentials);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestExperimental>("experimental", Experimental);
+            writer.WriteBoolValue("is_enabled_for_tool_router", IsEnabledForToolRouter);
+            writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestProxyConfig>("proxy_config", ProxyConfig);
+            writer.WriteCollectionOfPrimitiveValues<string>("restrict_to_following_tools", RestrictToFollowingTools);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestScopes>("scopes", Scopes);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestSharedCredentials>("shared_credentials", SharedCredentials);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestToolAccessConfig>("tool_access_config", ToolAccessConfig);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestUserScopes>("user_scopes", UserScopes);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

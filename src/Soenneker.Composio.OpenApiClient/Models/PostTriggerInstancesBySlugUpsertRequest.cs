@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string ConnectedAccountId { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,7 +47,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty Trigger_config { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,7 +64,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string UserId { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use toolkit_versions instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use toolkit_versions instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

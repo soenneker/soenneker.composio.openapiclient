@@ -15,7 +15,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Stable machine code identifying the advisory. Safe to switch on in client code.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseWarningsItemCode? Code { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PreloadToolsHighContextUsageCode? Code { get; set; }
         /// <summary>Human-readable description of the advisory. Suitable for logging or surfacing to end users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseWarningsItemCode>(); } },
+                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PreloadToolsHighContextUsageCode>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseWarningsItemCode>("code", Code);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PreloadToolsHighContextUsageCode>("code", Code);
             writer.WriteStringValue("message", Message);
             writer.WriteAdditionalData(AdditionalData);
         }

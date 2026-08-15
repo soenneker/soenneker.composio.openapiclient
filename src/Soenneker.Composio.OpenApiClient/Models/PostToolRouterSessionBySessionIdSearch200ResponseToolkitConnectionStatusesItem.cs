@@ -21,7 +21,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItem> Accounts { get; set; }
 #endif
         /// <summary>When &quot;required&quot;, the agent must specify which account to use. Present only when multiple accounts exist.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountSelection? AccountSelection { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.RequiredAccountSelection? AccountSelection { get; set; }
         /// <summary>Sharing model for the connected account when has_active_connection is true. PRIVATE is owner-only; SHARED is reachable only when explicitly pinned to the session.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountType? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -93,7 +93,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account_selection", n => { AccountSelection = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountSelection>(); } },
+                { "account_selection", n => { AccountSelection = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.RequiredAccountSelection>(); } },
                 { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountType>(); } },
                 { "accounts", n => { Accounts = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItem>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "connection_details", n => { ConnectionDetails = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemConnectionDetails>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemConnectionDetails.CreateFromDiscriminatorValue); } },
@@ -112,7 +112,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItem>("accounts", Accounts);
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountSelection>("account_selection", AccountSelection);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.RequiredAccountSelection>("account_selection", AccountSelection);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountType>("account_type", AccountType);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemConnectionDetails>("connection_details", ConnectionDetails);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfo>("current_user_info", CurrentUserInfo);

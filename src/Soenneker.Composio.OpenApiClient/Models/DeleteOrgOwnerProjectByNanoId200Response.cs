@@ -24,7 +24,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string RevokeJobId { get; set; }
 #endif
         /// <summary>Status indicating successful deletion</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.DeleteOrgOwnerProjectByNanoId200ResponseStatus? Status { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.SuccessStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeleteOrgOwnerProjectByNanoId200Response"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "revoke_job_id", n => { RevokeJobId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.DeleteOrgOwnerProjectByNanoId200ResponseStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.SuccessStatus>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("revoke_job_id", RevokeJobId);
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.DeleteOrgOwnerProjectByNanoId200ResponseStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.SuccessStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

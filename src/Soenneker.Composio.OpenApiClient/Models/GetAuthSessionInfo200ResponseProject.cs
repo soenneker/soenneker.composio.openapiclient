@@ -51,7 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>&quot;Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)&quot;</summary>
+        /// <summary>Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)</summary>
         [Obsolete("")]
         public bool? IsNewWebhook { get; set; }
         /// <summary>Date and time when the project last subscribed to updates</summary>

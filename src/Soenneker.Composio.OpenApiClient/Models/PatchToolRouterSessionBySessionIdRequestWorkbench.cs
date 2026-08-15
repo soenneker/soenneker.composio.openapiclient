@@ -18,7 +18,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public bool? Enable { get; set; }
         /// <summary>Whether proxy execution is enabled. When enabled, workbench can call URLs and APIs directly.</summary>
         public bool? EnableProxyExecution { get; set; }
-        /// <summary>&quot;Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Patching this value recreates the sandbox on next access — sandbox FS state is lost, but /mnt/files/ R2 mount persists.&quot;</summary>
+        /// <summary>Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Patching this value recreates the sandbox on next access — sandbox FS state is lost, but /mnt/files/ R2 mount persists.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestWorkbenchSandboxSize? SandboxSize { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

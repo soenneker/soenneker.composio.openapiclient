@@ -166,7 +166,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InstancesRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Number of items per page (default: 20)&quot;</summary>
+            /// <summary>Number of items per page (default: 20)</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }
             /// <summary>Field to order results by</summary>

@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Connected_account_id { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +55,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Disabled_at { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use disabled_at instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use disabled_at instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,7 +72,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This field exposes internal state and will be removed in a future version.&quot;</summary>
+        /// <summary>DEPRECATED: This field exposes internal state and will be removed in a future version.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,7 +97,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Trigger_name { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,7 +114,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string TriggerData { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use trigger_name instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use trigger_name instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,7 +131,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Updated_at { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use updated_at instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use updated_at instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

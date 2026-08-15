@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.&quot;
+    /// DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.
     /// </summary>
     [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]

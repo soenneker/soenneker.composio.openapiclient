@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>&quot;Toolkit provenance: \&quot;native\&quot; for Composio-managed toolkits, \&quot;custom\&quot; for a project-registered custom (MCP) toolkit&quot;</summary>
+    /// <summary>Toolkit provenance: &quot;native&quot; for Composio-managed toolkits, &quot;custom&quot; for a project-registered custom (MCP) toolkit</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum GetToolkits200ResponseItemsItemType
     {

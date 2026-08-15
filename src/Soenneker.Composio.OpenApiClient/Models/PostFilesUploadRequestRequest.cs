@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Name of the original file. Example: \&quot;quarterly_report.pdf\&quot;&quot;</summary>
+        /// <summary>Name of the original file. Example: &quot;quarterly_report.pdf&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Filename { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Filename { get; set; }
 #endif
-        /// <summary>&quot;MD5 hash of the file for deduplication and integrity verification. Example: \&quot;a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6\&quot;&quot;</summary>
+        /// <summary>MD5 hash of the file for deduplication and integrity verification. Example: &quot;a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Md5 { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Md5 { get; set; }
 #endif
-        /// <summary>&quot;Mime type of the original file. Example: \&quot;application/pdf\&quot;, \&quot;image/png\&quot;&quot;</summary>
+        /// <summary>Mime type of the original file. Example: &quot;application/pdf&quot;, &quot;image/png&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Mimetype { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Mimetype { get; set; }
 #endif
-        /// <summary>&quot;Slug of the app where this file belongs to. Example: \&quot;gmail\&quot;, \&quot;slack\&quot;, \&quot;github\&quot;&quot;</summary>
+        /// <summary>Slug of the app where this file belongs to. Example: &quot;gmail&quot;, &quot;slack&quot;, &quot;github&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ToolkitSlug { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string ToolkitSlug { get; set; }
 #endif
-        /// <summary>&quot;Slug of the action where this file belongs to. Example: \&quot;GMAIL_SEND_EMAIL\&quot;, \&quot;SLACK_UPLOAD_FILE\&quot;&quot;</summary>
+        /// <summary>Slug of the action where this file belongs to. Example: &quot;GMAIL_SEND_EMAIL&quot;, &quot;SLACK_UPLOAD_FILE&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ToolSlug { get; set; }

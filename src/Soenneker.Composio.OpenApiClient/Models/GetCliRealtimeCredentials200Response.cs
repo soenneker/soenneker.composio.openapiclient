@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The project nanoId associated with the API Key provided. Used as part of the CLI channel name: private-cli-{project_id}&quot;</summary>
+        /// <summary>The project nanoId associated with the API Key provided. Used as part of the CLI channel name: private-cli-{project_id}</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }

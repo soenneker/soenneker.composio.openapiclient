@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Binary body to send. For binary upload via URL: use {url: \&quot;https://...\&quot;, content_type?: \&quot;...\&quot;}. For binary upload via base64: use {base64: \&quot;...\&quot;, content_type?: \&quot;...\&quot;}.&quot;</summary>
+        /// <summary>Binary body to send. For binary upload via URL: use {url: &quot;https://...&quot;, content_type?: &quot;...&quot;}. For binary upload via base64: use {base64: &quot;...&quot;, content_type?: &quot;...&quot;}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody? BinaryBody { get; set; }

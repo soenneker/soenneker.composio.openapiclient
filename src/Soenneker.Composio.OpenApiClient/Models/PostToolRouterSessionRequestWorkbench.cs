@@ -19,7 +19,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public bool? Enable { get; set; }
         /// <summary>Whether proxy execution is enabled. When enabled, workbench can call URLs and APIs directly.</summary>
         public bool? EnableProxyExecution { get; set; }
-        /// <summary>&quot;Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.&quot;</summary>
+        /// <summary>Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbenchSandboxSize? SandboxSize { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbench"/> and sets the default values.

@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Error message if any searches failed, null if all succeeded. Format: \&quot;X out of Y searches failed, reasons: &lt;details&gt;\&quot;&quot;</summary>
+        /// <summary>Error message if any searches failed, null if all succeeded. Format: &quot;X out of Y searches failed, reasons: &lt;details&gt;&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Error { get; set; }

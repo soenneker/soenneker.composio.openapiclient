@@ -216,7 +216,7 @@
             "description": "The app id to filter by",
             "schema": {
               "type": "string",
-              "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use toolkit_slug instead.\u0022",
+              "description": "DEPRECATED: This parameter will be removed in a future version. Please use toolkit_slug instead.",
               "deprecated": true
             }
           },
@@ -225,7 +225,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "description": "\u0022DEPRECATED: This parameter will be removed in a future version.\u0022",
+              "description": "DEPRECATED: This parameter will be removed in a future version.",
               "deprecated": true
             }
           },
@@ -906,7 +906,7 @@
             }
           },
           "429": {
-            "description": "\u0022Rate limited: too many lookups for this IP or session code, or too many key retrievals for this session. Re-run the CLI login flow.\u0022",
+            "description": "Rate limited: too many lookups for this IP or session code, or too many key retrievals for this session. Re-run the CLI login flow.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1763,6 +1763,135 @@
         ]
       }
     },
+    "/api/v3/connected_accounts/{nanoid}/refresh": {
+      "post": {
+        "tags": [
+          "Connected Accounts",
+          "Authentication"
+        ],
+        "summary": "Re-initiate authentication for a connected account (DEPRECATED)",
+        "description": "DEPRECATED: This endpoint re-initiates the authorization flow for a connected account \u2014 a developer-triggered reconnection (e.g. to recover a connection whose credentials expired or became invalid), returning a new OAuth redirect URL where applicable. It does NOT perform background credential auto-refresh; the \u0022refresh\u0022 name was misleading, which is why the endpoint is deprecated and may be removed in a future release.",
+        "operationId": "PostConnectedAccountsByNanoidRefresh",
+        "parameters": [
+          {
+            "name": "nanoid",
+            "in": "path",
+            "description": "The unique identifier of the connected account",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "connectedAccountId"
+            },
+            "example": "ca_1a2b3c4d5e6f"
+          },
+          {
+            "name": "redirect_url",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostConnectedAccountsByNanoidRefreshRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully refreshed the connected account authentication. For OAuth flows, a new redirect URL is provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostConnectedAccountsByNanoidRefresh200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid nanoid format or the account cannot be refreshed in its current state",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Authentication failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions to refresh this connected account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - Connected account does not exist or was deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - The connection cannot be refreshed because of a permanent attribute (e.g. its auth scheme does not support refresh, such as API_KEY or BEARER_TOKEN)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity - The connection is in an invalid state for refresh (e.g. connection-data validation failed, or the stored connection status is incompatible with reinitiation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error - Failed to refresh the connected account authentication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/api/v3/connected_accounts/link": {
       "post": {
         "tags": [
@@ -1939,6 +2068,75 @@
         ]
       }
     },
+    "/api/v3/internal/trigger/log/{id}": {
+      "get": {
+        "tags": [
+          "Logs",
+          "x-internal"
+        ],
+        "summary": "Get detailed trigger log by ID (DEPRECATED)",
+        "description": "DEPRECATED: This endpoint has declining traffic and will be removed in a future version.",
+        "operationId": "GetInternalTriggerLogById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved trigger log",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInternalTriggerLogById200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true,
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/api/v3/internal/action_execution/logs": {
       "post": {
         "tags": [
@@ -1998,6 +2196,35 @@
             }
           }
         },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v3/internal/action_execution/fields": {
+      "get": {
+        "tags": [
+          "Logs",
+          "x-internal"
+        ],
+        "summary": "Get action log fields for filtering (DEPRECATED)",
+        "description": "DEPRECATED: This endpoint is deprecated and will be removed in a future release. Returns the set of action log fields (and their supported operations/regex) available for filtering action execution logs. Responses carry a \u0060Deprecation\u0060 header (RFC 9745) for client-side detection.",
+        "operationId": "GetInternalActionExecutionFields",
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved action execution fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInternalActionExecutionFields200Response"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true,
         "security": [
           {
             "ApiKeyAuth": []
@@ -4017,7 +4244,7 @@
           "Toolkits"
         ],
         "summary": "Upsert a custom toolkit",
-        "description": "\u0022Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. app_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).\u0022",
+        "description": "Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. app_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).",
         "operationId": "PostCustomToolkitsUpsert",
         "requestBody": {
           "description": "Toolkit creation data",
@@ -4027,7 +4254,8 @@
                 "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4117,7 +4345,7 @@
           "Toolkits"
         ],
         "summary": "Sync a custom toolkit",
-        "description": "\u0022Experimental: custom toolkits are in pilot and this contract may change. Re-fetches tool definitions from the remote MCP server for the custom toolkit with the provided slug. Call it when automatic sync fails or the remote tool definitions change.\u0022",
+        "description": "Experimental: custom toolkits are in pilot and this contract may change. Re-fetches tool definitions from the remote MCP server for the custom toolkit with the provided slug. Call it when automatic sync fails or the remote tool definitions change.",
         "operationId": "PostCustomToolkitsSync",
         "requestBody": {
           "description": "Toolkit sync data",
@@ -4127,7 +4355,8 @@
                 "$ref": "#/components/schemas/PostCustomToolkitsSyncRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4393,7 +4622,7 @@
           {
             "name": "search",
             "in": "query",
-            "description": "\u0022Deprecated: use \\\u0022query\\\u0022 instead. Free-text search query to find tools by name, description, or functionality.\u0022",
+            "description": "Deprecated: use \u0022query\u0022 instead. Free-text search query to find tools by name, description, or functionality.",
             "deprecated": true,
             "schema": {
               "type": "string"
@@ -5521,7 +5750,7 @@
           {
             "name": "connectedAccountIds",
             "in": "query",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.",
             "deprecated": true,
             "schema": {
               "type": "array",
@@ -5535,7 +5764,7 @@
           {
             "name": "authConfigIds",
             "in": "query",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.",
             "deprecated": true,
             "schema": {
               "type": "array",
@@ -5549,7 +5778,7 @@
           {
             "name": "triggerIds",
             "in": "query",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use trigger_ids instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use trigger_ids instead.",
             "deprecated": true,
             "schema": {
               "type": "array",
@@ -5574,7 +5803,7 @@
           {
             "name": "triggerNames",
             "in": "query",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use trigger_names instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use trigger_names instead.",
             "deprecated": true,
             "schema": {
               "type": "array",
@@ -5587,11 +5816,11 @@
           {
             "name": "showDisabled",
             "in": "query",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use show_disabled instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use show_disabled instead.",
             "deprecated": true,
             "schema": {
               "type": "boolean",
-              "description": "\u0022DEPRECATED: Use show_disabled instead\u0022",
+              "description": "DEPRECATED: Use show_disabled instead",
               "default": false,
               "nullable": true
             }
@@ -5599,7 +5828,7 @@
           {
             "name": "deprecatedConnectedAccountUuids",
             "in": "query",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.",
             "deprecated": true,
             "schema": {
               "type": "array",
@@ -5613,7 +5842,7 @@
           {
             "name": "deprecatedAuthConfigUuids",
             "in": "query",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.",
             "deprecated": true,
             "schema": {
               "type": "array",
@@ -6324,7 +6553,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "\u0022Number of items per page (default: 10)\u0022",
+            "description": "Number of items per page (default: 10)",
             "schema": {
               "minimum": 0,
               "exclusiveMinimum": true,
@@ -7185,7 +7414,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "\u0022Number of items per page (default: 10)\u0022",
+            "description": "Number of items per page (default: 10)",
             "schema": {
               "minimum": 0,
               "exclusiveMinimum": true,
@@ -7302,7 +7531,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "\u0022Number of items per page (default: 20)\u0022",
+            "description": "Number of items per page (default: 20)",
             "schema": {
               "type": "number",
               "description": "Number of instances to return per page",
@@ -7599,6 +7828,111 @@
             }
           }
         },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v3/files/list": {
+      "get": {
+        "tags": [
+          "Files"
+        ],
+        "summary": "List files with optional app and action filters (DEPRECATED)",
+        "description": "DEPRECATED: This endpoint is deprecated and will be removed in a future release. Retrieves a list of files associated with the authenticated project. Results can be filtered by toolkit and tool slugs. Responses carry a \u0060Deprecation\u0060 header (RFC 9745) for client-side detection.",
+        "operationId": "GetFilesList",
+        "parameters": [
+          {
+            "name": "toolkit_slug",
+            "in": "query",
+            "description": "Filter files by app slug. Example: \u0022file-converter\u0022",
+            "schema": {
+              "type": "string",
+              "description": "Filter files by app slug. Example: \u0022file-converter\u0022"
+            }
+          },
+          {
+            "name": "tool_slug",
+            "in": "query",
+            "description": "Filter files by action slug. Example: \u0022convert-to-pdf\u0022",
+            "schema": {
+              "type": "string",
+              "description": "Filter files by action slug. Example: \u0022convert-to-pdf\u0022"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page, max allowed is 50",
+            "schema": {
+              "type": "number",
+              "nullable": true
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Cursor for pagination. The cursor is a base64 encoded string of the page and limit. The page is the page number and the limit is the number of items per page. The cursor is used to paginate through the items. The cursor is not required for the first page.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved files",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetFilesList200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true,
         "security": [
           {
             "ApiKeyAuth": []
@@ -9854,9 +10188,6 @@
         }
       },
       "ToolScopeRequirementsAllOfItem": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
@@ -9867,16 +10198,26 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ToolScopeRequirementsAllOfItem_1": "#/components/schemas/ToolScopeRequirementsAllOfItemBranch1",
-            "ToolScopeRequirementsAllOfItemAnyOf2": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2"
+          "value": {
+            "type": "string"
+          },
+          "any_of": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem"
+            }
+          },
+          "when": {
+            "$ref": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2WhenProperty"
+          },
+          "source": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            }
           }
         }
       },
@@ -9907,9 +10248,6 @@
         }
       },
       "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
@@ -9920,16 +10258,23 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem_1": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemBranch1",
-            "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemAnyOf2": "#/components/schemas/ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemAnyOf2"
+          "value": {
+            "type": "string"
+          },
+          "all_of": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            }
           }
         }
       },
@@ -10273,7 +10618,7 @@
             "description": "Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids."
           }
         },
-        "description": "\u0022Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids \u2192 DENY; allow_all_users=true \u2192 ALLOW; user in allowed_user_ids \u2192 ALLOW; else DENY. Default state (omitted or {}) is deny-by-default \u2014 only the creator can use.\u0022",
+        "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids \u2192 DENY; allow_all_users=true \u2192 ALLOW; user in allowed_user_ids \u2192 ALLOW; else DENY. Default state (omitted or {}) is deny-by-default \u2014 only the creator can use.",
         "x-experimental": true
       },
       "ToolDeprecatedToolkit": {
@@ -10618,22 +10963,48 @@
           "type"
         ],
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1"
-          },
-          {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf2"
-          }
-        ],
         "properties": {
           "type": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestType"
+          },
+          "name": {
+            "minLength": 1,
             "type": "string",
-            "description": "Union discriminator"
+            "description": "The display name of the authentication configuration"
+          },
+          "credentials": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestCredentials"
+          },
+          "experimental": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestExperimental"
+          },
+          "proxy_config": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestProxyConfig"
+          },
+          "restrict_to_following_tools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Use tool_access_config instead. This field will be deprecated in the future.",
+            "deprecated": true
+          },
+          "tool_access_config": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestToolAccessConfig"
+          },
+          "shared_credentials": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestSharedCredentials"
+          },
+          "is_enabled_for_tool_router": {
+            "type": "boolean",
+            "description": "Whether this auth config is enabled for tool router"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestScopes"
+          },
+          "user_scopes": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestUserScopes"
           }
-        },
-        "discriminator": {
-          "propertyName": "type"
         }
       },
       "PatchAuthConfigsByNanoid200Response": {
@@ -10846,7 +11217,7 @@
           },
           "project_id": {
             "type": "string",
-            "description": "\u0022The project nanoId associated with the API Key provided. Used as part of the CLI channel name: private-cli-{project_id}\u0022"
+            "description": "The project nanoId associated with the API Key provided. Used as part of the CLI channel name: private-cli-{project_id}"
           }
         }
       },
@@ -10957,13 +11328,13 @@
           },
           "redirect_url": {
             "type": "string",
-            "description": "\u0022DEPRECATED: This field will be removed in a future version\u0022",
+            "description": "DEPRECATED: This field will be removed in a future version",
             "nullable": true,
             "deprecated": true
           },
           "redirect_uri": {
             "type": "string",
-            "description": "\u0022DEPRECATED: This field will be removed in a future version\u0022",
+            "description": "DEPRECATED: This field will be removed in a future version",
             "nullable": true,
             "deprecated": true
           },
@@ -11152,6 +11523,49 @@
           "success": true
         }
       },
+      "PostConnectedAccountsByNanoidRefreshRequest": {
+        "type": "object",
+        "properties": {
+          "redirect_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "validate_credentials": {
+            "type": "boolean",
+            "description": "[EXPERIMENTAL] Whether to validate the provided credentials, validates only for API Key Auth scheme",
+            "default": false,
+            "x-experimental": true
+          }
+        }
+      },
+      "PostConnectedAccountsByNanoidRefresh200Response": {
+        "required": [
+          "id",
+          "status",
+          "redirect_url"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the connected account"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PostConnectedAccountsByNanoidRefresh200ResponseStatus"
+          },
+          "redirect_url": {
+            "type": "string",
+            "description": "The URL to which the user should be redirected to complete the authentication process (null for auth schemes that do not require redirection)",
+            "nullable": true
+          }
+        },
+        "description": "Response schema for a refreshed connected account authentication",
+        "example": {
+          "id": "ca_1a2b3c4d5e6f",
+          "status": "ACTIVE",
+          "redirect_url": "https://app.example.com/oauth/callback"
+        }
+      },
       "PostConnectedAccountsLinkRequest": {
         "required": [
           "auth_config_id",
@@ -11293,6 +11707,17 @@
           }
         }
       },
+      "GetInternalTriggerLogById200Response": {
+        "required": [
+          "log"
+        ],
+        "type": "object",
+        "properties": {
+          "log": {
+            "$ref": "#/components/schemas/GetInternalTriggerLogById200ResponseLog"
+          }
+        }
+      },
       "PostInternalActionExecutionLogsRequest": {
         "required": [
           "cursor"
@@ -11345,6 +11770,17 @@
           "nextCursor": {
             "type": "number",
             "nullable": true
+          }
+        }
+      },
+      "GetInternalActionExecutionFields200Response": {
+        "required": [
+          "fields"
+        ],
+        "type": "object",
+        "properties": {
+          "fields": {
+            "$ref": "#/components/schemas/GetInternalActionExecutionFields200ResponseFields"
           }
         }
       },
@@ -11610,7 +12046,7 @@
           },
           "webhook_url": {
             "type": "string",
-            "description": "\u0022DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook URL.\u0022",
+            "description": "DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook URL.",
             "format": "uri",
             "nullable": true,
             "example": "https://example.com/webhook",
@@ -11618,7 +12054,7 @@
           },
           "event_webhook_url": {
             "type": "string",
-            "description": "\u0022DEPRECATED: No longer used.\u0022",
+            "description": "DEPRECATED: No longer used.",
             "format": "uri",
             "nullable": true,
             "example": "https://example.com/events",
@@ -11626,7 +12062,7 @@
           },
           "webhook_secret": {
             "type": "string",
-            "description": "\u0022DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook secret.\u0022",
+            "description": "DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook secret.",
             "nullable": true,
             "example": "whsec_abcdef123456789",
             "deprecated": true
@@ -11645,7 +12081,7 @@
           },
           "is_new_webhook": {
             "type": "boolean",
-            "description": "\u0022Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)\u0022",
+            "description": "Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)",
             "example": true,
             "deprecated": true
           },
@@ -11673,7 +12109,7 @@
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/DeleteOrgOwnerProjectByNanoId200ResponseStatus"
+            "$ref": "#/components/schemas/SuccessStatus"
           },
           "revoke_job_id": {
             "type": "string",
@@ -11732,7 +12168,7 @@
             "format": "orgId"
           },
           "project_type": {
-            "$ref": "#/components/schemas/PostOrgConsumerProjectResolve200ResponseProjectType"
+            "$ref": "#/components/schemas/ConsumerProjectType"
           },
           "config": {
             "$ref": "#/components/schemas/PostOrgConsumerProjectResolve200ResponseConfig"
@@ -12442,7 +12878,7 @@
           },
           "is_local_toolkit": {
             "type": "boolean",
-            "description": "\u0022DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.\u0022",
+            "description": "DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.",
             "example": false,
             "deprecated": true
           },
@@ -12560,7 +12996,7 @@
           },
           "entity_id": {
             "type": "string",
-            "description": "\u0022Deprecated: please use user_id instead. Entity identifier for multi-entity connected accounts (e.g. multiple repositories, organizations)\u0022",
+            "description": "Deprecated: please use user_id instead. Entity identifier for multi-entity connected accounts (e.g. multiple repositories, organizations)",
             "example": "repo-123",
             "deprecated": true
           },
@@ -12735,7 +13171,7 @@
         "properties": {
           "connectedAuthId": {
             "type": "string",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.",
             "format": "connectedAccountId",
             "deprecated": true
           },
@@ -12756,7 +13192,7 @@
           },
           "version": {
             "type": "string",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use toolkit_versions instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use toolkit_versions instead.",
             "example": "latest",
             "deprecated": true
           },
@@ -12853,7 +13289,7 @@
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/PatchTriggerInstancesManageByTriggerId200ResponseStatus"
+            "$ref": "#/components/schemas/SuccessStatus"
           }
         }
       },
@@ -13147,7 +13583,7 @@
             "items": {
               "type": "string"
             },
-            "description": "\u0022DEPRECATED: Use allowed_tools instead. Tool identifiers to enable that aren\u0027t part of standard toolkits\u0022"
+            "description": "DEPRECATED: Use allowed_tools instead. Tool identifiers to enable that aren\u0027t part of standard toolkits"
           },
           "managed_auth_via_composio": {
             "type": "boolean",
@@ -13635,6 +14071,36 @@
           }
         }
       },
+      "GetFilesList200Response": {
+        "required": [
+          "items",
+          "total_pages",
+          "current_page",
+          "total_items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetFilesList200ResponseItemsItem"
+            }
+          },
+          "next_cursor": {
+            "type": "string",
+            "nullable": true
+          },
+          "total_pages": {
+            "type": "number"
+          },
+          "current_page": {
+            "type": "number"
+          },
+          "total_items": {
+            "type": "number"
+          }
+        }
+      },
       "PostFilesUploadRequestRequest": {
         "required": [
           "toolkit_slug",
@@ -13647,23 +14113,23 @@
         "properties": {
           "toolkit_slug": {
             "type": "string",
-            "description": "\u0022Slug of the app where this file belongs to. Example: \\\u0022gmail\\\u0022, \\\u0022slack\\\u0022, \\\u0022github\\\u0022\u0022"
+            "description": "Slug of the app where this file belongs to. Example: \u0022gmail\u0022, \u0022slack\u0022, \u0022github\u0022"
           },
           "tool_slug": {
             "type": "string",
-            "description": "\u0022Slug of the action where this file belongs to. Example: \\\u0022GMAIL_SEND_EMAIL\\\u0022, \\\u0022SLACK_UPLOAD_FILE\\\u0022\u0022"
+            "description": "Slug of the action where this file belongs to. Example: \u0022GMAIL_SEND_EMAIL\u0022, \u0022SLACK_UPLOAD_FILE\u0022"
           },
           "filename": {
             "type": "string",
-            "description": "\u0022Name of the original file. Example: \\\u0022quarterly_report.pdf\\\u0022\u0022"
+            "description": "Name of the original file. Example: \u0022quarterly_report.pdf\u0022"
           },
           "mimetype": {
             "type": "string",
-            "description": "\u0022Mime type of the original file. Example: \\\u0022application/pdf\\\u0022, \\\u0022image/png\\\u0022\u0022"
+            "description": "Mime type of the original file. Example: \u0022application/pdf\u0022, \u0022image/png\u0022"
           },
           "md5": {
             "type": "string",
-            "description": "\u0022MD5 hash of the file for deduplication and integrity verification. Example: \\\u0022a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6\\\u0022\u0022"
+            "description": "MD5 hash of the file for deduplication and integrity verification. Example: \u0022a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6\u0022"
           }
         }
       },
@@ -13680,23 +14146,23 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "\u0022ID of the request file. Example: \\\u0022req_file_9mZn4qR8sXwT\\\u0022\u0022"
+            "description": "ID of the request file. Example: \u0022req_file_9mZn4qR8sXwT\u0022"
           },
           "key": {
             "type": "string",
-            "description": "\u0022Object storage upload location. Example: \\\u0022projects/pr_1a2b3c4d5e6f/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx\\\u0022\u0022"
+            "description": "Object storage upload location. Example: \u0022projects/pr_1a2b3c4d5e6f/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx\u0022"
           },
           "new_presigned_url": {
             "type": "string",
-            "description": "\u0022Presigned URL for upload. Example: \\\u0022https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Expires=3600...\\\u0022\u0022"
+            "description": "Presigned URL for upload. Example: \u0022https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Expires=3600...\u0022"
           },
           "newPresignedUrl": {
             "type": "string",
-            "description": "\u0022[DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: \\\u0022https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Expires=3600...\\\u0022\u0022",
+            "description": "[DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: \u0022https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Expires=3600...\u0022",
             "deprecated": true
           },
           "type": {
-            "$ref": "#/components/schemas/PostFilesUploadRequest200ResponseType"
+            "$ref": "#/components/schemas/NewValueType"
           },
           "metadata": {
             "$ref": "#/components/schemas/PostFilesUploadRequest200ResponseMetadata"
@@ -14170,7 +14636,7 @@
           },
           "error": {
             "type": "string",
-            "description": "\u0022Error message if any searches failed, null if all succeeded. Format: \\\u0022X out of Y searches failed, reasons: \u003Cdetails\u003E\\\u0022\u0022",
+            "description": "Error message if any searches failed, null if all succeeded. Format: \u0022X out of Y searches failed, reasons: \u003Cdetails\u003E\u0022",
             "nullable": true
           },
           "results": {
@@ -14358,6 +14824,10 @@
           }
         }
       },
+      "ExamplePayload": {
+        "type": "object",
+        "description": "Placeholder schema for path example refs"
+      },
       "ToolScopeRequirementsAllOfItemBranch1": {
         "required": [
           "value"
@@ -14379,10 +14849,6 @@
             "type": "string"
           }
         }
-      },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
       },
       "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf3ExpiresInBranch1": {
         "required": [
@@ -16349,88 +16815,65 @@
         ],
         "description": "OAuth user-token scopes requested for the managed auth config. This is primarily used by Slack OAuth v2."
       },
-      "PatchAuthConfigsByNanoidRequestOneOf1": {
-        "required": [
-          "type"
-        ],
+      "PatchAuthConfigsByNanoidRequestCredentialsScopes": {
         "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1Type"
+        "anyOf": [
+          {
+            "type": "string"
           },
-          "name": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The display name of the authentication configuration"
-          },
-          "credentials": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1Credentials"
-          },
-          "experimental": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1Experimental"
-          },
-          "proxy_config": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1ProxyConfig"
-          },
-          "restrict_to_following_tools": {
+          {
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "description": "Use tool_access_config instead. This field will be deprecated in the future.",
-            "deprecated": true
-          },
-          "tool_access_config": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1ToolAccessConfig"
-          },
-          "shared_credentials": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1SharedCredentials"
-          },
-          "is_enabled_for_tool_router": {
-            "type": "boolean",
-            "description": "Whether this auth config is enabled for tool router"
+            }
           }
-        }
+        ],
+        "description": "OAuth scopes requested for the auth config."
       },
-      "PatchAuthConfigsByNanoidRequestOneOf2": {
-        "required": [
-          "type"
-        ],
+      "PatchAuthConfigsByNanoidRequestCredentialsUserScopes": {
         "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf2Type"
+        "anyOf": [
+          {
+            "type": "string"
           },
-          "name": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The display name of the authentication configuration"
-          },
-          "scopes": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf2Scopes"
-          },
-          "user_scopes": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf2UserScopes"
-          },
-          "restrict_to_following_tools": {
+          {
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "description": "Use tool_access_config instead. This field will be deprecated in the future.",
-            "deprecated": true
-          },
-          "tool_access_config": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf2ToolAccessConfig"
-          },
-          "shared_credentials": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf2SharedCredentials"
-          },
-          "is_enabled_for_tool_router": {
-            "type": "boolean",
-            "description": "Whether this auth config is enabled for tool router"
+            }
           }
-        }
+        ],
+        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
+      },
+      "PatchAuthConfigsByNanoidRequestScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth scopes requested for the auth config."
+      },
+      "PatchAuthConfigsByNanoidRequestUserScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
       },
       "PostConnectedAccountsLinkRequestConnectionDataExpiresIn": {
         "type": "object",
@@ -16532,6 +16975,11 @@
             "type": "object"
           }
         ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
         "description": "Toolkit version specification. Supports \u0022latest\u0022 string or a record mapping toolkit slugs to specific versions.",
         "example": "latest"
       },
@@ -16545,6 +16993,26 @@
             "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2"
           }
         ],
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesAnyOf3TagsBranch1ValueItem"
+            }
+          },
+          "enable": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2EnableItem"
+            }
+          },
+          "disable": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2DisableItem"
+            }
+          }
+        },
         "description": "MCP tags to filter tools. Array format is treated as enabled list. Object format supports both enabled and disabled lists.",
         "example": {
           "enable": [
@@ -16565,6 +17033,26 @@
             "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsAnyOf2"
           }
         ],
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsBranch1ValueItem"
+            }
+          },
+          "enable": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsAnyOf2EnableItem"
+            }
+          },
+          "disable": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsAnyOf2DisableItem"
+            }
+          }
+        },
         "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.",
         "example": {
           "enable": [
@@ -16585,6 +17073,26 @@
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2"
           }
         ],
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesAnyOf3TagsBranch1ValueItem"
+            }
+          },
+          "enable": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2EnableItem"
+            }
+          },
+          "disable": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2DisableItem"
+            }
+          }
+        },
         "description": "MCP tags to filter tools. Array format is treated as enabled list. Object format supports both enabled and disabled lists.",
         "example": {
           "enable": [
@@ -16605,6 +17113,26 @@
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsAnyOf2"
           }
         ],
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsBranch1ValueItem"
+            }
+          },
+          "enable": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsAnyOf2EnableItem"
+            }
+          },
+          "disable": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsAnyOf2DisableItem"
+            }
+          }
+        },
         "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.",
         "example": {
           "enable": [
@@ -16642,66 +17170,6 @@
             "type": "object"
           }
         ]
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1CredentialsScopes": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-        "description": "OAuth scopes requested for the auth config."
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1CredentialsUserScopes": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf2Scopes": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-        "description": "OAuth scopes requested for the auth config."
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf2UserScopes": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
       },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2": {
         "type": "object",
@@ -16900,7 +17368,7 @@
           },
           "is_new_webhook": {
             "type": "boolean",
-            "description": "\u0022Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)\u0022",
+            "description": "Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)",
             "example": true,
             "deprecated": true
           },
@@ -17312,6 +17780,71 @@
         "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
         "x-experimental": true
       },
+      "PatchAuthConfigsByNanoidRequestCredentials": {
+        "type": "object",
+        "properties": {
+          "scopes": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestCredentialsScopes"
+          },
+          "user_scopes": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestCredentialsUserScopes"
+          }
+        }
+      },
+      "PatchAuthConfigsByNanoidRequestExperimental": {
+        "type": "object",
+        "properties": {
+          "sealed_credentials": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestExperimentalSealedCredentials"
+          }
+        },
+        "description": "[EXPERIMENTAL] Opt-in auth-config features.",
+        "x-experimental": true
+      },
+      "PatchAuthConfigsByNanoidRequestProxyConfig": {
+        "required": [
+          "proxy_url"
+        ],
+        "type": "object",
+        "properties": {
+          "proxy_url": {
+            "type": "string",
+            "description": "The url of the auth proxy",
+            "format": "uri"
+          },
+          "proxy_auth_key": {
+            "type": "string",
+            "description": "The auth key for the auth proxy"
+          }
+        },
+        "nullable": true
+      },
+      "PatchAuthConfigsByNanoidRequestToolAccessConfig": {
+        "type": "object",
+        "properties": {
+          "tools_for_connected_account_creation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes."
+          },
+          "tools_available_for_execution": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The actions that the user can perform on the auth config. If passed, this will update the actions that the user can perform on the auth config."
+          }
+        }
+      },
+      "PatchAuthConfigsByNanoidRequestSharedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestSharedCredentialsAdditionalProperties"
+        },
+        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
+      },
       "PostCliCodactFailuresRequestToolInfo": {
         "type": "object",
         "properties": {
@@ -17504,13 +18037,13 @@
           },
           "redirect_uri": {
             "type": "string",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use callback_url instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use callback_url instead.",
             "format": "uri",
             "deprecated": true
           },
           "deprecated_is_v1_rerouted": {
             "type": "boolean",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version.",
             "default": false,
             "deprecated": true
           },
@@ -17934,6 +18467,49 @@
           }
         }
       },
+      "GetInternalTriggerLogById200ResponseLog": {
+        "required": [
+          "id",
+          "connectionId",
+          "clientId",
+          "entityId",
+          "status",
+          "appName",
+          "createdAt",
+          "type",
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "entityId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "appName": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/GetInternalTriggerLogById200ResponseLogType"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/GetInternalTriggerLogById200ResponseLogMeta"
+          }
+        }
+      },
       "PostInternalActionExecutionLogsRequestSearchParamsItem": {
         "type": "object",
         "properties": {
@@ -17996,6 +18572,38 @@
           },
           "createdAt": {
             "type": "number"
+          }
+        }
+      },
+      "GetInternalActionExecutionFields200ResponseFields": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "required": [
+              "id",
+              "displayName",
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The id of the field"
+              },
+              "displayName": {
+                "type": "string",
+                "description": "The display name of the field"
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of the field"
+              },
+              "regex": {
+                "type": "string",
+                "description": "The regex of the field"
+              }
+            }
           }
         }
       },
@@ -18185,7 +18793,7 @@
           },
           "webhook_url": {
             "type": "string",
-            "description": "\u0022DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook URL.\u0022",
+            "description": "DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook URL.",
             "format": "uri",
             "nullable": true,
             "example": "https://example.com/webhook",
@@ -18193,7 +18801,7 @@
           },
           "event_webhook_url": {
             "type": "string",
-            "description": "\u0022DEPRECATED: No longer used.\u0022",
+            "description": "DEPRECATED: No longer used.",
             "format": "uri",
             "nullable": true,
             "example": "https://example.com/events",
@@ -18201,7 +18809,7 @@
           },
           "webhook_secret": {
             "type": "string",
-            "description": "\u0022DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook secret.\u0022",
+            "description": "DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook secret.",
             "nullable": true,
             "example": "whsec_abcdef123456789",
             "deprecated": true
@@ -18220,7 +18828,7 @@
           },
           "is_new_webhook": {
             "type": "boolean",
-            "description": "\u0022Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)\u0022",
+            "description": "Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)",
             "example": true,
             "deprecated": true
           },
@@ -18331,7 +18939,7 @@
           },
           "webhook_url": {
             "type": "string",
-            "description": "\u0022DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook URL.\u0022",
+            "description": "DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook URL.",
             "format": "uri",
             "nullable": true,
             "example": "https://example.com/webhook",
@@ -18339,7 +18947,7 @@
           },
           "event_webhook_url": {
             "type": "string",
-            "description": "\u0022DEPRECATED: No longer used.\u0022",
+            "description": "DEPRECATED: No longer used.",
             "format": "uri",
             "nullable": true,
             "example": "https://example.com/events",
@@ -18347,7 +18955,7 @@
           },
           "webhook_secret": {
             "type": "string",
-            "description": "\u0022DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook secret.\u0022",
+            "description": "DEPRECATED: Use GET /api/v3/webhook_subscriptions instead. Legacy project-level webhook secret.",
             "nullable": true,
             "example": "whsec_abcdef123456789",
             "deprecated": true
@@ -18366,7 +18974,7 @@
           },
           "is_new_webhook": {
             "type": "boolean",
-            "description": "\u0022Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)\u0022",
+            "description": "Deprecated: Please refer to webhook_version instead. True indicates if the webhook configuration is using the previous new format (V2). False indicates the oldest format (V1)",
             "example": true,
             "deprecated": true
           },
@@ -18653,7 +19261,7 @@
           },
           "is_local_toolkit": {
             "type": "boolean",
-            "description": "\u0022DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.\u0022",
+            "description": "DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.",
             "example": false,
             "deprecated": true
           },
@@ -18927,7 +19535,7 @@
           },
           "is_local_toolkit": {
             "type": "boolean",
-            "description": "\u0022DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.\u0022",
+            "description": "DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.",
             "example": false,
             "deprecated": true
           },
@@ -19084,7 +19692,7 @@
             "description": "Base64-encoded binary data"
           }
         },
-        "description": "\u0022Binary body to send. For binary upload via URL: use {url: \\\u0022https://...\\\u0022, content_type?: \\\u0022...\\\u0022}. For binary upload via base64: use {base64: \\\u0022...\\\u0022, content_type?: \\\u0022...\\\u0022}.\u0022"
+        "description": "Binary body to send. For binary upload via URL: use {url: \u0022https://...\u0022, content_type?: \u0022...\u0022}. For binary upload via base64: use {base64: \u0022...\u0022, content_type?: \u0022...\u0022}."
       },
       "PostToolsExecuteProxyRequestParametersItem": {
         "required": [
@@ -19182,7 +19790,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsertRequestTriggerConfigAdditionalProperties"
         },
-        "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.\u0022",
+        "description": "DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.",
         "deprecated": true
       },
       "PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty": {
@@ -19262,23 +19870,23 @@
           },
           "disabledAt": {
             "type": "string",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use disabled_at instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use disabled_at instead.",
             "nullable": true,
             "deprecated": true
           },
           "connectedAccountId": {
             "type": "string",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.",
             "deprecated": true
           },
           "triggerName": {
             "type": "string",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use trigger_name instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use trigger_name instead.",
             "deprecated": true
           },
           "updatedAt": {
             "type": "string",
-            "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use updated_at instead.\u0022",
+            "description": "DEPRECATED: This parameter will be removed in a future version. Please use updated_at instead.",
             "deprecated": true
           },
           "triggerConfig": {
@@ -19304,7 +19912,7 @@
           },
           "name": {
             "type": "string",
-            "description": "\u0022Deprecated: Use slug instead\u0022",
+            "description": "Deprecated: Use slug instead",
             "example": "Slack"
           },
           "logo": {
@@ -19772,6 +20380,38 @@
         },
         "description": "MCP server instance details"
       },
+      "GetFilesList200ResponseItemsItem": {
+        "required": [
+          "toolkit_slug",
+          "tool_slug",
+          "filename",
+          "mimetype",
+          "md5"
+        ],
+        "type": "object",
+        "properties": {
+          "toolkit_slug": {
+            "type": "string",
+            "description": "Slug of the app where this file belongs to. Example: \u0022file-converter\u0022"
+          },
+          "tool_slug": {
+            "type": "string",
+            "description": "Slug of the action where this file belongs to. Example: \u0022convert-to-pdf\u0022"
+          },
+          "filename": {
+            "type": "string",
+            "description": "Name of the original file. Example: \u0022document.docx\u0022"
+          },
+          "mimetype": {
+            "type": "string",
+            "description": "Mime type of the original file. Example: \u0022application/vnd.openxmlformats-officedocument.wordprocessingml.document\u0022"
+          },
+          "md5": {
+            "type": "string",
+            "description": "MD5 hash of the file for integrity verification. Example: \u0022d41d8cd98f00b204e9800998ecf8427e\u0022"
+          }
+        }
+      },
       "PostFilesUploadRequest200ResponseMetadata": {
         "required": [
           "storage_backend"
@@ -20015,7 +20655,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseMcpType"
+            "$ref": "#/components/schemas/HttpType"
           },
           "url": {
             "type": "string",
@@ -20102,7 +20742,7 @@
         "type": "object",
         "properties": {
           "code": {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseWarningsItemCode"
+            "$ref": "#/components/schemas/PreloadToolsHighContextUsageCode"
           },
           "message": {
             "type": "string",
@@ -20169,7 +20809,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseMcpType"
+            "$ref": "#/components/schemas/HttpType"
           },
           "url": {
             "type": "string",
@@ -20256,7 +20896,7 @@
         "type": "object",
         "properties": {
           "code": {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseWarningsItemCode"
+            "$ref": "#/components/schemas/PreloadToolsHighContextUsageCode"
           },
           "message": {
             "type": "string",
@@ -20466,7 +21106,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseMcpType"
+            "$ref": "#/components/schemas/HttpType"
           },
           "url": {
             "type": "string",
@@ -20553,7 +21193,7 @@
         "type": "object",
         "properties": {
           "code": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseWarningsItemCode"
+            "$ref": "#/components/schemas/PreloadToolsHighContextUsageCode"
           },
           "message": {
             "type": "string",
@@ -20617,7 +21257,7 @@
             "description": "Base64-encoded binary data"
           }
         },
-        "description": "\u0022Binary body to send. For binary upload via URL: use {url: \\\u0022https://...\\\u0022, content_type?: \\\u0022...\\\u0022}. For binary upload via base64: use {base64: \\\u0022...\\\u0022, content_type?: \\\u0022...\\\u0022}.\u0022"
+        "description": "Binary body to send. For binary upload via URL: use {url: \u0022https://...\u0022, content_type?: \u0022...\u0022}. For binary upload via base64: use {base64: \u0022...\u0022, content_type?: \u0022...\u0022}."
       },
       "PostToolRouterSessionBySessionIdProxyExecuteRequestParametersItem": {
         "required": [
@@ -20849,7 +21489,7 @@
             "description": "List of connected accounts for this toolkit. Present when multi-account is enabled."
           },
           "account_selection": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountSelection"
+            "$ref": "#/components/schemas/RequiredAccountSelection"
           },
           "status_message": {
             "type": "string",
@@ -20966,97 +21606,6 @@
             "description": "Array of version changelogs"
           }
         }
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1Credentials": {
-        "type": "object",
-        "properties": {
-          "scopes": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1CredentialsScopes"
-          },
-          "user_scopes": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1CredentialsUserScopes"
-          }
-        }
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1Experimental": {
-        "type": "object",
-        "properties": {
-          "sealed_credentials": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1ExperimentalSealedCredentials"
-          }
-        },
-        "description": "[EXPERIMENTAL] Opt-in auth-config features.",
-        "x-experimental": true
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1ProxyConfig": {
-        "required": [
-          "proxy_url"
-        ],
-        "type": "object",
-        "properties": {
-          "proxy_url": {
-            "type": "string",
-            "description": "The url of the auth proxy",
-            "format": "uri"
-          },
-          "proxy_auth_key": {
-            "type": "string",
-            "description": "The auth key for the auth proxy"
-          }
-        },
-        "nullable": true
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1ToolAccessConfig": {
-        "type": "object",
-        "properties": {
-          "tools_for_connected_account_creation": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes."
-          },
-          "tools_available_for_execution": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The actions that the user can perform on the auth config. If passed, this will update the actions that the user can perform on the auth config."
-          }
-        }
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1SharedCredentials": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf1SharedCredentialsAdditionalProperties"
-        },
-        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf2ToolAccessConfig": {
-        "type": "object",
-        "properties": {
-          "tools_for_connected_account_creation": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes."
-          },
-          "tools_available_for_execution": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The actions that the user can perform on the auth config. If passed, this will update the actions that the user can perform on the auth config."
-          }
-        }
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf2SharedCredentials": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestOneOf2SharedCredentialsAdditionalProperties"
-        },
-        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
       "ToolInputParametersPropertyAdditionalProperties": {
         "type": "object"
@@ -21284,6 +21833,18 @@
       "GetAuthConfigsByNanoid200ResponseSharedCredentialsAdditionalProperties": {
         "type": "object"
       },
+      "PatchAuthConfigsByNanoidRequestExperimentalSealedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 16384,
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it."
+      },
+      "PatchAuthConfigsByNanoidRequestSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
       "PostCliCodactFailuresRequestToolInfoTool": {
         "required": [
           "slug",
@@ -21407,7 +21968,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PostConnectedAccountsRequestConnectionDataAdditionalProperties"
         },
-        "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use state instead.\u0022",
+        "description": "DEPRECATED: This parameter will be removed in a future version. Please use state instead.",
         "deprecated": true
       },
       "PostConnectedAccountsRequestConnectionExperimental": {
@@ -21749,7 +22310,7 @@
             "description": "Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids."
           }
         },
-        "description": "\u0022Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids \u2192 DENY; allow_all_users=true \u2192 ALLOW; user in allowed_user_ids \u2192 ALLOW; else DENY. Default state (omitted or {}) is deny-by-default \u2014 only the creator can use.\u0022",
+        "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids \u2192 DENY; allow_all_users=true \u2192 ALLOW; user in allowed_user_ids \u2192 ALLOW; else DENY. Default state (omitted or {}) is deny-by-default \u2014 only the creator can use.",
         "x-experimental": true
       },
       "PostConnectedAccountsLink201ResponseExperimentalAclConfigForShared": {
@@ -21796,6 +22357,62 @@
           },
           "type": {
             "$ref": "#/components/schemas/PostInternalTriggerLogs200ResponseDataItemMetaType"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "triggerProviderPayload": {
+            "type": "string"
+          },
+          "triggerClientPayload": {
+            "type": "string"
+          },
+          "triggerClientError": {
+            "type": "string"
+          },
+          "triggerName": {
+            "type": "string"
+          },
+          "triggerClientResponse": {
+            "type": "string"
+          },
+          "triggerId": {
+            "type": "string"
+          },
+          "triggerNanoId": {
+            "type": "string"
+          }
+        }
+      },
+      "GetInternalTriggerLogById200ResponseLogMeta": {
+        "required": [
+          "id",
+          "type",
+          "createdAt",
+          "updatedAt",
+          "provider",
+          "clientId",
+          "connectionId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/GetInternalTriggerLogById200ResponseLogMetaType"
           },
           "createdAt": {
             "type": "string"
@@ -22240,7 +22857,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestCustomAuthParamsBodyAdditionalProperties"
         },
-        "description": "\u0022The body to be sent to the endpoint for authentication. This is a JSON object. Note: This is very rarely needed and is only required by very few apps.\u0022"
+        "description": "The body to be sent to the endpoint for authentication. This is a JSON object. Note: This is very rarely needed and is only required by very few apps."
       },
       "PostToolsExecuteByToolSlugRequestCustomConnectionDataVal": {
         "required": [
@@ -22497,7 +23114,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/GetTriggerInstancesActive200ResponseItemsItemStateAdditionalProperties"
         },
-        "description": "\u0022DEPRECATED: This field exposes internal state and will be removed in a future version.\u0022",
+        "description": "DEPRECATED: This field exposes internal state and will be removed in a future version.",
         "nullable": true,
         "deprecated": true
       },
@@ -22506,7 +23123,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/GetTriggerInstancesActive200ResponseItemsItemTriggerConfigPropertyAdditionalProperties"
         },
-        "description": "\u0022DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.\u0022",
+        "description": "DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.",
         "deprecated": true
       },
       "GetTriggerInstancesActive200ResponseItemsItemDeprecated": {
@@ -22543,7 +23160,7 @@
           },
           "name": {
             "type": "string",
-            "description": "\u0022Deprecated: Use slug instead\u0022",
+            "description": "Deprecated: Use slug instead",
             "example": "Slack"
           },
           "logo": {
@@ -22927,7 +23544,7 @@
             "description": "Tags that the tool must NOT have any of"
           }
         },
-        "description": "\u0022MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.\u0022"
+        "description": "MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
       },
       "PostToolRouterSession201ResponseConfigWorkbench": {
         "type": "object",
@@ -22989,7 +23606,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "\u0022Preload configuration. Controls which tools appear in \u0060session.tools\u0060 and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context \u2014 roughly \u226420 tools is recommended. Always present in the response (empty \u0060tools: []\u0060 when the session was created without a preload config).\u0022"
+        "description": "Preload configuration. Controls which tools appear in \u0060session.tools\u0060 and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context \u2014 roughly \u226420 tools is recommended. Always present in the response (empty \u0060tools: []\u0060 when the session was created without a preload config)."
       },
       "PostToolRouterSession201ResponseExperimentalCustomToolkitsItem": {
         "required": [
@@ -23180,7 +23797,7 @@
             "description": "Tags that the tool must NOT have any of"
           }
         },
-        "description": "\u0022MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.\u0022"
+        "description": "MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
       },
       "GetToolRouterSessionBySessionId200ResponseConfigWorkbench": {
         "type": "object",
@@ -23242,7 +23859,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "\u0022Preload configuration. Controls which tools appear in \u0060session.tools\u0060 and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context \u2014 roughly \u226420 tools is recommended. Always present in the response (empty \u0060tools: []\u0060 when the session was created without a preload config).\u0022"
+        "description": "Preload configuration. Controls which tools appear in \u0060session.tools\u0060 and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context \u2014 roughly \u226420 tools is recommended. Always present in the response (empty \u0060tools: []\u0060 when the session was created without a preload config)."
       },
       "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItem": {
         "required": [
@@ -23465,7 +24082,7 @@
             "description": "Tags that the tool must NOT have any of"
           }
         },
-        "description": "\u0022MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.\u0022"
+        "description": "MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigWorkbench": {
         "type": "object",
@@ -23527,7 +24144,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "\u0022Preload configuration. Controls which tools appear in \u0060session.tools\u0060 and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context \u2014 roughly \u226420 tools is recommended. Always present in the response (empty \u0060tools: []\u0060 when the session was created without a preload config).\u0022"
+        "description": "Preload configuration. Controls which tools appear in \u0060session.tools\u0060 and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context \u2014 roughly \u226420 tools is recommended. Always present in the response (empty \u0060tools: []\u0060 when the session was created without a preload config)."
       },
       "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItem": {
         "required": [
@@ -23637,7 +24254,7 @@
             "description": "Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids."
           }
         },
-        "description": "\u0022Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids \u2192 DENY; allow_all_users=true \u2192 ALLOW; user in allowed_user_ids \u2192 ALLOW; else DENY. Default state (omitted or {}) is deny-by-default \u2014 only the creator can use.\u0022",
+        "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids \u2192 DENY; allow_all_users=true \u2192 ALLOW; user in allowed_user_ids \u2192 ALLOW; else DENY. Default state (omitted or {}) is deny-by-default \u2014 only the creator can use.",
         "x-experimental": true
       },
       "PostToolRouterSessionBySessionIdLink201ResponseExperimentalAclConfigForShared": {
@@ -23909,21 +24526,6 @@
             "description": "Changelog for this version"
           }
         }
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1ExperimentalSealedCredentials": {
-        "type": "object",
-        "additionalProperties": {
-          "maxLength": 16384,
-          "minLength": 1,
-          "type": "string"
-        },
-        "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it."
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1SharedCredentialsAdditionalProperties": {
-        "type": "object"
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf2SharedCredentialsAdditionalProperties": {
-        "type": "object"
       },
       "PostAuthConfigsRequestAuthConfigSharedCredentialsAdditionalProperties": {
         "type": "object"
@@ -24224,7 +24826,7 @@
             "description": "Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids."
           }
         },
-        "description": "\u0022Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids \u2192 DENY; allow_all_users=true \u2192 ALLOW; user in allowed_user_ids \u2192 ALLOW; else DENY. Default state (omitted or {}) is deny-by-default \u2014 only the creator can use.\u0022",
+        "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids \u2192 DENY; allow_all_users=true \u2192 ALLOW; user in allowed_user_ids \u2192 ALLOW; else DENY. Default state (omitted or {}) is deny-by-default \u2014 only the creator can use.",
         "x-experimental": true
       },
       "PostConnectedAccountsLinkRequestConnectionDataExtraTokenDataAdditionalProperties": {
@@ -24493,7 +25095,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalCustomToolsItemInputSchemaAdditionalProperties"
         },
-        "description": "\u0022Must have type: \\\u0022object\\\u0022 and a properties field.\u0022",
+        "description": "Must have type: \u0022object\u0022 and a properties field.",
         "example": {
           "type": "object",
           "properties": {
@@ -24797,7 +25399,7 @@
         "type": "object",
         "properties": {
           "tool": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesSchemaRefTool"
+            "$ref": "#/components/schemas/ComposioGetToolSchemasTool"
           },
           "args": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesSchemaRefArgs"
@@ -24986,7 +25588,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalCustomToolkitsItemToolsItemInputSchemaAdditionalProperties"
         },
-        "description": "\u0022Must have type: \\\u0022object\\\u0022 and a properties field.\u0022",
+        "description": "Must have type: \u0022object\u0022 and a properties field.",
         "example": {
           "type": "object",
           "properties": {
@@ -25354,6 +25956,28 @@
           ]
         }
       },
+      "PatchAuthConfigsByNanoidRequestType": {
+        "enum": [
+          "custom",
+          "default"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PatchAuthConfigsByNanoidRequestType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "custom",
+              "name": "Custom"
+            },
+            {
+              "value": "default",
+              "name": "DefaultValue"
+            }
+          ]
+        }
+      },
       "PostCliCreateSessionRequestScope": {
         "enum": [
           "project",
@@ -25510,7 +26134,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022DEPRECATED: This field will be removed in a future version\u0022",
+        "description": "DEPRECATED: This field will be removed in a future version",
         "deprecated": true,
         "x-ms-enum": {
           "name": "PostConnectedAccounts201ResponseStatus",
@@ -25679,6 +26303,54 @@
           ]
         }
       },
+      "PostConnectedAccountsByNanoidRefresh200ResponseStatus": {
+        "enum": [
+          "INITIALIZING",
+          "INITIATED",
+          "ACTIVE",
+          "FAILED",
+          "EXPIRED",
+          "INACTIVE",
+          "REVOKED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The current status of the connected account (e.g., active, pending, failed)",
+        "x-ms-enum": {
+          "name": "PostConnectedAccountsByNanoidRefresh200ResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "INITIALIZING",
+              "name": "Initializing"
+            },
+            {
+              "value": "INITIATED",
+              "name": "Initiated"
+            },
+            {
+              "value": "ACTIVE",
+              "name": "Active"
+            },
+            {
+              "value": "FAILED",
+              "name": "Failed"
+            },
+            {
+              "value": "EXPIRED",
+              "name": "Expired"
+            },
+            {
+              "value": "INACTIVE",
+              "name": "Inactive"
+            },
+            {
+              "value": "REVOKED",
+              "name": "Revoked"
+            }
+          ]
+        }
+      },
       "PostInternalTriggerLogsRequestTime": {
         "enum": [
           "5m",
@@ -25800,7 +26472,7 @@
         "description": "Payload format version for Pusher real-time events only. For webhook configuration, use GET /api/v3/webhook_subscriptions.",
         "example": "V2"
       },
-      "DeleteOrgOwnerProjectByNanoId200ResponseStatus": {
+      "SuccessStatus": {
         "enum": [
           "success"
         ],
@@ -25809,7 +26481,7 @@
         "description": "Status indicating successful deletion",
         "example": "success",
         "x-ms-enum": {
-          "name": "DeleteOrgOwnerProjectByNanoId200ResponseStatus",
+          "name": "SuccessStatus",
           "modelAsString": false,
           "values": [
             {
@@ -25819,7 +26491,7 @@
           ]
         }
       },
-      "PostOrgConsumerProjectResolve200ResponseProjectType": {
+      "ConsumerProjectType": {
         "enum": [
           "CONSUMER"
         ],
@@ -25827,7 +26499,7 @@
         "additionalProperties": false,
         "description": "Resolved project type.",
         "x-ms-enum": {
-          "name": "PostOrgConsumerProjectResolve200ResponseProjectType",
+          "name": "ConsumerProjectType",
           "modelAsString": false,
           "values": [
             {
@@ -25894,7 +26566,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Toolkit provenance: \\\u0022native\\\u0022 for Composio-managed toolkits, \\\u0022custom\\\u0022 for a project-registered custom (MCP) toolkit\u0022",
+        "description": "Toolkit provenance: \u0022native\u0022 for Composio-managed toolkits, \u0022custom\u0022 for a project-registered custom (MCP) toolkit",
         "example": "native",
         "x-ms-enum": {
           "name": "GetToolkitsBySlug200ResponseType",
@@ -26028,24 +26700,6 @@
           ]
         }
       },
-      "PatchTriggerInstancesManageByTriggerId200ResponseStatus": {
-        "enum": [
-          "success"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Status of the operation",
-        "x-ms-enum": {
-          "name": "PatchTriggerInstancesManageByTriggerId200ResponseStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "success",
-              "name": "Success"
-            }
-          ]
-        }
-      },
       "GetTriggersTypesBySlug200ResponseType": {
         "enum": [
           "webhook",
@@ -26070,7 +26724,7 @@
           ]
         }
       },
-      "PostFilesUploadRequest200ResponseType": {
+      "NewValueType": {
         "enum": [
           "new"
         ],
@@ -26079,7 +26733,7 @@
         "description": "[DEPRECATED] Indicates this is a new file that needs to be uploaded",
         "deprecated": true,
         "x-ms-enum": {
-          "name": "PostFilesUploadRequest200ResponseType",
+          "name": "NewValueType",
           "modelAsString": false,
           "values": [
             {
@@ -26306,40 +26960,6 @@
             {
               "value": "openWorldHint",
               "name": "OpenWorldHint"
-            }
-          ]
-        }
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf1Type": {
-        "enum": [
-          "custom"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PatchAuthConfigsByNanoidRequestOneOf1Type",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "custom",
-              "name": "Custom"
-            }
-          ]
-        }
-      },
-      "PatchAuthConfigsByNanoidRequestOneOf2Type": {
-        "enum": [
-          "default"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PatchAuthConfigsByNanoidRequestOneOf2Type",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "default",
-              "name": "DefaultValue"
             }
           ]
         }
@@ -27344,6 +27964,30 @@
           ]
         }
       },
+      "GetInternalTriggerLogById200ResponseLogType": {
+        "enum": [
+          "trigger",
+          "action"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Log entity type (trigger or action)",
+        "example": "trigger",
+        "x-ms-enum": {
+          "name": "GetInternalTriggerLogById200ResponseLogType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "trigger",
+              "name": "Trigger"
+            },
+            {
+              "value": "action",
+              "name": "Action"
+            }
+          ]
+        }
+      },
       "PostInternalActionExecutionLogs200ResponseDataItemStatus": {
         "enum": [
           "success",
@@ -27485,7 +28129,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Toolkit provenance: \\\u0022native\\\u0022 for Composio-managed toolkits, \\\u0022custom\\\u0022 for a project-registered custom (MCP) toolkit\u0022",
+        "description": "Toolkit provenance: \u0022native\u0022 for Composio-managed toolkits, \u0022custom\u0022 for a project-registered custom (MCP) toolkit",
         "example": "native",
         "x-ms-enum": {
           "name": "GetToolkits200ResponseItemsItemType",
@@ -27509,7 +28153,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Toolkit provenance: \\\u0022native\\\u0022 for Composio-managed toolkits, \\\u0022custom\\\u0022 for a project-registered custom (MCP) toolkit\u0022",
+        "description": "Toolkit provenance: \u0022native\u0022 for Composio-managed toolkits, \u0022custom\u0022 for a project-registered custom (MCP) toolkit",
         "example": "native",
         "x-ms-enum": {
           "name": "PostToolkitsMulti200ResponseItemsItemType",
@@ -27740,7 +28384,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.\u0022",
+        "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.",
         "example": "standard",
         "x-ms-enum": {
           "name": "PostToolRouterSessionRequestWorkbenchSandboxSize",
@@ -27765,7 +28409,7 @@
           ]
         }
       },
-      "PostToolRouterSession201ResponseMcpType": {
+      "HttpType": {
         "enum": [
           "http"
         ],
@@ -27773,7 +28417,7 @@
         "additionalProperties": false,
         "description": "The type of the MCP server. Can be http",
         "x-ms-enum": {
-          "name": "PostToolRouterSession201ResponseMcpType",
+          "name": "HttpType",
           "modelAsString": false,
           "values": [
             {
@@ -27783,7 +28427,7 @@
           ]
         }
       },
-      "PostToolRouterSession201ResponseWarningsItemCode": {
+      "PreloadToolsHighContextUsageCode": {
         "enum": [
           "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE"
         ],
@@ -27792,44 +28436,7 @@
         "description": "Stable machine code identifying the advisory. Safe to switch on in client code.",
         "example": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
         "x-ms-enum": {
-          "name": "PostToolRouterSession201ResponseWarningsItemCode",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
-              "name": "PreloadToolsHighContextUsage"
-            }
-          ]
-        }
-      },
-      "GetToolRouterSessionBySessionId200ResponseMcpType": {
-        "enum": [
-          "http"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the MCP server. Can be http",
-        "x-ms-enum": {
-          "name": "GetToolRouterSessionBySessionId200ResponseMcpType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "http",
-              "name": "Http"
-            }
-          ]
-        }
-      },
-      "GetToolRouterSessionBySessionId200ResponseWarningsItemCode": {
-        "enum": [
-          "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Stable machine code identifying the advisory. Safe to switch on in client code.",
-        "example": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
-        "x-ms-enum": {
-          "name": "GetToolRouterSessionBySessionId200ResponseWarningsItemCode",
+          "name": "PreloadToolsHighContextUsageCode",
           "modelAsString": false,
           "values": [
             {
@@ -27848,7 +28455,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Patching this value recreates the sandbox on next access \u2014 sandbox FS state is lost, but /mnt/files/ R2 mount persists.\u0022",
+        "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Patching this value recreates the sandbox on next access \u2014 sandbox FS state is lost, but /mnt/files/ R2 mount persists.",
         "example": "large",
         "x-ms-enum": {
           "name": "PatchToolRouterSessionBySessionIdRequestWorkbenchSandboxSize",
@@ -27869,43 +28476,6 @@
             {
               "value": "xlarge",
               "name": "Xlarge"
-            }
-          ]
-        }
-      },
-      "PatchToolRouterSessionBySessionId200ResponseMcpType": {
-        "enum": [
-          "http"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of the MCP server. Can be http",
-        "x-ms-enum": {
-          "name": "PatchToolRouterSessionBySessionId200ResponseMcpType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "http",
-              "name": "Http"
-            }
-          ]
-        }
-      },
-      "PatchToolRouterSessionBySessionId200ResponseWarningsItemCode": {
-        "enum": [
-          "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Stable machine code identifying the advisory. Safe to switch on in client code.",
-        "example": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
-        "x-ms-enum": {
-          "name": "PatchToolRouterSessionBySessionId200ResponseWarningsItemCode",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
-              "name": "PreloadToolsHighContextUsage"
             }
           ]
         }
@@ -28072,7 +28642,7 @@
           ]
         }
       },
-      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountSelection": {
+      "RequiredAccountSelection": {
         "enum": [
           "required"
         ],
@@ -28080,7 +28650,7 @@
         "additionalProperties": false,
         "description": "When \u0022required\u0022, the agent must specify which account to use. Present only when multiple accounts exist.",
         "x-ms-enum": {
-          "name": "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountSelection",
+          "name": "RequiredAccountSelection",
           "modelAsString": false,
           "values": [
             {
@@ -28517,6 +29087,30 @@
           ]
         }
       },
+      "GetInternalTriggerLogById200ResponseLogMetaType": {
+        "enum": [
+          "trigger",
+          "action"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Log entity type (trigger or action)",
+        "example": "trigger",
+        "x-ms-enum": {
+          "name": "GetInternalTriggerLogById200ResponseLogMetaType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "trigger",
+              "name": "Trigger"
+            },
+            {
+              "value": "action",
+              "name": "Action"
+            }
+          ]
+        }
+      },
       "GetInternalActionExecutionLogById200ResponseStepsItemLogsItemType": {
         "enum": [
           "network",
@@ -28713,7 +29307,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.\u0022",
+        "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.",
         "x-ms-enum": {
           "name": "PostToolRouterSession201ResponseConfigWorkbenchSandboxSize",
           "modelAsString": false,
@@ -28810,7 +29404,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.\u0022",
+        "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.",
         "x-ms-enum": {
           "name": "GetToolRouterSessionBySessionId200ResponseConfigWorkbenchSandboxSize",
           "modelAsString": false,
@@ -28935,7 +29529,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.\u0022",
+        "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.",
         "x-ms-enum": {
           "name": "PatchToolRouterSessionBySessionId200ResponseConfigWorkbenchSandboxSize",
           "modelAsString": false,
@@ -29130,7 +29724,7 @@
           ]
         }
       },
-      "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesSchemaRefTool": {
+      "ComposioGetToolSchemasTool": {
         "enum": [
           "COMPOSIO_GET_TOOL_SCHEMAS"
         ],
@@ -29138,7 +29732,7 @@
         "additionalProperties": false,
         "description": "Tool to call",
         "x-ms-enum": {
-          "name": "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesSchemaRefTool",
+          "name": "ComposioGetToolSchemasTool",
           "modelAsString": false,
           "values": [
             {
@@ -29521,7 +30115,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Filter by toolkit provenance: \\\u0022native\\\u0022 (Composio-managed), \\\u0022custom\\\u0022 (project-registered custom toolkits), or \\\u0022all\\\u0022. Takes precedence over managed_by when both are supplied.\u0022",
+        "description": "Filter by toolkit provenance: \u0022native\u0022 (Composio-managed), \u0022custom\u0022 (project-registered custom toolkits), or \u0022all\u0022. Takes precedence over managed_by when both are supplied.",
         "example": "custom",
         "x-ms-enum": {
           "name": "GetToolkitsTypeParameter",
@@ -29756,12 +30350,6 @@
         "description": "Organization API key authentication",
         "name": "x-org-api-key",
         "in": "header"
-      },
-      "assets_jwt": {
-        "type": "http",
-        "description": "JWT used for assets upload",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },

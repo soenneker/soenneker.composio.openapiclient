@@ -38,7 +38,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This field will be removed in a future version&quot;</summary>
+        /// <summary>DEPRECATED: This field will be removed in a future version</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,7 +47,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string RedirectUri { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This field will be removed in a future version&quot;</summary>
+        /// <summary>DEPRECATED: This field will be removed in a future version</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +56,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string RedirectUrl { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This field will be removed in a future version&quot;</summary>
+        /// <summary>DEPRECATED: This field will be removed in a future version</summary>
         [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseStatus? Status { get; set; }
         /// <summary>

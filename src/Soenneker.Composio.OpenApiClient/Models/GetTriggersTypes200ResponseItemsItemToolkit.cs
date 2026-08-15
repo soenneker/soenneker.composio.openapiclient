@@ -23,7 +23,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Logo { get; set; }
 #endif
-        /// <summary>&quot;Deprecated: Use slug instead&quot;</summary>
+        /// <summary>Deprecated: Use slug instead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }

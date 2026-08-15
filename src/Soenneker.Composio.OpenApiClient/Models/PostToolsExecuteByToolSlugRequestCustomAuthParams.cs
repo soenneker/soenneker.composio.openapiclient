@@ -23,7 +23,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string BaseUrl { get; set; }
 #endif
-        /// <summary>&quot;The body to be sent to the endpoint for authentication. This is a JSON object. Note: This is very rarely needed and is only required by very few apps.&quot;</summary>
+        /// <summary>The body to be sent to the endpoint for authentication. This is a JSON object. Note: This is very rarely needed and is only required by very few apps.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomAuthParamsBody? Body { get; set; }

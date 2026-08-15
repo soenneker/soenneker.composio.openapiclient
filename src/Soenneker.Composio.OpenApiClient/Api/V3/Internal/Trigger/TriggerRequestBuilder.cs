@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Composio.OpenApiClient.Api.V3.Internal.Trigger.Log;
 using Soenneker.Composio.OpenApiClient.Api.V3.Internal.Trigger.Logs;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Trigger
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TriggerRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The log property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Trigger.Log.LogRequestBuilder Log
+        {
+            get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Trigger.Log.LogRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The logs property</summary>
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Trigger.Logs.LogsRequestBuilder Logs
         {

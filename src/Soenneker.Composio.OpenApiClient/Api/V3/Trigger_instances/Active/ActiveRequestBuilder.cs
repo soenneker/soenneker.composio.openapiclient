@@ -102,7 +102,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Active
 #else
             public string[] Auth_config_ids { get; set; }
 #endif
-            /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.&quot;</summary>
+            /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.</summary>
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -121,7 +121,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Active
 #else
             public string[] Connected_account_ids { get; set; }
 #endif
-            /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.&quot;</summary>
+            /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.</summary>
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -142,7 +142,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Active
             [QueryParameter("cursor")]
             public string Cursor { get; set; }
 #endif
-            /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.&quot;</summary>
+            /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.</summary>
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -153,7 +153,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Active
             [QueryParameter("deprecatedAuthConfigUuids")]
             public string[] DeprecatedAuthConfigUuids { get; set; }
 #endif
-            /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.&quot;</summary>
+            /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.</summary>
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -169,7 +169,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Active
             public double? Limit { get; set; }
             /// <summary>When set to true, includes disabled triggers in the response.</summary>
             public bool? Show_disabled { get; set; }
-            /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use show_disabled instead.&quot;</summary>
+            /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use show_disabled instead.</summary>
             [Obsolete("")]
             [QueryParameter("showDisabled")]
             public bool? ShowDisabled { get; set; }
@@ -189,7 +189,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Active
 #else
             public string[] Trigger_names { get; set; }
 #endif
-            /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use trigger_ids instead.&quot;</summary>
+            /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use trigger_ids instead.</summary>
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -200,7 +200,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Active
             [QueryParameter("triggerIds")]
             public string[] TriggerIds { get; set; }
 #endif
-            /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use trigger_names instead.&quot;</summary>
+            /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use trigger_names instead.</summary>
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

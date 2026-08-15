@@ -30,7 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string CallbackUrl { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use state instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use state instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,7 +39,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionData Data { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version.</summary>
         [Obsolete("")]
         public bool? DeprecatedIsV1Rerouted { get; set; }
         /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionExperimental Experimental { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED: This parameter will be removed in a future version. Please use callback_url instead.&quot;</summary>
+        /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use callback_url instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
