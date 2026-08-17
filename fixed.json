@@ -10975,8 +10975,8 @@
           "credentials": {
             "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestCredentials"
           },
-          "experimental": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestExperimental"
+          "sealed_credentials": {
+            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestSealedCredentials"
           },
           "proxy_config": {
             "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestProxyConfig"
@@ -17547,8 +17547,8 @@
           "authScheme": {
             "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigAuthScheme"
           },
-          "experimental": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigExperimental"
+          "sealed_credentials": {
+            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigSealedCredentials"
           },
           "proxy_config": {
             "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigProxyConfig"
@@ -17791,14 +17791,14 @@
           }
         }
       },
-      "PatchAuthConfigsByNanoidRequestExperimental": {
+      "PatchAuthConfigsByNanoidRequestSealedCredentials": {
         "type": "object",
-        "properties": {
-          "sealed_credentials": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestExperimentalSealedCredentials"
-          }
+        "additionalProperties": {
+          "maxLength": 16384,
+          "minLength": 1,
+          "type": "string"
         },
-        "description": "[EXPERIMENTAL] Opt-in auth-config features.",
+        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.",
         "x-experimental": true
       },
       "PatchAuthConfigsByNanoidRequestProxyConfig": {
@@ -21714,14 +21714,14 @@
         "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
         "x-experimental": true
       },
-      "PostAuthConfigsRequestAuthConfigExperimental": {
+      "PostAuthConfigsRequestAuthConfigSealedCredentials": {
         "type": "object",
-        "properties": {
-          "sealed_credentials": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigExperimentalSealedCredentials"
-          }
+        "additionalProperties": {
+          "maxLength": 16384,
+          "minLength": 1,
+          "type": "string"
         },
-        "description": "[EXPERIMENTAL] Opt-in auth-config features.",
+        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials.",
         "x-experimental": true
       },
       "PostAuthConfigsRequestAuthConfigProxyConfig": {
@@ -21832,15 +21832,6 @@
       },
       "GetAuthConfigsByNanoid200ResponseSharedCredentialsAdditionalProperties": {
         "type": "object"
-      },
-      "PatchAuthConfigsByNanoidRequestExperimentalSealedCredentials": {
-        "type": "object",
-        "additionalProperties": {
-          "maxLength": 16384,
-          "minLength": 1,
-          "type": "string"
-        },
-        "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it."
       },
       "PatchAuthConfigsByNanoidRequestSharedCredentialsAdditionalProperties": {
         "type": "object"
@@ -24529,15 +24520,6 @@
       },
       "PostAuthConfigsRequestAuthConfigSharedCredentialsAdditionalProperties": {
         "type": "object"
-      },
-      "PostAuthConfigsRequestAuthConfigExperimentalSealedCredentials": {
-        "type": "object",
-        "additionalProperties": {
-          "maxLength": 16384,
-          "minLength": 1,
-          "type": "string"
-        },
-        "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials."
       },
       "GetAuthConfigs200ResponseItemsItemCredentialsAdditionalProperties": {
         "type": "object"
