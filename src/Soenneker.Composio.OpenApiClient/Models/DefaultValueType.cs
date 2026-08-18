@@ -5,13 +5,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum PatchAuthConfigsByNanoidRequestType
+    public enum DefaultValueType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "custom")]
-        #pragma warning disable CS1591
-        Custom,
-        #pragma warning restore CS1591
         [EnumMember(Value = "default")]
         #pragma warning disable CS1591
         DefaultValue,

@@ -9,7 +9,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class PostAuthConfigsRequestAuthConfigCredentials : IAdditionalDataHolder, IParsable
+    public partial class ComposioManagedAuthConfigCreateCredentials : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -17,35 +17,35 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>OAuth scopes requested for the managed auth config.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsScopes? Scopes { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsScopes? Scopes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsScopes Scopes { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsScopes Scopes { get; set; }
 #endif
         /// <summary>OAuth user-token scopes requested for the managed auth config. This is primarily used by Slack OAuth v2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsUserScopes? UserScopes { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsUserScopes? UserScopes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsUserScopes UserScopes { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsUserScopes UserScopes { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentials"/> and sets the default values.
         /// </summary>
-        public PostAuthConfigsRequestAuthConfigCredentials()
+        public ComposioManagedAuthConfigCreateCredentials()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentials"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentials CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials();
+            return new global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentials();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +55,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "scopes", n => { Scopes = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsScopes>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsScopes.CreateFromDiscriminatorValue); } },
-                { "user_scopes", n => { UserScopes = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsUserScopes>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsUserScopes.CreateFromDiscriminatorValue); } },
+                { "scopes", n => { Scopes = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsScopes>(global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsScopes.CreateFromDiscriminatorValue); } },
+                { "user_scopes", n => { UserScopes = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsUserScopes>(global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsUserScopes.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsScopes>("scopes", Scopes);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsUserScopes>("user_scopes", UserScopes);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsScopes>("scopes", Scopes);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsUserScopes>("user_scopes", UserScopes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -9,43 +9,43 @@ namespace Soenneker.Composio.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class PostConnectedAccountsRequest : IAdditionalDataHolder, IParsable
+    public partial class CustomAuthConfigUpdateProxyConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The auth_config property</summary>
+        /// <summary>The auth key for the auth proxy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestAuthConfig? AuthConfig { get; set; }
+        public string? ProxyAuthKey { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestAuthConfig AuthConfig { get; set; }
+        public string ProxyAuthKey { get; set; }
 #endif
-        /// <summary>The connection property</summary>
+        /// <summary>The url of the auth proxy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnection? Connection { get; set; }
+        public string? ProxyUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnection Connection { get; set; }
+        public string ProxyUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateProxyConfig"/> and sets the default values.
         /// </summary>
-        public PostConnectedAccountsRequest()
+        public CustomAuthConfigUpdateProxyConfig()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateProxyConfig"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateProxyConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequest();
+            return new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateProxyConfig();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +55,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auth_config", n => { AuthConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestAuthConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestAuthConfig.CreateFromDiscriminatorValue); } },
-                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnection>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnection.CreateFromDiscriminatorValue); } },
+                { "proxy_auth_key", n => { ProxyAuthKey = n.GetStringValue(); } },
+                { "proxy_url", n => { ProxyUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestAuthConfig>("auth_config", AuthConfig);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnection>("connection", Connection);
+            writer.WriteStringValue("proxy_auth_key", ProxyAuthKey);
+            writer.WriteStringValue("proxy_url", ProxyUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

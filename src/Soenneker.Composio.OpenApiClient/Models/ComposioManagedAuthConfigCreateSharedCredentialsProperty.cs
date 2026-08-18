@@ -11,26 +11,26 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// [EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PostAuthConfigsRequestAuthConfigSharedCredentials : IAdditionalDataHolder, IParsable
+    public partial class ComposioManagedAuthConfigCreateSharedCredentialsProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSharedCredentials"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedCredentialsProperty"/> and sets the default values.
         /// </summary>
-        public PostAuthConfigsRequestAuthConfigSharedCredentials()
+        public ComposioManagedAuthConfigCreateSharedCredentialsProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSharedCredentials"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedCredentialsProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSharedCredentials CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedCredentialsProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSharedCredentials();
+            return new global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedCredentialsProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

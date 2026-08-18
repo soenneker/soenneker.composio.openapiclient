@@ -11,15 +11,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PatchAuthConfigsByNanoidRequestCredentialsUserScopes : IComposedTypeWrapper, IParsable
+    public partial class ComposioManagedAuthConfigCreateCredentialsUserScopes : IComposedTypeWrapper, IParsable
     {
         /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PatchAuthConfigsByNanoidRequestCredentialsUserScopesString { get; set; }
+        public string? ComposioManagedAuthConfigCreateCredentialsUserScopesString { get; set; }
 #nullable restore
 #else
-        public string PatchAuthConfigsByNanoidRequestCredentialsUserScopesString { get; set; }
+        public string ComposioManagedAuthConfigCreateCredentialsUserScopesString { get; set; }
 #endif
         /// <summary>Composed type representation for type List&lt;string&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,15 +32,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestCredentialsUserScopes"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsUserScopes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestCredentialsUserScopes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsUserScopes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestCredentialsUserScopes();
-            if(parseNode.GetStringValue() is string patchAuthConfigsByNanoidRequestCredentialsUserScopesStringValue)
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentialsUserScopes();
+            if(parseNode.GetStringValue() is string composioManagedAuthConfigCreateCredentialsUserScopesStringValue)
             {
-                result.PatchAuthConfigsByNanoidRequestCredentialsUserScopesString = patchAuthConfigsByNanoidRequestCredentialsUserScopesStringValue;
+                result.ComposioManagedAuthConfigCreateCredentialsUserScopesString = composioManagedAuthConfigCreateCredentialsUserScopesStringValue;
             }
             else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
             {
@@ -63,9 +63,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(PatchAuthConfigsByNanoidRequestCredentialsUserScopesString != null)
+            if(ComposioManagedAuthConfigCreateCredentialsUserScopesString != null)
             {
-                writer.WriteStringValue(null, PatchAuthConfigsByNanoidRequestCredentialsUserScopesString);
+                writer.WriteStringValue(null, ComposioManagedAuthConfigCreateCredentialsUserScopesString);
             }
             else if(String != null)
             {

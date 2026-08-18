@@ -96,7 +96,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithToolSlugItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>Toolkit version specification. Use &quot;latest&quot; for latest versions or bracket notation for specific versions per toolkit.</summary>
+            /// <summary>Toolkit version specification. Use &quot;latest&quot; for latest versions or bracket notation for specific versions per toolkit. Read only when version is omitted; when neither is supplied the tool resolves to the pinned version (&quot;00000000_00&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("toolkit_versions")]
@@ -106,7 +106,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item
             [QueryParameter("toolkit_versions")]
             public string ToolkitVersions { get; set; }
 #endif
-            /// <summary>Optional version of the tool to retrieve</summary>
+            /// <summary>Optional version of the tool to retrieve. Takes precedence over toolkit_versions; when both are omitted the tool resolves to the pinned version (&quot;00000000_00&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("version")]

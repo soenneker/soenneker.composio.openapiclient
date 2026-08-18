@@ -7,45 +7,30 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
+    /// <summary>
+    /// [EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PatchAuthConfigsByNanoidRequestProxyConfig : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class CustomAuthConfigCreateSealedCredentialsProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The auth key for the auth proxy</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProxyAuthKey { get; set; }
-#nullable restore
-#else
-        public string ProxyAuthKey { get; set; }
-#endif
-        /// <summary>The url of the auth proxy</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProxyUrl { get; set; }
-#nullable restore
-#else
-        public string ProxyUrl { get; set; }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestProxyConfig"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty"/> and sets the default values.
         /// </summary>
-        public PatchAuthConfigsByNanoidRequestProxyConfig()
+        public CustomAuthConfigCreateSealedCredentialsProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestProxyConfig"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestProxyConfig CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestProxyConfig();
+            return new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +40,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "proxy_auth_key", n => { ProxyAuthKey = n.GetStringValue(); } },
-                { "proxy_url", n => { ProxyUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,8 +49,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("proxy_auth_key", ProxyAuthKey);
-            writer.WriteStringValue("proxy_url", ProxyUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

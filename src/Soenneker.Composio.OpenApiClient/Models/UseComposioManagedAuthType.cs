@@ -5,16 +5,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum PostAuthConfigsRequestAuthConfigType
+    public enum UseComposioManagedAuthType
     #pragma warning restore CS1591
     {
         [EnumMember(Value = "use_composio_managed_auth")]
         #pragma warning disable CS1591
         UseComposioManagedAuth,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "use_custom_auth")]
-        #pragma warning disable CS1591
-        UseCustomAuth,
         #pragma warning restore CS1591
     }
 }

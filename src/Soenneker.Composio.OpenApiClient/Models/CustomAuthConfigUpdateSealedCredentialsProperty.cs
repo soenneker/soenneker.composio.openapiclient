@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
+    /// [EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PatchAuthConfigsByNanoidRequestSharedCredentials : IAdditionalDataHolder, IParsable
+    public partial class CustomAuthConfigUpdateSealedCredentialsProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestSharedCredentials"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateSealedCredentialsProperty"/> and sets the default values.
         /// </summary>
-        public PatchAuthConfigsByNanoidRequestSharedCredentials()
+        public CustomAuthConfigUpdateSealedCredentialsProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestSharedCredentials"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateSealedCredentialsProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestSharedCredentials CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateSealedCredentialsProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidRequestSharedCredentials();
+            return new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateSealedCredentialsProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

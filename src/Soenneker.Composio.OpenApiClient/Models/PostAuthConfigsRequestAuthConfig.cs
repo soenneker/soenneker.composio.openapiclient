@@ -7,83 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreate"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PostAuthConfigsRequestAuthConfig : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class PostAuthConfigsRequestAuthConfig : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The authScheme property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigAuthScheme? AuthScheme { get; set; }
-        /// <summary>The credentials property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreate"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials? Credentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreate? ComposioManagedAuthConfigCreate { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials Credentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreate ComposioManagedAuthConfigCreate { get; set; }
 #endif
-        /// <summary>Whether this auth config is enabled for tool router</summary>
-        public bool? IsEnabledForToolRouter { get; set; }
-        /// <summary>The name of the integration</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate? CustomAuthConfigCreate { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate CustomAuthConfigCreate { get; set; }
 #endif
-        /// <summary>The proxy_config property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigProxyConfig? ProxyConfig { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigProxyConfig ProxyConfig { get; set; }
-#endif
-        /// <summary>Use tool_access_config instead. This field will be deprecated in the future.</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? RestrictToFollowingTools { get; set; }
-#nullable restore
-#else
-        public List<string> RestrictToFollowingTools { get; set; }
-#endif
-        /// <summary>[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSealedCredentials? SealedCredentials { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSealedCredentials SealedCredentials { get; set; }
-#endif
-        /// <summary>[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSharedCredentials? SharedCredentials { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSharedCredentials SharedCredentials { get; set; }
-#endif
-        /// <summary>The tool_access_config property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigToolAccessConfig? ToolAccessConfig { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigToolAccessConfig ToolAccessConfig { get; set; }
-#endif
-        /// <summary>The type property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigType? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig"/> and sets the default values.
-        /// </summary>
-        public PostAuthConfigsRequestAuthConfig()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -92,7 +37,17 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig();
+            if("use_composio_managed_auth".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ComposioManagedAuthConfigCreate = new global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreate();
+            }
+            else if("use_custom_auth".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CustomAuthConfigCreate = new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,19 +55,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ComposioManagedAuthConfigCreate != null)
             {
-                { "authScheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigAuthScheme>(); } },
-                { "credentials", n => { Credentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials.CreateFromDiscriminatorValue); } },
-                { "is_enabled_for_tool_router", n => { IsEnabledForToolRouter = n.GetBoolValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "proxy_config", n => { ProxyConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigProxyConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigProxyConfig.CreateFromDiscriminatorValue); } },
-                { "restrict_to_following_tools", n => { RestrictToFollowingTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "sealed_credentials", n => { SealedCredentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSealedCredentials>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSealedCredentials.CreateFromDiscriminatorValue); } },
-                { "shared_credentials", n => { SharedCredentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSharedCredentials>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSharedCredentials.CreateFromDiscriminatorValue); } },
-                { "tool_access_config", n => { ToolAccessConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigToolAccessConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigToolAccessConfig.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigType>(); } },
-            };
+                return ComposioManagedAuthConfigCreate.GetFieldDeserializers();
+            }
+            else if(CustomAuthConfigCreate != null)
+            {
+                return CustomAuthConfigCreate.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -121,17 +72,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigAuthScheme>("authScheme", AuthScheme);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentials>("credentials", Credentials);
-            writer.WriteBoolValue("is_enabled_for_tool_router", IsEnabledForToolRouter);
-            writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigProxyConfig>("proxy_config", ProxyConfig);
-            writer.WriteCollectionOfPrimitiveValues<string>("restrict_to_following_tools", RestrictToFollowingTools);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSealedCredentials>("sealed_credentials", SealedCredentials);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigSharedCredentials>("shared_credentials", SharedCredentials);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigToolAccessConfig>("tool_access_config", ToolAccessConfig);
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigType>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            if(ComposioManagedAuthConfigCreate != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreate>(null, ComposioManagedAuthConfigCreate);
+            }
+            else if(CustomAuthConfigCreate != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate>(null, CustomAuthConfigCreate);
+            }
         }
     }
 }

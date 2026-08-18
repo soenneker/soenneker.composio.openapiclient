@@ -1237,7 +1237,7 @@
           "Connected Accounts"
         ],
         "summary": "Create a new connected account",
-        "description": "Initiates a new connection to an external service for a user. For OAuth-based toolkits, this returns a redirect URL to complete authentication. For API key-based toolkits, provide the credentials directly in the request body. Use the \u0060user_id\u0060 field to associate the connection with a specific user in your system.\n\n**Deprecated for Composio-managed OAuth:** For Composio-managed auth configs on OAuth1, OAuth2, or DCR_OAUTH schemes, this endpoint is being retired and will start returning \u0060400 BadRequest\u0060 on **2026-05-08** for new organizations and **2026-07-03** for all remaining organizations. Migrate those calls to \u0060POST /api/v3/connected_accounts/link\u0060. Custom auth configs and non-OAuth schemes (API key, bearer, basic) continue to be supported here. Responses on the retiring path carry a \u0060Deprecation\u0060 header (RFC 9745) and a \u0060Sunset\u0060 header (RFC 8594) for client-side detection.",
+        "description": "Initiates a new connection to an external service for a user. For OAuth-based toolkits, this returns a redirect URL to complete authentication. For API key-based toolkits, provide the credentials directly in the request body. Use the \u0060user_id\u0060 field to associate the connection with a specific user in your system.\n\n**Deprecated for Composio-managed OAuth:** For Composio-managed auth configs on OAuth1, OAuth2, or DCR_OAUTH schemes, this endpoint is being retired and will start returning \u0060400 BadRequest\u0060 on **2026-05-08** for new organizations and **2026-07-03** for all remaining organizations. Migrate those calls to \u0060POST /api/v3/connected_accounts/link\u0060. Custom auth configs and non-OAuth schemes (API key, bearer, basic) continue to be supported here. Responses on the retiring path carry a \u0060Deprecation\u0060 header (RFC 9745) and a \u0060Sunset\u0060 header (RFC 8594) for client-side detection.\n\n**Credential check:** where the toolkit supports it, submitted API key, basic, and bearer credentials are checked against the provider before the connection is stored \u2014 no opt-in required. For toolkits with the check enabled, credentials the provider rejects fail the request with \u0060ConnectedAccount_CredentialValidationRejected\u0060. If the provider is unreachable, times out, or returns an error of its own, the connection is created as normal.",
         "operationId": "PostConnectedAccounts",
         "requestBody": {
           "content": {
@@ -2110,6 +2110,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Trigger log not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -4640,7 +4650,7 @@
           {
             "name": "toolkit_versions",
             "in": "query",
-            "description": "Toolkit version specification. Use \u0022latest\u0022 for latest versions or bracket notation for specific versions per toolkit.",
+            "description": "Toolkit version specification. Use \u0022latest\u0022 for latest versions or bracket notation for specific versions per toolkit. Defaults to the pinned version (\u002200000000_00\u0022) when omitted.",
             "schema": {
               "type": "object",
               "oneOf": [
@@ -4878,7 +4888,7 @@
           {
             "name": "version",
             "in": "query",
-            "description": "Optional version of the tool to retrieve",
+            "description": "Optional version of the tool to retrieve. Takes precedence over toolkit_versions; when both are omitted the tool resolves to the pinned version (\u002200000000_00\u0022).",
             "schema": {
               "type": "string"
             }
@@ -4886,7 +4896,7 @@
           {
             "name": "toolkit_versions",
             "in": "query",
-            "description": "Toolkit version specification. Use \u0022latest\u0022 for latest versions or bracket notation for specific versions per toolkit.",
+            "description": "Toolkit version specification. Use \u0022latest\u0022 for latest versions or bracket notation for specific versions per toolkit. Read only when version is omitted; when neither is supplied the tool resolves to the pinned version (\u002200000000_00\u0022).",
             "schema": {
               "type": "object",
               "oneOf": [
@@ -5379,7 +5389,7 @@
           "Proxy"
         ],
         "summary": "Execute proxy request",
-        "description": "Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details. The v3 endpoint is retired except for orgs explicitly allowlisted in LaunchDarkly during migration.",
+        "description": "Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.",
         "operationId": "PostToolsExecuteProxy",
         "requestBody": {
           "content": {
@@ -10004,6 +10014,173 @@
           }
         }
       },
+      "ComposioManagedAuthConfigCreate": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/UseComposioManagedAuthType"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the integration"
+          },
+          "credentials": {
+            "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateCredentials"
+          },
+          "tool_access_config": {
+            "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateToolAccessConfig"
+          },
+          "restrict_to_following_tools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Use tool_access_config instead. This field will be deprecated in the future.",
+            "default": [],
+            "deprecated": true
+          },
+          "shared_credentials": {
+            "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateSharedCredentialsProperty"
+          },
+          "is_enabled_for_tool_router": {
+            "type": "boolean",
+            "description": "Whether this auth config is enabled for tool router"
+          }
+        }
+      },
+      "CustomAuthConfigCreate": {
+        "required": [
+          "type",
+          "authScheme"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/UseCustomAuthType"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the integration"
+          },
+          "authScheme": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateAuthScheme"
+          },
+          "credentials": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateCredentials"
+          },
+          "sealed_credentials": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateSealedCredentialsProperty"
+          },
+          "proxy_config": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateProxyConfig"
+          },
+          "restrict_to_following_tools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Use tool_access_config instead. This field will be deprecated in the future.",
+            "default": [],
+            "deprecated": true
+          },
+          "tool_access_config": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateToolAccessConfig"
+          },
+          "shared_credentials": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateSharedCredentialsProperty"
+          },
+          "is_enabled_for_tool_router": {
+            "type": "boolean",
+            "description": "Whether this auth config is enabled for tool router"
+          }
+        }
+      },
+      "CustomAuthConfigUpdate": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/CustomType"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The display name of the authentication configuration"
+          },
+          "credentials": {
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateCredentials"
+          },
+          "sealed_credentials": {
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateSealedCredentialsProperty"
+          },
+          "proxy_config": {
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateProxyConfig"
+          },
+          "restrict_to_following_tools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Use tool_access_config instead. This field will be deprecated in the future.",
+            "deprecated": true
+          },
+          "tool_access_config": {
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateToolAccessConfig"
+          },
+          "shared_credentials": {
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateSharedCredentialsProperty"
+          },
+          "is_enabled_for_tool_router": {
+            "type": "boolean",
+            "description": "Whether this auth config is enabled for tool router"
+          }
+        }
+      },
+      "DefaultAuthConfigUpdate": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DefaultValueType"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The display name of the authentication configuration"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/DefaultAuthConfigUpdateScopes"
+          },
+          "user_scopes": {
+            "$ref": "#/components/schemas/DefaultAuthConfigUpdateUserScopes"
+          },
+          "restrict_to_following_tools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Use tool_access_config instead. This field will be deprecated in the future.",
+            "deprecated": true
+          },
+          "tool_access_config": {
+            "$ref": "#/components/schemas/DefaultAuthConfigUpdateToolAccessConfig"
+          },
+          "shared_credentials": {
+            "$ref": "#/components/schemas/DefaultAuthConfigUpdateSharedCredentialsProperty"
+          },
+          "is_enabled_for_tool_router": {
+            "type": "boolean",
+            "description": "Whether this auth config is enabled for tool router"
+          }
+        }
+      },
       "PatchConnectedAccountBody": {
         "type": "object",
         "properties": {
@@ -10187,6 +10364,126 @@
           }
         }
       },
+      "ComposioManagedAuthConfigCreateCredentialsScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth scopes requested for the managed auth config."
+      },
+      "ComposioManagedAuthConfigCreateCredentialsUserScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth user-token scopes requested for the managed auth config. This is primarily used by Slack OAuth v2."
+      },
+      "CustomAuthConfigCreateCredentialsScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth scopes requested for the custom auth config."
+      },
+      "CustomAuthConfigCreateCredentialsUserScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth user-token scopes requested for the custom auth config. This is primarily used by Slack OAuth v2."
+      },
+      "CustomAuthConfigUpdateCredentialsScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth scopes requested for the auth config."
+      },
+      "CustomAuthConfigUpdateCredentialsUserScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
+      },
+      "DefaultAuthConfigUpdateScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth scopes requested for the auth config."
+      },
+      "DefaultAuthConfigUpdateUserScopes": {
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
+      },
       "ToolScopeRequirementsAllOfItem": {
         "type": "object",
         "anyOf": [
@@ -10335,6 +10632,189 @@
             }
           }
         }
+      },
+      "ComposioManagedAuthConfigCreateCredentials": {
+        "type": "object",
+        "properties": {
+          "scopes": {
+            "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateCredentialsScopes"
+          },
+          "user_scopes": {
+            "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateCredentialsUserScopes"
+          }
+        }
+      },
+      "ComposioManagedAuthConfigCreateToolAccessConfig": {
+        "type": "object",
+        "properties": {
+          "tools_for_connected_account_creation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes.",
+            "default": []
+          }
+        }
+      },
+      "ComposioManagedAuthConfigCreateSharedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateSharedCredentialsAdditionalProperties"
+        },
+        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
+        "x-experimental": true
+      },
+      "CustomAuthConfigCreateCredentials": {
+        "type": "object",
+        "properties": {
+          "scopes": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateCredentialsScopes"
+          },
+          "user_scopes": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateCredentialsUserScopes"
+          }
+        }
+      },
+      "CustomAuthConfigCreateSealedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 16384,
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials.",
+        "x-experimental": true
+      },
+      "CustomAuthConfigCreateProxyConfig": {
+        "required": [
+          "proxy_url"
+        ],
+        "type": "object",
+        "properties": {
+          "proxy_url": {
+            "type": "string",
+            "description": "The url of the auth proxy",
+            "format": "uri"
+          },
+          "proxy_auth_key": {
+            "type": "string",
+            "description": "The auth key for the auth proxy"
+          }
+        },
+        "nullable": true
+      },
+      "CustomAuthConfigCreateToolAccessConfig": {
+        "type": "object",
+        "properties": {
+          "tools_for_connected_account_creation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes.",
+            "default": []
+          }
+        }
+      },
+      "CustomAuthConfigCreateSharedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CustomAuthConfigCreateSharedCredentialsAdditionalProperties"
+        },
+        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
+        "x-experimental": true
+      },
+      "CustomAuthConfigUpdateCredentials": {
+        "type": "object",
+        "properties": {
+          "scopes": {
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateCredentialsScopes"
+          },
+          "user_scopes": {
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateCredentialsUserScopes"
+          }
+        }
+      },
+      "CustomAuthConfigUpdateSealedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 16384,
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.",
+        "x-experimental": true
+      },
+      "CustomAuthConfigUpdateProxyConfig": {
+        "required": [
+          "proxy_url"
+        ],
+        "type": "object",
+        "properties": {
+          "proxy_url": {
+            "type": "string",
+            "description": "The url of the auth proxy",
+            "format": "uri"
+          },
+          "proxy_auth_key": {
+            "type": "string",
+            "description": "The auth key for the auth proxy"
+          }
+        },
+        "nullable": true
+      },
+      "CustomAuthConfigUpdateToolAccessConfig": {
+        "type": "object",
+        "properties": {
+          "tools_for_connected_account_creation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes."
+          },
+          "tools_available_for_execution": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The actions that the user can perform on the auth config. If passed, this will update the actions that the user can perform on the auth config."
+          }
+        }
+      },
+      "CustomAuthConfigUpdateSharedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CustomAuthConfigUpdateSharedCredentialsAdditionalProperties"
+        },
+        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
+      },
+      "DefaultAuthConfigUpdateToolAccessConfig": {
+        "type": "object",
+        "properties": {
+          "tools_for_connected_account_creation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes."
+          },
+          "tools_available_for_execution": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The actions that the user can perform on the auth config. If passed, this will update the actions that the user can perform on the auth config."
+          }
+        }
+      },
+      "DefaultAuthConfigUpdateSharedCredentials": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/DefaultAuthConfigUpdateSharedCredentialsAdditionalProperties"
+        },
+        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
       "PatchConnectedAccountBodyConnection": {
         "required": [
@@ -10959,27 +11439,29 @@
         }
       },
       "PatchAuthConfigsByNanoidRequest": {
-        "required": [
-          "type"
-        ],
         "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestType"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CustomAuthConfigUpdate"
           },
+          {
+            "$ref": "#/components/schemas/DefaultAuthConfigUpdate"
+          }
+        ],
+        "properties": {
           "name": {
             "minLength": 1,
             "type": "string",
             "description": "The display name of the authentication configuration"
           },
           "credentials": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestCredentials"
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateCredentials"
           },
           "sealed_credentials": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestSealedCredentials"
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateSealedCredentialsProperty"
           },
           "proxy_config": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestProxyConfig"
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateProxyConfig"
           },
           "restrict_to_following_tools": {
             "type": "array",
@@ -10989,21 +11471,24 @@
             "description": "Use tool_access_config instead. This field will be deprecated in the future.",
             "deprecated": true
           },
-          "tool_access_config": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestToolAccessConfig"
-          },
-          "shared_credentials": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestSharedCredentials"
-          },
           "is_enabled_for_tool_router": {
             "type": "boolean",
             "description": "Whether this auth config is enabled for tool router"
           },
           "scopes": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestScopes"
+            "$ref": "#/components/schemas/DefaultAuthConfigUpdateScopes"
           },
           "user_scopes": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestUserScopes"
+            "$ref": "#/components/schemas/DefaultAuthConfigUpdateUserScopes"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "custom": "#/components/schemas/CustomAuthConfigUpdate",
+            "default": "#/components/schemas/DefaultAuthConfigUpdate",
+            "CustomAuthConfigUpdate": "#/components/schemas/CustomAuthConfigUpdate",
+            "DefaultAuthConfigUpdate": "#/components/schemas/DefaultAuthConfigUpdate"
           }
         }
       },
@@ -11296,12 +11781,6 @@
           },
           "connection": {
             "$ref": "#/components/schemas/PostConnectedAccountsRequestConnection"
-          },
-          "validate_credentials": {
-            "type": "boolean",
-            "description": "[EXPERIMENTAL] Whether to validate the provided credentials, validates only for API Key Auth scheme",
-            "default": false,
-            "x-experimental": true
           }
         }
       },
@@ -11529,12 +12008,6 @@
           "redirect_url": {
             "type": "string",
             "format": "uri"
-          },
-          "validate_credentials": {
-            "type": "boolean",
-            "description": "[EXPERIMENTAL] Whether to validate the provided credentials, validates only for API Key Auth scheme",
-            "default": false,
-            "x-experimental": true
           }
         }
       },
@@ -13007,7 +13480,7 @@
           },
           "version": {
             "type": "string",
-            "description": "Tool version to execute (defaults to \u002200000000_00\u0022 if not specified)",
+            "description": "Tool version to execute. Defaults to the pinned version (\u002200000000_00\u0022) when omitted.",
             "example": "latest"
           },
           "custom_auth_params": {
@@ -13087,7 +13560,7 @@
           },
           "version": {
             "type": "string",
-            "description": "Tool version to use when generating inputs (defaults to \u0022latest\u0022 if not specified)",
+            "description": "Tool version to use when generating inputs. Defaults to the pinned version (\u002200000000_00\u0022) when omitted.",
             "example": "latest"
           }
         }
@@ -16785,95 +17258,56 @@
           }
         }
       },
-      "PostAuthConfigsRequestAuthConfigCredentialsScopes": {
+      "PostAuthConfigsRequestAuthConfig": {
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
-            "type": "string"
+            "$ref": "#/components/schemas/ComposioManagedAuthConfigCreate"
           },
           {
+            "$ref": "#/components/schemas/CustomAuthConfigCreate"
+          }
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the integration"
+          },
+          "restrict_to_following_tools": {
             "type": "array",
             "items": {
               "type": "string"
-            }
-          }
-        ],
-        "description": "OAuth scopes requested for the managed auth config."
-      },
-      "PostAuthConfigsRequestAuthConfigCredentialsUserScopes": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
+            },
+            "description": "Use tool_access_config instead. This field will be deprecated in the future.",
+            "default": [],
+            "deprecated": true
           },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-        "description": "OAuth user-token scopes requested for the managed auth config. This is primarily used by Slack OAuth v2."
-      },
-      "PatchAuthConfigsByNanoidRequestCredentialsScopes": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
+          "is_enabled_for_tool_router": {
+            "type": "boolean",
+            "description": "Whether this auth config is enabled for tool router"
           },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-        "description": "OAuth scopes requested for the auth config."
-      },
-      "PatchAuthConfigsByNanoidRequestCredentialsUserScopes": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
+          "authScheme": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateAuthScheme"
           },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
-      },
-      "PatchAuthConfigsByNanoidRequestScopes": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
+          "sealed_credentials": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateSealedCredentialsProperty"
           },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "proxy_config": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateProxyConfig"
           }
-        ],
-        "description": "OAuth scopes requested for the auth config."
-      },
-      "PatchAuthConfigsByNanoidRequestUserScopes": {
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+        },
+        "default": {
+          "type": "use_composio_managed_auth",
+          "credentials": {},
+          "restrict_to_following_tools": []
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "use_composio_managed_auth": "#/components/schemas/ComposioManagedAuthConfigCreate",
+            "use_custom_auth": "#/components/schemas/CustomAuthConfigCreate"
           }
-        ],
-        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
+        }
       },
       "PostConnectedAccountsLinkRequestConnectionDataExpiresIn": {
         "type": "object",
@@ -17239,6 +17673,52 @@
           }
         }
       },
+      "ComposioManagedAuthConfigCreateSharedCredentialsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateSharedCredentialsPropertyAdditionalProperties"
+        },
+        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config"
+      },
+      "CustomAuthConfigCreateSealedCredentialsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 16384,
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials."
+      },
+      "CustomAuthConfigCreateSharedCredentialsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CustomAuthConfigCreateSharedCredentialsPropertyAdditionalProperties"
+        },
+        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config"
+      },
+      "CustomAuthConfigUpdateSealedCredentialsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "maxLength": 16384,
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it."
+      },
+      "CustomAuthConfigUpdateSharedCredentialsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CustomAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties"
+        },
+        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
+      },
+      "DefaultAuthConfigUpdateSharedCredentialsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/DefaultAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties"
+        },
+        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
+      },
       "ToolInputParametersProperty": {
         "type": "object",
         "additionalProperties": {
@@ -17262,6 +17742,18 @@
             "type": "string"
           }
         }
+      },
+      "ComposioManagedAuthConfigCreateSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "CustomAuthConfigCreateSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "CustomAuthConfigUpdateSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "DefaultAuthConfigUpdateSharedCredentialsAdditionalProperties": {
+        "type": "object"
       },
       "ToolInputParametersAdditionalProperties": {
         "type": "object"
@@ -17509,57 +18001,6 @@
           }
         }
       },
-      "PostAuthConfigsRequestAuthConfig": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigType"
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the integration"
-          },
-          "credentials": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigCredentials"
-          },
-          "tool_access_config": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigToolAccessConfig"
-          },
-          "restrict_to_following_tools": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Use tool_access_config instead. This field will be deprecated in the future.",
-            "default": [],
-            "deprecated": true
-          },
-          "shared_credentials": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigSharedCredentials"
-          },
-          "is_enabled_for_tool_router": {
-            "type": "boolean",
-            "description": "Whether this auth config is enabled for tool router"
-          },
-          "authScheme": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigAuthScheme"
-          },
-          "sealed_credentials": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigSealedCredentials"
-          },
-          "proxy_config": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigProxyConfig"
-          }
-        },
-        "default": {
-          "type": "use_composio_managed_auth",
-          "credentials": {},
-          "restrict_to_following_tools": []
-        }
-      },
       "PostAuthConfigs201ResponseToolkit": {
         "required": [
           "slug"
@@ -17779,71 +18220,6 @@
         },
         "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
         "x-experimental": true
-      },
-      "PatchAuthConfigsByNanoidRequestCredentials": {
-        "type": "object",
-        "properties": {
-          "scopes": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestCredentialsScopes"
-          },
-          "user_scopes": {
-            "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestCredentialsUserScopes"
-          }
-        }
-      },
-      "PatchAuthConfigsByNanoidRequestSealedCredentials": {
-        "type": "object",
-        "additionalProperties": {
-          "maxLength": 16384,
-          "minLength": 1,
-          "type": "string"
-        },
-        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.",
-        "x-experimental": true
-      },
-      "PatchAuthConfigsByNanoidRequestProxyConfig": {
-        "required": [
-          "proxy_url"
-        ],
-        "type": "object",
-        "properties": {
-          "proxy_url": {
-            "type": "string",
-            "description": "The url of the auth proxy",
-            "format": "uri"
-          },
-          "proxy_auth_key": {
-            "type": "string",
-            "description": "The auth key for the auth proxy"
-          }
-        },
-        "nullable": true
-      },
-      "PatchAuthConfigsByNanoidRequestToolAccessConfig": {
-        "type": "object",
-        "properties": {
-          "tools_for_connected_account_creation": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes."
-          },
-          "tools_available_for_execution": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The actions that the user can perform on the auth config. If passed, this will update the actions that the user can perform on the auth config."
-          }
-        }
-      },
-      "PatchAuthConfigsByNanoidRequestSharedCredentials": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/PatchAuthConfigsByNanoidRequestSharedCredentialsAdditionalProperties"
-        },
-        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
       "PostCliCodactFailuresRequestToolInfo": {
         "type": "object",
@@ -18727,9 +19103,6 @@
             "format": "orgId"
           },
           "name": {
-            "maxLength": 32,
-            "minLength": 3,
-            "pattern": "^[a-zA-Z][a-zA-Z0-9_]*[a-zA-Z0-9]$",
             "type": "string",
             "description": "Name of the organization"
           },
@@ -21607,6 +21980,18 @@
           }
         }
       },
+      "ComposioManagedAuthConfigCreateSharedCredentialsPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "CustomAuthConfigCreateSharedCredentialsPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "CustomAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "DefaultAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties": {
+        "type": "object"
+      },
       "ToolInputParametersPropertyAdditionalProperties": {
         "type": "object"
       },
@@ -21681,66 +22066,6 @@
           ]
         },
         "description": "User metadata (JSONB). Typed keys are shown; additional keys pass through unchanged."
-      },
-      "PostAuthConfigsRequestAuthConfigCredentials": {
-        "type": "object",
-        "properties": {
-          "scopes": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigCredentialsScopes"
-          },
-          "user_scopes": {
-            "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigCredentialsUserScopes"
-          }
-        }
-      },
-      "PostAuthConfigsRequestAuthConfigToolAccessConfig": {
-        "type": "object",
-        "properties": {
-          "tools_for_connected_account_creation": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes.",
-            "default": []
-          }
-        }
-      },
-      "PostAuthConfigsRequestAuthConfigSharedCredentials": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/PostAuthConfigsRequestAuthConfigSharedCredentialsAdditionalProperties"
-        },
-        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
-        "x-experimental": true
-      },
-      "PostAuthConfigsRequestAuthConfigSealedCredentials": {
-        "type": "object",
-        "additionalProperties": {
-          "maxLength": 16384,
-          "minLength": 1,
-          "type": "string"
-        },
-        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials.",
-        "x-experimental": true
-      },
-      "PostAuthConfigsRequestAuthConfigProxyConfig": {
-        "required": [
-          "proxy_url"
-        ],
-        "type": "object",
-        "properties": {
-          "proxy_url": {
-            "type": "string",
-            "description": "The url of the auth proxy",
-            "format": "uri"
-          },
-          "proxy_auth_key": {
-            "type": "string",
-            "description": "The auth key for the auth proxy"
-          }
-        },
-        "nullable": true
       },
       "GetAuthConfigs200ResponseItemsItemToolkit": {
         "required": [
@@ -21831,9 +22156,6 @@
         "type": "object"
       },
       "GetAuthConfigsByNanoid200ResponseSharedCredentialsAdditionalProperties": {
-        "type": "object"
-      },
-      "PatchAuthConfigsByNanoidRequestSharedCredentialsAdditionalProperties": {
         "type": "object"
       },
       "PostCliCodactFailuresRequestToolInfoTool": {
@@ -24518,9 +24840,6 @@
           }
         }
       },
-      "PostAuthConfigsRequestAuthConfigSharedCredentialsAdditionalProperties": {
-        "type": "object"
-      },
       "GetAuthConfigs200ResponseItemsItemCredentialsAdditionalProperties": {
         "type": "object"
       },
@@ -25766,6 +26085,156 @@
       "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItemOutputSchemaAdditionalProperties": {
         "type": "object"
       },
+      "UseComposioManagedAuthType": {
+        "enum": [
+          "use_composio_managed_auth"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "UseComposioManagedAuthType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "use_composio_managed_auth",
+              "name": "UseComposioManagedAuth"
+            }
+          ]
+        }
+      },
+      "UseCustomAuthType": {
+        "enum": [
+          "use_custom_auth"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "UseCustomAuthType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "use_custom_auth",
+              "name": "UseCustomAuth"
+            }
+          ]
+        }
+      },
+      "CustomAuthConfigCreateAuthScheme": {
+        "enum": [
+          "OAUTH2",
+          "OAUTH1",
+          "API_KEY",
+          "BASIC",
+          "BILLCOM_AUTH",
+          "BEARER_TOKEN",
+          "GOOGLE_SERVICE_ACCOUNT",
+          "NO_AUTH",
+          "BASIC_WITH_JWT",
+          "CALCOM_AUTH",
+          "SERVICE_ACCOUNT",
+          "SAML",
+          "DCR_OAUTH",
+          "S2S_OAUTH2"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CustomAuthConfigCreateAuthScheme",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "OAUTH2",
+              "name": "OAuth2"
+            },
+            {
+              "value": "OAUTH1",
+              "name": "OAuth1"
+            },
+            {
+              "value": "API_KEY",
+              "name": "ApiKey"
+            },
+            {
+              "value": "BASIC",
+              "name": "Basic"
+            },
+            {
+              "value": "BILLCOM_AUTH",
+              "name": "BillcomAuth"
+            },
+            {
+              "value": "BEARER_TOKEN",
+              "name": "BearerToken"
+            },
+            {
+              "value": "GOOGLE_SERVICE_ACCOUNT",
+              "name": "GoogleServiceAccount"
+            },
+            {
+              "value": "NO_AUTH",
+              "name": "NoAuth"
+            },
+            {
+              "value": "BASIC_WITH_JWT",
+              "name": "BasicWithJwt"
+            },
+            {
+              "value": "CALCOM_AUTH",
+              "name": "CalcomAuth"
+            },
+            {
+              "value": "SERVICE_ACCOUNT",
+              "name": "ServiceAccount"
+            },
+            {
+              "value": "SAML",
+              "name": "Saml"
+            },
+            {
+              "value": "DCR_OAUTH",
+              "name": "DcrOAuth"
+            },
+            {
+              "value": "S2S_OAUTH2",
+              "name": "S2SOAuth2"
+            }
+          ]
+        }
+      },
+      "CustomType": {
+        "enum": [
+          "custom"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CustomType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "DefaultValueType": {
+        "enum": [
+          "default"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DefaultValueType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "default",
+              "name": "DefaultValue"
+            }
+          ]
+        }
+      },
       "PatchConnectedAccountBodyConnectionStateAuthScheme": {
         "enum": [
           "BEARER_TOKEN",
@@ -25934,28 +26403,6 @@
             {
               "value": "DISABLED",
               "name": "Disabled"
-            }
-          ]
-        }
-      },
-      "PatchAuthConfigsByNanoidRequestType": {
-        "enum": [
-          "custom",
-          "default"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PatchAuthConfigsByNanoidRequestType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "custom",
-              "name": "Custom"
-            },
-            {
-              "value": "default",
-              "name": "DefaultValue"
             }
           ]
         }
@@ -27212,110 +27659,6 @@
         "additionalProperties": false,
         "description": "Version of the webhook configuration",
         "example": "V2"
-      },
-      "PostAuthConfigsRequestAuthConfigType": {
-        "enum": [
-          "use_composio_managed_auth",
-          "use_custom_auth"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PostAuthConfigsRequestAuthConfigType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "use_composio_managed_auth",
-              "name": "UseComposioManagedAuth"
-            },
-            {
-              "value": "use_custom_auth",
-              "name": "UseCustomAuth"
-            }
-          ]
-        }
-      },
-      "PostAuthConfigsRequestAuthConfigAuthScheme": {
-        "enum": [
-          "OAUTH2",
-          "OAUTH1",
-          "API_KEY",
-          "BASIC",
-          "BILLCOM_AUTH",
-          "BEARER_TOKEN",
-          "GOOGLE_SERVICE_ACCOUNT",
-          "NO_AUTH",
-          "BASIC_WITH_JWT",
-          "CALCOM_AUTH",
-          "SERVICE_ACCOUNT",
-          "SAML",
-          "DCR_OAUTH",
-          "S2S_OAUTH2"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PostAuthConfigsRequestAuthConfigAuthScheme",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "OAUTH2",
-              "name": "OAuth2"
-            },
-            {
-              "value": "OAUTH1",
-              "name": "OAuth1"
-            },
-            {
-              "value": "API_KEY",
-              "name": "ApiKey"
-            },
-            {
-              "value": "BASIC",
-              "name": "Basic"
-            },
-            {
-              "value": "BILLCOM_AUTH",
-              "name": "BillcomAuth"
-            },
-            {
-              "value": "BEARER_TOKEN",
-              "name": "BearerToken"
-            },
-            {
-              "value": "GOOGLE_SERVICE_ACCOUNT",
-              "name": "GoogleServiceAccount"
-            },
-            {
-              "value": "NO_AUTH",
-              "name": "NoAuth"
-            },
-            {
-              "value": "BASIC_WITH_JWT",
-              "name": "BasicWithJwt"
-            },
-            {
-              "value": "CALCOM_AUTH",
-              "name": "CalcomAuth"
-            },
-            {
-              "value": "SERVICE_ACCOUNT",
-              "name": "ServiceAccount"
-            },
-            {
-              "value": "SAML",
-              "name": "Saml"
-            },
-            {
-              "value": "DCR_OAUTH",
-              "name": "DcrOAuth"
-            },
-            {
-              "value": "S2S_OAUTH2",
-              "name": "S2SOAuth2"
-            }
-          ]
-        }
       },
       "GetAuthConfigs200ResponseItemsItemType": {
         "enum": [

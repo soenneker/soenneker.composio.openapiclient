@@ -11,15 +11,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PostAuthConfigsRequestAuthConfigCredentialsUserScopes : IComposedTypeWrapper, IParsable
+    public partial class CustomAuthConfigUpdateCredentialsUserScopes : IComposedTypeWrapper, IParsable
     {
         /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PostAuthConfigsRequestAuthConfigCredentialsUserScopesString { get; set; }
+        public string? CustomAuthConfigUpdateCredentialsUserScopesString { get; set; }
 #nullable restore
 #else
-        public string PostAuthConfigsRequestAuthConfigCredentialsUserScopesString { get; set; }
+        public string CustomAuthConfigUpdateCredentialsUserScopesString { get; set; }
 #endif
         /// <summary>Composed type representation for type List&lt;string&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,15 +32,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsUserScopes"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsUserScopes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsUserScopes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsUserScopes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfigCredentialsUserScopes();
-            if(parseNode.GetStringValue() is string postAuthConfigsRequestAuthConfigCredentialsUserScopesStringValue)
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsUserScopes();
+            if(parseNode.GetStringValue() is string customAuthConfigUpdateCredentialsUserScopesStringValue)
             {
-                result.PostAuthConfigsRequestAuthConfigCredentialsUserScopesString = postAuthConfigsRequestAuthConfigCredentialsUserScopesStringValue;
+                result.CustomAuthConfigUpdateCredentialsUserScopesString = customAuthConfigUpdateCredentialsUserScopesStringValue;
             }
             else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
             {
@@ -63,9 +63,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(PostAuthConfigsRequestAuthConfigCredentialsUserScopesString != null)
+            if(CustomAuthConfigUpdateCredentialsUserScopesString != null)
             {
-                writer.WriteStringValue(null, PostAuthConfigsRequestAuthConfigCredentialsUserScopesString);
+                writer.WriteStringValue(null, CustomAuthConfigUpdateCredentialsUserScopesString);
             }
             else if(String != null)
             {

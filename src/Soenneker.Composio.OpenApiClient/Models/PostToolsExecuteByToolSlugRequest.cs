@@ -74,7 +74,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string UserId { get; set; }
 #endif
-        /// <summary>Tool version to execute (defaults to &quot;00000000_00&quot; if not specified)</summary>
+        /// <summary>Tool version to execute. Defaults to the pinned version (&quot;00000000_00&quot;) when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Version { get; set; }

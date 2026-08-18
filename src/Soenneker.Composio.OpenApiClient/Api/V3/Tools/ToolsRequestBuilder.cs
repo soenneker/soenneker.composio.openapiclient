@@ -205,7 +205,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
             [QueryParameter("toolkit_slug")]
             public string ToolkitSlug { get; set; }
 #endif
-            /// <summary>Toolkit version specification. Use &quot;latest&quot; for latest versions or bracket notation for specific versions per toolkit.</summary>
+            /// <summary>Toolkit version specification. Use &quot;latest&quot; for latest versions or bracket notation for specific versions per toolkit. Defaults to the pinned version (&quot;00000000_00&quot;) when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("toolkit_versions")]
