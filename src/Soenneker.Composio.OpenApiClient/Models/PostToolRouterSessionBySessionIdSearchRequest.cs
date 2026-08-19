@@ -30,6 +30,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem> Queries { get; set; }
 #endif
+        /// <summary>Search path to use. Defaults to auto. Use tool_search to bypass cached plans and run direct tool search.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy? SearchStrategy { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequest"/> and sets the default values.
         /// </summary>
@@ -57,6 +59,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "queries", n => { Queries = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "search_strategy", n => { SearchStrategy = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy>(); } },
             };
         }
         /// <summary>
@@ -68,6 +71,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("model", Model);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem>("queries", Queries);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy>("search_strategy", SearchStrategy);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -14,6 +14,62 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The default property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Default { get; set; }
+#nullable restore
+#else
+        public string Default { get; set; }
+#endif
+        /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
+        /// <summary>The displayName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
+        public string DisplayName { get; set; }
+#endif
+        /// <summary>The is_available_as_shared_credentials property</summary>
+        public bool? IsAvailableAsSharedCredentials { get; set; }
+        /// <summary>Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input.</summary>
+        public bool? IsSecret { get; set; }
+        /// <summary>The legacy_template_name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LegacyTemplateName { get; set; }
+#nullable restore
+#else
+        public string LegacyTemplateName { get; set; }
+#endif
+        /// <summary>The name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
+        /// <summary>The required property</summary>
+        public bool? Required { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
+        /// <summary>Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field&apos;s `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential).</summary>
+        public bool? UserVisible { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemExpectedInputFieldsItem"/> and sets the default values.
         /// </summary>
@@ -39,6 +95,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "default", n => { Default = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "is_available_as_shared_credentials", n => { IsAvailableAsSharedCredentials = n.GetBoolValue(); } },
+                { "is_secret", n => { IsSecret = n.GetBoolValue(); } },
+                { "legacy_template_name", n => { LegacyTemplateName = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "required", n => { Required = n.GetBoolValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "user_visible", n => { UserVisible = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -48,6 +114,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("default", Default);
+            writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteBoolValue("is_available_as_shared_credentials", IsAvailableAsSharedCredentials);
+            writer.WriteBoolValue("is_secret", IsSecret);
+            writer.WriteStringValue("legacy_template_name", LegacyTemplateName);
+            writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("required", Required);
+            writer.WriteStringValue("type", Type);
+            writer.WriteBoolValue("user_visible", UserVisible);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

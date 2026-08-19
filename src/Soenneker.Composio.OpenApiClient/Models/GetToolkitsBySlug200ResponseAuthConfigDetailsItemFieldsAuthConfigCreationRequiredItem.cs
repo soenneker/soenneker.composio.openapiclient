@@ -38,7 +38,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The is_secret property</summary>
+        /// <summary>Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input.</summary>
         public bool? IsSecret { get; set; }
         /// <summary>The legacy_template_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,6 +66,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Type { get; set; }
 #endif
+        /// <summary>Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field&apos;s `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential).</summary>
+        public bool? UserVisible { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFieldsAuthConfigCreationRequiredItem"/> and sets the default values.
         /// </summary>
@@ -99,6 +101,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
+                { "user_visible", n => { UserVisible = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -116,6 +119,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("required", Required);
             writer.WriteStringValue("type", Type);
+            writer.WriteBoolValue("user_visible", UserVisible);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -15087,6 +15087,9 @@
             "type": "string",
             "description": "Optional model hint for search/planning behavior (e.g., \u0022gpt-4o\u0022). Ignored if invalid.",
             "example": "gpt-4o"
+          },
+          "search_strategy": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearchRequestSearchStrategy"
           }
         }
       },
@@ -18190,7 +18193,50 @@
         "nullable": true
       },
       "GetAuthConfigsByNanoid200ResponseExpectedInputFieldsItem": {
-        "type": "object"
+        "required": [
+          "name",
+          "displayName",
+          "type",
+          "description",
+          "required",
+          "user_visible"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "default": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "is_secret": {
+            "type": "boolean",
+            "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
+          },
+          "legacy_template_name": {
+            "type": "string"
+          },
+          "user_visible": {
+            "type": "boolean",
+            "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with \u0060false\u0060 are never required \u2014 the field\u0027s \u0060default\u0060 applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
+          },
+          "is_available_as_shared_credentials": {
+            "type": "boolean"
+          }
+        }
       },
       "GetAuthConfigsByNanoid200ResponseToolAccessConfig": {
         "type": "object",
@@ -22121,7 +22167,50 @@
         "nullable": true
       },
       "GetAuthConfigs200ResponseItemsItemExpectedInputFieldsItem": {
-        "type": "object"
+        "required": [
+          "name",
+          "displayName",
+          "type",
+          "description",
+          "required",
+          "user_visible"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "default": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "is_secret": {
+            "type": "boolean",
+            "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
+          },
+          "legacy_template_name": {
+            "type": "string"
+          },
+          "user_visible": {
+            "type": "boolean",
+            "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with \u0060false\u0060 are never required \u2014 the field\u0027s \u0060default\u0060 applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
+          },
+          "is_available_as_shared_credentials": {
+            "type": "boolean"
+          }
+        }
       },
       "GetAuthConfigs200ResponseItemsItemToolAccessConfig": {
         "type": "object",
@@ -25736,7 +25825,8 @@
           "displayName",
           "type",
           "description",
-          "required"
+          "required",
+          "user_visible"
         ],
         "type": "object",
         "properties": {
@@ -25760,10 +25850,15 @@
             "type": "boolean"
           },
           "is_secret": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
           },
           "legacy_template_name": {
             "type": "string"
+          },
+          "user_visible": {
+            "type": "boolean",
+            "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with \u0060false\u0060 are never required \u2014 the field\u0027s \u0060default\u0060 applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
           }
         }
       },
@@ -25773,7 +25868,8 @@
           "displayName",
           "type",
           "description",
-          "required"
+          "required",
+          "user_visible"
         ],
         "type": "object",
         "properties": {
@@ -25797,10 +25893,15 @@
             "type": "boolean"
           },
           "is_secret": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
           },
           "legacy_template_name": {
             "type": "string"
+          },
+          "user_visible": {
+            "type": "boolean",
+            "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with \u0060false\u0060 are never required \u2014 the field\u0027s \u0060default\u0060 applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
           }
         }
       },
@@ -25810,7 +25911,8 @@
           "displayName",
           "type",
           "description",
-          "required"
+          "required",
+          "user_visible"
         ],
         "type": "object",
         "properties": {
@@ -25834,10 +25936,15 @@
             "type": "boolean"
           },
           "is_secret": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
           },
           "legacy_template_name": {
             "type": "string"
+          },
+          "user_visible": {
+            "type": "boolean",
+            "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with \u0060false\u0060 are never required \u2014 the field\u0027s \u0060default\u0060 applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
           }
         }
       },
@@ -25847,7 +25954,8 @@
           "displayName",
           "type",
           "description",
-          "required"
+          "required",
+          "user_visible"
         ],
         "type": "object",
         "properties": {
@@ -25871,10 +25979,15 @@
             "type": "boolean"
           },
           "is_secret": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
           },
           "legacy_template_name": {
             "type": "string"
+          },
+          "user_visible": {
+            "type": "boolean",
+            "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with \u0060false\u0060 are never required \u2014 the field\u0027s \u0060default\u0060 applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
           }
         }
       },
@@ -27261,6 +27374,30 @@
             {
               "value": "HEAD",
               "name": "Head"
+            }
+          ]
+        }
+      },
+      "PostToolRouterSessionBySessionIdSearchRequestSearchStrategy": {
+        "enum": [
+          "auto",
+          "tool_search"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Search path to use. Defaults to auto. Use tool_search to bypass cached plans and run direct tool search.",
+        "example": "tool_search",
+        "x-ms-enum": {
+          "name": "PostToolRouterSessionBySessionIdSearchRequestSearchStrategy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "auto",
+              "name": "Auto"
+            },
+            {
+              "value": "tool_search",
+              "name": "ToolSearch"
             }
           ]
         }
