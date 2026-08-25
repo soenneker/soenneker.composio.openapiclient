@@ -1745,6 +1745,16 @@
               }
             }
           },
+          "409": {
+            "description": "Conflict - the connected account is currently leased by another operation, or the status transition is invalid for its current state",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error - Failed to update the connected account status due to a server-side issue",
             "content": {
@@ -15608,6 +15618,100 @@
           }
         }
       },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf3ExpiresInBranch1": {
         "required": [
           "value"
@@ -15877,6 +15981,100 @@
         }
       },
       "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf4ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -16172,6 +16370,100 @@
           }
         }
       },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf3ExpiresInBranch1": {
         "required": [
           "value"
@@ -16454,6 +16746,100 @@
           }
         }
       },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf3ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf3ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf3ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf3ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf4ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf4ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf4ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf4ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresInBranch1": {
         "required": [
           "value"
@@ -16723,6 +17109,100 @@
         }
       },
       "PostConnectedAccountsLinkRequestConnectionDataAnyOf79ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf84ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf84ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf84ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf84ScopeBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf85ExpiresInBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf85ExpiresInBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf85ScopeBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf85ScopeBranch2": {
         "required": [
           "value"
         ],
@@ -26247,6 +26727,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -26306,6 +26787,10 @@
             {
               "value": "DCR_OAUTH",
               "name": "DcrOAuth"
+            },
+            {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
             },
             {
               "value": "S2S_OAUTH2",
@@ -26429,6 +26914,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -26489,6 +26975,10 @@
             {
               "value": "DCR_OAUTH",
               "name": "DcrOAuth"
+            },
+            {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
             },
             {
               "value": "S2S_OAUTH2",
@@ -26728,6 +27218,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -26789,6 +27280,10 @@
             {
               "value": "DCR_OAUTH",
               "name": "DcrOAuth"
+            },
+            {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
             },
             {
               "value": "S2S_OAUTH2",
@@ -27835,6 +28330,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -27897,6 +28393,10 @@
               "name": "DcrOAuth"
             },
             {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
+            },
+            {
               "value": "S2S_OAUTH2",
               "name": "S2SOAuth2"
             }
@@ -27941,6 +28441,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -28002,6 +28503,10 @@
             {
               "value": "DCR_OAUTH",
               "name": "DcrOAuth"
+            },
+            {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
             },
             {
               "value": "S2S_OAUTH2",
@@ -28073,6 +28578,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -28134,6 +28640,10 @@
               "name": "DcrOAuth"
             },
             {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
+            },
+            {
               "value": "S2S_OAUTH2",
               "name": "S2SOAuth2"
             }
@@ -28179,6 +28689,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -28242,6 +28753,10 @@
               "name": "DcrOAuth"
             },
             {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
+            },
+            {
               "value": "S2S_OAUTH2",
               "name": "S2SOAuth2"
             }
@@ -28287,6 +28802,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -28346,6 +28862,10 @@
             {
               "value": "DCR_OAUTH",
               "name": "DcrOAuth"
+            },
+            {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
             },
             {
               "value": "S2S_OAUTH2",
@@ -29160,6 +29680,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -29223,6 +29744,10 @@
               "name": "DcrOAuth"
             },
             {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
+            },
+            {
               "value": "S2S_OAUTH2",
               "name": "S2SOAuth2"
             }
@@ -29268,6 +29793,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -29329,6 +29855,10 @@
               "name": "DcrOAuth"
             },
             {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
+            },
+            {
               "value": "S2S_OAUTH2",
               "name": "S2SOAuth2"
             }
@@ -29350,6 +29880,7 @@
           "SERVICE_ACCOUNT",
           "SAML",
           "DCR_OAUTH",
+          "CIMD_OAUTH",
           "S2S_OAUTH2"
         ],
         "type": "string",
@@ -29409,6 +29940,10 @@
             {
               "value": "DCR_OAUTH",
               "name": "DcrOAuth"
+            },
+            {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
             },
             {
               "value": "S2S_OAUTH2",

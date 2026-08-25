@@ -60,6 +60,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         #pragma warning disable CS1591
         DcrOAuth,
         #pragma warning restore CS1591
+        [EnumMember(Value = "CIMD_OAUTH")]
+        #pragma warning disable CS1591
+        CimdOAuth,
+        #pragma warning restore CS1591
         [EnumMember(Value = "S2S_OAUTH2")]
         #pragma warning disable CS1591
         S2SOAuth2,
