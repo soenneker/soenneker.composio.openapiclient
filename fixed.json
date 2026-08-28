@@ -31400,6 +31400,10 @@
       "description": "Team member management"
     },
     {
+      "name": "Consumer Skills",
+      "description": "Organization-authored Skill management"
+    },
+    {
       "name": "Toolkits",
       "description": "Toolkit and tool management"
     },
