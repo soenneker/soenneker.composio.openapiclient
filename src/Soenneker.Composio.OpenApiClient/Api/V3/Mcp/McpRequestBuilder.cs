@@ -30,6 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.mcp.item collection</summary>
         /// <param name="position">The ID of the MCP server</param>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Item.McpItemRequestBuilder"/></returns>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Item.McpItemRequestBuilder this[string position]
         {
             get

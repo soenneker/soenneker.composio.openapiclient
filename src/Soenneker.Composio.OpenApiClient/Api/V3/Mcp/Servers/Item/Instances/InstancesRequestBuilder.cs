@@ -21,6 +21,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.mcp.servers.item.instances.item collection</summary>
         /// <param name="position">The instance ID (user ID) to delete</param>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.Item.WithInstanceItemRequestBuilder"/></returns>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.Item.WithInstanceItemRequestBuilder this[string position]
         {
             get
@@ -56,6 +57,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServersByServerIdInstances200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.InstancesRequestBuilder.InstancesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -88,6 +90,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersByServerIdInstances201Response?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersByServerIdInstancesRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -115,6 +118,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.InstancesRequestBuilder.InstancesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -135,6 +139,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Parameters for creating a new MCP server instance</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersByServerIdInstancesRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -156,6 +161,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.InstancesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.InstancesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.InstancesRequestBuilder(rawUrl, RequestAdapter);

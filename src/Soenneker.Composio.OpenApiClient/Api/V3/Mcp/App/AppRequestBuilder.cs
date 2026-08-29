@@ -18,6 +18,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.mcp.app.item collection</summary>
         /// <param name="position">The key of the app to find MCP servers for</param>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyItemRequestBuilder"/></returns>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.Item.WithAppKeyItemRequestBuilder this[string position]
         {
             get

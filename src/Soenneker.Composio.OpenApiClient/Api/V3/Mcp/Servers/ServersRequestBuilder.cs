@@ -21,11 +21,13 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
     public partial class ServersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The custom property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Custom.CustomRequestBuilder Custom
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Custom.CustomRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The generate property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Generate.GenerateRequestBuilder Generate
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Generate.GenerateRequestBuilder(PathParameters, RequestAdapter);
@@ -69,6 +71,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServers200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder.ServersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -102,6 +105,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostMcpServers201Response?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -129,6 +133,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder.ServersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -149,6 +154,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request parameters for creating a new MCP server with specific authentication configuration</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -170,6 +176,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder(rawUrl, RequestAdapter);
