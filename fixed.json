@@ -4585,7 +4585,6 @@
             "in": "query",
             "description": "Comma-separated list of auth config IDs to filter tools by",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "type": "string"
@@ -4662,7 +4661,6 @@
             "in": "query",
             "description": "Toolkit version specification. Use \u0022latest\u0022 for latest versions or bracket notation for specific versions per toolkit. Defaults to the pinned version (\u002200000000_00\u0022) when omitted.",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "enum": [
@@ -4908,7 +4906,6 @@
             "in": "query",
             "description": "Toolkit version specification. Use \u0022latest\u0022 for latest versions or bracket notation for specific versions per toolkit. Read only when version is omitted; when neither is supplied the tool resolves to the pinned version (\u002200000000_00\u0022).",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "enum": [
@@ -6261,7 +6258,6 @@
             "in": "query",
             "description": "Toolkit version specification. Use \u0022latest\u0022 for latest versions or bracket notation for specific versions per toolkit.",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "enum": [
@@ -6390,7 +6386,6 @@
             "in": "query",
             "description": "Toolkit version specification. Use \u0022latest\u0022 for latest versions or bracket notation for specific versions per toolkit.",
             "schema": {
-              "type": "object",
               "oneOf": [
                 {
                   "enum": [
