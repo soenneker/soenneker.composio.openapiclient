@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.Codact_failures
         {
         }
         /// <summary>
-        /// Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.
+        /// Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailures200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.Codact_failures
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailures200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailures200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.
+        /// Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

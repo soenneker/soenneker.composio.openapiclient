@@ -46,7 +46,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
         {
         }
         /// <summary>
-        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account&apos;s upstream credentials via a background job.
+        /// Deletes a connected account. The account immediately stops working for API calls and cannot be restored through the API. Pass `?revoke_on_delete=true` to also revoke the account&apos;s upstream credentials.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -145,7 +145,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account&apos;s upstream credentials via a background job.
+        /// Deletes a connected account. The account immediately stops working for API calls and cannot be restored through the API. Pass `?revoke_on_delete=true` to also revoke the account&apos;s upstream credentials.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -214,7 +214,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account&apos;s upstream credentials via a background job.
+        /// Deletes a connected account. The account immediately stops working for API calls and cannot be restored through the API. Pass `?revoke_on_delete=true` to also revoke the account&apos;s upstream credentials.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class NanoItemRequestBuilderDeleteQueryParameters 

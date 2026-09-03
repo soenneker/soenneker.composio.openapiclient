@@ -523,7 +523,7 @@
           "Auth Configs"
         ],
         "summary": "Delete an authentication configuration",
-        "description": "Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the upstream credentials of every connection using this auth config via a background job.",
+        "description": "Deletes an authentication configuration. This operation cannot be undone. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the upstream credentials of every connection using this auth config.",
         "operationId": "DeleteAuthConfigsByNanoid",
         "parameters": [
           {
@@ -761,7 +761,7 @@
           "CLI"
         ],
         "summary": "Ingest CLI codact failures",
-        "description": "Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.",
+        "description": "Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.",
         "operationId": "PostCliCodactFailures",
         "parameters": [
           {
@@ -1436,7 +1436,7 @@
           "Account Management"
         ],
         "summary": "Delete a connected account",
-        "description": "Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the account\u0027s upstream credentials via a background job.",
+        "description": "Deletes a connected account. The account immediately stops working for API calls and cannot be restored through the API. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the account\u0027s upstream credentials.",
         "operationId": "DeleteConnectedAccountsByNanoid",
         "parameters": [
           {
@@ -1464,7 +1464,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully deleted the connected account. The account is marked as deleted but retained in the database for historical purposes.",
+            "description": "Successfully deleted the connected account.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2753,7 +2753,7 @@
           "Organization Management"
         ],
         "summary": "Delete a project",
-        "description": "Soft-deletes a project within the organization by its unique identifier. When a project is deleted, it is marked as deleted but not immediately removed from the database. This operation affects all resources associated with the project including API keys, webhook configurations, and connected services. This action cannot be undone through the API. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the upstream credentials of every connection in the project via a background job.",
+        "description": "Deletes a project within the organization by its unique identifier. This affects every resource belonging to the project, including its API keys, webhook configurations, and connected services. The action cannot be undone. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the upstream credentials of every connection in the project.",
         "operationId": "DeleteOrgOwnerProjectByNanoId",
         "parameters": [
           {
@@ -2782,7 +2782,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Project successfully deleted. The project has been marked as deleted in the system.",
+            "description": "Project successfully deleted.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2857,7 +2857,7 @@
           "Organization Management"
         ],
         "summary": "Delete and generate new API key for project",
-        "description": "Generates a new API key for the specified project, invalidating any existing API keys for that project. This operation creates a fresh API key with a new random name and key value. All existing API keys for this project will be marked as deleted.",
+        "description": "Generates a new API key for the specified project, invalidating any existing API keys for that project. This operation creates a fresh API key with a new random name and key value. Every existing API key for the project stops working immediately.",
         "operationId": "PostOrgOwnerProjectByNanoIdRegenerateApiKey",
         "parameters": [
           {
@@ -7271,7 +7271,7 @@
           "Servers"
         ],
         "summary": "Delete an MCP server",
-        "description": "Performs a soft delete on a Model Control Protocol (MCP) server, making it unavailable for future use. This operation is reversible in the database but cannot be undone through the API. Any applications or services connected to this server will lose access after deletion.",
+        "description": "Deletes a Model Control Protocol (MCP) server, making it unavailable for future use. This cannot be undone. Any applications or services connected to this server will lose access after deletion.",
         "operationId": "DeleteMcpById",
         "parameters": [
           {
@@ -7288,7 +7288,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully deleted MCP server. The server has been soft-deleted and is no longer available for use.",
+            "description": "Successfully deleted MCP server. The server is no longer available for use.",
             "content": {
               "application/json": {
                 "schema": {
@@ -8375,6 +8375,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not found. The referenced Session config or another requested resource does not exist in this project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "408": {
             "description": "Request timeout. The session creation took too long to complete.",
             "content": {
@@ -8429,6 +8439,7 @@
             "name": "sessionId",
             "in": "path",
             "description": "Tool router session ID (required for public API, optional for internal - injected by middleware)",
+            "required": true,
             "schema": {
               "type": "string",
               "description": "The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.",
@@ -8559,6 +8570,7 @@
             "name": "sessionId",
             "in": "path",
             "description": "Tool router session ID (required for public API, optional for internal - injected by middleware)",
+            "required": true,
             "schema": {
               "type": "string",
               "description": "The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.",
@@ -8997,6 +9009,7 @@
             "name": "sessionId",
             "in": "path",
             "description": "Tool router session ID (required for public API, optional for internal - injected by middleware)",
+            "required": true,
             "schema": {
               "type": "string",
               "description": "The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.",
@@ -9273,6 +9286,7 @@
             "name": "sessionId",
             "in": "path",
             "description": "Tool router session ID",
+            "required": true,
             "schema": {
               "type": "string",
               "description": "Tool router session ID",
@@ -12579,7 +12593,7 @@
           },
           "deleted": {
             "type": "boolean",
-            "description": "Whether this project has been soft-deleted",
+            "description": "Whether this project has been deleted",
             "example": false
           },
           "api_keys": {
@@ -19742,7 +19756,7 @@
           },
           "deleted": {
             "type": "boolean",
-            "description": "Whether this project has been soft-deleted",
+            "description": "Whether this project has been deleted",
             "example": false
           }
         }
@@ -19888,7 +19902,7 @@
           },
           "deleted": {
             "type": "boolean",
-            "description": "Whether this project has been soft-deleted",
+            "description": "Whether this project has been deleted",
             "example": false
           }
         }
@@ -21533,6 +21547,11 @@
             "description": "Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns \u0060${link_url_overwrite}/link/{link_token}\u0060 instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.",
             "format": "uri",
             "x-experimental": true
+          },
+          "fast_mode": {
+            "type": "boolean",
+            "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.",
+            "x-experimental": true
           }
         },
         "description": "Experimental features - not stable, may be modified or removed in future versions.",
@@ -21997,6 +22016,11 @@
             "type": "string",
             "description": "Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns \u0060${link_url_overwrite}/link/{link_token}\u0060 instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.",
             "format": "uri",
+            "x-experimental": true
+          },
+          "fast_mode": {
+            "type": "boolean",
+            "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.",
             "x-experimental": true
           }
         },
@@ -31430,6 +31454,10 @@
       "description": "Dashboard billing state \u2014 usage, subscription, contract (cookie-auth only)"
     },
     {
+      "name": "Compliance",
+      "description": "Organization compliance agreements and acceptance state"
+    },
+    {
       "name": "Files",
       "description": "File management"
     },
@@ -31452,6 +31480,10 @@
     {
       "name": "Tool Router",
       "description": "(Labs) Tool router endpoints"
+    },
+    {
+      "name": "Playground",
+      "description": "Dashboard playground chat"
     },
     {
       "name": "Admin",

@@ -30,7 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string CreatedAt { get; set; }
 #endif
-        /// <summary>Whether this project has been soft-deleted</summary>
+        /// <summary>Whether this project has been deleted</summary>
         public bool? Deleted { get; set; }
         /// <summary>Email address associated with the project</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

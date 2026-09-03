@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Item
         {
         }
         /// <summary>
-        /// Performs a soft delete on a Model Control Protocol (MCP) server, making it unavailable for future use. This operation is reversible in the database but cannot be undone through the API. Any applications or services connected to this server will lose access after deletion.
+        /// Deletes a Model Control Protocol (MCP) server, making it unavailable for future use. This cannot be undone. Any applications or services connected to this server will lose access after deletion.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeleteMcpById200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -132,7 +132,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Performs a soft delete on a Model Control Protocol (MCP) server, making it unavailable for future use. This operation is reversible in the database but cannot be undone through the API. Any applications or services connected to this server will lose access after deletion.
+        /// Deletes a Model Control Protocol (MCP) server, making it unavailable for future use. This cannot be undone. Any applications or services connected to this server will lose access after deletion.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

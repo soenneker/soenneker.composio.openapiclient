@@ -47,7 +47,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         {
         }
         /// <summary>
-        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
+        /// Deletes an authentication configuration. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.DeleteAuthConfigsByNanoid200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -136,7 +136,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
+        /// Deletes an authentication configuration. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -205,7 +205,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.WithNanoItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
+        /// Deletes an authentication configuration. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithNanoItemRequestBuilderDeleteQueryParameters 
