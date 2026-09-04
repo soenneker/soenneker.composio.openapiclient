@@ -98,6 +98,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             public static global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomAuthParamsParametersItem.PostToolsExecuteByToolSlugRequestCustomAuthParamsParametersItem_value CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomAuthParamsParametersItem.PostToolsExecuteByToolSlugRequestCustomAuthParamsParametersItem_value();
                 if(parseNode.GetDoubleValue() is double doubleValue)
                 {

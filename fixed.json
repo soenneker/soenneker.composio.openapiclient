@@ -11469,6 +11469,9 @@
         }
       },
       "PatchAuthConfigsByNanoidRequest": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -11510,6 +11513,9 @@
           },
           "user_scopes": {
             "$ref": "#/components/schemas/DefaultAuthConfigUpdateUserScopes"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -17762,6 +17768,9 @@
         }
       },
       "PostAuthConfigsRequestAuthConfig": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -17797,6 +17806,9 @@
           },
           "proxy_config": {
             "$ref": "#/components/schemas/CustomAuthConfigCreateProxyConfig"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "default": {

@@ -186,16 +186,27 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("deprecated_status")]
             public string? DeprecatedStatus { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("deprecated_status")]
             public string DeprecatedStatus { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>Whether to filter by composio managed auth configs</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("is_composio_managed")]
-            public bool? IsComposioManaged { get; set; }
+            public string? IsComposioManaged { get; set; }
+#nullable restore
+#else
+            [QueryParameter("is_composio_managed")]
+            public string IsComposioManaged { get; set; }
+#endif
             /// <summary>Number of items per page, max allowed is 50</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }
