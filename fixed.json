@@ -21564,6 +21564,9 @@
             "type": "boolean",
             "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.",
             "x-experimental": true
+          },
+          "submit_feedback": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalSubmitFeedback"
           }
         },
         "description": "Experimental features - not stable, may be modified or removed in future versions.",
@@ -22034,10 +22037,14 @@
             "type": "boolean",
             "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.",
             "x-experimental": true
+          },
+          "submit_feedback": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestExperimentalSubmitFeedback"
           }
         },
         "additionalProperties": false,
-        "nullable": true
+        "nullable": true,
+        "x-experimental": true
       },
       "PatchToolRouterSessionBySessionId200ResponseMcp": {
         "required": [
@@ -24371,6 +24378,19 @@
         },
         "description": "Per-tool elicitation permission config. Default behavior \u002B per-tool always_allow/always_deny overrides. Mutation via PATCH."
       },
+      "PostToolRouterSessionRequestExperimentalSubmitFeedback": {
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "description": "Set to true to expose the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session. Defaults to false.",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "description": "Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.",
+        "x-experimental": true
+      },
       "PostToolRouterSession201ResponseConfigToolkits": {
         "type": "object",
         "properties": {
@@ -24908,6 +24928,21 @@
           }
         },
         "description": "Per-tool elicitation permission config. Replaces the stored block when provided."
+      },
+      "PatchToolRouterSessionBySessionIdRequestExperimentalSubmitFeedback": {
+        "required": [
+          "enable"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "description": "Set to true to expose the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session, false to hide it."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Replaces the stored block when provided; \u0060enable\u0060 is required when the block is sent.",
+        "x-experimental": true
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigToolkits": {
         "type": "object",
@@ -27830,7 +27865,8 @@
           "COMPOSIO_WAIT_FOR_CONNECTIONS",
           "COMPOSIO_REMOTE_WORKBENCH",
           "COMPOSIO_REMOTE_BASH_TOOL",
-          "COMPOSIO_GET_TOOL_SCHEMAS"
+          "COMPOSIO_GET_TOOL_SCHEMAS",
+          "COMPOSIO_SUBMIT_FEEDBACK"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -27867,6 +27903,10 @@
             {
               "value": "COMPOSIO_GET_TOOL_SCHEMAS",
               "name": "ComposioGetToolSchemas"
+            },
+            {
+              "value": "COMPOSIO_SUBMIT_FEEDBACK",
+              "name": "ComposioSubmitFeedback"
             }
           ]
         }

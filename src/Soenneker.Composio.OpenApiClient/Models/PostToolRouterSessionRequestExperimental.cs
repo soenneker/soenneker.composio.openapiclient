@@ -57,6 +57,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions Permissions { get; set; }
 #endif
+        /// <summary>Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback? SubmitFeedback { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback SubmitFeedback { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental"/> and sets the default values.
         /// </summary>
@@ -88,6 +96,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "fast_mode", n => { FastMode = n.GetBoolValue(); } },
                 { "link_url_overwrite", n => { LinkUrlOverwrite = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions.CreateFromDiscriminatorValue); } },
+                { "submit_feedback", n => { SubmitFeedback = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -103,6 +112,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("fast_mode", FastMode);
             writer.WriteStringValue("link_url_overwrite", LinkUrlOverwrite);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions>("permissions", Permissions);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback>("submit_feedback", SubmitFeedback);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
