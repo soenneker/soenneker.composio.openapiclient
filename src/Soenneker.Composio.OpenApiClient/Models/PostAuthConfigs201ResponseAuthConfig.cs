@@ -32,7 +32,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>Whether the auth config is managed by Composio</summary>
         public bool? IsComposioManaged { get; set; }
-        /// <summary>The tools that the user can use with the auth config</summary>
+        /// <summary>The tools that the user can use with the auth config. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? RestrictToFollowingTools { get; set; }

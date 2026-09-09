@@ -32,7 +32,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Use tool_access_config instead. This field will be deprecated in the future.</summary>
+        /// <summary>List of tool slugs this auth config is restricted to use with. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedCredentialsProperty SharedCredentials { get; set; }
 #endif
-        /// <summary>The tool_access_config property</summary>
+        /// <summary>DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateToolAccessConfig? ToolAccessConfig { get; set; }
