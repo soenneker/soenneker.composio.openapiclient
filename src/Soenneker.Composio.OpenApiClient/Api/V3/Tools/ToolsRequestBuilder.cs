@@ -125,7 +125,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ToolsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Comma-separated list of auth config IDs to filter tools by</summary>
+            /// <summary>DEPRECATED: This parameter will be removed in a future version. Filter directly instead with tool_slugs and toolkit_slug, which accepts a comma-separated list of toolkits.</summary>
+            [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("auth_config_ids")]

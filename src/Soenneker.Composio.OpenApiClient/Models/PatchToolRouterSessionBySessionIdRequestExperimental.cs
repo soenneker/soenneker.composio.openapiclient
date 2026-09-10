@@ -12,7 +12,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     public partial class PatchToolRouterSessionBySessionIdRequestExperimental : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.</summary>
+        /// <summary>Fast mode reduces search latency. It is experimental, so tool search quality may be affected.</summary>
         public bool? FastMode { get; set; }
         /// <summary>Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
