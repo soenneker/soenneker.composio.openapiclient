@@ -102,6 +102,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Dc { get; set; }
 #endif
+        /// <summary>The displayName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
+        public string DisplayName { get; set; }
+#endif
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -315,6 +323,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "callbackUrl", n => { CallbackUrl = n.GetStringValue(); } },
                 { "consumer_key", n => { ConsumerKey = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "error_description", n => { ErrorDescription = n.GetStringValue(); } },
@@ -359,6 +368,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("consumer_key", ConsumerKey);
             writer.WriteStringValue("dc", Dc);
+            writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("domain", Domain);
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("error_description", ErrorDescription);

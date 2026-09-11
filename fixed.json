@@ -19190,6 +19190,9 @@
           "base_url": {
             "type": "string"
           },
+          "displayName": {
+            "type": "string"
+          },
           "oauth_token": {
             "type": "string"
           },
@@ -23007,6 +23010,9 @@
           "base_url": {
             "type": "string"
           },
+          "displayName": {
+            "type": "string"
+          },
           "status": {
             "$ref": "#/components/schemas/PostConnectedAccounts201ResponseConnectionDataValStatus"
           },
@@ -23169,6 +23175,9 @@
             "type": "string"
           },
           "base_url": {
+            "type": "string"
+          },
+          "displayName": {
             "type": "string"
           },
           "status": {
@@ -23882,6 +23891,9 @@
           "base_url": {
             "type": "string"
           },
+          "displayName": {
+            "type": "string"
+          },
           "state_prefix": {
             "maxLength": 40,
             "type": "string",
@@ -24003,6 +24015,9 @@
             "type": "string"
           },
           "base_url": {
+            "type": "string"
+          },
+          "displayName": {
             "type": "string"
           },
           "state_prefix": {
@@ -25335,6 +25350,9 @@
           "base_url": {
             "type": "string"
           },
+          "displayName": {
+            "type": "string"
+          },
           "state_prefix": {
             "maxLength": 40,
             "type": "string",
@@ -25611,6 +25629,9 @@
           "base_url": {
             "type": "string"
           },
+          "displayName": {
+            "type": "string"
+          },
           "status": {
             "$ref": "#/components/schemas/GetConnectedAccounts200ResponseItemsItemStateValStatus"
           },
@@ -25722,6 +25743,9 @@
             "type": "string"
           },
           "base_url": {
+            "type": "string"
+          },
+          "displayName": {
             "type": "string"
           },
           "status": {

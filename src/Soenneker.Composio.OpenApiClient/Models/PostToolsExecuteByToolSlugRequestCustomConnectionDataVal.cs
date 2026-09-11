@@ -86,6 +86,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Dc { get; set; }
 #endif
+        /// <summary>The displayName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
+        public string DisplayName { get; set; }
+#endif
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -306,6 +314,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
                 { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
                 { "dc", n => { Dc = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "expires_in", n => { ExpiresIn = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataValExpiresIn>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataValExpiresIn.CreateFromDiscriminatorValue); } },
                 { "extension", n => { Extension = n.GetStringValue(); } },
@@ -348,6 +357,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
             writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
             writer.WriteStringValue("dc", Dc);
+            writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("domain", Domain);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionDataValExpiresIn>("expires_in", ExpiresIn);
             writer.WriteStringValue("extension", Extension);
