@@ -31582,6 +31582,10 @@
       "description": "Dashboard playground chat"
     },
     {
+      "name": "Arena",
+      "description": "Arena conversations, messages and terms"
+    },
+    {
       "name": "Admin",
       "description": "Admin endpoints"
     },
