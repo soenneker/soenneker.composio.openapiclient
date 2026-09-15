@@ -23,6 +23,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public bool? ProxyExecutionEnabled { get; set; }
         /// <summary>Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbenchSandboxSize? SandboxSize { get; set; }
+        /// <summary>Whether tool execution is enabled in the workbench</summary>
+        public bool? ToolExecutionEnabled { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbench"/> and sets the default values.
         /// </summary>
@@ -52,6 +54,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "enable", n => { Enable = n.GetBoolValue(); } },
                 { "proxy_execution_enabled", n => { ProxyExecutionEnabled = n.GetBoolValue(); } },
                 { "sandbox_size", n => { SandboxSize = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbenchSandboxSize>(); } },
+                { "tool_execution_enabled", n => { ToolExecutionEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -65,6 +68,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("enable", Enable);
             writer.WriteBoolValue("proxy_execution_enabled", ProxyExecutionEnabled);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbenchSandboxSize>("sandbox_size", SandboxSize);
+            writer.WriteBoolValue("tool_execution_enabled", ToolExecutionEnabled);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

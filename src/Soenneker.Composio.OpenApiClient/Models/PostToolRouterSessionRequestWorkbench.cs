@@ -19,6 +19,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public bool? Enable { get; set; }
         /// <summary>Whether proxy execution is enabled. When enabled, workbench can call URLs and APIs directly.</summary>
         public bool? EnableProxyExecution { get; set; }
+        /// <summary>Whether Composio tool execution is enabled inside the workbench. Defaults to true. When false, run_composio_tool, invoke_llm, and web_search are unavailable; Python analysis and file helpers remain available. Proxy execution defaults to true and still permits authenticated connected-app HTTP requests. Set enable_proxy_execution to false as well to block both Composio tool and proxy access through Workbench credentials. These flags do not restrict network access or independently supplied credentials.</summary>
+        public bool? EnableToolExecution { get; set; }
         /// <summary>Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbenchSandboxSize? SandboxSize { get; set; }
         /// <summary>
@@ -28,6 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             Enable = true;
             EnableProxyExecution = true;
+            EnableToolExecution = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,6 +53,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "auto_offload_threshold", n => { AutoOffloadThreshold = n.GetDoubleValue(); } },
                 { "enable", n => { Enable = n.GetBoolValue(); } },
                 { "enable_proxy_execution", n => { EnableProxyExecution = n.GetBoolValue(); } },
+                { "enable_tool_execution", n => { EnableToolExecution = n.GetBoolValue(); } },
                 { "sandbox_size", n => { SandboxSize = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbenchSandboxSize>(); } },
             };
         }
@@ -63,6 +67,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteDoubleValue("auto_offload_threshold", AutoOffloadThreshold);
             writer.WriteBoolValue("enable", Enable);
             writer.WriteBoolValue("enable_proxy_execution", EnableProxyExecution);
+            writer.WriteBoolValue("enable_tool_execution", EnableToolExecution);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbenchSandboxSize>("sandbox_size", SandboxSize);
         }
     }
