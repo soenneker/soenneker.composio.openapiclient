@@ -49,7 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<string> RestrictToFollowingTools { get; set; }
 #endif
-        /// <summary>[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.</summary>
+        /// <summary>[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Composio ever holding it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateSealedCredentialsProperty? SealedCredentials { get; set; }

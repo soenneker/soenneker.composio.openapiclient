@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation.
+    /// Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostOrgOwnerProjectNewRequestConfigTheme : IAdditionalDataHolder, IParsable

@@ -51,7 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public bool? RequireMcpApiKey { get; set; }
         /// <summary>The signed_url_file_expiry_in_seconds property</summary>
         public double? SignedUrlFileExpiryInSeconds { get; set; }
-        /// <summary>Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation.</summary>
+        /// <summary>Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme? Theme { get; set; }

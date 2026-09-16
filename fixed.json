@@ -9914,7 +9914,7 @@
           "Tool Router"
         ],
         "summary": "Delete a file from a session mount",
-        "description": "Deletes a file from a workbench session storage mount. S3 delete is idempotent \u2014 deleting a non-existent file succeeds silently.",
+        "description": "Deletes a file from a workbench session storage mount. Deleting a non-existent file succeeds silently (idempotent).",
         "operationId": "PostToolRouterSessionBySessionIdMountsByMountIdDelete",
         "parameters": [
           {
@@ -10826,7 +10826,7 @@
           "minLength": 1,
           "type": "string"
         },
-        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.",
+        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Composio ever holding it.",
         "x-experimental": true
       },
       "CustomAuthConfigUpdateProxyConfig": {
@@ -18279,7 +18279,7 @@
           "minLength": 1,
           "type": "string"
         },
-        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it."
+        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Composio ever holding it."
       },
       "CustomAuthConfigUpdateSharedCredentialsProperty": {
         "type": "object",
@@ -22325,7 +22325,8 @@
           "val": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVal"
           }
-        }
+        },
+        "deprecated": true
       },
       "PostToolRouterSessionBySessionIdProxyExecute200ResponseData": {
         "type": "object",
@@ -23558,7 +23559,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestConfigThemeAdditionalProperties"
         },
-        "description": "Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation."
+        "description": "Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation."
       },
       "GetToolkits200ResponseItemsItemMeta": {
         "required": [

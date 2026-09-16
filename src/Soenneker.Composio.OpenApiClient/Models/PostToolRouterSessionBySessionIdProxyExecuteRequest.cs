@@ -31,6 +31,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestBody Body { get; set; }
 #endif
         /// <summary>The custom_connection_data property</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData? CustomConnectionData { get; set; }

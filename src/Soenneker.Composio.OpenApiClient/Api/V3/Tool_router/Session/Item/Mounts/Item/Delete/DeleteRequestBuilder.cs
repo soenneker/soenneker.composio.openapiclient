@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mount
         {
         }
         /// <summary>
-        /// Deletes a file from a workbench session storage mount. S3 delete is idempotent — deleting a non-existent file succeeds silently.
+        /// Deletes a file from a workbench session storage mount. Deleting a non-existent file succeeds silently (idempotent).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdMountsByMountIdDelete200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Mount
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdMountsByMountIdDelete200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdMountsByMountIdDelete200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a file from a workbench session storage mount. S3 delete is idempotent — deleting a non-existent file succeeds silently.
+        /// Deletes a file from a workbench session storage mount. Deleting a non-existent file succeeds silently (idempotent).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
