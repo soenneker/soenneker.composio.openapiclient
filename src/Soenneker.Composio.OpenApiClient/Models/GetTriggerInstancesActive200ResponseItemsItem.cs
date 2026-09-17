@@ -64,6 +64,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string DisabledAt { get; set; }
 #endif
+        /// <summary>Delivery URL override for this trigger instance: its events are sent here instead of the project webhook URL, while signing, the payload version and enabled events still come from the project webhook subscription. Null means no override.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EgressUrl { get; set; }
+#nullable restore
+#else
+        public string EgressUrl { get; set; }
+#endif
         /// <summary>Nano ID of the trigger instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -193,6 +201,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "connected_account_uuid", n => { ConnectedAccountUuid = n.GetStringValue(); } },
                 { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated>(global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated.CreateFromDiscriminatorValue); } },
                 { "disabledAt", n => { DisabledAt = n.GetStringValue(); } },
+                { "egress_url", n => { EgressUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "state", n => { State = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState>(global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState.CreateFromDiscriminatorValue); } },
                 { "triggerConfig", n => { TriggerConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty>(global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty.CreateFromDiscriminatorValue); } },
@@ -222,6 +231,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated>("deprecated", Deprecated);
             writer.WriteStringValue("disabled_at", Disabled_at);
             writer.WriteStringValue("disabledAt", DisabledAt);
+            writer.WriteStringValue("egress_url", EgressUrl);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState>("state", State);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfig>("trigger_config", Trigger_config);

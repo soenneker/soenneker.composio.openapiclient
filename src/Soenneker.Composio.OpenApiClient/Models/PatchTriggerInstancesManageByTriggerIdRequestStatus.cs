@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
+    /// <summary>Enable or disable the trigger instance.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum PatchTriggerInstancesManageByTriggerIdRequestStatus
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "enable")]
         #pragma warning disable CS1591

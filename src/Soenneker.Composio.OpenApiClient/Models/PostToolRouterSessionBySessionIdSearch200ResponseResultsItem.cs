@@ -14,6 +14,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Use case the cached plan was originally built for, if a cached plan is available. May differ from `use_case` when the cached plan was matched from a similar query.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CachedPlanUsecase { get; set; }
+#nullable restore
+#else
+        public string CachedPlanUsecase { get; set; }
+#endif
         /// <summary>Task difficulty assessment (e.g., &quot;easy - Simple single-tool operation with known parameters&quot;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,6 +145,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "cached_plan_usecase", n => { CachedPlanUsecase = n.GetStringValue(); } },
                 { "difficulty", n => { Difficulty = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "execution_guidance", n => { ExecutionGuidance = n.GetStringValue(); } },
@@ -159,6 +168,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("cached_plan_usecase", CachedPlanUsecase);
             writer.WriteStringValue("difficulty", Difficulty);
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("execution_guidance", ExecutionGuidance);

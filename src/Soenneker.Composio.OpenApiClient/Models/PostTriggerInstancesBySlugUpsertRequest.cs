@@ -31,6 +31,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string ConnectedAuthId { get; set; }
 #endif
+        /// <summary>Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EgressUrl { get; set; }
+#nullable restore
+#else
+        public string EgressUrl { get; set; }
+#endif
         /// <summary>Toolkit version specification. Supports &quot;latest&quot; string or a record mapping toolkit slugs to specific versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +108,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "connected_account_id", n => { ConnectedAccountId = n.GetStringValue(); } },
                 { "connectedAuthId", n => { ConnectedAuthId = n.GetStringValue(); } },
+                { "egress_url", n => { EgressUrl = n.GetStringValue(); } },
                 { "toolkit_versions", n => { ToolkitVersions = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions.CreateFromDiscriminatorValue); } },
                 { "triggerConfig", n => { TriggerConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig.CreateFromDiscriminatorValue); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
@@ -116,6 +125,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connected_account_id", ConnectedAccountId);
             writer.WriteStringValue("connectedAuthId", ConnectedAuthId);
+            writer.WriteStringValue("egress_url", EgressUrl);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions>("toolkit_versions", ToolkitVersions);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty>("trigger_config", Trigger_config);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig>("triggerConfig", TriggerConfig);

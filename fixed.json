@@ -4334,6 +4334,16 @@
               }
             }
           },
+          "429": {
+            "description": "Too many requests - The upstream service is rate limiting the request; retry after a short backoff",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error - Failed to sync toolkit",
             "content": {
@@ -6043,8 +6053,8 @@
         "tags": [
           "Triggers"
         ],
-        "summary": "Enable or disable a trigger",
-        "description": "Updates the status of a trigger instance to enable or disable it. Disabling a trigger pauses event listening without deleting the trigger configuration. Re-enabling restores the trigger to its active state. Use this for temporary maintenance or to control trigger execution.",
+        "summary": "Update a trigger",
+        "description": "Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.",
         "operationId": "PatchTriggerInstancesManageByTriggerId",
         "parameters": [
           {
@@ -6066,7 +6076,8 @@
                 "$ref": "#/components/schemas/PatchTriggerInstancesManageByTriggerIdRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6091,6 +6102,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -10995,29 +11016,7 @@
               "in_progress",
               "completed",
               "failed"
-            ],
-            "x-ms-enum": {
-              "name": "ToolOutputParameters",
-              "modelAsString": false,
-              "values": [
-                {
-                  "value": "queued",
-                  "name": "Queued"
-                },
-                {
-                  "value": "in_progress",
-                  "name": "InProgress"
-                },
-                {
-                  "value": "completed",
-                  "name": "Completed"
-                },
-                {
-                  "value": "failed",
-                  "name": "Failed"
-                }
-              ]
-            }
+            ]
           }
         }
       },
@@ -13757,6 +13756,13 @@
             "type": "string",
             "description": "The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger\u0027s toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection."
           },
+          "egress_url": {
+            "maxLength": 2048,
+            "type": "string",
+            "description": "Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.",
+            "format": "uri",
+            "nullable": true
+          },
           "trigger_config": {
             "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty"
           },
@@ -13842,13 +13848,22 @@
         }
       },
       "PatchTriggerInstancesManageByTriggerIdRequest": {
-        "required": [
-          "status"
-        ],
         "type": "object",
         "properties": {
           "status": {
             "$ref": "#/components/schemas/PatchTriggerInstancesManageByTriggerIdRequestStatus"
+          },
+          "user_id": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The user id that owns the connected account behind this trigger. Optional: when sent on a project with 2FA enabled it must be the owner of a private connection or allowed on a shared one, whatever is being updated. Required to set egress_url when 2FA is enabled. Ignored when 2FA is disabled."
+          },
+          "egress_url": {
+            "maxLength": 2048,
+            "type": "string",
+            "description": "Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.",
+            "format": "uri",
+            "nullable": true
           }
         }
       },
@@ -20809,6 +20824,7 @@
           "user_id",
           "version",
           "trigger_config",
+          "egress_url",
           "state",
           "updated_at",
           "disabled_at",
@@ -20855,6 +20871,11 @@
           },
           "trigger_config": {
             "$ref": "#/components/schemas/GetTriggerInstancesActive200ResponseItemsItemTriggerConfig"
+          },
+          "egress_url": {
+            "type": "string",
+            "description": "Delivery URL override for this trigger instance: its events are sent here instead of the project webhook URL, while signing, the payload version and enabled events still come from the project webhook subscription. Null means no override.",
+            "nullable": true
           },
           "state": {
             "$ref": "#/components/schemas/GetTriggerInstancesActive200ResponseItemsItemState"
@@ -22467,6 +22488,10 @@
           "plan_id": {
             "type": "string",
             "description": "ID of cached plan if available"
+          },
+          "cached_plan_usecase": {
+            "type": "string",
+            "description": "Use case the cached plan was originally built for, if a cached plan is available. May differ from \u0060use_case\u0060 when the cached plan was matched from a similar query."
           },
           "error": {
             "type": "string",
@@ -27915,6 +27940,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
+        "description": "Enable or disable the trigger instance.",
         "x-ms-enum": {
           "name": "PatchTriggerInstancesManageByTriggerIdRequestStatus",
           "modelAsString": false,

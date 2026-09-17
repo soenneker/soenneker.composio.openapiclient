@@ -14,8 +14,24 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The status property</summary>
+        /// <summary>Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EgressUrl { get; set; }
+#nullable restore
+#else
+        public string EgressUrl { get; set; }
+#endif
+        /// <summary>Enable or disable the trigger instance.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerIdRequestStatus? Status { get; set; }
+        /// <summary>The user id that owns the connected account behind this trigger. Optional: when sent on a project with 2FA enabled it must be the owner of a private connection or allowed on a shared one, whatever is being updated. Required to set egress_url when 2FA is enabled. Ignored when 2FA is disabled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; set; }
+#nullable restore
+#else
+        public string UserId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerIdRequest"/> and sets the default values.
         /// </summary>
@@ -41,7 +57,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "egress_url", n => { EgressUrl = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerIdRequestStatus>(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -51,7 +69,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("egress_url", EgressUrl);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerIdRequestStatus>("status", Status);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

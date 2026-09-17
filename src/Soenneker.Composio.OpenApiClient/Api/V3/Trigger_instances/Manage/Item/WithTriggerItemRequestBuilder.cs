@@ -67,7 +67,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Manage.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.DeleteTriggerInstancesManageByTriggerId200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.DeleteTriggerInstancesManageByTriggerId200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the status of a trigger instance to enable or disable it. Disabling a trigger pauses event listening without deleting the trigger configuration. Re-enabling restores the trigger to its active state. Use this for temporary maintenance or to control trigger execution.
+        /// Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerId200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -75,6 +75,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Manage.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 410 status code</exception>
@@ -95,6 +96,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Manage.Item
             {
                 { "400", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "410", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -123,7 +125,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Trigger_instances.Manage.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates the status of a trigger instance to enable or disable it. Disabling a trigger pauses event listening without deleting the trigger configuration. Re-enabling restores the trigger to its active state. Use this for temporary maintenance or to control trigger execution.
+        /// Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
