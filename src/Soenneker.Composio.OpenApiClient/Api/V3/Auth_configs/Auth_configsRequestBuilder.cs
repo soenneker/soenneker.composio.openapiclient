@@ -207,7 +207,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs
             [QueryParameter("is_composio_managed")]
             public string IsComposioManaged { get; set; }
 #endif
-            /// <summary>Number of items per page, max allowed is 50</summary>
+            /// <summary>Number of items per page, max allowed is 200</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }
             /// <summary>Search auth configs by name or id</summary>

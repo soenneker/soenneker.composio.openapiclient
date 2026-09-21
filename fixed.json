@@ -252,7 +252,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of items per page, max allowed is 50",
+            "description": "Number of items per page, max allowed is 200",
             "schema": {
               "type": "number",
               "nullable": true
@@ -17808,6 +17808,50 @@
           }
         }
       },
+      "GetToolsToolkitVersionsBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetToolsByToolSlugToolkitVersionsBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetTriggersTypesBySlugToolkitVersionsBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "GetTriggersTypesToolkitVersionsBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
       "GetToolsEnum200ResponseSchema": {
         "type": "array",
         "items": {
@@ -22543,6 +22587,9 @@
           "account_selection": {
             "$ref": "#/components/schemas/RequiredAccountSelection"
           },
+          "composio_managed": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemComposioManaged"
+          },
           "status_message": {
             "type": "string",
             "description": "Human-readable message about the connection status and next steps"
@@ -25569,6 +25616,22 @@
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItemAccountType"
           }
         }
+      },
+      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemComposioManaged": {
+        "required": [
+          "allowed_tool_slugs"
+        ],
+        "type": "object",
+        "properties": {
+          "allowed_tool_slugs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tools of this toolkit that run on the Composio managed account"
+          }
+        },
+        "description": "Present when the toolkit is connected through the Composio managed account rather than a connected account of the user."
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalProperties": {
         "required": [
