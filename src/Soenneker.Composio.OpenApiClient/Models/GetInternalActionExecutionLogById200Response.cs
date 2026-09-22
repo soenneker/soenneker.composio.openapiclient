@@ -46,6 +46,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseConnection Connection { get; set; }
 #endif
+        /// <summary>The credentialSource property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseCredentialSource? CredentialSource { get; set; }
         /// <summary>The endTime property</summary>
         public double? EndTime { get; set; }
         /// <summary>The error property</summary>
@@ -145,6 +147,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "actionLogId", n => { ActionLogId = n.GetStringValue(); } },
                 { "app", n => { App = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseApp>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseApp.CreateFromDiscriminatorValue); } },
                 { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseConnection>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseConnection.CreateFromDiscriminatorValue); } },
+                { "credentialSource", n => { CredentialSource = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseCredentialSource>(); } },
                 { "endTime", n => { EndTime = n.GetDoubleValue(); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseError>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseError.CreateFromDiscriminatorValue); } },
                 { "executionMetadata", n => { ExecutionMetadata = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseExecutionMetadata>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseExecutionMetadata.CreateFromDiscriminatorValue); } },
@@ -169,6 +172,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("actionLogId", ActionLogId);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseApp>("app", App);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseConnection>("connection", Connection);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseCredentialSource>("credentialSource", CredentialSource);
             writer.WriteDoubleValue("endTime", EndTime);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseError>("error", Error);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseExecutionMetadata>("executionMetadata", ExecutionMetadata);

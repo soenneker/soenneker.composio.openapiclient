@@ -48,6 +48,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>The createdAt property</summary>
         public double? CreatedAt { get; set; }
+        /// <summary>The credentialSource property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemCredentialSource? CredentialSource { get; set; }
         /// <summary>The entityId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +117,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "appKey", n => { AppKey = n.GetStringValue(); } },
                 { "connectedAccountId", n => { ConnectedAccountId = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDoubleValue(); } },
+                { "credentialSource", n => { CredentialSource = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemCredentialSource>(); } },
                 { "entityId", n => { EntityId = n.GetStringValue(); } },
                 { "executionTime", n => { ExecutionTime = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -135,6 +138,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("appKey", AppKey);
             writer.WriteStringValue("connectedAccountId", ConnectedAccountId);
             writer.WriteDoubleValue("createdAt", CreatedAt);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemCredentialSource>("credentialSource", CredentialSource);
             writer.WriteStringValue("entityId", EntityId);
             writer.WriteDoubleValue("executionTime", ExecutionTime);
             writer.WriteStringValue("id", Id);

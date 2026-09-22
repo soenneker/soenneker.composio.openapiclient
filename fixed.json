@@ -12391,6 +12391,9 @@
           "connection": {
             "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseConnection"
           },
+          "credentialSource": {
+            "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseCredentialSource"
+          },
           "session": {
             "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseSession"
           },
@@ -14775,6 +14778,9 @@
           "connected_accounts": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestConnectedAccounts"
           },
+          "premium_usage": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsage"
+          },
           "manage_connections": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestManageConnections"
           },
@@ -14988,6 +14994,9 @@
           },
           "connected_accounts": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestConnectedAccounts"
+          },
+          "premium_usage": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsage"
           },
           "manage_connections": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestManageConnections"
@@ -17611,6 +17620,17 @@
           }
         }
       },
+      "PostToolRouterSessionRequestPremiumUsageBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageBranch1Value"
+          }
+        }
+      },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesAnyOf3TagsBranch1": {
         "required": [
           "value"
@@ -17639,6 +17659,39 @@
           }
         }
       },
+      "PostToolRouterSession201ResponseConfigPremiumUsageBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageBranch1Value"
+          }
+        }
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value"
+          }
+        }
+      },
+      "PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1Value"
+          }
+        }
+      },
       "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesAnyOf3TagsBranch1": {
         "required": [
           "value"
@@ -17664,6 +17717,17 @@
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsBranch1ValueItem"
             }
+          }
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value"
           }
         }
       },
@@ -18052,6 +18116,33 @@
         "description": "Toolkit version specification. Supports \u0022latest\u0022 string or a record mapping toolkit slugs to specific versions.",
         "example": "latest"
       },
+      "PostToolRouterSessionRequestPremiumUsage": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageBranch1Value"
+          },
+          "toolkits": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+          }
+        },
+        "description": "Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
+      },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTags": {
         "type": "object",
         "anyOf": [
@@ -18131,6 +18222,87 @@
             "destructiveHint"
           ]
         }
+      },
+      "PostToolRouterSession201ResponseConfigPremiumUsage": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageBranch1Value"
+          },
+          "toolkits": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+          }
+        },
+        "description": "Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsage": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value"
+          },
+          "toolkits": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+          }
+        },
+        "description": "Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+      },
+      "PatchToolRouterSessionBySessionIdRequestPremiumUsage": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1Value"
+          },
+          "toolkits": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+          }
+        },
+        "description": "Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
       },
       "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTags": {
         "type": "object",
@@ -18212,6 +18384,33 @@
           ]
         }
       },
+      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsage": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value"
+          },
+          "toolkits": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+          }
+        },
+        "description": "Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+      },
       "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValExpiresIn": {
         "type": "object",
         "anyOf": [
@@ -18239,6 +18438,22 @@
             "type": "object"
           }
         ]
+      },
+      "PostToolRouterSessionRequestPremiumUsageAnyOf2": {
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+          }
+        },
+        "additionalProperties": false
       },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2": {
         "type": "object",
@@ -18274,6 +18489,60 @@
           }
         }
       },
+      "PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2": {
+        "required": [
+          "return_premium_charge"
+        ],
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2": {
+        "required": [
+          "return_premium_charge"
+        ],
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2": {
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+          }
+        },
+        "additionalProperties": false
+      },
       "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2": {
         "type": "object",
         "properties": {
@@ -18307,6 +18576,25 @@
             }
           }
         }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2": {
+        "required": [
+          "return_premium_charge"
+        ],
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"
+          },
+          "tools": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"
+          },
+          "return_premium_charge": {
+            "type": "boolean",
+            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+          }
+        },
+        "additionalProperties": false
       },
       "ComposioManagedAuthConfigCreateSharedCredentialsProperty": {
         "type": "object",
@@ -19631,6 +19919,9 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/PostInternalActionExecutionLogs200ResponseDataItemMetadata"
+          },
+          "credentialSource": {
+            "$ref": "#/components/schemas/PostInternalActionExecutionLogs200ResponseDataItemCredentialSource"
           },
           "createdAt": {
             "type": "number"
@@ -21746,6 +22037,7 @@
       "PostToolRouterSession201ResponseConfig": {
         "required": [
           "user_id",
+          "premium_usage",
           "preload"
         ],
         "type": "object",
@@ -21765,6 +22057,9 @@
           },
           "all_connected_accounts": {
             "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigAllConnectedAccounts"
+          },
+          "premium_usage": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsage"
           },
           "manage_connections": {
             "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigManageConnections"
@@ -21900,6 +22195,7 @@
       "GetToolRouterSessionBySessionId200ResponseConfig": {
         "required": [
           "user_id",
+          "premium_usage",
           "preload"
         ],
         "type": "object",
@@ -21919,6 +22215,9 @@
           },
           "all_connected_accounts": {
             "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigAllConnectedAccounts"
+          },
+          "premium_usage": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsage"
           },
           "manage_connections": {
             "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigManageConnections"
@@ -22210,6 +22509,7 @@
       "PatchToolRouterSessionBySessionId200ResponseConfig": {
         "required": [
           "user_id",
+          "premium_usage",
           "preload"
         ],
         "type": "object",
@@ -22229,6 +22529,9 @@
           },
           "all_connected_accounts": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigAllConnectedAccounts"
+          },
+          "premium_usage": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsage"
           },
           "manage_connections": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigManageConnections"
@@ -22705,6 +23008,153 @@
             "description": "Array of version changelogs"
           }
         }
+      },
+      "PostToolRouterSessionRequestPremiumUsageAnyOf2Toolkits": {
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Only these specific toolkits will be enabled",
+            "example": [
+              "gmail",
+              "slack",
+              "github"
+            ]
+          },
+          "disable": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "These specific toolkits will be disabled",
+            "example": [
+              "gmail",
+              "slack"
+            ]
+          }
+        },
+        "description": "Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive."
+      },
+      "PostToolRouterSessionRequestPremiumUsageAnyOf2Tools": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2ToolsAdditionalProperties"
+        },
+        "description": "Per-toolkit enable or disable lists that restrict premium usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
+      },
+      "PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Toolkits": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
+      },
+      "PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Tools": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties"
+        },
+        "description": "Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction."
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties"
+        },
+        "description": "Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction."
+      },
+      "PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Toolkits": {
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Only these specific toolkits will be enabled",
+            "example": [
+              "gmail",
+              "slack",
+              "github"
+            ]
+          },
+          "disable": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "These specific toolkits will be disabled",
+            "example": [
+              "gmail",
+              "slack"
+            ]
+          }
+        },
+        "description": "Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive."
+      },
+      "PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Tools": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2ToolsAdditionalProperties"
+        },
+        "description": "Per-toolkit enable or disable lists that restrict premium usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties"
+        },
+        "description": "Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction."
       },
       "ComposioManagedAuthConfigCreateSharedCredentialsPropertyAdditionalProperties": {
         "type": "object"
@@ -25684,6 +26134,109 @@
           }
         }
       },
+      "PostToolRouterSessionRequestPremiumUsageAnyOf2ToolsAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Only these specific tools will be available for this toolkit",
+            "example": [
+              "GMAIL_SEND_EMAIL",
+              "GMAIL_FETCH_EMAILS"
+            ]
+          },
+          "disable": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "These specific tools will be disabled for this toolkit",
+            "example": [
+              "SLACK_ADD_EMOJI"
+            ]
+          }
+        }
+      },
+      "PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2ToolsAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Only these specific tools will be available for this toolkit",
+            "example": [
+              "GMAIL_SEND_EMAIL",
+              "GMAIL_FETCH_EMAILS"
+            ]
+          },
+          "disable": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "These specific tools will be disabled for this toolkit",
+            "example": [
+              "SLACK_ADD_EMOJI"
+            ]
+          }
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disabled": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "GetAuthConfigs200ResponseItemsItemCredentialsAdditionalProperties": {
         "type": "object"
       },
@@ -27779,6 +28332,38 @@
           ]
         }
       },
+      "GetInternalActionExecutionLogById200ResponseCredentialSource": {
+        "enum": [
+          "connected_account",
+          "hosted_account",
+          "custom_auth",
+          "no_auth"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GetInternalActionExecutionLogById200ResponseCredentialSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connected_account",
+              "name": "ConnectedAccount"
+            },
+            {
+              "value": "hosted_account",
+              "name": "HostedAccount"
+            },
+            {
+              "value": "custom_auth",
+              "name": "CustomAuth"
+            },
+            {
+              "value": "no_auth",
+              "name": "NoAuth"
+            }
+          ]
+        }
+      },
       "GetOrgOwnerProjectByNanoId200ResponseWebhookVersion": {
         "enum": [
           "V1",
@@ -28184,6 +28769,13 @@
           ]
         }
       },
+      "PostToolRouterSessionRequestPremiumUsageBranch1Value": {
+        "enum": [
+          false
+        ],
+        "type": "boolean",
+        "additionalProperties": false
+      },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesAnyOf3TagsBranch1ValueItem": {
         "enum": [
           "readOnlyHint",
@@ -28248,6 +28840,27 @@
           ]
         }
       },
+      "PostToolRouterSession201ResponseConfigPremiumUsageBranch1Value": {
+        "enum": [
+          false
+        ],
+        "type": "boolean",
+        "additionalProperties": false
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value": {
+        "enum": [
+          false
+        ],
+        "type": "boolean",
+        "additionalProperties": false
+      },
+      "PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1Value": {
+        "enum": [
+          false
+        ],
+        "type": "boolean",
+        "additionalProperties": false
+      },
       "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesAnyOf3TagsBranch1ValueItem": {
         "enum": [
           "readOnlyHint",
@@ -28311,6 +28924,13 @@
             }
           ]
         }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value": {
+        "enum": [
+          false
+        ],
+        "type": "boolean",
+        "additionalProperties": false
       },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2EnableItem": {
         "enum": [
@@ -29275,6 +29895,38 @@
             {
               "value": "failed",
               "name": "Failed"
+            }
+          ]
+        }
+      },
+      "PostInternalActionExecutionLogs200ResponseDataItemCredentialSource": {
+        "enum": [
+          "connected_account",
+          "hosted_account",
+          "custom_auth",
+          "no_auth"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostInternalActionExecutionLogs200ResponseDataItemCredentialSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connected_account",
+              "name": "ConnectedAccount"
+            },
+            {
+              "value": "hosted_account",
+              "name": "HostedAccount"
+            },
+            {
+              "value": "custom_auth",
+              "name": "CustomAuth"
+            },
+            {
+              "value": "no_auth",
+              "name": "NoAuth"
             }
           ]
         }
