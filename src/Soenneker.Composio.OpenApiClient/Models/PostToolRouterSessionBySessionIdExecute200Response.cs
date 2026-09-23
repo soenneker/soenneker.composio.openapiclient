@@ -38,6 +38,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string LogId { get; set; }
 #endif
+        /// <summary>Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponsePremiumCharge? PremiumCharge { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponsePremiumCharge PremiumCharge { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response"/> and sets the default values.
         /// </summary>
@@ -66,6 +74,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseData.CreateFromDiscriminatorValue); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "log_id", n => { LogId = n.GetStringValue(); } },
+                { "premium_charge", n => { PremiumCharge = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponsePremiumCharge>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponsePremiumCharge.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,6 +87,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseData>("data", Data);
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("log_id", LogId);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponsePremiumCharge>("premium_charge", PremiumCharge);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

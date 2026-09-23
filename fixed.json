@@ -14885,6 +14885,9 @@
         ],
         "type": "object",
         "properties": {
+          "premium_charge": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200ResponsePremiumCharge"
+          },
           "data": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200ResponseData"
           },
@@ -14922,6 +14925,9 @@
         ],
         "type": "object",
         "properties": {
+          "premium_charge": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge"
+          },
           "data": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200ResponseData"
           },
@@ -22139,6 +22145,28 @@
           }
         }
       },
+      "PostToolRouterSessionBySessionIdExecute200ResponsePremiumCharge": {
+        "required": [
+          "amount",
+          "currency",
+          "charged_by"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
+            "type": "string",
+            "description": "Premium charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
+          },
+          "currency": {
+            "$ref": "#/components/schemas/UsdCurrency"
+          },
+          "charged_by": {
+            "$ref": "#/components/schemas/ComposioChargedBy"
+          }
+        },
+        "description": "Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
+      },
       "PostToolRouterSessionBySessionIdExecute200ResponseData": {
         "type": "object",
         "additionalProperties": {
@@ -22162,6 +22190,28 @@
           ],
           "reinitiate_all": false
         }
+      },
+      "PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge": {
+        "required": [
+          "amount",
+          "currency",
+          "charged_by"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
+            "type": "string",
+            "description": "Premium charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
+          },
+          "currency": {
+            "$ref": "#/components/schemas/UsdCurrency"
+          },
+          "charged_by": {
+            "$ref": "#/components/schemas/ComposioChargedBy"
+          }
+        },
+        "description": "Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
       },
       "PostToolRouterSessionBySessionIdExecuteMeta200ResponseData": {
         "type": "object",
@@ -30363,6 +30413,42 @@
             {
               "value": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
               "name": "PreloadToolsHighContextUsage"
+            }
+          ]
+        }
+      },
+      "UsdCurrency": {
+        "enum": [
+          "USD"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Currency of the premium charge. Always USD.",
+        "x-ms-enum": {
+          "name": "UsdCurrency",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "USD",
+              "name": "Usd"
+            }
+          ]
+        }
+      },
+      "ComposioChargedBy": {
+        "enum": [
+          "composio"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Entity charging for premium usage. Always composio.",
+        "x-ms-enum": {
+          "name": "ComposioChargedBy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "composio",
+              "name": "Composio"
             }
           ]
         }
