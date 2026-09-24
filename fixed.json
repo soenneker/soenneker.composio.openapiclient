@@ -5166,6 +5166,16 @@
               }
             }
           },
+          "402": {
+            "description": "Payment required - Wallet balance is exhausted; add credits to resume premium tool calls or connect your account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden - Connected account does not have permission to execute this tool or access the requested resource",
             "content": {
@@ -8506,6 +8516,16 @@
               }
             }
           },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden",
             "content": {
@@ -8639,6 +8659,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
             "content": {
               "application/json": {
                 "schema": {
@@ -9096,6 +9126,16 @@
               }
             }
           },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden",
             "content": {
@@ -9382,6 +9422,16 @@
               }
             }
           },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "403": {
             "description": "Forbidden",
             "content": {
@@ -9514,6 +9564,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
             "content": {
               "application/json": {
                 "schema": {
@@ -13562,9 +13622,7 @@
         "type": "object",
         "properties": {
           "connected_account_id": {
-            "type": "string",
-            "description": "Unique identifier for the connected account to use for authentication",
-            "example": "ca_1a2b3c4d5e6f"
+            "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestConnectedAccountId"
           },
           "entity_id": {
             "type": "string",
@@ -18042,6 +18100,20 @@
           }
         ]
       },
+      "PostToolsExecuteByToolSlugRequestConnectedAccountId": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PostToolsExecuteByToolSlugRequestConnectedAccountIdAnyOf1"
+          },
+          {
+            "type": "string",
+            "format": "connectedAccountId"
+          }
+        ],
+        "description": "Unique identifier for the connected account to use for authentication. Pass \u0060hosted_account\u0060 to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.",
+        "example": "ca_1a2b3c4d5e6f"
+      },
       "PostToolsExecuteByToolSlugRequestCustomConnectionDataValExpiresIn": {
         "type": "object",
         "anyOf": [
@@ -20411,7 +20483,8 @@
       "PostOrgConsumerProjectResolve200ResponseConfig": {
         "required": [
           "consumer_experience_enabled",
-          "enhanced_controls"
+          "enhanced_controls",
+          "enable_premium_usage"
         ],
         "type": "object",
         "properties": {
@@ -20422,6 +20495,10 @@
           "enhanced_controls": {
             "type": "boolean",
             "description": "Whether enhanced controls are enabled for this consumer project."
+          },
+          "enable_premium_usage": {
+            "type": "boolean",
+            "description": "Whether Instant Tools are enabled for this consumer project."
           },
           "clanker": {
             "type": "boolean",
@@ -22940,8 +23017,8 @@
           "account_selection": {
             "$ref": "#/components/schemas/RequiredAccountSelection"
           },
-          "composio_managed": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemComposioManaged"
+          "hosted_account": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount"
           },
           "status_message": {
             "type": "string",
@@ -26117,7 +26194,7 @@
           }
         }
       },
-      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemComposioManaged": {
+      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount": {
         "required": [
           "allowed_tool_slugs"
         ],
@@ -26128,10 +26205,10 @@
             "items": {
               "type": "string"
             },
-            "description": "Tools of this toolkit that run on the Composio managed account"
+            "description": "Tools of this toolkit that run on the Composio hosted account"
           }
         },
-        "description": "Present when the toolkit is connected through the Composio managed account rather than a connected account of the user."
+        "description": "Present when the toolkit is connected through the Composio hosted account rather than a connected account of the user."
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalProperties": {
         "required": [
@@ -28981,6 +29058,23 @@
         ],
         "type": "boolean",
         "additionalProperties": false
+      },
+      "PostToolsExecuteByToolSlugRequestConnectedAccountIdAnyOf1": {
+        "enum": [
+          "hosted_account"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostToolsExecuteByToolSlugRequestConnectedAccountIdAnyOf1",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "hosted_account",
+              "name": "HostedAccount"
+            }
+          ]
+        }
       },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2EnableItem": {
         "enum": [

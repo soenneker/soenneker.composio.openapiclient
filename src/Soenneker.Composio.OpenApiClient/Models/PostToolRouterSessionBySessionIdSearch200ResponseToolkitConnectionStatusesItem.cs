@@ -26,14 +26,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountType? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Present when the toolkit is connected through the Composio managed account rather than a connected account of the user.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemComposioManaged? ComposioManaged { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemComposioManaged ComposioManaged { get; set; }
-#endif
         /// <summary>Connection details including auth config and connected account IDs. Only present when has_active_connection is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,6 +52,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>Whether an active connection exists for this toolkit</summary>
         public bool? HasActiveConnection { get; set; }
+        /// <summary>Present when the toolkit is connected through the Composio hosted account rather than a connected account of the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount? HostedAccount { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount HostedAccount { get; set; }
+#endif
         /// <summary>Human-readable message about the connection status and next steps</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,11 +104,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "account_selection", n => { AccountSelection = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.RequiredAccountSelection>(); } },
                 { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountType>(); } },
                 { "accounts", n => { Accounts = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItem>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "composio_managed", n => { ComposioManaged = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemComposioManaged>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemComposioManaged.CreateFromDiscriminatorValue); } },
                 { "connection_details", n => { ConnectionDetails = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemConnectionDetails>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemConnectionDetails.CreateFromDiscriminatorValue); } },
                 { "current_user_info", n => { CurrentUserInfo = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfo>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfo.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "has_active_connection", n => { HasActiveConnection = n.GetBoolValue(); } },
+                { "hosted_account", n => { HostedAccount = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount.CreateFromDiscriminatorValue); } },
                 { "status_message", n => { StatusMessage = n.GetStringValue(); } },
                 { "toolkit", n => { Toolkit = n.GetStringValue(); } },
             };
@@ -123,11 +123,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItem>("accounts", Accounts);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.RequiredAccountSelection>("account_selection", AccountSelection);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountType>("account_type", AccountType);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemComposioManaged>("composio_managed", ComposioManaged);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemConnectionDetails>("connection_details", ConnectionDetails);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfo>("current_user_info", CurrentUserInfo);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("has_active_connection", HasActiveConnection);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount>("hosted_account", HostedAccount);
             writer.WriteStringValue("status_message", StatusMessage);
             writer.WriteStringValue("toolkit", Toolkit);
             writer.WriteAdditionalData(AdditionalData);

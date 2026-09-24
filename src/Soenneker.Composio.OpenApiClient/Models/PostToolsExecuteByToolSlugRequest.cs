@@ -25,13 +25,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestArguments Arguments { get; set; }
 #endif
-        /// <summary>Unique identifier for the connected account to use for authentication</summary>
+        /// <summary>Unique identifier for the connected account to use for authentication. Pass `hosted_account` to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectedAccountId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestConnectedAccountId? ConnectedAccountId { get; set; }
 #nullable restore
 #else
-        public string ConnectedAccountId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestConnectedAccountId ConnectedAccountId { get; set; }
 #endif
         /// <summary>Custom authentication parameters for tools that support parameterized authentication</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,7 +109,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "allow_tracing", n => { AllowTracing = n.GetBoolValue(); } },
                 { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestArguments>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestArguments.CreateFromDiscriminatorValue); } },
-                { "connected_account_id", n => { ConnectedAccountId = n.GetStringValue(); } },
+                { "connected_account_id", n => { ConnectedAccountId = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestConnectedAccountId>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestConnectedAccountId.CreateFromDiscriminatorValue); } },
                 { "custom_auth_params", n => { CustomAuthParams = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomAuthParams>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomAuthParams.CreateFromDiscriminatorValue); } },
                 { "custom_connection_data", n => { CustomConnectionData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionData.CreateFromDiscriminatorValue); } },
                 { "entity_id", n => { EntityId = n.GetStringValue(); } },
@@ -127,7 +127,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allow_tracing", AllowTracing);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestArguments>("arguments", Arguments);
-            writer.WriteStringValue("connected_account_id", ConnectedAccountId);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestConnectedAccountId>("connected_account_id", ConnectedAccountId);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomAuthParams>("custom_auth_params", CustomAuthParams);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugRequestCustomConnectionData>("custom_connection_data", CustomConnectionData);
             writer.WriteStringValue("entity_id", EntityId);
