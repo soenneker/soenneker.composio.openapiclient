@@ -74,6 +74,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponsePayloadReceived PayloadReceived { get; set; }
 #endif
+        /// <summary>Premium charge for using hosted account for this tool.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PremiumUsageCharge { get; set; }
+#nullable restore
+#else
+        public string PremiumUsageCharge { get; set; }
+#endif
         /// <summary>The response property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -152,6 +160,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseError>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseError.CreateFromDiscriminatorValue); } },
                 { "executionMetadata", n => { ExecutionMetadata = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseExecutionMetadata>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseExecutionMetadata.CreateFromDiscriminatorValue); } },
                 { "payloadReceived", n => { PayloadReceived = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponsePayloadReceived>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponsePayloadReceived.CreateFromDiscriminatorValue); } },
+                { "premiumUsageCharge", n => { PremiumUsageCharge = n.GetStringValue(); } },
                 { "response", n => { Response = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseResponse>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseResponse.CreateFromDiscriminatorValue); } },
                 { "session", n => { Session = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseSession>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseSession.CreateFromDiscriminatorValue); } },
                 { "startTime", n => { StartTime = n.GetDoubleValue(); } },
@@ -177,6 +186,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseError>("error", Error);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseExecutionMetadata>("executionMetadata", ExecutionMetadata);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponsePayloadReceived>("payloadReceived", PayloadReceived);
+            writer.WriteStringValue("premiumUsageCharge", PremiumUsageCharge);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseResponse>("response", Response);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseSession>("session", Session);
             writer.WriteDoubleValue("startTime", StartTime);

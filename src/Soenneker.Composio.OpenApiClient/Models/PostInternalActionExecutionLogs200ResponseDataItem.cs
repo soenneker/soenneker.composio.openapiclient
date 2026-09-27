@@ -85,6 +85,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string MinimalResponse { get; set; }
 #endif
+        /// <summary>Premium charge for using hosted account for this tool.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PremiumUsageCharge { get; set; }
+#nullable restore
+#else
+        public string PremiumUsageCharge { get; set; }
+#endif
         /// <summary>The status property</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemStatus? Status { get; set; }
         /// <summary>
@@ -123,6 +131,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemMetadata>(global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemMetadata.CreateFromDiscriminatorValue); } },
                 { "minimalResponse", n => { MinimalResponse = n.GetStringValue(); } },
+                { "premiumUsageCharge", n => { PremiumUsageCharge = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemStatus>(); } },
             };
         }
@@ -144,6 +153,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemMetadata>("metadata", Metadata);
             writer.WriteStringValue("minimalResponse", MinimalResponse);
+            writer.WriteStringValue("premiumUsageCharge", PremiumUsageCharge);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
