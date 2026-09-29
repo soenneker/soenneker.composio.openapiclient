@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>Currency of the premium charge. Always USD.</summary>
+    /// <summary>Currency of the instant charge. Always USD.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum UsdCurrency
     {

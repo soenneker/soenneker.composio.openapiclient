@@ -39,6 +39,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigConnectedAccounts ConnectedAccounts { get; set; }
 #endif
+        /// <summary>Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstant? Instant { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstant Instant { get; set; }
+#endif
         /// <summary>Manage connections configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,14 +70,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPreload Preload { get; set; }
-#endif
-        /// <summary>Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPremiumUsage? PremiumUsage { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPremiumUsage PremiumUsage { get; set; }
 #endif
         /// <summary>MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -139,10 +139,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "all_connected_accounts", n => { AllConnectedAccounts = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigAllConnectedAccounts>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigAllConnectedAccounts.CreateFromDiscriminatorValue); } },
                 { "auth_configs", n => { AuthConfigs = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigAuthConfigs>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigAuthConfigs.CreateFromDiscriminatorValue); } },
                 { "connected_accounts", n => { ConnectedAccounts = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigConnectedAccounts>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigConnectedAccounts.CreateFromDiscriminatorValue); } },
+                { "instant", n => { Instant = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstant>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstant.CreateFromDiscriminatorValue); } },
                 { "manage_connections", n => { ManageConnections = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigManageConnections>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigManageConnections.CreateFromDiscriminatorValue); } },
                 { "multi_account", n => { MultiAccount = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigMultiAccount>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigMultiAccount.CreateFromDiscriminatorValue); } },
                 { "preload", n => { Preload = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPreload>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPreload.CreateFromDiscriminatorValue); } },
-                { "premium_usage", n => { PremiumUsage = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPremiumUsage>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPremiumUsage.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTags>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTags.CreateFromDiscriminatorValue); } },
                 { "toolkits", n => { Toolkits = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigToolkits>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigToolkits.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTools>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTools.CreateFromDiscriminatorValue); } },
@@ -160,10 +160,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigAllConnectedAccounts>("all_connected_accounts", AllConnectedAccounts);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigAuthConfigs>("auth_configs", AuthConfigs);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigConnectedAccounts>("connected_accounts", ConnectedAccounts);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstant>("instant", Instant);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigManageConnections>("manage_connections", ManageConnections);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigMultiAccount>("multi_account", MultiAccount);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPreload>("preload", Preload);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPremiumUsage>("premium_usage", PremiumUsage);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTags>("tags", Tags);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigToolkits>("toolkits", Toolkits);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTools>("tools", Tools);

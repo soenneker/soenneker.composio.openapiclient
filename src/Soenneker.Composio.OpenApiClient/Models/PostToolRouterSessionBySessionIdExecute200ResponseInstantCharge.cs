@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails.
+    /// Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge : IAdditionalDataHolder, IParsable
+    public partial class PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Premium charge in USD as an exact non-negative decimal string, with up to 12 fractional digits.</summary>
+        /// <summary>Instant charge in USD as an exact non-negative decimal string, with up to 12 fractional digits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Amount { get; set; }
@@ -23,26 +23,26 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Amount { get; set; }
 #endif
-        /// <summary>Entity charging for premium usage. Always composio.</summary>
+        /// <summary>Entity charging for instant usage. Always composio.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.ComposioChargedBy? ChargedBy { get; set; }
-        /// <summary>Currency of the premium charge. Always USD.</summary>
+        /// <summary>Currency of the instant charge. Always USD.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.UsdCurrency? Currency { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge"/> and sets the default values.
         /// </summary>
-        public PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge()
+        public PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge();
+            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge();
         }
         /// <summary>
         /// The deserialization information for the current model

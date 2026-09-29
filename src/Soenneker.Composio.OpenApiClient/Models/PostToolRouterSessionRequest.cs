@@ -38,6 +38,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental Experimental { get; set; }
 #endif
+        /// <summary>Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant? Instant { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant Instant { get; set; }
+#endif
         /// <summary>Configuration for connection management settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,14 +69,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload Preload { get; set; }
-#endif
-        /// <summary>Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPremiumUsage? PremiumUsage { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPremiumUsage PremiumUsage { get; set; }
 #endif
         /// <summary>Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -138,10 +138,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "auth_configs", n => { AuthConfigs = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs.CreateFromDiscriminatorValue); } },
                 { "connected_accounts", n => { ConnectedAccounts = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts.CreateFromDiscriminatorValue); } },
                 { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental.CreateFromDiscriminatorValue); } },
+                { "instant", n => { Instant = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant.CreateFromDiscriminatorValue); } },
                 { "manage_connections", n => { ManageConnections = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections.CreateFromDiscriminatorValue); } },
                 { "multi_account", n => { MultiAccount = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount.CreateFromDiscriminatorValue); } },
                 { "preload", n => { Preload = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload.CreateFromDiscriminatorValue); } },
-                { "premium_usage", n => { PremiumUsage = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPremiumUsage>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPremiumUsage.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags.CreateFromDiscriminatorValue); } },
                 { "toolkits", n => { Toolkits = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools.CreateFromDiscriminatorValue); } },
@@ -159,10 +159,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs>("auth_configs", AuthConfigs);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts>("connected_accounts", ConnectedAccounts);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental>("experimental", Experimental);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant>("instant", Instant);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections>("manage_connections", ManageConnections);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount>("multi_account", MultiAccount);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload>("preload", Preload);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPremiumUsage>("premium_usage", PremiumUsage);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags>("tags", Tags);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits>("toolkits", Toolkits);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools>("tools", Tools);

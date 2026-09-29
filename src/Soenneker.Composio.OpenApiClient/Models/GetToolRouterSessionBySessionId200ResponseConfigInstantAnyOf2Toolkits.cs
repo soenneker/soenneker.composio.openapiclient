@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies.
+    /// Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits : IAdditionalDataHolder, IParsable
+    public partial class GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -32,21 +32,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public List<string> Enabled { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits"/> and sets the default values.
         /// </summary>
-        public PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits()
+        public GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits();
+            return new global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits();
         }
         /// <summary>
         /// The deserialization information for the current model

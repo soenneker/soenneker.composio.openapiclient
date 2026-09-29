@@ -8,9 +8,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
     public enum PostToolsExecuteByToolSlugRequestConnectedAccountIdAnyOf1
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "hosted_account")]
+        [EnumMember(Value = "instant_account")]
         #pragma warning disable CS1591
-        HostedAccount,
+        InstantAccount,
         #pragma warning restore CS1591
     }
 }

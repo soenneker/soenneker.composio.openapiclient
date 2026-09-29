@@ -52,13 +52,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>Whether an active connection exists for this toolkit</summary>
         public bool? HasActiveConnection { get; set; }
-        /// <summary>Present when the toolkit is connected through the Composio hosted account rather than a connected account of the user.</summary>
+        /// <summary>Present when the toolkit is connected through the Composio instant account rather than a connected account of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount? HostedAccount { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccount? InstantAccount { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount HostedAccount { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccount InstantAccount { get; set; }
 #endif
         /// <summary>Human-readable message about the connection status and next steps</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +108,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "current_user_info", n => { CurrentUserInfo = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfo>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfo.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "has_active_connection", n => { HasActiveConnection = n.GetBoolValue(); } },
-                { "hosted_account", n => { HostedAccount = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount.CreateFromDiscriminatorValue); } },
+                { "instant_account", n => { InstantAccount = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccount>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccount.CreateFromDiscriminatorValue); } },
                 { "status_message", n => { StatusMessage = n.GetStringValue(); } },
                 { "toolkit", n => { Toolkit = n.GetStringValue(); } },
             };
@@ -127,7 +127,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemCurrentUserInfo>("current_user_info", CurrentUserInfo);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("has_active_connection", HasActiveConnection);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount>("hosted_account", HostedAccount);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccount>("instant_account", InstantAccount);
             writer.WriteStringValue("status_message", StatusMessage);
             writer.WriteStringValue("toolkit", Toolkit);
             writer.WriteAdditionalData(AdditionalData);

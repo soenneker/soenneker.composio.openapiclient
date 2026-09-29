@@ -2557,6 +2557,16 @@
               }
             }
           },
+          "403": {
+            "description": "Zero Data Retention requires a paid plan.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Conflict. A project with this name already exists in the organization.",
             "content": {
@@ -5167,7 +5177,7 @@
             }
           },
           "402": {
-            "description": "Payment required - Wallet balance is exhausted; add credits to resume premium tool calls or connect your account",
+            "description": "Payment required - Wallet balance is exhausted; add credits to resume Instant tool calls or connect your account",
             "content": {
               "application/json": {
                 "schema": {
@@ -12901,9 +12911,9 @@
           "credentialSource": {
             "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseCredentialSource"
           },
-          "premiumUsageCharge": {
+          "instantCharge": {
             "type": "string",
-            "description": "Premium charge for using hosted account for this tool."
+            "description": "Instant charge in USD for this tool, as an exact decimal string."
           },
           "session": {
             "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseSession"
@@ -15287,8 +15297,8 @@
           "connected_accounts": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestConnectedAccounts"
           },
-          "premium_usage": {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsage"
+          "instant": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestInstant"
           },
           "manage_connections": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestManageConnections"
@@ -15394,8 +15404,8 @@
         ],
         "type": "object",
         "properties": {
-          "premium_charge": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200ResponsePremiumCharge"
+          "instant_charge": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge"
           },
           "data": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200ResponseData"
@@ -15434,8 +15444,8 @@
         ],
         "type": "object",
         "properties": {
-          "premium_charge": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge"
+          "instant_charge": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200ResponseInstantCharge"
           },
           "data": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200ResponseData"
@@ -15510,8 +15520,8 @@
           "connected_accounts": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestConnectedAccounts"
           },
-          "premium_usage": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsage"
+          "instant": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstant"
           },
           "manage_connections": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestManageConnections"
@@ -18157,14 +18167,14 @@
           }
         }
       },
-      "PostToolRouterSessionRequestPremiumUsageBranch1": {
+      "PostToolRouterSessionRequestInstantBranch1": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestInstantBranch1Value"
           }
         }
       },
@@ -18196,36 +18206,36 @@
           }
         }
       },
-      "PostToolRouterSession201ResponseConfigPremiumUsageBranch1": {
+      "PostToolRouterSession201ResponseConfigInstantBranch1": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstantBranch1Value"
           }
         }
       },
-      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1": {
+      "GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1Value"
           }
         }
       },
-      "PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1": {
+      "PatchToolRouterSessionBySessionIdRequestInstantBranch1": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantBranch1Value"
           }
         }
       },
@@ -18257,14 +18267,14 @@
           }
         }
       },
-      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1": {
+      "PatchToolRouterSessionBySessionId200ResponseConfigInstantBranch1": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantBranch1Value"
           }
         }
       },
@@ -18584,7 +18594,7 @@
             "format": "connectedAccountId"
           }
         ],
-        "description": "Unique identifier for the connected account to use for authentication. Pass \u0060hosted_account\u0060 to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.",
+        "description": "Unique identifier for the connected account to use for authentication. Pass \u0060instant_account\u0060 to run the tool on the Composio instant account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.",
         "example": "ca_1a2b3c4d5e6f"
       },
       "PostToolsExecuteByToolSlugRequestCustomConnectionDataValExpiresIn": {
@@ -18667,32 +18677,32 @@
         "description": "Toolkit version specification. Supports \u0022latest\u0022 string or a record mapping toolkit slugs to specific versions.",
         "example": "latest"
       },
-      "PostToolRouterSessionRequestPremiumUsage": {
+      "PostToolRouterSessionRequestInstant": {
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageBranch1"
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestInstantBranch1"
           },
           {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2"
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestInstantAnyOf2"
           }
         ],
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestInstantBranch1Value"
           },
           "toolkits": {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+            "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
           }
         },
-        "description": "Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
+        "description": "Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
       },
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTags": {
         "type": "object",
@@ -18774,86 +18784,86 @@
           ]
         }
       },
-      "PostToolRouterSession201ResponseConfigPremiumUsage": {
+      "PostToolRouterSession201ResponseConfigInstant": {
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageBranch1"
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstantBranch1"
           },
           {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2"
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstantAnyOf2"
           }
         ],
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstantBranch1Value"
           },
           "toolkits": {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+            "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
           }
         },
-        "description": "Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+        "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
       },
-      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsage": {
+      "GetToolRouterSessionBySessionId200ResponseConfigInstant": {
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1"
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1"
           },
           {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2"
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2"
           }
         ],
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1Value"
           },
           "toolkits": {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+            "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
           }
         },
-        "description": "Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+        "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
       },
-      "PatchToolRouterSessionBySessionIdRequestPremiumUsage": {
+      "PatchToolRouterSessionBySessionIdRequestInstant": {
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantBranch1"
           },
           {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantAnyOf2"
           }
         ],
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantBranch1Value"
           },
           "toolkits": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+            "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
           }
         },
-        "description": "Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
+        "description": "Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
       },
       "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTags": {
         "type": "object",
@@ -18935,32 +18945,32 @@
           ]
         }
       },
-      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsage": {
+      "PatchToolRouterSessionBySessionId200ResponseConfigInstant": {
         "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantBranch1"
           },
           {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2"
           }
         ],
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantBranch1Value"
           },
           "toolkits": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+            "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
           }
         },
-        "description": "Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+        "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
       },
       "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValExpiresIn": {
         "type": "object",
@@ -18990,18 +19000,18 @@
           }
         ]
       },
-      "PostToolRouterSessionRequestPremiumUsageAnyOf2": {
+      "PostToolRouterSessionRequestInstantAnyOf2": {
         "type": "object",
         "properties": {
           "toolkits": {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+            "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
           }
         },
         "additionalProperties": false
@@ -19040,56 +19050,56 @@
           }
         }
       },
-      "PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2": {
+      "PostToolRouterSession201ResponseConfigInstantAnyOf2": {
         "required": [
-          "return_premium_charge"
+          "return_instant_charge"
         ],
         "type": "object",
         "properties": {
           "toolkits": {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+            "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
           }
         },
         "additionalProperties": false
       },
-      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2": {
+      "GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2": {
         "required": [
-          "return_premium_charge"
+          "return_instant_charge"
         ],
         "type": "object",
         "properties": {
           "toolkits": {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+            "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
           }
         },
         "additionalProperties": false
       },
-      "PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2": {
+      "PatchToolRouterSessionBySessionIdRequestInstantAnyOf2": {
         "type": "object",
         "properties": {
           "toolkits": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+            "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
           }
         },
         "additionalProperties": false
@@ -19128,21 +19138,21 @@
           }
         }
       },
-      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2": {
+      "PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2": {
         "required": [
-          "return_premium_charge"
+          "return_instant_charge"
         ],
         "type": "object",
         "properties": {
           "toolkits": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits"
           },
           "tools": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Tools"
           },
-          "return_premium_charge": {
+          "return_instant_charge": {
             "type": "boolean",
-            "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+            "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
           }
         },
         "additionalProperties": false
@@ -20504,9 +20514,9 @@
           "credentialSource": {
             "$ref": "#/components/schemas/PostInternalActionExecutionLogs200ResponseDataItemCredentialSource"
           },
-          "premiumUsageCharge": {
+          "instantCharge": {
             "type": "string",
-            "description": "Premium charge for using hosted account for this tool."
+            "description": "Instant charge in USD for this tool, as an exact decimal string."
           },
           "createdAt": {
             "type": "number"
@@ -20778,11 +20788,6 @@
         }
       },
       "PostOrgOwnerProjectNewRequestConfig": {
-        "required": [
-          "is_2FA_enabled",
-          "mask_secret_keys_in_connected_account",
-          "log_visibility_setting"
-        ],
         "type": "object",
         "properties": {
           "is_2FA_enabled": {
@@ -20820,9 +20825,13 @@
           },
           "theme": {
             "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestConfigTheme"
+          },
+          "zdr_enabled": {
+            "type": "boolean",
+            "description": "Enable Zero Data Retention for the new project. Hobby cannot enable it. Enterprise defaults to enabled; other paid plans default to disabled. An explicit value overrides the default."
           }
         },
-        "description": "Configuration for the project"
+        "description": "Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields."
       },
       "GetOrgOwnerProjectList200ResponseDataItem": {
         "required": [
@@ -20991,7 +21000,7 @@
         "required": [
           "consumer_experience_enabled",
           "enhanced_controls",
-          "enable_premium_usage"
+          "enable_instant"
         ],
         "type": "object",
         "properties": {
@@ -21003,7 +21012,7 @@
             "type": "boolean",
             "description": "Whether enhanced controls are enabled for this consumer project."
           },
-          "enable_premium_usage": {
+          "enable_instant": {
             "type": "boolean",
             "description": "Whether Instant Tools are enabled for this consumer project."
           },
@@ -22627,7 +22636,7 @@
       "PostToolRouterSession201ResponseConfig": {
         "required": [
           "user_id",
-          "premium_usage",
+          "instant",
           "preload"
         ],
         "type": "object",
@@ -22648,8 +22657,8 @@
           "all_connected_accounts": {
             "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigAllConnectedAccounts"
           },
-          "premium_usage": {
-            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsage"
+          "instant": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstant"
           },
           "manage_connections": {
             "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigManageConnections"
@@ -22729,7 +22738,7 @@
           }
         }
       },
-      "PostToolRouterSessionBySessionIdExecute200ResponsePremiumCharge": {
+      "PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge": {
         "required": [
           "amount",
           "currency",
@@ -22740,7 +22749,7 @@
           "amount": {
             "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
             "type": "string",
-            "description": "Premium charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
+            "description": "Instant charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
           },
           "currency": {
             "$ref": "#/components/schemas/UsdCurrency"
@@ -22749,7 +22758,7 @@
             "$ref": "#/components/schemas/ComposioChargedBy"
           }
         },
-        "description": "Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
+        "description": "Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
       },
       "PostToolRouterSessionBySessionIdExecute200ResponseData": {
         "type": "object",
@@ -22775,7 +22784,7 @@
           "reinitiate_all": false
         }
       },
-      "PostToolRouterSessionBySessionIdExecuteMeta200ResponsePremiumCharge": {
+      "PostToolRouterSessionBySessionIdExecuteMeta200ResponseInstantCharge": {
         "required": [
           "amount",
           "currency",
@@ -22786,7 +22795,7 @@
           "amount": {
             "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
             "type": "string",
-            "description": "Premium charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
+            "description": "Instant charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
           },
           "currency": {
             "$ref": "#/components/schemas/UsdCurrency"
@@ -22795,7 +22804,7 @@
             "$ref": "#/components/schemas/ComposioChargedBy"
           }
         },
-        "description": "Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
+        "description": "Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
       },
       "PostToolRouterSessionBySessionIdExecuteMeta200ResponseData": {
         "type": "object",
@@ -22829,7 +22838,7 @@
       "GetToolRouterSessionBySessionId200ResponseConfig": {
         "required": [
           "user_id",
-          "premium_usage",
+          "instant",
           "preload"
         ],
         "type": "object",
@@ -22850,8 +22859,8 @@
           "all_connected_accounts": {
             "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigAllConnectedAccounts"
           },
-          "premium_usage": {
-            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsage"
+          "instant": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstant"
           },
           "manage_connections": {
             "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigManageConnections"
@@ -23143,7 +23152,7 @@
       "PatchToolRouterSessionBySessionId200ResponseConfig": {
         "required": [
           "user_id",
-          "premium_usage",
+          "instant",
           "preload"
         ],
         "type": "object",
@@ -23164,8 +23173,8 @@
           "all_connected_accounts": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigAllConnectedAccounts"
           },
-          "premium_usage": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsage"
+          "instant": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstant"
           },
           "manage_connections": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigManageConnections"
@@ -23524,8 +23533,8 @@
           "account_selection": {
             "$ref": "#/components/schemas/RequiredAccountSelection"
           },
-          "hosted_account": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount"
+          "instant_account": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccount"
           },
           "status_message": {
             "type": "string",
@@ -23643,7 +23652,7 @@
           }
         }
       },
-      "PostToolRouterSessionRequestPremiumUsageAnyOf2Toolkits": {
+      "PostToolRouterSessionRequestInstantAnyOf2Toolkits": {
         "type": "object",
         "properties": {
           "enable": {
@@ -23672,14 +23681,14 @@
         },
         "description": "Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive."
       },
-      "PostToolRouterSessionRequestPremiumUsageAnyOf2Tools": {
+      "PostToolRouterSessionRequestInstantAnyOf2Tools": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/PostToolRouterSessionRequestPremiumUsageAnyOf2ToolsAdditionalProperties"
+          "$ref": "#/components/schemas/PostToolRouterSessionRequestInstantAnyOf2ToolsAdditionalProperties"
         },
-        "description": "Per-toolkit enable or disable lists that restrict premium usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
+        "description": "Per-toolkit enable or disable lists that restrict instant usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
       },
-      "PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Toolkits": {
+      "PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits": {
         "type": "object",
         "properties": {
           "enabled": {
@@ -23695,16 +23704,16 @@
             }
           }
         },
-        "description": "Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
+        "description": "Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
       },
-      "PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2Tools": {
+      "PostToolRouterSession201ResponseConfigInstantAnyOf2Tools": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties"
+          "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigInstantAnyOf2ToolsAdditionalProperties"
         },
-        "description": "Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction."
+        "description": "Per-toolkit enabled or disabled lists that restrict instant usage. Toolkits absent from this map have no additional tool restriction."
       },
-      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits": {
+      "GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits": {
         "type": "object",
         "properties": {
           "enabled": {
@@ -23720,16 +23729,16 @@
             }
           }
         },
-        "description": "Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
+        "description": "Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
       },
-      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools": {
+      "GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Tools": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties"
+          "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2ToolsAdditionalProperties"
         },
-        "description": "Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction."
+        "description": "Per-toolkit enabled or disabled lists that restrict instant usage. Toolkits absent from this map have no additional tool restriction."
       },
-      "PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Toolkits": {
+      "PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Toolkits": {
         "type": "object",
         "properties": {
           "enable": {
@@ -23758,14 +23767,14 @@
         },
         "description": "Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive."
       },
-      "PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2Tools": {
+      "PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Tools": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2ToolsAdditionalProperties"
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantAnyOf2ToolsAdditionalProperties"
         },
-        "description": "Per-toolkit enable or disable lists that restrict premium usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
+        "description": "Per-toolkit enable or disable lists that restrict instant usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
       },
-      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Toolkits": {
+      "PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Toolkits": {
         "type": "object",
         "properties": {
           "enabled": {
@@ -23781,14 +23790,14 @@
             }
           }
         },
-        "description": "Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
+        "description": "Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
       },
-      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools": {
+      "PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Tools": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties"
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2ToolsAdditionalProperties"
         },
-        "description": "Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction."
+        "description": "Per-toolkit enabled or disabled lists that restrict instant usage. Toolkits absent from this map have no additional tool restriction."
       },
       "ComposioManagedAuthConfigCreateSharedCredentialsPropertyAdditionalProperties": {
         "type": "object"
@@ -26707,7 +26716,7 @@
           }
         }
       },
-      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemHostedAccount": {
+      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccount": {
         "required": [
           "allowed_tool_slugs"
         ],
@@ -26718,10 +26727,10 @@
             "items": {
               "type": "string"
             },
-            "description": "Tools of this toolkit that run on the Composio hosted account"
+            "description": "Tools of this toolkit that run on the Composio instant account"
           }
         },
-        "description": "Present when the toolkit is connected through the Composio hosted account rather than a connected account of the user."
+        "description": "Present when the toolkit is connected through the Composio instant account rather than a connected account of the user."
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalProperties": {
         "required": [
@@ -26774,7 +26783,7 @@
           }
         }
       },
-      "PostToolRouterSessionRequestPremiumUsageAnyOf2ToolsAdditionalProperties": {
+      "PostToolRouterSessionRequestInstantAnyOf2ToolsAdditionalProperties": {
         "type": "object",
         "properties": {
           "enable": {
@@ -26800,7 +26809,7 @@
           }
         }
       },
-      "PostToolRouterSession201ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties": {
+      "PostToolRouterSession201ResponseConfigInstantAnyOf2ToolsAdditionalProperties": {
         "type": "object",
         "properties": {
           "enabled": {
@@ -26817,7 +26826,7 @@
           }
         }
       },
-      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties": {
+      "GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2ToolsAdditionalProperties": {
         "type": "object",
         "properties": {
           "enabled": {
@@ -26834,7 +26843,7 @@
           }
         }
       },
-      "PatchToolRouterSessionBySessionIdRequestPremiumUsageAnyOf2ToolsAdditionalProperties": {
+      "PatchToolRouterSessionBySessionIdRequestInstantAnyOf2ToolsAdditionalProperties": {
         "type": "object",
         "properties": {
           "enable": {
@@ -26860,7 +26869,7 @@
           }
         }
       },
-      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2ToolsAdditionalProperties": {
+      "PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2ToolsAdditionalProperties": {
         "type": "object",
         "properties": {
           "enabled": {
@@ -28975,7 +28984,7 @@
       "GetInternalActionExecutionLogById200ResponseCredentialSource": {
         "enum": [
           "connected_account",
-          "hosted_account",
+          "instant_account",
           "custom_auth",
           "no_auth"
         ],
@@ -28990,8 +28999,8 @@
               "name": "ConnectedAccount"
             },
             {
-              "value": "hosted_account",
-              "name": "HostedAccount"
+              "value": "instant_account",
+              "name": "InstantAccount"
             },
             {
               "value": "custom_auth",
@@ -29409,7 +29418,7 @@
           ]
         }
       },
-      "PostToolRouterSessionRequestPremiumUsageBranch1Value": {
+      "PostToolRouterSessionRequestInstantBranch1Value": {
         "enum": [
           false
         ],
@@ -29480,21 +29489,21 @@
           ]
         }
       },
-      "PostToolRouterSession201ResponseConfigPremiumUsageBranch1Value": {
+      "PostToolRouterSession201ResponseConfigInstantBranch1Value": {
         "enum": [
           false
         ],
         "type": "boolean",
         "additionalProperties": false
       },
-      "GetToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value": {
+      "GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1Value": {
         "enum": [
           false
         ],
         "type": "boolean",
         "additionalProperties": false
       },
-      "PatchToolRouterSessionBySessionIdRequestPremiumUsageBranch1Value": {
+      "PatchToolRouterSessionBySessionIdRequestInstantBranch1Value": {
         "enum": [
           false
         ],
@@ -29565,7 +29574,7 @@
           ]
         }
       },
-      "PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageBranch1Value": {
+      "PatchToolRouterSessionBySessionId200ResponseConfigInstantBranch1Value": {
         "enum": [
           false
         ],
@@ -29574,7 +29583,7 @@
       },
       "PostToolsExecuteByToolSlugRequestConnectedAccountIdAnyOf1": {
         "enum": [
-          "hosted_account"
+          "instant_account"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -29583,8 +29592,8 @@
           "modelAsString": false,
           "values": [
             {
-              "value": "hosted_account",
-              "name": "HostedAccount"
+              "value": "instant_account",
+              "name": "InstantAccount"
             }
           ]
         }
@@ -30559,7 +30568,7 @@
       "PostInternalActionExecutionLogs200ResponseDataItemCredentialSource": {
         "enum": [
           "connected_account",
-          "hosted_account",
+          "instant_account",
           "custom_auth",
           "no_auth"
         ],
@@ -30574,8 +30583,8 @@
               "name": "ConnectedAccount"
             },
             {
-              "value": "hosted_account",
-              "name": "HostedAccount"
+              "value": "instant_account",
+              "name": "InstantAccount"
             },
             {
               "value": "custom_auth",
@@ -31030,7 +31039,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Currency of the premium charge. Always USD.",
+        "description": "Currency of the instant charge. Always USD.",
         "x-ms-enum": {
           "name": "UsdCurrency",
           "modelAsString": false,
@@ -31048,7 +31057,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Entity charging for premium usage. Always composio.",
+        "description": "Entity charging for instant usage. Always composio.",
         "x-ms-enum": {
           "name": "ComposioChargedBy",
           "modelAsString": false,

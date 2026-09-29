@@ -68,6 +68,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Instant charge in USD for this tool, as an exact decimal string.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InstantCharge { get; set; }
+#nullable restore
+#else
+        public string InstantCharge { get; set; }
+#endif
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,14 +92,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public string MinimalResponse { get; set; }
-#endif
-        /// <summary>Premium charge for using hosted account for this tool.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PremiumUsageCharge { get; set; }
-#nullable restore
-#else
-        public string PremiumUsageCharge { get; set; }
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemStatus? Status { get; set; }
@@ -129,9 +129,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "entityId", n => { EntityId = n.GetStringValue(); } },
                 { "executionTime", n => { ExecutionTime = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "instantCharge", n => { InstantCharge = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemMetadata>(global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemMetadata.CreateFromDiscriminatorValue); } },
                 { "minimalResponse", n => { MinimalResponse = n.GetStringValue(); } },
-                { "premiumUsageCharge", n => { PremiumUsageCharge = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemStatus>(); } },
             };
         }
@@ -151,9 +151,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("entityId", EntityId);
             writer.WriteDoubleValue("executionTime", ExecutionTime);
             writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("instantCharge", InstantCharge);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemMetadata>("metadata", Metadata);
             writer.WriteStringValue("minimalResponse", MinimalResponse);
-            writer.WriteStringValue("premiumUsageCharge", PremiumUsageCharge);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

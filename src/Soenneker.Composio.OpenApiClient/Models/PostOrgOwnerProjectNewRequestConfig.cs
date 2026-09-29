@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for the project
+    /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostOrgOwnerProjectNewRequestConfig : IAdditionalDataHolder, IParsable
@@ -59,6 +59,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme Theme { get; set; }
 #endif
+        /// <summary>Enable Zero Data Retention for the new project. Hobby cannot enable it. Enterprise defaults to enabled; other paid plans default to disabled. An explicit value overrides the default.</summary>
+        public bool? ZdrEnabled { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig"/> and sets the default values.
         /// </summary>
@@ -94,6 +96,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "require_mcp_api_key", n => { RequireMcpApiKey = n.GetBoolValue(); } },
                 { "signed_url_file_expiry_in_seconds", n => { SignedUrlFileExpiryInSeconds = n.GetDoubleValue(); } },
                 { "theme", n => { Theme = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme>(global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme.CreateFromDiscriminatorValue); } },
+                { "zdr_enabled", n => { ZdrEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -113,6 +116,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("require_mcp_api_key", RequireMcpApiKey);
             writer.WriteDoubleValue("signed_url_file_expiry_in_seconds", SignedUrlFileExpiryInSeconds);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme>("theme", Theme);
+            writer.WriteBoolValue("zdr_enabled", ZdrEnabled);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

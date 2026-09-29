@@ -7,30 +7,31 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>
-    /// Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class PostToolRouterSession201ResponseConfigInstantBranch1 : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The value property</summary>
+        public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantBranch1"/> and sets the default values.
         /// </summary>
-        public PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools()
+        public PostToolRouterSession201ResponseConfigInstantBranch1()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantBranch1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantBranch1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigPremiumUsageAnyOf2Tools();
+            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantBranch1();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +41,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "value", n => { Value = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

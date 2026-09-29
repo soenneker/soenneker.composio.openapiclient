@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>Entity charging for premium usage. Always composio.</summary>
+    /// <summary>Entity charging for instant usage. Always composio.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ComposioChargedBy
     {

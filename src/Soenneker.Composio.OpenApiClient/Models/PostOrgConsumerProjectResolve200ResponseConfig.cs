@@ -20,7 +20,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Whether the consumer experience is enabled for this project.</summary>
         public bool? ConsumerExperienceEnabled { get; set; }
         /// <summary>Whether Instant Tools are enabled for this consumer project.</summary>
-        public bool? EnablePremiumUsage { get; set; }
+        public bool? EnableInstant { get; set; }
         /// <summary>Whether enhanced controls are enabled for this consumer project.</summary>
         public bool? EnhancedControls { get; set; }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "clanker", n => { Clanker = n.GetBoolValue(); } },
                 { "consumer_experience_enabled", n => { ConsumerExperienceEnabled = n.GetBoolValue(); } },
-                { "enable_premium_usage", n => { EnablePremiumUsage = n.GetBoolValue(); } },
+                { "enable_instant", n => { EnableInstant = n.GetBoolValue(); } },
                 { "enhanced_controls", n => { EnhancedControls = n.GetBoolValue(); } },
             };
         }
@@ -63,7 +63,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("clanker", Clanker);
             writer.WriteBoolValue("consumer_experience_enabled", ConsumerExperienceEnabled);
-            writer.WriteBoolValue("enable_premium_usage", EnablePremiumUsage);
+            writer.WriteBoolValue("enable_instant", EnableInstant);
             writer.WriteBoolValue("enhanced_controls", EnhancedControls);
             writer.WriteAdditionalData(AdditionalData);
         }
