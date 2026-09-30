@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status
         {
         }
         /// <summary>
-        /// Updates the status of a connected account to either enabled (active) or disabled (inactive). Disabled accounts cannot be used for API calls but remain in the database.
+        /// DEPRECATED: We are controlling the API surface and the dependencies between endpoints, and enabling or disabling a connected account is covered by existing endpoints. To stop a connected account from being used, delete it with `DELETE /api/v3/connected_accounts/{nanoid}` (pass `?revoke_on_delete=true` to also revoke its upstream credentials); to use the account again, create a new connection. This endpoint still works for existing integrations but may be removed in a future release. It sets the connected account to ACTIVE (`enabled: true`) or INACTIVE (`enabled: false`); inactive accounts cannot be used for API calls.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatus200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -46,6 +46,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatus200Response?> PatchAsync(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatusRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -69,11 +70,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatus200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatus200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the status of a connected account to either enabled (active) or disabled (inactive). Disabled accounts cannot be used for API calls but remain in the database.
+        /// DEPRECATED: We are controlling the API surface and the dependencies between endpoints, and enabling or disabling a connected account is covered by existing endpoints. To stop a connected account from being used, delete it with `DELETE /api/v3/connected_accounts/{nanoid}` (pass `?revoke_on_delete=true` to also revoke its upstream credentials); to use the account again, create a new connection. This endpoint still works for existing integrations but may be removed in a future release. It sets the connected account to ACTIVE (`enabled: true`) or INACTIVE (`enabled: false`); inactive accounts cannot be used for API calls.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPatchRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoIdStatusRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -95,6 +97,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status.StatusRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status.StatusRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status.StatusRequestBuilder(rawUrl, RequestAdapter);

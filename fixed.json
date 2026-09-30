@@ -612,8 +612,8 @@
         "tags": [
           "Auth Configs"
         ],
-        "summary": "Enable or disable an authentication configuration",
-        "description": "Updates the status of an authentication configuration to either enabled or disabled. Disabled configurations cannot be used for new connections.",
+        "summary": "Enable or disable an authentication configuration (DEPRECATED)",
+        "description": "DEPRECATED: We are controlling the API surface and the dependencies between endpoints, and enabling or disabling an auth config is covered by existing endpoints. To stop new connections through an auth config, stop creating connected accounts with it; to remove it, delete it with \u0060DELETE /api/v3/auth_configs/{nanoid}\u0060 (pass \u0060?revoke_on_delete=true\u0060 to also revoke the upstream credentials of its connections). This endpoint still works for existing integrations but may be removed in a future release. It sets the auth config to ENABLED or DISABLED; disabled auth configs cannot be used for new connections.",
         "operationId": "PatchAuthConfigsByNanoidByStatus",
         "parameters": [
           {
@@ -689,6 +689,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "ApiKeyAuth": []
@@ -1665,8 +1666,8 @@
           "Connected Accounts",
           "Account Management"
         ],
-        "summary": "Enable or disable a connected account",
-        "description": "Updates the status of a connected account to either enabled (active) or disabled (inactive). Disabled accounts cannot be used for API calls but remain in the database.",
+        "summary": "Enable or disable a connected account (DEPRECATED)",
+        "description": "DEPRECATED: We are controlling the API surface and the dependencies between endpoints, and enabling or disabling a connected account is covered by existing endpoints. To stop a connected account from being used, delete it with \u0060DELETE /api/v3/connected_accounts/{nanoid}\u0060 (pass \u0060?revoke_on_delete=true\u0060 to also revoke its upstream credentials); to use the account again, create a new connection. This endpoint still works for existing integrations but may be removed in a future release. It sets the connected account to ACTIVE (\u0060enabled: true\u0060) or INACTIVE (\u0060enabled: false\u0060); inactive accounts cannot be used for API calls.",
         "operationId": "PatchConnectedAccountsByNanoIdStatus",
         "parameters": [
           {
@@ -1762,6 +1763,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "ApiKeyAuth": []
@@ -4063,7 +4065,8 @@
           {
             "name": "managed_by",
             "in": "query",
-            "description": "Filter toolkits by who manages them",
+            "description": "Deprecated: Filter toolkits by who manages them",
+            "deprecated": true,
             "schema": {
               "$ref": "#/components/schemas/GetToolkitsManagedByParameter"
             }
@@ -32725,7 +32728,8 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Entity responsible for managing the toolkits",
+        "description": "Deprecated: Entity responsible for managing the toolkits",
+        "deprecated": true,
         "x-ms-enum": {
           "name": "GetToolkitsManagedByParameter",
           "modelAsString": false,

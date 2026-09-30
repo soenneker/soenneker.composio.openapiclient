@@ -21,6 +21,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.auth_configs.item.item collection</summary>
         /// <param name="position">The new status to set for the auth configuration</param>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.Item.WithStatusItemRequestBuilder"/></returns>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.Item.WithStatusItemRequestBuilder this[string position]
         {
             get

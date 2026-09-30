@@ -3,8 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>Entity responsible for managing the toolkits</summary>
+    /// <summary>Deprecated: Entity responsible for managing the toolkits</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    [Obsolete("")]
     public enum GetToolkitsManagedByParameter
     {
         [EnumMember(Value = "composio")]

@@ -155,7 +155,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
             /// <summary>Number of items per page, max allowed is 1000</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }
-            /// <summary>Filter toolkits by who manages them</summary>
+            /// <summary>Deprecated: Filter toolkits by who manages them</summary>
+            [Obsolete("")]
             [QueryParameter("managed_by")]
             public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsManagedByParameter? ManagedBy { get; set; }
             /// <summary>Search query to filter toolkits by name, slug, or description</summary>

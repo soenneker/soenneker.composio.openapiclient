@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.Item
         {
         }
         /// <summary>
-        /// Updates the status of an authentication configuration to either enabled or disabled. Disabled configurations cannot be used for new connections.
+        /// DEPRECATED: We are controlling the API surface and the dependencies between endpoints, and enabling or disabling an auth config is covered by existing endpoints. To stop new connections through an auth config, stop creating connected accounts with it; to remove it, delete it with `DELETE /api/v3/auth_configs/{nanoid}` (pass `?revoke_on_delete=true` to also revoke the upstream credentials of its connections). This endpoint still works for existing integrations but may be removed in a future release. It sets the auth config to ENABLED or DISABLED; disabled auth configs cannot be used for new connections.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidByStatus200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -43,6 +43,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.Item
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidByStatus200Response?> PatchAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,10 +64,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidByStatus200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchAuthConfigsByNanoidByStatus200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the status of an authentication configuration to either enabled or disabled. Disabled configurations cannot be used for new connections.
+        /// DEPRECATED: We are controlling the API surface and the dependencies between endpoints, and enabling or disabling an auth config is covered by existing endpoints. To stop new connections through an auth config, stop creating connected accounts with it; to remove it, delete it with `DELETE /api/v3/auth_configs/{nanoid}` (pass `?revoke_on_delete=true` to also revoke the upstream credentials of its connections). This endpoint still works for existing integrations but may be removed in a future release. It sets the auth config to ENABLED or DISABLED; disabled auth configs cannot be used for new connections.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPatchRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -86,6 +88,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.Item
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.Item.WithStatusItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.Item.WithStatusItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Auth_configs.Item.Item.WithStatusItemRequestBuilder(rawUrl, RequestAdapter);
