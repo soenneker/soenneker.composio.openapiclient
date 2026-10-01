@@ -54,6 +54,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.ToolInputParametersProperty InputParameters { get; set; }
 #endif
+        /// <summary>Present only when the tool supports an Instant account and its selected toolkit version is the latest. Missing for older toolkit versions or ineligible tools.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.InstantAccount? Instant { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.InstantAccount Instant { get; set; }
+#endif
         /// <summary>Indicates if this tool is deprecated and may be removed in the future</summary>
         public bool? IsDeprecated { get; set; }
         /// <summary>Human-readable display name of the tool</summary>
@@ -152,6 +160,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "human_description", n => { HumanDescription = n.GetStringValue(); } },
                 { "input_parameters", n => { InputParameters = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolInputParametersProperty>(global::Soenneker.Composio.OpenApiClient.Models.ToolInputParametersProperty.CreateFromDiscriminatorValue); } },
+                { "instant", n => { Instant = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.InstantAccount>(global::Soenneker.Composio.OpenApiClient.Models.InstantAccount.CreateFromDiscriminatorValue); } },
                 { "is_deprecated", n => { IsDeprecated = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "no_auth", n => { NoAuth = n.GetBoolValue(); } },
@@ -176,6 +185,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("human_description", HumanDescription);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolInputParametersProperty>("input_parameters", InputParameters);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.InstantAccount>("instant", Instant);
             writer.WriteBoolValue("is_deprecated", IsDeprecated);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("no_auth", NoAuth);

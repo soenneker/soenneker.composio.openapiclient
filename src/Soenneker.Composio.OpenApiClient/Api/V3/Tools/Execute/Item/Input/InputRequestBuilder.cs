@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input
         {
         }
         /// <summary>
-        /// Uses AI to translate a natural language description into structured arguments for a specific tool. This endpoint is useful when you want to let users describe what they want to do in plain language instead of providing structured parameters.
+        /// DEPRECATED: This endpoint is no longer maintained. It still works for existing integrations but may be removed in a future release. To build tool arguments, fetch the tool&apos;s input schema with `GET /api/v3/tools/{tool_slug}` and generate the arguments in your own application. Uses AI to translate a natural language description into structured arguments for a specific tool.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -46,6 +46,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput200Response?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInputRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -69,11 +70,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInput200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Uses AI to translate a natural language description into structured arguments for a specific tool. This endpoint is useful when you want to let users describe what they want to do in plain language instead of providing structured parameters.
+        /// DEPRECATED: This endpoint is no longer maintained. It still works for existing integrations but may be removed in a future release. To build tool arguments, fetch the tool&apos;s input schema with `GET /api/v3/tools/{tool_slug}` and generate the arguments in your own application. Uses AI to translate a natural language description into structured arguments for a specific tool.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlugInputRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -95,6 +97,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputRequestBuilder(rawUrl, RequestAdapter);

@@ -1667,7 +1667,7 @@
           "Account Management"
         ],
         "summary": "Enable or disable a connected account (DEPRECATED)",
-        "description": "DEPRECATED: We are controlling the API surface and the dependencies between endpoints, and enabling or disabling a connected account is covered by existing endpoints. To stop a connected account from being used, delete it with \u0060DELETE /api/v3/connected_accounts/{nanoid}\u0060 (pass \u0060?revoke_on_delete=true\u0060 to also revoke its upstream credentials); to use the account again, create a new connection. This endpoint still works for existing integrations but may be removed in a future release. It sets the connected account to ACTIVE (\u0060enabled: true\u0060) or INACTIVE (\u0060enabled: false\u0060); inactive accounts cannot be used for API calls.",
+        "description": "DEPRECATED: We are controlling the API surface and the dependencies between endpoints, and enabling or disabling a connected account is covered by existing endpoints. To stop a connected account from being used, delete it with \u0060DELETE /api/v3/connected_accounts/{nanoid}\u0060 (pass \u0060?revoke_on_delete=true\u0060 to also revoke its upstream credentials); to use the account again, create a new connection. This endpoint still works for existing integrations but may be removed in a future release. It sets the connected account to ACTIVE (\u0060enabled: true\u0060) or INACTIVE (\u0060enabled: false\u0060); inactive accounts cannot be used for API calls. Disabling an account also disables its triggers, and Composio attempts to remove their webhooks at the provider in the background.",
         "operationId": "PatchConnectedAccountsByNanoIdStatus",
         "parameters": [
           {
@@ -4105,7 +4105,7 @@
             "description": "Search query to filter toolkits by name, slug, or description",
             "schema": {
               "type": "string",
-              "description": "Search query to filter toolkits by name, slug, or description (minimum 3 characters)",
+              "description": "Search query to filter toolkits by name, slug, or description (minimum 1 character)",
               "example": "gmail"
             }
           },
@@ -4273,7 +4273,7 @@
           "Toolkits"
         ],
         "summary": "Upsert a custom toolkit",
-        "description": "Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. app_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).",
+        "description": "Experimental: custom toolkits are in pilot and this contract may change. Prefer POST /api/v3.1/custom/toolkits (which sets which users can use a toolkit) and PATCH /api/v3.1/custom/toolkits/{slug}. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. A toolkit created here is shared with every user in the project; an existing toolkit keeps its access. app_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).",
         "operationId": "PostCustomToolkitsUpsert",
         "requestBody": {
           "description": "Toolkit creation data",
@@ -5317,8 +5317,8 @@
           "AI",
           "Natural Language Processing"
         ],
-        "summary": "Generate tool inputs from natural language",
-        "description": "Uses AI to translate a natural language description into structured arguments for a specific tool. This endpoint is useful when you want to let users describe what they want to do in plain language instead of providing structured parameters.",
+        "summary": "Generate tool inputs from natural language (DEPRECATED)",
+        "description": "DEPRECATED: This endpoint is no longer maintained. It still works for existing integrations but may be removed in a future release. To build tool arguments, fetch the tool\u0027s input schema with \u0060GET /api/v3/tools/{tool_slug}\u0060 and generate the arguments in your own application. Uses AI to translate a natural language description into structured arguments for a specific tool.",
         "operationId": "PostToolsExecuteByToolSlugInput",
         "parameters": [
           {
@@ -5412,6 +5412,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "ApiKeyAuth": []
@@ -5976,7 +5977,7 @@
           "Triggers"
         ],
         "summary": "Delete a trigger",
-        "description": "Permanently deletes a trigger instance. This stops the trigger from listening for events and removes it from your project. Use the PATCH endpoint with status \u0022disable\u0022 if you want to temporarily pause a trigger instead.",
+        "description": "Permanently deletes a trigger instance. This stops the trigger from listening for events and removes it from your project. When a webhook trigger is deleted, Composio also attempts to remove the webhook it received events through at the provider, once no other active trigger uses it. This runs in the background after the response, with retries if the provider fails. Use the PATCH endpoint with status \u0022disable\u0022 if you want to temporarily pause a trigger instead.",
         "operationId": "DeleteTriggerInstancesManageByTriggerId",
         "parameters": [
           {
@@ -6077,7 +6078,7 @@
           "Triggers"
         ],
         "summary": "Update a trigger",
-        "description": "Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.",
+        "description": "Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. When a webhook trigger is disabled, Composio also attempts to remove the webhook it received events through at the provider, once no other active trigger uses it. This runs in the background after the response, with retries if the provider fails. Re-enabling a webhook trigger sets it up with the provider again. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.",
         "operationId": "PatchTriggerInstancesManageByTriggerId",
         "parameters": [
           {
@@ -10423,6 +10424,21 @@
         },
         "deprecated": true
       },
+      "InstantAccount": {
+        "required": [
+          "supported"
+        ],
+        "type": "object",
+        "properties": {
+          "supported": {
+            "$ref": "#/components/schemas/InstantAccountSupported"
+          },
+          "price": {
+            "$ref": "#/components/schemas/InstantAccountPriceProperty"
+          }
+        },
+        "description": "Present only when the tool supports an Instant account and its selected toolkit version is the latest. Missing for older toolkit versions or ineligible tools."
+      },
       "Tool": {
         "required": [
           "slug",
@@ -10479,6 +10495,9 @@
             "type": "string",
             "description": "Current version of the tool",
             "example": "20250905_00"
+          },
+          "instant": {
+            "$ref": "#/components/schemas/InstantAccount"
           },
           "output_parameters": {
             "$ref": "#/components/schemas/ToolOutputParametersProperty"
@@ -10575,7 +10594,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Current published pricing, independent of the requested tool version. Omitted when unspecified; absence does not mean free."
+        "description": "Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation."
       },
       "ToolDetails": {
         "required": [
@@ -10633,6 +10652,9 @@
             "type": "string",
             "description": "Current version of the tool",
             "example": "20250905_00"
+          },
+          "instant": {
+            "$ref": "#/components/schemas/InstantAccount"
           },
           "output_parameters": {
             "$ref": "#/components/schemas/ToolDetailsOutputParametersProperty"
@@ -11302,6 +11324,13 @@
         },
         "description": "Experimental features - not stable, may be modified or removed in future versions.",
         "x-experimental": true
+      },
+      "InstantAccountPrice": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/InstantAccountPriceAdditionalProperties"
+        },
+        "description": "Published pricing from the selected tool row, unchanged."
       },
       "ToolToolkit": {
         "required": [
@@ -13957,6 +13986,9 @@
             "type": "boolean",
             "description": "Indicates if this toolkit is currently enabled and available for use",
             "example": true
+          },
+          "access": {
+            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseAccess"
           },
           "composio_managed_auth_schemes": {
             "type": "array",
@@ -18586,6 +18618,51 @@
           }
         ]
       },
+      "GetToolkits200ResponseItemsItemAccess": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemAccessAnyOf1"
+          },
+          {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        ],
+        "description": "Only for custom toolkits: \u0022all\u0022 when every user in the project can use the toolkit, otherwise the user_id it is private to",
+        "example": "all"
+      },
+      "GetToolkitsBySlug200ResponseAccess": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseAccessAnyOf1"
+          },
+          {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        ],
+        "description": "Only for custom toolkits: \u0022all\u0022 when every user in the project can use the toolkit, otherwise the user_id it is private to",
+        "example": "all"
+      },
+      "PostToolkitsMulti200ResponseItemsItemAccess": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemAccessAnyOf1"
+          },
+          {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        ],
+        "description": "Only for custom toolkits: \u0022all\u0022 when every user in the project can use the toolkit, otherwise the user_id it is private to",
+        "example": "all"
+      },
       "PostToolsExecuteByToolSlugRequestConnectedAccountId": {
         "type": "object",
         "anyOf": [
@@ -19206,6 +19283,13 @@
         },
         "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
+      "InstantAccountPriceProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/InstantAccountPricePropertyAdditionalProperties"
+        },
+        "description": "Published pricing from the selected tool row, unchanged."
+      },
       "ToolInputParametersProperty": {
         "type": "object",
         "additionalProperties": {
@@ -19264,6 +19348,9 @@
         "type": "object"
       },
       "DefaultAuthConfigUpdateSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "InstantAccountPriceAdditionalProperties": {
         "type": "object"
       },
       "ToolInputParametersAdditionalProperties": {
@@ -21197,6 +21284,9 @@
           "type": {
             "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemType"
           },
+          "access": {
+            "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemAccess"
+          },
           "auth_schemes": {
             "type": "array",
             "items": {
@@ -21470,6 +21560,9 @@
           },
           "type": {
             "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemType"
+          },
+          "access": {
+            "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemAccess"
           },
           "auth_schemes": {
             "type": "array",
@@ -23812,6 +23905,9 @@
         "type": "object"
       },
       "DefaultAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "InstantAccountPricePropertyAdditionalProperties": {
         "type": "object"
       },
       "ToolInputParametersPropertyAdditionalProperties": {
@@ -28319,6 +28415,13 @@
           ]
         }
       },
+      "InstantAccountSupported": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "additionalProperties": false
+      },
       "PatchConnectedAccountBodyConnectionStateAuthScheme": {
         "enum": [
           "BEARER_TOKEN",
@@ -29583,6 +29686,57 @@
         ],
         "type": "boolean",
         "additionalProperties": false
+      },
+      "GetToolkits200ResponseItemsItemAccessAnyOf1": {
+        "enum": [
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GetToolkits200ResponseItemsItemAccessAnyOf1",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            }
+          ]
+        }
+      },
+      "GetToolkitsBySlug200ResponseAccessAnyOf1": {
+        "enum": [
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GetToolkitsBySlug200ResponseAccessAnyOf1",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            }
+          ]
+        }
+      },
+      "PostToolkitsMulti200ResponseItemsItemAccessAnyOf1": {
+        "enum": [
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostToolkitsMulti200ResponseItemsItemAccessAnyOf1",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            }
+          ]
+        }
       },
       "PostToolsExecuteByToolSlugRequestConnectedAccountIdAnyOf1": {
         "enum": [

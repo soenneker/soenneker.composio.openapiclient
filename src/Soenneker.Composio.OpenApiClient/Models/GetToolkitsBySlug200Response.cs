@@ -13,6 +13,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetToolkitsBySlug200Response : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Only for custom toolkits: &quot;all&quot; when every user in the project can use the toolkit, otherwise the user_id it is private to</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAccess? Access { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAccess Access { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Complete authentication configuration details for each supported auth method</summary>
@@ -135,6 +143,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "access", n => { Access = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAccess>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAccess.CreateFromDiscriminatorValue); } },
                 { "auth_config_details", n => { AuthConfigDetails = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItem>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "auth_guide_url", n => { AuthGuideUrl = n.GetStringValue(); } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
@@ -158,6 +167,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAccess>("access", Access);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItem>("auth_config_details", AuthConfigDetails);
             writer.WriteStringValue("auth_guide_url", AuthGuideUrl);
             writer.WriteStringValue("base_url", BaseUrl);

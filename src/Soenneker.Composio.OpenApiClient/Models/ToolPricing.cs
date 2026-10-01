@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Current published pricing, independent of the requested tool version. Omitted when unspecified; absence does not mean free.
+    /// Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolPricing : IParsable
