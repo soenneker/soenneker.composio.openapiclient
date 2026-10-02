@@ -14,7 +14,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>End-user-facing copy for the API key input on the connect page</summary>
+        /// <summary>Label and help text for the API key input on the connect page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField? ApiKeyField { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField ApiKeyField { get; set; }
 #endif
-        /// <summary>URL to fetch the full auth scheme from, usually the /.well-known/oauth-authorization-server path of your MCP URL</summary>
+        /// <summary>OAuth authorization server metadata URL, usually &lt;MCP URL&gt;/.well-known/oauth-authorization-server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DiscoveryUrl { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string DiscoveryUrl { get; set; }
 #endif
-        /// <summary>Headers to be used for the API key authentication. Please replace your actual api key with {{generic_api_key}}</summary>
+        /// <summary>Headers sent to the MCP server. Use {{generic_api_key}} where the API key goes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders? Headers { get; set; }

@@ -8,12 +8,12 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Square logo image (PNG or JPEG, 256-1024px, max 3MB) shown for this toolkit in the dashboard and on connect pages. Uploaded to Composio-hosted storage; defaults to the Composio logo when omitted.
+    /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostCustomToolkitsUpsertRequestToolkitConfigLogoFile : IParsable
     {
-        /// <summary>Base64-encoded image bytes, max 3MB decoded</summary>
+        /// <summary>Base64-encoded image, max 3MB decoded</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Content { get; set; }
@@ -21,7 +21,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Content { get; set; }
 #endif
-        /// <summary>Image MIME type of the encoded bytes</summary>
+        /// <summary>Image MIME type</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType? MimeType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -21359,11 +21359,11 @@
             "maxLength": 200,
             "minLength": 1,
             "type": "string",
-            "description": "Human readable name for your application"
+            "description": "Display name of the toolkit"
           },
           "app_url": {
             "type": "string",
-            "description": "App URL for the toolkit. For MCP apps, please provide the MCP URL here",
+            "description": "MCP server URL",
             "format": "uri"
           },
           "logo_file": {
@@ -21375,7 +21375,7 @@
             "items": {
               "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem"
             },
-            "description": "Authentication schemes for the toolkit"
+            "description": "How users authenticate to the MCP server"
           }
         },
         "additionalProperties": false
@@ -24907,14 +24907,14 @@
             "minLength": 1,
             "pattern": "^[A-Za-z0-9\u002B/]\u002B={0,2}$",
             "type": "string",
-            "description": "Base64-encoded image bytes, max 3MB decoded"
+            "description": "Base64-encoded image, max 3MB decoded"
           },
           "mime_type": {
             "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType"
           }
         },
         "additionalProperties": false,
-        "description": "Square logo image (PNG or JPEG, 256-1024px, max 3MB) shown for this toolkit in the dashboard and on connect pages. Uploaded to Composio-hosted storage; defaults to the Composio logo when omitted."
+        "description": "Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo."
       },
       "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem": {
         "required": [
@@ -24933,7 +24933,7 @@
           },
           "discovery_url": {
             "type": "string",
-            "description": "URL to fetch the full auth scheme from, usually the /.well-known/oauth-authorization-server path of your MCP URL",
+            "description": "OAuth authorization server metadata URL, usually \u003CMCP URL\u003E/.well-known/oauth-authorization-server",
             "format": "uri"
           }
         }
@@ -27353,7 +27353,7 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Headers to be used for the API key authentication. Please replace your actual api key with {{generic_api_key}}"
+        "description": "Headers sent to the MCP server. Use {{generic_api_key}} where the API key goes."
       },
       "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField": {
         "type": "object",
@@ -27362,17 +27362,17 @@
             "maxLength": 100,
             "minLength": 1,
             "type": "string",
-            "description": "Label shown to end users for the API key input on the connect page"
+            "description": "Label for the API key input"
           },
           "description": {
             "maxLength": 500,
             "minLength": 1,
             "type": "string",
-            "description": "Help text shown to end users below the API key input on the connect page"
+            "description": "Help text below the API key input"
           }
         },
         "additionalProperties": false,
-        "description": "End-user-facing copy for the API key input on the connect page"
+        "description": "Label and help text for the API key input on the connect page"
       },
       "GetToolkitsBySlug200ResponseAuthConfigDetailsItemFieldsAuthConfigCreation": {
         "required": [
@@ -31935,7 +31935,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Image MIME type of the encoded bytes",
+        "description": "Image MIME type",
         "x-ms-enum": {
           "name": "PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType",
           "modelAsString": false,

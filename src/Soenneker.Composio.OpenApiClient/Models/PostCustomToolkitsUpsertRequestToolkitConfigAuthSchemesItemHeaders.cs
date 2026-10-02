@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Headers to be used for the API key authentication. Please replace your actual api key with {{generic_api_key}}
+    /// Headers sent to the MCP server. Use {{generic_api_key}} where the API key goes.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders : IAdditionalDataHolder, IParsable

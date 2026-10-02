@@ -12,7 +12,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     public partial class PostCustomToolkitsUpsertRequestToolkitConfig : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>App URL for the toolkit. For MCP apps, please provide the MCP URL here</summary>
+        /// <summary>MCP server URL</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AppUrl { get; set; }
@@ -20,7 +20,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string AppUrl { get; set; }
 #endif
-        /// <summary>Authentication schemes for the toolkit</summary>
+        /// <summary>How users authenticate to the MCP server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem>? AuthSchemes { get; set; }
@@ -28,7 +28,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem> AuthSchemes { get; set; }
 #endif
-        /// <summary>Square logo image (PNG or JPEG, 256-1024px, max 3MB) shown for this toolkit in the dashboard and on connect pages. Uploaded to Composio-hosted storage; defaults to the Composio logo when omitted.</summary>
+        /// <summary>Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile? LogoFile { get; set; }
@@ -36,7 +36,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile LogoFile { get; set; }
 #endif
-        /// <summary>Human readable name for your application</summary>
+        /// <summary>Display name of the toolkit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }

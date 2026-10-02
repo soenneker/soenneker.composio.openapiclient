@@ -8,12 +8,12 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// End-user-facing copy for the API key input on the connect page
+    /// Label and help text for the API key input on the connect page
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField : IParsable
     {
-        /// <summary>Help text shown to end users below the API key input on the connect page</summary>
+        /// <summary>Help text below the API key input</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -21,7 +21,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>Label shown to end users for the API key input on the connect page</summary>
+        /// <summary>Label for the API key input</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }

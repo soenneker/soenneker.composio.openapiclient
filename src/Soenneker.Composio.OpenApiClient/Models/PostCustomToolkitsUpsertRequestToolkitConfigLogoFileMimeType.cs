@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>Image MIME type of the encoded bytes</summary>
+    /// <summary>Image MIME type</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType
     {
