@@ -71,6 +71,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPreload Preload { get; set; }
 #endif
+        /// <summary>Proxy execute configuration for this session. Omitted when not set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigProxyExecute? ProxyExecute { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigProxyExecute ProxyExecute { get; set; }
+#endif
         /// <summary>MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,6 +151,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "manage_connections", n => { ManageConnections = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigManageConnections>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigManageConnections.CreateFromDiscriminatorValue); } },
                 { "multi_account", n => { MultiAccount = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigMultiAccount>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigMultiAccount.CreateFromDiscriminatorValue); } },
                 { "preload", n => { Preload = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPreload>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPreload.CreateFromDiscriminatorValue); } },
+                { "proxy_execute", n => { ProxyExecute = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigProxyExecute>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigProxyExecute.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTags>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTags.CreateFromDiscriminatorValue); } },
                 { "toolkits", n => { Toolkits = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigToolkits>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigToolkits.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTools>(global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTools.CreateFromDiscriminatorValue); } },
@@ -164,6 +173,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigManageConnections>("manage_connections", ManageConnections);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigMultiAccount>("multi_account", MultiAccount);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigPreload>("preload", Preload);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigProxyExecute>("proxy_execute", ProxyExecute);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTags>("tags", Tags);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigToolkits>("toolkits", Toolkits);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigTools>("tools", Tools);

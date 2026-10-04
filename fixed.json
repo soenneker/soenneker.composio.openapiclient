@@ -15347,6 +15347,9 @@
           "workbench": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestWorkbench"
           },
+          "proxy_execute": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestProxyExecute"
+          },
           "multi_account": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestMultiAccount"
           },
@@ -15572,6 +15575,9 @@
           },
           "multi_account": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestMultiAccount"
+          },
+          "proxy_execute": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestProxyExecute"
           },
           "preload": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPreload"
@@ -22628,9 +22634,23 @@
         "additionalProperties": false,
         "description": "Configuration for workbench behavior",
         "default": {
-          "enable": true,
-          "enable_proxy_execution": true
+          "enable": true
         }
+      },
+      "PostToolRouterSessionRequestProxyExecute": {
+        "required": [
+          "enable"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "description": "When true, the agent can make authenticated HTTP requests to connected app APIs outside the workbench. When false, proxy execution is also disabled inside the workbench, regardless of workbench.enable_proxy_execution. When not set, proxy execute is disabled outside the workbench.",
+            "example": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Configure proxy execute. Omitted from responses when not set. Session creation fails when enable is false and workbench.enable_proxy_execution is explicitly true."
       },
       "PostToolRouterSessionRequestMultiAccount": {
         "type": "object",
@@ -22770,6 +22790,9 @@
           },
           "multi_account": {
             "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigMultiAccount"
+          },
+          "proxy_execute": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigProxyExecute"
           },
           "preload": {
             "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigPreload"
@@ -22972,6 +22995,9 @@
           },
           "multi_account": {
             "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigMultiAccount"
+          },
+          "proxy_execute": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigProxyExecute"
           },
           "preload": {
             "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigPreload"
@@ -23188,6 +23214,21 @@
         "additionalProperties": false,
         "nullable": true
       },
+      "PatchToolRouterSessionBySessionIdRequestProxyExecute": {
+        "required": [
+          "enable"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "description": "When true, the agent can make authenticated HTTP requests to connected app APIs outside the workbench. When false, proxy execution is also disabled inside the workbench, regardless of workbench.enable_proxy_execution. When not set, proxy execute is disabled outside the workbench.",
+            "example": true
+          }
+        },
+        "additionalProperties": false,
+        "nullable": true
+      },
       "PatchToolRouterSessionBySessionIdRequestPreload": {
         "type": "object",
         "properties": {
@@ -23286,6 +23327,9 @@
           },
           "multi_account": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigMultiAccount"
+          },
+          "proxy_execute": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigProxyExecute"
           },
           "preload": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigPreload"
@@ -25904,6 +25948,19 @@
         },
         "description": "Multi-account configuration for this session."
       },
+      "PostToolRouterSession201ResponseConfigProxyExecute": {
+        "required": [
+          "enable"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "description": "When true, enables proxy execute outside the workbench. When false, also disables proxy execution inside the workbench."
+          }
+        },
+        "description": "Proxy execute configuration for this session. Omitted when not set."
+      },
       "PostToolRouterSession201ResponseConfigPreload": {
         "required": [
           "tools"
@@ -26160,6 +26217,19 @@
           }
         },
         "description": "Multi-account configuration for this session."
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigProxyExecute": {
+        "required": [
+          "enable"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "description": "When true, enables proxy execute outside the workbench. When false, also disables proxy execution inside the workbench."
+          }
+        },
+        "description": "Proxy execute configuration for this session. Omitted when not set."
       },
       "GetToolRouterSessionBySessionId200ResponseConfigPreload": {
         "required": [
@@ -26464,6 +26534,19 @@
           }
         },
         "description": "Multi-account configuration for this session."
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigProxyExecute": {
+        "required": [
+          "enable"
+        ],
+        "type": "object",
+        "properties": {
+          "enable": {
+            "type": "boolean",
+            "description": "When true, enables proxy execute outside the workbench. When false, also disables proxy execution inside the workbench."
+          }
+        },
+        "description": "Proxy execute configuration for this session. Omitted when not set."
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigPreload": {
         "required": [
