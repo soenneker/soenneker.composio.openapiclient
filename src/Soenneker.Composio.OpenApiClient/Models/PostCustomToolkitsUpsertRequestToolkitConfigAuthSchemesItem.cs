@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField ApiKeyField { get; set; }
 #endif
-        /// <summary>OAuth authorization server metadata URL, usually &lt;MCP URL&gt;/.well-known/oauth-authorization-server</summary>
+        /// <summary>OAuth authorization server metadata URL, for example https://&lt;auth server host&gt;/.well-known/oauth-authorization-server. Use the URL your authorization server publishes; it can be on a different host from the MCP server or include a path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DiscoveryUrl { get; set; }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.
+    /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Model Context Protocol logo.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostCustomToolkitsUpsertRequestToolkitConfigLogoFile : IParsable

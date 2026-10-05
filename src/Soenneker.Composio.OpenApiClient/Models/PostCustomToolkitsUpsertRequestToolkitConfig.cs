@@ -28,7 +28,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem> AuthSchemes { get; set; }
 #endif
-        /// <summary>Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.</summary>
+        /// <summary>Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Model Context Protocol logo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile? LogoFile { get; set; }
