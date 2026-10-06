@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation.
+    /// Published pricing for the tool
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ToolPricing : IParsable
@@ -21,37 +21,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>Human-readable discount text.</summary>
+        /// <summary>Discount on top of provider charges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Discount { get; set; }
 #nullable restore
 #else
         public string Discount { get; set; }
-#endif
-        /// <summary>Pricing unit, such as per call or per second.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Item { get; set; }
-#nullable restore
-#else
-        public string Item { get; set; }
-#endif
-        /// <summary>Display text for the maximum price.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Max { get; set; }
-#nullable restore
-#else
-        public string Max { get; set; }
-#endif
-        /// <summary>Display text for the minimum price.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Min { get; set; }
-#nullable restore
-#else
-        public string Min { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -73,9 +49,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "discount", n => { Discount = n.GetStringValue(); } },
-                { "item", n => { Item = n.GetStringValue(); } },
-                { "max", n => { Max = n.GetStringValue(); } },
-                { "min", n => { Min = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -87,9 +60,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("discount", Discount);
-            writer.WriteStringValue("item", Item);
-            writer.WriteStringValue("max", Max);
-            writer.WriteStringValue("min", Min);
         }
     }
 }

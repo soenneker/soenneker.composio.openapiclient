@@ -53,7 +53,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolkitsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/toolkits{?category*,cursor*,include_deprecated*,limit*,managed_by*,search*,sort_by*,type*}", pathParameters)
+        public ToolkitsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/toolkits{?category*,cursor*,include_deprecated*,limit*,managed_by*,search*,sort_by*,type*,user_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolkitsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/toolkits{?category*,cursor*,include_deprecated*,limit*,managed_by*,search*,sort_by*,type*}", rawUrl)
+        public ToolkitsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/toolkits{?category*,cursor*,include_deprecated*,limit*,managed_by*,search*,sort_by*,type*,user_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -175,6 +175,16 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
             /// <summary>Filter toolkits by provenance (alias over managed_by)</summary>
             [QueryParameter("type")]
             public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsTypeParameter? Type { get; set; }
+            /// <summary>[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access &quot;all&quot; are listed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("user_id")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("user_id")]
+            public string UserId { get; set; }
+#endif
         }
     }
 }

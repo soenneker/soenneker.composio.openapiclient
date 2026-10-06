@@ -13,14 +13,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolkitsMulti200ResponseItemsItem : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Only for custom toolkits: &quot;all&quot; when every user in the project can use the toolkit, otherwise the user_id it is private to</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>[EXPERIMENTAL] Custom toolkits only. &quot;all&quot;: every user in the project can use it. &quot;user&quot;: only the user it was created for can.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemAccess? Access { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemAccess Access { get; set; }
-#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>URL to a guide page with authentication setup instructions for this toolkit</summary>
@@ -112,7 +106,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "access", n => { Access = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemAccess>(global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemAccess.CreateFromDiscriminatorValue); } },
+                { "access", n => { Access = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemAccess>(); } },
                 { "auth_guide_url", n => { AuthGuideUrl = n.GetStringValue(); } },
                 { "auth_schemes", n => { AuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "composio_managed_auth_schemes", n => { ComposioManagedAuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -132,7 +126,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemAccess>("access", Access);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemAccess>("access", Access);
             writer.WriteStringValue("auth_guide_url", AuthGuideUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("auth_schemes", AuthSchemes);
             writer.WriteCollectionOfPrimitiveValues<string>("composio_managed_auth_schemes", ComposioManagedAuthSchemes);

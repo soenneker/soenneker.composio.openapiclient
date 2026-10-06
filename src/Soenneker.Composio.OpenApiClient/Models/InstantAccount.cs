@@ -15,13 +15,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Published pricing from the selected tool row, unchanged.</summary>
+        /// <summary>Published pricing for the tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.InstantAccountPriceProperty? Price { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolPricing? Price { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.InstantAccountPriceProperty Price { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolPricing Price { get; set; }
 #endif
         /// <summary>The supported property</summary>
         public bool? Supported { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "price", n => { Price = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.InstantAccountPriceProperty>(global::Soenneker.Composio.OpenApiClient.Models.InstantAccountPriceProperty.CreateFromDiscriminatorValue); } },
+                { "price", n => { Price = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolPricing>(global::Soenneker.Composio.OpenApiClient.Models.ToolPricing.CreateFromDiscriminatorValue); } },
                 { "supported", n => { Supported = n.GetBoolValue(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.InstantAccountPriceProperty>("price", Price);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolPricing>("price", Price);
             writer.WriteBoolValue("supported", Supported);
             writer.WriteAdditionalData(AdditionalData);
         }

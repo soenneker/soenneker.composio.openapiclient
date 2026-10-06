@@ -4110,6 +4110,19 @@
             }
           },
           {
+            "name": "user_id",
+            "in": "query",
+            "description": "[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are listed.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string",
+              "description": "[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are listed.",
+              "example": "user_123",
+              "x-experimental": true
+            }
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Number of items per page, max allowed is 1000",
@@ -4684,6 +4697,15 @@
             "schema": {
               "type": "boolean",
               "default": true
+            }
+          },
+          {
+            "name": "include_pricing",
+            "in": "query",
+            "description": "Whether to include published pricing within instant, when available. Defaults to false.",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           },
           {
@@ -10434,6 +10456,22 @@
         },
         "deprecated": true
       },
+      "ToolPricing": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Human-readable pricing description."
+          },
+          "discount": {
+            "type": "string",
+            "description": "Discount on top of provider charges.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Published pricing for the tool"
+      },
       "InstantAccount": {
         "required": [
           "supported"
@@ -10444,7 +10482,7 @@
             "$ref": "#/components/schemas/InstantAccountSupported"
           },
           "price": {
-            "$ref": "#/components/schemas/InstantAccountPriceProperty"
+            "$ref": "#/components/schemas/ToolPricing"
           }
         },
         "description": "Present only when the tool supports an Instant account and its selected toolkit version is the latest. Missing for older toolkit versions or ineligible tools."
@@ -10573,38 +10611,6 @@
             "type": "number"
           }
         }
-      },
-      "ToolPricing": {
-        "type": "object",
-        "properties": {
-          "description": {
-            "type": "string",
-            "description": "Human-readable pricing description.",
-            "nullable": true
-          },
-          "min": {
-            "type": "string",
-            "description": "Display text for the minimum price.",
-            "nullable": true
-          },
-          "max": {
-            "type": "string",
-            "description": "Display text for the maximum price.",
-            "nullable": true
-          },
-          "discount": {
-            "type": "string",
-            "description": "Human-readable discount text.",
-            "nullable": true
-          },
-          "item": {
-            "type": "string",
-            "description": "Pricing unit, such as per call or per second.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation."
       },
       "ToolDetails": {
         "required": [
@@ -11334,13 +11340,6 @@
         },
         "description": "Experimental features - not stable, may be modified or removed in future versions.",
         "x-experimental": true
-      },
-      "InstantAccountPrice": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/InstantAccountPriceAdditionalProperties"
-        },
-        "description": "Published pricing from the selected tool row, unchanged."
       },
       "ToolToolkit": {
         "required": [
@@ -18634,51 +18633,6 @@
           }
         ]
       },
-      "GetToolkits200ResponseItemsItemAccess": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemAccessAnyOf1"
-          },
-          {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string"
-          }
-        ],
-        "description": "Only for custom toolkits: \u0022all\u0022 when every user in the project can use the toolkit, otherwise the user_id it is private to",
-        "example": "all"
-      },
-      "GetToolkitsBySlug200ResponseAccess": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseAccessAnyOf1"
-          },
-          {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string"
-          }
-        ],
-        "description": "Only for custom toolkits: \u0022all\u0022 when every user in the project can use the toolkit, otherwise the user_id it is private to",
-        "example": "all"
-      },
-      "PostToolkitsMulti200ResponseItemsItemAccess": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemAccessAnyOf1"
-          },
-          {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string"
-          }
-        ],
-        "description": "Only for custom toolkits: \u0022all\u0022 when every user in the project can use the toolkit, otherwise the user_id it is private to",
-        "example": "all"
-      },
       "PostToolsExecuteByToolSlugRequestConnectedAccountId": {
         "type": "object",
         "anyOf": [
@@ -19299,13 +19253,6 @@
         },
         "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
-      "InstantAccountPriceProperty": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/InstantAccountPricePropertyAdditionalProperties"
-        },
-        "description": "Published pricing from the selected tool row, unchanged."
-      },
       "ToolInputParametersProperty": {
         "type": "object",
         "additionalProperties": {
@@ -19364,9 +19311,6 @@
         "type": "object"
       },
       "DefaultAuthConfigUpdateSharedCredentialsAdditionalProperties": {
-        "type": "object"
-      },
-      "InstantAccountPriceAdditionalProperties": {
         "type": "object"
       },
       "ToolInputParametersAdditionalProperties": {
@@ -21379,7 +21323,7 @@
           },
           "app_url": {
             "type": "string",
-            "description": "MCP server URL",
+            "description": "MCP server URL. Must use https.",
             "format": "uri"
           },
           "logo_file": {
@@ -23959,9 +23903,6 @@
         "type": "object"
       },
       "DefaultAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties": {
-        "type": "object"
-      },
-      "InstantAccountPricePropertyAdditionalProperties": {
         "type": "object"
       },
       "ToolInputParametersPropertyAdditionalProperties": {
@@ -29335,6 +29276,31 @@
           ]
         }
       },
+      "GetToolkitsBySlug200ResponseAccess": {
+        "enum": [
+          "all",
+          "user"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "[EXPERIMENTAL] Custom toolkits only. \u0022all\u0022: every user in the project can use it. \u0022user\u0022: only the user it was created for can.",
+        "example": "all",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "GetToolkitsBySlug200ResponseAccess",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            },
+            {
+              "value": "user",
+              "name": "User"
+            }
+          ]
+        }
+      },
       "PostToolkitsMultiRequestManagedBy": {
         "enum": [
           "composio",
@@ -29505,7 +29471,8 @@
           "COMPOSIO_REMOTE_WORKBENCH",
           "COMPOSIO_REMOTE_BASH_TOOL",
           "COMPOSIO_GET_TOOL_SCHEMAS",
-          "COMPOSIO_SUBMIT_FEEDBACK"
+          "COMPOSIO_SUBMIT_FEEDBACK",
+          "COMPOSIO_PROXY_EXECUTE"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -29546,6 +29513,10 @@
             {
               "value": "COMPOSIO_SUBMIT_FEEDBACK",
               "name": "ComposioSubmitFeedback"
+            },
+            {
+              "value": "COMPOSIO_PROXY_EXECUTE",
+              "name": "ComposioProxyExecute"
             }
           ]
         }
@@ -29780,57 +29751,6 @@
         ],
         "type": "boolean",
         "additionalProperties": false
-      },
-      "GetToolkits200ResponseItemsItemAccessAnyOf1": {
-        "enum": [
-          "all"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetToolkits200ResponseItemsItemAccessAnyOf1",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "all",
-              "name": "All"
-            }
-          ]
-        }
-      },
-      "GetToolkitsBySlug200ResponseAccessAnyOf1": {
-        "enum": [
-          "all"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetToolkitsBySlug200ResponseAccessAnyOf1",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "all",
-              "name": "All"
-            }
-          ]
-        }
-      },
-      "PostToolkitsMulti200ResponseItemsItemAccessAnyOf1": {
-        "enum": [
-          "all"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PostToolkitsMulti200ResponseItemsItemAccessAnyOf1",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "all",
-              "name": "All"
-            }
-          ]
-        }
       },
       "PostToolsExecuteByToolSlugRequestConnectedAccountIdAnyOf1": {
         "enum": [
@@ -30984,6 +30904,31 @@
           ]
         }
       },
+      "GetToolkits200ResponseItemsItemAccess": {
+        "enum": [
+          "all",
+          "user"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "[EXPERIMENTAL] Custom toolkits only. \u0022all\u0022: every user in the project can use it. \u0022user\u0022: only the user it was created for can.",
+        "example": "all",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "GetToolkits200ResponseItemsItemAccess",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            },
+            {
+              "value": "user",
+              "name": "User"
+            }
+          ]
+        }
+      },
       "PostToolkitsMulti200ResponseItemsItemType": {
         "enum": [
           "native",
@@ -31004,6 +30949,31 @@
             {
               "value": "custom",
               "name": "Custom"
+            }
+          ]
+        }
+      },
+      "PostToolkitsMulti200ResponseItemsItemAccess": {
+        "enum": [
+          "all",
+          "user"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "[EXPERIMENTAL] Custom toolkits only. \u0022all\u0022: every user in the project can use it. \u0022user\u0022: only the user it was created for can.",
+        "example": "all",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "PostToolkitsMulti200ResponseItemsItemAccess",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
+            },
+            {
+              "value": "user",
+              "name": "User"
             }
           ]
         }

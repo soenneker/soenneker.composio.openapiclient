@@ -12,7 +12,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     public partial class PostCustomToolkitsUpsertRequestToolkitConfig : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>MCP server URL</summary>
+        /// <summary>MCP server URL. Must use https.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AppUrl { get; set; }

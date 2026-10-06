@@ -82,7 +82,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsOutputParametersProperty OutputParameters { get; set; }
 #endif
-        /// <summary>Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation.</summary>
+        /// <summary>Published pricing for the tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.ToolPricing? Pricing { get; set; }

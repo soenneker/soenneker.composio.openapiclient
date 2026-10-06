@@ -47,7 +47,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools{?auth_config_ids*,cursor*,important*,include_deprecated*,limit*,query*,scopes*,search*,tags*,tool_slugs*,toolkit_slug*,toolkit_versions*}", pathParameters)
+        public ToolsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools{?auth_config_ids*,cursor*,important*,include_deprecated*,include_pricing*,limit*,query*,scopes*,search*,tags*,tool_slugs*,toolkit_slug*,toolkit_versions*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools{?auth_config_ids*,cursor*,important*,include_deprecated*,limit*,query*,scopes*,search*,tags*,tool_slugs*,toolkit_slug*,toolkit_versions*}", rawUrl)
+        public ToolsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools{?auth_config_ids*,cursor*,important*,include_deprecated*,include_pricing*,limit*,query*,scopes*,search*,tags*,tool_slugs*,toolkit_slug*,toolkit_versions*}", rawUrl)
         {
         }
         /// <summary>
@@ -152,6 +152,9 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
             /// <summary>Include deprecated tools in the response</summary>
             [QueryParameter("include_deprecated")]
             public bool? IncludeDeprecated { get; set; }
+            /// <summary>Whether to include published pricing within instant, when available. Defaults to false.</summary>
+            [QueryParameter("include_pricing")]
+            public bool? IncludePricing { get; set; }
             /// <summary>Number of items per page, max allowed is 1000</summary>
             [QueryParameter("limit")]
             public double? Limit { get; set; }

@@ -39,5 +39,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         #pragma warning disable CS1591
         ComposioSubmitFeedback,
         #pragma warning restore CS1591
+        [EnumMember(Value = "COMPOSIO_PROXY_EXECUTE")]
+        #pragma warning disable CS1591
+        ComposioProxyExecute,
+        #pragma warning restore CS1591
     }
 }
