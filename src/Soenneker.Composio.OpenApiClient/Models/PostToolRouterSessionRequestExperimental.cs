@@ -49,6 +49,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string LinkUrlOverwrite { get; set; }
 #endif
+        /// <summary>What session MCP does with a tool call that needs approval when the MCP client can&apos;t ask the user. deny (default) rejects the call; allow runs it without approval.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback? NoElicitationSupportFallback { get; set; }
         /// <summary>Per-tool elicitation permission config. Default behavior + per-tool always_allow/always_deny overrides. Mutation via PATCH.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,6 +97,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "custom_tools", n => { CustomTools = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolsItem>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "fast_mode", n => { FastMode = n.GetBoolValue(); } },
                 { "link_url_overwrite", n => { LinkUrlOverwrite = n.GetStringValue(); } },
+                { "no_elicitation_support_fallback", n => { NoElicitationSupportFallback = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback>(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions.CreateFromDiscriminatorValue); } },
                 { "submit_feedback", n => { SubmitFeedback = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback.CreateFromDiscriminatorValue); } },
             };
@@ -111,6 +114,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolsItem>("custom_tools", CustomTools);
             writer.WriteBoolValue("fast_mode", FastMode);
             writer.WriteStringValue("link_url_overwrite", LinkUrlOverwrite);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback>("no_elicitation_support_fallback", NoElicitationSupportFallback);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions>("permissions", Permissions);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback>("submit_feedback", SubmitFeedback);
             writer.WriteAdditionalData(AdditionalData);

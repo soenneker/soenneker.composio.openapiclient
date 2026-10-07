@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// The HTTP headers returned from the proxied API
+    /// The user&apos;s answers to an `input_required` response, keyed by the ids in its `input_requests`. Send them by repeating the same call (same tool and arguments) with this field added, along with the response&apos;s `request_state` if present. An approved call runs; a denied or declined one returns `failed`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders : IAdditionalDataHolder, IParsable
+    public partial class PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses"/> and sets the default values.
         /// </summary>
-        public PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders()
+        public PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders();
+            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -30,6 +30,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2EnableItem?> Enable { get; set; }
 #endif
+        /// <summary>Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem?>? RequireApproval { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem?> RequireApproval { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2"/> and sets the default values.
         /// </summary>
@@ -57,6 +65,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "disable", n => { Disable = n.GetCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2DisableItem>()?.AsList(); } },
                 { "enable", n => { Enable = n.GetCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2EnableItem>()?.AsList(); } },
+                { "require_approval", n => { RequireApproval = n.GetCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -68,6 +77,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2DisableItem>("disable", Disable);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2EnableItem>("enable", Enable);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem>("require_approval", RequireApproval);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

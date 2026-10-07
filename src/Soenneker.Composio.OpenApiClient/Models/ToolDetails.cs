@@ -82,14 +82,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsOutputParametersProperty OutputParameters { get; set; }
 #endif
-        /// <summary>Published pricing for the tool</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.ToolPricing? Pricing { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.ToolPricing Pricing { get; set; }
-#endif
         /// <summary>Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -173,7 +165,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "no_auth", n => { NoAuth = n.GetBoolValue(); } },
                 { "output_parameters", n => { OutputParameters = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsOutputParametersProperty>(global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsOutputParametersProperty.CreateFromDiscriminatorValue); } },
-                { "pricing", n => { Pricing = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolPricing>(global::Soenneker.Composio.OpenApiClient.Models.ToolPricing.CreateFromDiscriminatorValue); } },
                 { "scope_requirements", n => { ScopeRequirements = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsScopeRequirements>(global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsScopeRequirements.CreateFromDiscriminatorValue); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
@@ -199,7 +190,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("no_auth", NoAuth);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsOutputParametersProperty>("output_parameters", OutputParameters);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolPricing>("pricing", Pricing);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsScopeRequirements>("scope_requirements", ScopeRequirements);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteStringValue("slug", Slug);

@@ -32,6 +32,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>When true, direct non-meta tool execution may return a workbench offload preview if the response exceeds the configured threshold and the session workbench is enabled. When omitted or false, direct tool execution returns the normal inline response. Meta/helper tools are unaffected, and COMPOSIO_MULTI_EXECUTE_TOOL uses session.workbench configuration for its own batch-level offload behavior.</summary>
         public bool? EnableAutoWorkbenchOffload { get; set; }
+        /// <summary>The user&apos;s answers to an `input_required` response, keyed by the ids in its `input_requests`. Send them by repeating the same call (same tool and arguments) with this field added, along with the response&apos;s `request_state` if present. An approved call runs; a denied or declined one returns `failed`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteRequestInputResponses? InputResponses { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteRequestInputResponses InputResponses { get; set; }
+#endif
+        /// <summary>The `request_state` from the `input_required` response, sent back unchanged with `input_responses`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RequestState { get; set; }
+#nullable restore
+#else
+        public string RequestState { get; set; }
+#endif
         /// <summary>The unique slug identifier of the tool to execute. Supports both meta tools and app tools exposed by the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,6 +84,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "account", n => { Account = n.GetStringValue(); } },
                 { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteRequestArguments>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteRequestArguments.CreateFromDiscriminatorValue); } },
                 { "enable_auto_workbench_offload", n => { EnableAutoWorkbenchOffload = n.GetBoolValue(); } },
+                { "input_responses", n => { InputResponses = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteRequestInputResponses>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteRequestInputResponses.CreateFromDiscriminatorValue); } },
+                { "request_state", n => { RequestState = n.GetStringValue(); } },
                 { "tool_slug", n => { ToolSlug = n.GetStringValue(); } },
             };
         }
@@ -81,6 +99,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("account", Account);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteRequestArguments>("arguments", Arguments);
             writer.WriteBoolValue("enable_auto_workbench_offload", EnableAutoWorkbenchOffload);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteRequestInputResponses>("input_responses", InputResponses);
+            writer.WriteStringValue("request_state", RequestState);
             writer.WriteStringValue("tool_slug", ToolSlug);
             writer.WriteAdditionalData(AdditionalData);
         }

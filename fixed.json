@@ -4946,6 +4946,15 @@
             }
           },
           {
+            "name": "include_pricing",
+            "in": "query",
+            "description": "Whether to include published pricing within instant, when available. Defaults to false.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
             "name": "version",
             "in": "query",
             "description": "Optional version of the tool to retrieve. Takes precedence over toolkit_versions; when both are omitted the tool resolves to the pinned version (\u002200000000_00\u0022).",
@@ -8533,7 +8542,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully executed the tool. Returns execution result, logs, and status.",
+            "description": "The tool call completed, failed, or needs the user\u0027s input before it can run. The \u0060result_type\u0060 field says which of these happened.",
             "content": {
               "application/json": {
                 "schema": {
@@ -8594,6 +8603,16 @@
           },
           "409": {
             "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Gone",
             "content": {
               "application/json": {
                 "schema": {
@@ -8684,7 +8703,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully executed the meta tool. Returns execution result, logs, and status.",
+            "description": "The tool call completed, failed, or needs the user\u0027s input before it can run. The \u0060result_type\u0060 field says which of these happened.",
             "content": {
               "application/json": {
                 "schema": {
@@ -8745,6 +8764,16 @@
           },
           "409": {
             "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Gone",
             "content": {
               "application/json": {
                 "schema": {
@@ -9252,6 +9281,16 @@
               }
             }
           },
+          "410": {
+            "description": "Gone",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "413": {
             "description": "Payload too large",
             "content": {
@@ -9548,6 +9587,16 @@
               }
             }
           },
+          "410": {
+            "description": "Gone",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "413": {
             "description": "Payload too large",
             "content": {
@@ -9690,6 +9739,16 @@
           },
           "409": {
             "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Gone",
             "content": {
               "application/json": {
                 "schema": {
@@ -10704,9 +10763,155 @@
           },
           "deprecated": {
             "$ref": "#/components/schemas/ToolDetailsDeprecated"
+          }
+        }
+      },
+      "ExecuteCompleted": {
+        "required": [
+          "result_type",
+          "data",
+          "error",
+          "log_id"
+        ],
+        "type": "object",
+        "properties": {
+          "result_type": {
+            "$ref": "#/components/schemas/CompletedResultType"
           },
-          "pricing": {
-            "$ref": "#/components/schemas/ToolPricing"
+          "instant_charge": {
+            "$ref": "#/components/schemas/ExecuteCompletedInstantCharge"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ExecuteCompletedDataProperty"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message if the execution failed, null otherwise",
+            "nullable": true
+          },
+          "log_id": {
+            "type": "string",
+            "description": "Unique identifier for the execution log",
+            "example": "log_abc123xyz"
+          }
+        }
+      },
+      "ExecuteFailed": {
+        "required": [
+          "result_type",
+          "data",
+          "error",
+          "log_id"
+        ],
+        "type": "object",
+        "properties": {
+          "result_type": {
+            "$ref": "#/components/schemas/FailedResultType"
+          },
+          "instant_charge": {
+            "$ref": "#/components/schemas/ExecuteFailedInstantCharge"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ExecuteFailedDataProperty"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message if the execution failed, null otherwise",
+            "nullable": true
+          },
+          "log_id": {
+            "type": "string",
+            "description": "Unique identifier for the execution log",
+            "example": "log_abc123xyz"
+          }
+        }
+      },
+      "UserInputRequest": {
+        "required": [
+          "type",
+          "mode",
+          "message",
+          "requested_schema"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ElicitationType"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/FormMode"
+          },
+          "message": {
+            "type": "string",
+            "description": "Text to show the user",
+            "example": "Your agent wants to run the following tool:\n\nGITHUB_DELETE_A_REPOSITORY({\u0022owner\u0022: \u0022acme\u0022, \u0022repo\u0022: \u0022old-api\u0022})"
+          },
+          "requested_schema": {
+            "$ref": "#/components/schemas/UserInputRequestRequestedSchemaProperty"
+          }
+        },
+        "description": "A question for the user, in the shape of an MCP \u0060elicitation/create\u0060 request in form mode (https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation). Show \u0060message\u0060 to the user and collect an answer that matches \u0060requested_schema\u0060."
+      },
+      "ExecuteRequiresUserInput": {
+        "required": [
+          "result_type",
+          "input_requests"
+        ],
+        "type": "object",
+        "properties": {
+          "result_type": {
+            "$ref": "#/components/schemas/InputRequiredResultType"
+          },
+          "input_requests": {
+            "$ref": "#/components/schemas/ExecuteRequiresUserInputInputRequestsProperty"
+          },
+          "request_state": {
+            "type": "string",
+            "description": "Send this back unchanged in \u0060request_state\u0060 with the answers",
+            "x-experimental": true
+          }
+        },
+        "description": "The call needs the user\u0027s input before it runs. Returned only when the session is configured to ask for user approval before tool execution. Show each question in \u0060input_requests\u0060 to the user, then repeat the same call with their answers in \u0060input_responses\u0060, along with this \u0060request_state\u0060 if present.",
+        "x-experimental": true
+      },
+      "UserInputResponse": {
+        "required": [
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/UserInputResponseAction"
+          },
+          "content": {
+            "$ref": "#/components/schemas/UserInputResponseContentProperty"
+          }
+        },
+        "description": "The user\u0027s answer to one question, in the shape of an MCP elicitation result (https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation)."
+      },
+      "ProxyExecuteCompleted": {
+        "required": [
+          "result_type",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "result_type": {
+            "$ref": "#/components/schemas/CompletedResultType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ProxyExecuteCompletedData"
+          },
+          "binary_data": {
+            "$ref": "#/components/schemas/ProxyExecuteCompletedBinaryData"
+          },
+          "status": {
+            "type": "number",
+            "description": "The HTTP status code returned from the proxied API",
+            "example": 200
+          },
+          "headers": {
+            "$ref": "#/components/schemas/ProxyExecuteCompletedHeadersProperty"
           }
         }
       },
@@ -11625,6 +11830,132 @@
           "toolkit": {
             "$ref": "#/components/schemas/ToolDetailsDeprecatedToolkit"
           }
+        }
+      },
+      "ExecuteCompletedInstantCharge": {
+        "required": [
+          "amount",
+          "currency",
+          "charged_by"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
+            "type": "string",
+            "description": "Instant charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
+          },
+          "currency": {
+            "$ref": "#/components/schemas/UsdCurrency"
+          },
+          "charged_by": {
+            "$ref": "#/components/schemas/ComposioChargedBy"
+          }
+        },
+        "description": "Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
+      },
+      "ExecuteCompletedData": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ExecuteCompletedDataAdditionalProperties"
+        },
+        "description": "The data returned by the tool execution",
+        "example": {
+          "message": "Hello, World!",
+          "status": "success"
+        }
+      },
+      "ExecuteFailedInstantCharge": {
+        "required": [
+          "amount",
+          "currency",
+          "charged_by"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
+            "type": "string",
+            "description": "Instant charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
+          },
+          "currency": {
+            "$ref": "#/components/schemas/UsdCurrency"
+          },
+          "charged_by": {
+            "$ref": "#/components/schemas/ComposioChargedBy"
+          }
+        },
+        "description": "Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
+      },
+      "ExecuteFailedData": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ExecuteFailedDataAdditionalProperties"
+        },
+        "description": "The data returned by the tool execution",
+        "example": {
+          "message": "Hello, World!",
+          "status": "success"
+        }
+      },
+      "UserInputRequestRequestedSchema": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/UserInputRequestRequestedSchemaAdditionalProperties"
+        },
+        "description": "JSON Schema for the answer. As in MCP form mode, it is a flat object whose fields are strings, numbers, booleans, or single- or multi-select enums."
+      },
+      "ExecuteRequiresUserInputInputRequests": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/UserInputRequest"
+        },
+        "description": "Questions for the user, keyed by an ID the answers must reuse",
+        "x-experimental": true
+      },
+      "UserInputResponseContent": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/UserInputResponseContentAdditionalProperties"
+        },
+        "description": "With \u0060accept\u0060, the user\u0027s answer: fields matching the question\u0027s \u0060requested_schema\u0060"
+      },
+      "ProxyExecuteCompletedBinaryData": {
+        "required": [
+          "url",
+          "content_type",
+          "size"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL to download binary content"
+          },
+          "content_type": {
+            "type": "string",
+            "description": "Content-Type of the binary data"
+          },
+          "size": {
+            "type": "number",
+            "description": "File size in bytes"
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "ISO 8601 timestamp when the URL expires"
+          }
+        },
+        "description": "Binary body response data. Present when the response is a binary file."
+      },
+      "ProxyExecuteCompletedHeaders": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "The HTTP headers returned from the proxied API",
+        "example": {
+          "content-type": "application/json",
+          "cache-control": "no-cache"
         }
       },
       "ToolRouterToolkitsListResponseItemsItem": {
@@ -15440,23 +15771,34 @@
             "type": "boolean",
             "description": "When true, direct non-meta tool execution may return a workbench offload preview if the response exceeds the configured threshold and the session workbench is enabled. When omitted or false, direct tool execution returns the normal inline response. Meta/helper tools are unaffected, and COMPOSIO_MULTI_EXECUTE_TOOL uses session.workbench configuration for its own batch-level offload behavior.",
             "example": true
+          },
+          "input_responses": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteRequestInputResponses"
+          },
+          "request_state": {
+            "type": "string",
+            "description": "The \u0060request_state\u0060 from the \u0060input_required\u0060 response, sent back unchanged with \u0060input_responses\u0060.",
+            "x-experimental": true
           }
         }
       },
       "PostToolRouterSessionBySessionIdExecute200Response": {
         "required": [
-          "data",
-          "error",
-          "log_id"
+          "result_type"
         ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ExecuteCompleted"
+          },
+          {
+            "$ref": "#/components/schemas/ExecuteFailed"
+          },
+          {
+            "$ref": "#/components/schemas/ExecuteRequiresUserInput"
+          }
+        ],
         "properties": {
-          "instant_charge": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge"
-          },
-          "data": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200ResponseData"
-          },
           "error": {
             "type": "string",
             "description": "Error message if the execution failed, null otherwise",
@@ -15466,6 +15808,28 @@
             "type": "string",
             "description": "Unique identifier for the execution log",
             "example": "log_abc123xyz"
+          },
+          "input_requests": {
+            "$ref": "#/components/schemas/ExecuteRequiresUserInputInputRequestsProperty"
+          },
+          "request_state": {
+            "type": "string",
+            "description": "Send this back unchanged in \u0060request_state\u0060 with the answers",
+            "x-experimental": true
+          },
+          "result_type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "result_type",
+          "mapping": {
+            "completed": "#/components/schemas/ExecuteCompleted",
+            "failed": "#/components/schemas/ExecuteFailed",
+            "input_required": "#/components/schemas/ExecuteRequiresUserInput",
+            "ExecuteCompleted": "#/components/schemas/ExecuteCompleted",
+            "ExecuteFailed": "#/components/schemas/ExecuteFailed",
+            "ExecuteRequiresUserInput": "#/components/schemas/ExecuteRequiresUserInput"
           }
         }
       },
@@ -15480,23 +15844,34 @@
           },
           "arguments": {
             "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMetaRequestArguments"
+          },
+          "input_responses": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses"
+          },
+          "request_state": {
+            "type": "string",
+            "description": "The \u0060request_state\u0060 from the \u0060input_required\u0060 response, sent back unchanged with \u0060input_responses\u0060.",
+            "x-experimental": true
           }
         }
       },
       "PostToolRouterSessionBySessionIdExecuteMeta200Response": {
         "required": [
-          "data",
-          "error",
-          "log_id"
+          "result_type"
         ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ExecuteCompleted"
+          },
+          {
+            "$ref": "#/components/schemas/ExecuteFailed"
+          },
+          {
+            "$ref": "#/components/schemas/ExecuteRequiresUserInput"
+          }
+        ],
         "properties": {
-          "instant_charge": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200ResponseInstantCharge"
-          },
-          "data": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200ResponseData"
-          },
           "error": {
             "type": "string",
             "description": "Error message if the execution failed, null otherwise",
@@ -15506,6 +15881,28 @@
             "type": "string",
             "description": "Unique identifier for the execution log",
             "example": "log_abc123xyz"
+          },
+          "input_requests": {
+            "$ref": "#/components/schemas/ExecuteRequiresUserInputInputRequestsProperty"
+          },
+          "request_state": {
+            "type": "string",
+            "description": "Send this back unchanged in \u0060request_state\u0060 with the answers",
+            "x-experimental": true
+          },
+          "result_type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "result_type",
+          "mapping": {
+            "completed": "#/components/schemas/ExecuteCompleted",
+            "failed": "#/components/schemas/ExecuteFailed",
+            "input_required": "#/components/schemas/ExecuteRequiresUserInput",
+            "ExecuteCompleted": "#/components/schemas/ExecuteCompleted",
+            "ExecuteFailed": "#/components/schemas/ExecuteFailed",
+            "ExecuteRequiresUserInput": "#/components/schemas/ExecuteRequiresUserInput"
           }
         }
       },
@@ -15741,15 +16138,23 @@
       },
       "PostToolRouterSessionBySessionIdProxyExecute200Response": {
         "required": [
-          "status"
+          "result_type"
         ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ProxyExecuteCompleted"
+          },
+          {
+            "$ref": "#/components/schemas/ExecuteRequiresUserInput"
+          }
+        ],
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecute200ResponseData"
+            "$ref": "#/components/schemas/ProxyExecuteCompletedData"
           },
           "binary_data": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData"
+            "$ref": "#/components/schemas/ProxyExecuteCompletedBinaryData"
           },
           "status": {
             "type": "number",
@@ -15757,7 +16162,27 @@
             "example": 200
           },
           "headers": {
-            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders"
+            "$ref": "#/components/schemas/ProxyExecuteCompletedHeadersProperty"
+          },
+          "input_requests": {
+            "$ref": "#/components/schemas/ExecuteRequiresUserInputInputRequestsProperty"
+          },
+          "request_state": {
+            "type": "string",
+            "description": "Send this back unchanged in \u0060request_state\u0060 with the answers",
+            "x-experimental": true
+          },
+          "result_type": {
+            "type": "string"
+          }
+        },
+        "discriminator": {
+          "propertyName": "result_type",
+          "mapping": {
+            "completed": "#/components/schemas/ProxyExecuteCompleted",
+            "input_required": "#/components/schemas/ExecuteRequiresUserInput",
+            "ProxyExecuteCompleted": "#/components/schemas/ProxyExecuteCompleted",
+            "ExecuteRequiresUserInput": "#/components/schemas/ExecuteRequiresUserInput"
           }
         }
       },
@@ -18782,14 +19207,26 @@
             "items": {
               "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2DisableItem"
             }
+          },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "destructiveHint"
+            ],
+            "x-experimental": true
           }
         },
-        "description": "MCP tags to filter tools. Array format is treated as enabled list. Object format supports both enabled and disabled lists.",
+        "description": "MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.",
         "example": {
-          "enable": [
+          "disable": [
             "openWorldHint"
           ],
-          "disable": [
+          "require_approval": [
             "destructiveHint"
           ]
         }
@@ -18822,14 +19259,26 @@
             "items": {
               "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsAnyOf2DisableItem"
             }
+          },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "destructiveHint"
+            ],
+            "x-experimental": true
           }
         },
-        "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.",
+        "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.",
         "example": {
-          "enable": [
+          "disable": [
             "openWorldHint"
           ],
-          "disable": [
+          "require_approval": [
             "destructiveHint"
           ]
         }
@@ -18943,14 +19392,26 @@
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2DisableItem"
             }
+          },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "destructiveHint"
+            ],
+            "x-experimental": true
           }
         },
-        "description": "MCP tags to filter tools. Array format is treated as enabled list. Object format supports both enabled and disabled lists.",
+        "description": "MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.",
         "example": {
-          "enable": [
+          "disable": [
             "openWorldHint"
           ],
-          "disable": [
+          "require_approval": [
             "destructiveHint"
           ]
         }
@@ -18983,14 +19444,26 @@
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsAnyOf2DisableItem"
             }
+          },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "destructiveHint"
+            ],
+            "x-experimental": true
           }
         },
-        "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.",
+        "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.",
         "example": {
-          "enable": [
+          "disable": [
             "openWorldHint"
           ],
-          "disable": [
+          "require_approval": [
             "destructiveHint"
           ]
         }
@@ -19080,6 +19553,18 @@
             "items": {
               "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2DisableItem"
             }
+          },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "destructiveHint"
+            ],
+            "x-experimental": true
           }
         }
       },
@@ -19097,6 +19582,18 @@
             "items": {
               "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsAnyOf2DisableItem"
             }
+          },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "destructiveHint"
+            ],
+            "x-experimental": true
           }
         }
       },
@@ -19168,6 +19665,18 @@
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2DisableItem"
             }
+          },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "destructiveHint"
+            ],
+            "x-experimental": true
           }
         }
       },
@@ -19185,6 +19694,18 @@
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsAnyOf2DisableItem"
             }
+          },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "destructiveHint"
+            ],
+            "x-experimental": true
           }
         }
       },
@@ -19281,6 +19802,57 @@
         },
         "description": "Schema definition of return values from the tool"
       },
+      "ExecuteCompletedDataProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ExecuteCompletedDataPropertyAdditionalProperties"
+        },
+        "description": "The data returned by the tool execution"
+      },
+      "ExecuteFailedDataProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ExecuteFailedDataPropertyAdditionalProperties"
+        },
+        "description": "The data returned by the tool execution"
+      },
+      "UserInputRequestRequestedSchemaProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/UserInputRequestRequestedSchemaPropertyAdditionalProperties"
+        },
+        "description": "JSON Schema for the answer. As in MCP form mode, it is a flat object whose fields are strings, numbers, booleans, or single- or multi-select enums."
+      },
+      "ExecuteRequiresUserInputInputRequestsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/UserInputRequest"
+        },
+        "description": "Questions for the user, keyed by an ID the answers must reuse"
+      },
+      "UserInputResponseContentProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/UserInputResponseContentPropertyAdditionalProperties"
+        },
+        "description": "With \u0060accept\u0060, the user\u0027s answer: fields matching the question\u0027s \u0060requested_schema\u0060"
+      },
+      "ProxyExecuteCompletedData": {
+        "type": "object",
+        "description": "The response data returned from the proxied API",
+        "example": {
+          "id": "123",
+          "name": "Resource Name",
+          "created_at": "2023-01-01T00:00:00Z"
+        }
+      },
+      "ProxyExecuteCompletedHeadersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "The HTTP headers returned from the proxied API"
+      },
       "ToolScopeRequirementsAllOfItemAnyOf2WhenProperty": {
         "type": "object",
         "additionalProperties": {
@@ -19323,6 +19895,18 @@
         "type": "object"
       },
       "ToolDetailsOutputParametersAdditionalProperties": {
+        "type": "object"
+      },
+      "ExecuteCompletedDataAdditionalProperties": {
+        "type": "object"
+      },
+      "ExecuteFailedDataAdditionalProperties": {
+        "type": "object"
+      },
+      "UserInputRequestRequestedSchemaAdditionalProperties": {
+        "type": "object"
+      },
+      "UserInputResponseContentAdditionalProperties": {
         "type": "object"
       },
       "GetAuthSessionInfo200ResponseProject": {
@@ -21244,6 +21828,9 @@
           "type": {
             "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemType"
           },
+          "instant": {
+            "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemInstant"
+          },
           "access": {
             "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemAccess"
           },
@@ -21520,6 +22107,9 @@
           },
           "type": {
             "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemType"
+          },
+          "instant": {
+            "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemInstant"
           },
           "access": {
             "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemAccess"
@@ -22449,6 +23039,18 @@
               "github"
             ]
           },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "github"
+            ],
+            "x-experimental": true
+          },
           "disable": {
             "type": "array",
             "items": {
@@ -22461,7 +23063,7 @@
             ]
           }
         },
-        "description": "Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive."
+        "description": "Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive. Experimentally, it can also list toolkits whose tools need approval, with or without a filter."
       },
       "PostToolRouterSessionRequestAuthConfigs": {
         "type": "object",
@@ -22529,30 +23131,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalProperties"
         },
-        "description": "Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in \u0060enable\u0060 / \u0060disable\u0060 must be a valid Composio tool slug for that toolkit \u2014 invalid or typo\u0027d slugs fail session creation with a clear error listing which ones didn\u0027t match.",
-        "example": {
-          "gmail": {
-            "enable": [
-              "GMAIL_SEND_EMAIL",
-              "GMAIL_FETCH_EMAILS"
-            ]
-          },
-          "slack": {
-            "disable": [
-              "SLACK_ADD_EMOJI"
-            ]
-          },
-          "slackbot": {
-            "tags": {
-              "enable": [
-                "destructiveHint"
-              ],
-              "disable": [
-                "openWorldHint"
-              ]
-            }
-          }
-        }
+        "description": "Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit, and experimentally to list tools that need approval. Every tool slug must be a valid Composio tool slug for that toolkit \u2014 invalid or typo\u0027d slugs fail session creation with a clear error listing which ones didn\u0027t match."
       },
       "PostToolRouterSessionRequestWorkbench": {
         "type": "object",
@@ -22666,6 +23245,9 @@
           },
           "submit_feedback": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalSubmitFeedback"
+          },
+          "no_elicitation_support_fallback": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback"
           }
         },
         "description": "Experimental features - not stable, may be modified or removed in future versions.",
@@ -22774,6 +23356,9 @@
               "$ref": "#/components/schemas/PostToolRouterSession201ResponseExperimentalCustomToolsItem"
             },
             "description": "Custom tools \u2014 standalone or extending Composio toolkits"
+          },
+          "no_elicitation_support_fallback": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseExperimentalNoElicitationSupportFallback"
           }
         },
         "description": "Experimental features including the generated system prompt. Only returned on session creation, not on GET.",
@@ -22811,38 +23396,21 @@
           }
         }
       },
-      "PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge": {
-        "required": [
-          "amount",
-          "currency",
-          "charged_by"
-        ],
-        "type": "object",
-        "properties": {
-          "amount": {
-            "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
-            "type": "string",
-            "description": "Instant charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
-          },
-          "currency": {
-            "$ref": "#/components/schemas/UsdCurrency"
-          },
-          "charged_by": {
-            "$ref": "#/components/schemas/ComposioChargedBy"
-          }
-        },
-        "description": "Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
-      },
-      "PostToolRouterSessionBySessionIdExecute200ResponseData": {
+      "PostToolRouterSessionBySessionIdExecuteRequestInputResponses": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200ResponseDataAdditionalProperties"
+          "$ref": "#/components/schemas/UserInputResponse"
         },
-        "description": "The data returned by the tool execution",
+        "description": "The user\u0027s answers to an \u0060input_required\u0060 response, keyed by the ids in its \u0060input_requests\u0060. Send them by repeating the same call (same tool and arguments) with this field added, along with the response\u0027s \u0060request_state\u0060 if present. An approved call runs; a denied or declined one returns \u0060failed\u0060.",
         "example": {
-          "message": "Hello, World!",
-          "status": "success"
-        }
+          "approval_3f9a1c2b7d4e5f60": {
+            "action": "accept",
+            "content": {
+              "decision": "approve"
+            }
+          }
+        },
+        "x-experimental": true
       },
       "PostToolRouterSessionBySessionIdExecuteMetaRequestArguments": {
         "type": "object",
@@ -22857,38 +23425,21 @@
           "reinitiate_all": false
         }
       },
-      "PostToolRouterSessionBySessionIdExecuteMeta200ResponseInstantCharge": {
-        "required": [
-          "amount",
-          "currency",
-          "charged_by"
-        ],
-        "type": "object",
-        "properties": {
-          "amount": {
-            "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
-            "type": "string",
-            "description": "Instant charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
-          },
-          "currency": {
-            "$ref": "#/components/schemas/UsdCurrency"
-          },
-          "charged_by": {
-            "$ref": "#/components/schemas/ComposioChargedBy"
-          }
-        },
-        "description": "Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
-      },
-      "PostToolRouterSessionBySessionIdExecuteMeta200ResponseData": {
+      "PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200ResponseDataAdditionalProperties"
+          "$ref": "#/components/schemas/UserInputResponse"
         },
-        "description": "The data returned by the tool execution",
+        "description": "The user\u0027s answers to an \u0060input_required\u0060 response, keyed by the ids in its \u0060input_requests\u0060. Send them by repeating the same call (same tool and arguments) with this field added, along with the response\u0027s \u0060request_state\u0060 if present. An approved call runs; a denied or declined one returns \u0060failed\u0060.",
         "example": {
-          "message": "Hello, World!",
-          "status": "success"
-        }
+          "approval_3f9a1c2b7d4e5f60": {
+            "action": "accept",
+            "content": {
+              "decision": "approve"
+            }
+          }
+        },
+        "x-experimental": true
       },
       "GetToolRouterSessionBySessionId200ResponseMcp": {
         "required": [
@@ -22979,6 +23530,9 @@
               "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItem"
             },
             "description": "Custom tools \u2014 standalone or extending Composio toolkits"
+          },
+          "no_elicitation_support_fallback": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseExperimentalNoElicitationSupportFallback"
           }
         },
         "description": "Experimental features",
@@ -23016,6 +23570,18 @@
               "github"
             ]
           },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "github"
+            ],
+            "x-experimental": true
+          },
           "disable": {
             "type": "array",
             "items": {
@@ -23028,7 +23594,7 @@
             ]
           }
         },
-        "description": "Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive."
+        "description": "Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive. Experimentally, it can also list toolkits whose tools need approval, with or without a filter."
       },
       "PatchToolRouterSessionBySessionIdRequestAuthConfigs": {
         "type": "object",
@@ -23088,30 +23654,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalProperties"
         },
-        "description": "Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in \u0060enable\u0060 / \u0060disable\u0060 must be a valid Composio tool slug for that toolkit \u2014 invalid or typo\u0027d slugs fail session creation with a clear error listing which ones didn\u0027t match.",
-        "example": {
-          "gmail": {
-            "enable": [
-              "GMAIL_SEND_EMAIL",
-              "GMAIL_FETCH_EMAILS"
-            ]
-          },
-          "slack": {
-            "disable": [
-              "SLACK_ADD_EMOJI"
-            ]
-          },
-          "slackbot": {
-            "tags": {
-              "enable": [
-                "destructiveHint"
-              ],
-              "disable": [
-                "openWorldHint"
-              ]
-            }
-          }
-        }
+        "description": "Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit, and experimentally to list tools that need approval. Every tool slug must be a valid Composio tool slug for that toolkit \u2014 invalid or typo\u0027d slugs fail session creation with a clear error listing which ones didn\u0027t match."
       },
       "PatchToolRouterSessionBySessionIdRequestWorkbench": {
         "type": "object",
@@ -23216,6 +23759,9 @@
           },
           "submit_feedback": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestExperimentalSubmitFeedback"
+          },
+          "no_elicitation_support_fallback": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback"
           }
         },
         "additionalProperties": false,
@@ -23311,6 +23857,9 @@
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItem"
             },
             "description": "Custom tools \u2014 standalone or extending Composio toolkits"
+          },
+          "no_elicitation_support_fallback": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseExperimentalNoElicitationSupportFallback"
           }
         },
         "description": "Experimental features",
@@ -23432,53 +23981,6 @@
           }
         },
         "deprecated": true
-      },
-      "PostToolRouterSessionBySessionIdProxyExecute200ResponseData": {
-        "type": "object",
-        "description": "The response data returned from the proxied API",
-        "example": {
-          "id": "123",
-          "name": "Resource Name",
-          "created_at": "2023-01-01T00:00:00Z"
-        }
-      },
-      "PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData": {
-        "required": [
-          "url",
-          "content_type",
-          "size"
-        ],
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "description": "URL to download binary content"
-          },
-          "content_type": {
-            "type": "string",
-            "description": "Content-Type of the binary data"
-          },
-          "size": {
-            "type": "number",
-            "description": "File size in bytes"
-          },
-          "expires_at": {
-            "type": "string",
-            "description": "ISO 8601 timestamp when the URL expires"
-          }
-        },
-        "description": "Binary body response data. Present when the response is a binary file."
-      },
-      "PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "The HTTP headers returned from the proxied API",
-        "example": {
-          "content-type": "application/json",
-          "cache-control": "no-cache"
-        }
       },
       "PostToolRouterSessionBySessionIdSearchRequestQueriesItem": {
         "required": [
@@ -23915,6 +24417,18 @@
         "type": "object"
       },
       "ToolDetailsOutputParametersPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "ExecuteCompletedDataPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "ExecuteFailedDataPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "UserInputRequestRequestedSchemaPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "UserInputResponseContentPropertyAdditionalProperties": {
         "type": "object"
       },
       "GetAuthSessionInfo200ResponseProjectOrg": {
@@ -24826,6 +25340,18 @@
         },
         "description": "Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation."
       },
+      "GetToolkits200ResponseItemsItemInstant": {
+        "required": [
+          "supported"
+        ],
+        "type": "object",
+        "properties": {
+          "supported": {
+            "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemInstantSupported"
+          }
+        },
+        "description": "Present when the latest version of this toolkit supports Instant accounts. See the tools endpoint for support on individual tools."
+      },
       "GetToolkits200ResponseItemsItemMeta": {
         "required": [
           "created_at",
@@ -25045,6 +25571,18 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItemAdditionalProperties"
         }
+      },
+      "PostToolkitsMulti200ResponseItemsItemInstant": {
+        "required": [
+          "supported"
+        ],
+        "type": "object",
+        "properties": {
+          "supported": {
+            "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemInstantSupported"
+          }
+        },
+        "description": "Present when the latest version of this toolkit supports Instant accounts. See the tools endpoint for support on individual tools."
       },
       "PostToolkitsMulti200ResponseItemsItemMeta": {
         "required": [
@@ -25604,6 +26142,18 @@
               "GMAIL_FETCH_EMAILS"
             ]
           },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "GITHUB_DELETE_A_REPOSITORY"
+            ],
+            "x-experimental": true
+          },
           "disable": {
             "type": "array",
             "items": {
@@ -25761,6 +26311,14 @@
               "type": "string"
             }
           },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
+          },
           "disabled": {
             "type": "array",
             "items": {
@@ -25768,7 +26326,7 @@
             }
           }
         },
-        "description": "Toolkit configuration - either enabled list or disabled list"
+        "description": "Toolkit configuration - either enabled list or disabled list, or toolkits whose tools need approval"
       },
       "PostToolRouterSession201ResponseConfigAuthConfigs": {
         "type": "object",
@@ -25829,7 +26387,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigToolsAdditionalProperties"
         },
-        "description": "Tool-level configuration per toolkit"
+        "description": "Tool-level configuration per toolkit: tools to enable or disable, or tools that need approval"
       },
       "PostToolRouterSession201ResponseConfigTags": {
         "type": "object",
@@ -25847,9 +26405,17 @@
               "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigTagsDisabledItem"
             },
             "description": "Tags that the tool must NOT have any of"
+          },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigTagsRequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
           }
         },
-        "description": "MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
+        "description": "MCP tool annotation hints for filtering tools with enabled/disabled support, and experimentally the tags whose tools need approval. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
       },
       "PostToolRouterSession201ResponseConfigWorkbench": {
         "type": "object",
@@ -26013,13 +26579,7 @@
       "PostToolRouterSessionBySessionIdExecuteRequestArgumentsAdditionalProperties": {
         "type": "object"
       },
-      "PostToolRouterSessionBySessionIdExecute200ResponseDataAdditionalProperties": {
-        "type": "object"
-      },
       "PostToolRouterSessionBySessionIdExecuteMetaRequestArgumentsAdditionalProperties": {
-        "type": "object"
-      },
-      "PostToolRouterSessionBySessionIdExecuteMeta200ResponseDataAdditionalProperties": {
         "type": "object"
       },
       "GetToolRouterSessionBySessionId200ResponseConfigToolkits": {
@@ -26031,6 +26591,14 @@
               "type": "string"
             }
           },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
+          },
           "disabled": {
             "type": "array",
             "items": {
@@ -26038,7 +26606,7 @@
             }
           }
         },
-        "description": "Toolkit configuration - either enabled list or disabled list"
+        "description": "Toolkit configuration - either enabled list or disabled list, or toolkits whose tools need approval"
       },
       "GetToolRouterSessionBySessionId200ResponseConfigAuthConfigs": {
         "type": "object",
@@ -26099,7 +26667,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalProperties"
         },
-        "description": "Tool-level configuration per toolkit"
+        "description": "Tool-level configuration per toolkit: tools to enable or disable, or tools that need approval"
       },
       "GetToolRouterSessionBySessionId200ResponseConfigTags": {
         "type": "object",
@@ -26117,9 +26685,17 @@
               "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigTagsDisabledItem"
             },
             "description": "Tags that the tool must NOT have any of"
+          },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigTagsRequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
           }
         },
-        "description": "MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
+        "description": "MCP tool annotation hints for filtering tools with enabled/disabled support, and experimentally the tags whose tools need approval. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
       },
       "GetToolRouterSessionBySessionId200ResponseConfigWorkbench": {
         "type": "object",
@@ -26294,6 +26870,18 @@
               "GMAIL_FETCH_EMAILS"
             ]
           },
+          "require_approval": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "example": [
+              "GITHUB_DELETE_A_REPOSITORY"
+            ],
+            "x-experimental": true
+          },
           "disable": {
             "type": "array",
             "items": {
@@ -26348,6 +26936,14 @@
               "type": "string"
             }
           },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
+          },
           "disabled": {
             "type": "array",
             "items": {
@@ -26355,7 +26951,7 @@
             }
           }
         },
-        "description": "Toolkit configuration - either enabled list or disabled list"
+        "description": "Toolkit configuration - either enabled list or disabled list, or toolkits whose tools need approval"
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigAuthConfigs": {
         "type": "object",
@@ -26416,7 +27012,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalProperties"
         },
-        "description": "Tool-level configuration per toolkit"
+        "description": "Tool-level configuration per toolkit: tools to enable or disable, or tools that need approval"
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigTags": {
         "type": "object",
@@ -26434,9 +27030,17 @@
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigTagsDisabledItem"
             },
             "description": "Tags that the tool must NOT have any of"
+          },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigTagsRequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
           }
         },
-        "description": "MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
+        "description": "MCP tool annotation hints for filtering tools with enabled/disabled support, and experimentally the tags whose tools need approval. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigWorkbench": {
         "type": "object",
@@ -27616,6 +28220,14 @@
               "type": "string"
             }
           },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
+          },
           "disabled": {
             "type": "array",
             "items": {
@@ -27687,6 +28299,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
           },
           "disabled": {
             "type": "array",
@@ -27766,6 +28386,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
           },
           "disabled": {
             "type": "array",
@@ -28142,6 +28770,14 @@
               "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigToolsAdditionalPropertiesTagsDisabledItem"
             },
             "description": "Tags that the tool must NOT have any of"
+          },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
           }
         }
       },
@@ -28179,6 +28815,14 @@
               "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsDisabledItem"
             },
             "description": "Tags that the tool must NOT have any of"
+          },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
           }
         }
       },
@@ -28216,6 +28860,14 @@
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsDisabledItem"
             },
             "description": "Tags that the tool must NOT have any of"
+          },
+          "require_approval": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem"
+            },
+            "description": "Tool calls matched here pause until the user approves them.",
+            "x-experimental": true
           }
         }
       },
@@ -28456,6 +29108,163 @@
         ],
         "type": "boolean",
         "additionalProperties": false
+      },
+      "CompletedResultType": {
+        "enum": [
+          "completed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The tool ran and succeeded",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "CompletedResultType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "completed",
+              "name": "Completed"
+            }
+          ]
+        }
+      },
+      "FailedResultType": {
+        "enum": [
+          "failed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The tool ran and failed, or the user did not approve it",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "FailedResultType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "ElicitationType": {
+        "enum": [
+          "elicitation"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Always \u0060elicitation\u0060",
+        "x-ms-enum": {
+          "name": "ElicitationType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "elicitation",
+              "name": "Elicitation"
+            }
+          ]
+        }
+      },
+      "FormMode": {
+        "enum": [
+          "form"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Always \u0060form\u0060: collect the answer with a form built from \u0060requested_schema\u0060",
+        "x-ms-enum": {
+          "name": "FormMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "form",
+              "name": "Form"
+            }
+          ]
+        }
+      },
+      "InputRequiredResultType": {
+        "enum": [
+          "input_required"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The call needs the user\u0027s input before it runs",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "InputRequiredResultType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "input_required",
+              "name": "InputRequired"
+            }
+          ]
+        }
+      },
+      "UserInputResponseAction": {
+        "enum": [
+          "accept",
+          "decline",
+          "cancel"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0060accept\u0060 when the user submitted the form, \u0060decline\u0060 when they said no, \u0060cancel\u0060 when they dismissed it",
+        "x-ms-enum": {
+          "name": "UserInputResponseAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "accept",
+              "name": "Accept"
+            },
+            {
+              "value": "decline",
+              "name": "Decline"
+            },
+            {
+              "value": "cancel",
+              "name": "Cancel"
+            }
+          ]
+        }
+      },
+      "UsdCurrency": {
+        "enum": [
+          "USD"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Currency of the instant charge. Always USD.",
+        "x-ms-enum": {
+          "name": "UsdCurrency",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "USD",
+              "name": "Usd"
+            }
+          ]
+        }
+      },
+      "ComposioChargedBy": {
+        "enum": [
+          "composio"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Entity charging for instant usage. Always composio.",
+        "x-ms-enum": {
+          "name": "ComposioChargedBy",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "composio",
+              "name": "Composio"
+            }
+          ]
+        }
       },
       "PatchConnectedAccountBodyConnectionStateAuthScheme": {
         "enum": [
@@ -29833,6 +30642,38 @@
           ]
         }
       },
+      "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
       "PostToolRouterSessionRequestTagsAnyOf2EnableItem": {
         "enum": [
           "readOnlyHint",
@@ -29876,6 +30717,38 @@
         "additionalProperties": false,
         "x-ms-enum": {
           "name": "PostToolRouterSessionRequestTagsAnyOf2DisableItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
+      "PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem",
           "modelAsString": false,
           "values": [
             {
@@ -29961,6 +30834,38 @@
           ]
         }
       },
+      "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
       "PatchToolRouterSessionBySessionIdRequestTagsAnyOf2EnableItem": {
         "enum": [
           "readOnlyHint",
@@ -30004,6 +30909,38 @@
         "additionalProperties": false,
         "x-ms-enum": {
           "name": "PatchToolRouterSessionBySessionIdRequestTagsAnyOf2DisableItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem",
           "modelAsString": false,
           "values": [
             {
@@ -31217,6 +32154,30 @@
           ]
         }
       },
+      "PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback": {
+        "enum": [
+          "deny",
+          "allow"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "What session MCP does with a tool call that needs approval when the MCP client can\u0027t ask the user. deny (default) rejects the call; allow runs it without approval.",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deny",
+              "name": "Deny"
+            },
+            {
+              "value": "allow",
+              "name": "Allow"
+            }
+          ]
+        }
+      },
       "HttpType": {
         "enum": [
           "http"
@@ -31231,6 +32192,30 @@
             {
               "value": "http",
               "name": "Http"
+            }
+          ]
+        }
+      },
+      "PostToolRouterSession201ResponseExperimentalNoElicitationSupportFallback": {
+        "enum": [
+          "deny",
+          "allow"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "What session MCP does with a tool call that needs approval when the MCP client can\u0027t ask the user. Omitted when not set, which means deny.",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "PostToolRouterSession201ResponseExperimentalNoElicitationSupportFallback",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deny",
+              "name": "Deny"
+            },
+            {
+              "value": "allow",
+              "name": "Allow"
             }
           ]
         }
@@ -31254,38 +32239,26 @@
           ]
         }
       },
-      "UsdCurrency": {
+      "GetToolRouterSessionBySessionId200ResponseExperimentalNoElicitationSupportFallback": {
         "enum": [
-          "USD"
+          "deny",
+          "allow"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Currency of the instant charge. Always USD.",
+        "description": "What session MCP does with a tool call that needs approval when the MCP client can\u0027t ask the user. Omitted when not set, which means deny.",
+        "x-experimental": true,
         "x-ms-enum": {
-          "name": "UsdCurrency",
+          "name": "GetToolRouterSessionBySessionId200ResponseExperimentalNoElicitationSupportFallback",
           "modelAsString": false,
           "values": [
             {
-              "value": "USD",
-              "name": "Usd"
-            }
-          ]
-        }
-      },
-      "ComposioChargedBy": {
-        "enum": [
-          "composio"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Entity charging for instant usage. Always composio.",
-        "x-ms-enum": {
-          "name": "ComposioChargedBy",
-          "modelAsString": false,
-          "values": [
+              "value": "deny",
+              "name": "Deny"
+            },
             {
-              "value": "composio",
-              "name": "Composio"
+              "value": "allow",
+              "name": "Allow"
             }
           ]
         }
@@ -31320,6 +32293,54 @@
             {
               "value": "xlarge",
               "name": "Xlarge"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback": {
+        "enum": [
+          "deny",
+          "allow"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "What session MCP does with a tool call that needs approval when the MCP client can\u0027t ask the user. deny (default) rejects the call; allow runs it without approval.",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deny",
+              "name": "Deny"
+            },
+            {
+              "value": "allow",
+              "name": "Allow"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseExperimentalNoElicitationSupportFallback": {
+        "enum": [
+          "deny",
+          "allow"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "What session MCP does with a tool call that needs approval when the MCP client can\u0027t ask the user. Omitted when not set, which means deny.",
+        "x-experimental": true,
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionId200ResponseExperimentalNoElicitationSupportFallback",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deny",
+              "name": "Deny"
+            },
+            {
+              "value": "allow",
+              "name": "Allow"
             }
           ]
         }
@@ -31992,6 +33013,13 @@
           ]
         }
       },
+      "GetToolkits200ResponseItemsItemInstantSupported": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "additionalProperties": false
+      },
       "PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType": {
         "enum": [
           "image/png",
@@ -32041,6 +33069,13 @@
             }
           ]
         }
+      },
+      "PostToolkitsMulti200ResponseItemsItemInstantSupported": {
+        "enum": [
+          true
+        ],
+        "type": "boolean",
+        "additionalProperties": false
       },
       "PostToolsExecuteByToolSlugRequestCustomAuthParamsParametersItemIn": {
         "enum": [
@@ -32157,6 +33192,38 @@
           ]
         }
       },
+      "PostToolRouterSession201ResponseConfigTagsRequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostToolRouterSession201ResponseConfigTagsRequireApprovalItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
       "PostToolRouterSession201ResponseConfigWorkbenchSandboxSize": {
         "enum": [
           "standard",
@@ -32233,6 +33300,38 @@
         "additionalProperties": false,
         "x-ms-enum": {
           "name": "GetToolRouterSessionBySessionId200ResponseConfigTagsDisabledItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigTagsRequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GetToolRouterSessionBySessionId200ResponseConfigTagsRequireApprovalItem",
           "modelAsString": false,
           "values": [
             {
@@ -32358,6 +33457,38 @@
         "additionalProperties": false,
         "x-ms-enum": {
           "name": "PatchToolRouterSessionBySessionId200ResponseConfigTagsDisabledItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigTagsRequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionId200ResponseConfigTagsRequireApprovalItem",
           "modelAsString": false,
           "values": [
             {
@@ -32665,6 +33796,38 @@
           ]
         }
       },
+      "PostToolRouterSession201ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostToolRouterSession201ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
       "GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
@@ -32729,6 +33892,38 @@
           ]
         }
       },
+      "GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
       "PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
@@ -32772,6 +33967,38 @@
         "additionalProperties": false,
         "x-ms-enum": {
           "name": "PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsDisabledItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "readOnlyHint",
+              "name": "ReadOnlyHint"
+            },
+            {
+              "value": "destructiveHint",
+              "name": "DestructiveHint"
+            },
+            {
+              "value": "idempotentHint",
+              "name": "IdempotentHint"
+            },
+            {
+              "value": "openWorldHint",
+              "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem": {
+        "enum": [
+          "readOnlyHint",
+          "destructiveHint",
+          "idempotentHint",
+          "openWorldHint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem",
           "modelAsString": false,
           "values": [
             {

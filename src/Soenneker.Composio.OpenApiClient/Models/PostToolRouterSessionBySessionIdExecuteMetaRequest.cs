@@ -22,6 +22,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments Arguments { get; set; }
 #endif
+        /// <summary>The user&apos;s answers to an `input_required` response, keyed by the ids in its `input_requests`. Send them by repeating the same call (same tool and arguments) with this field added, along with the response&apos;s `request_state` if present. An approved call runs; a denied or declined one returns `failed`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses? InputResponses { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses InputResponses { get; set; }
+#endif
+        /// <summary>The `request_state` from the `input_required` response, sent back unchanged with `input_responses`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RequestState { get; set; }
+#nullable restore
+#else
+        public string RequestState { get; set; }
+#endif
         /// <summary>The unique slug identifier of the meta tool to execute</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug? Slug { get; set; }
         /// <summary>
@@ -50,6 +66,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments.CreateFromDiscriminatorValue); } },
+                { "input_responses", n => { InputResponses = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses.CreateFromDiscriminatorValue); } },
+                { "request_state", n => { RequestState = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug>(); } },
             };
         }
@@ -61,6 +79,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments>("arguments", Arguments);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses>("input_responses", InputResponses);
+            writer.WriteStringValue("request_state", RequestState);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug>("slug", Slug);
             writer.WriteAdditionalData(AdditionalData);
         }

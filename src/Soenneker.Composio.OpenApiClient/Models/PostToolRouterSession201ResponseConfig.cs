@@ -79,7 +79,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigProxyExecute ProxyExecute { get; set; }
 #endif
-        /// <summary>MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.</summary>
+        /// <summary>MCP tool annotation hints for filtering tools with enabled/disabled support, and experimentally the tags whose tools need approval. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTags? Tags { get; set; }
@@ -87,7 +87,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTags Tags { get; set; }
 #endif
-        /// <summary>Toolkit configuration - either enabled list or disabled list</summary>
+        /// <summary>Toolkit configuration - either enabled list or disabled list, or toolkits whose tools need approval</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigToolkits? Toolkits { get; set; }
@@ -95,7 +95,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigToolkits Toolkits { get; set; }
 #endif
-        /// <summary>Tool-level configuration per toolkit</summary>
+        /// <summary>Tool-level configuration per toolkit: tools to enable or disable, or tools that need approval</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTools? Tools { get; set; }

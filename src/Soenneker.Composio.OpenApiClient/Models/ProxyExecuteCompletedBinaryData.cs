@@ -11,7 +11,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// Binary body response data. Present when the response is a binary file.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData : IAdditionalDataHolder, IParsable
+    public partial class ProxyExecuteCompletedBinaryData : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -42,21 +42,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData"/> and sets the default values.
         /// </summary>
-        public PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData()
+        public ProxyExecuteCompletedBinaryData()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData();
+            return new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData();
         }
         /// <summary>
         /// The deserialization information for the current model

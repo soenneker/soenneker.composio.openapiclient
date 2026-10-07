@@ -50,6 +50,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo Deprecated { get; set; }
 #endif
+        /// <summary>Present when the latest version of this toolkit supports Instant accounts. See the tools endpoint for support on individual tools.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemInstant? Instant { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemInstant Instant { get; set; }
+#endif
         /// <summary>DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.</summary>
         [Obsolete("")]
         public bool? IsLocalToolkit { get; set; }
@@ -111,6 +119,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "auth_schemes", n => { AuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "composio_managed_auth_schemes", n => { ComposioManagedAuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo>(global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo.CreateFromDiscriminatorValue); } },
+                { "instant", n => { Instant = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemInstant>(global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemInstant.CreateFromDiscriminatorValue); } },
                 { "is_local_toolkit", n => { IsLocalToolkit = n.GetBoolValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemMeta>(global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemMeta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -131,6 +140,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("auth_schemes", AuthSchemes);
             writer.WriteCollectionOfPrimitiveValues<string>("composio_managed_auth_schemes", ComposioManagedAuthSchemes);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DeprecatedToolkitInfo>("deprecated", Deprecated);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemInstant>("instant", Instant);
             writer.WriteBoolValue("is_local_toolkit", IsLocalToolkit);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemMeta>("meta", Meta);
             writer.WriteStringValue("name", Name);

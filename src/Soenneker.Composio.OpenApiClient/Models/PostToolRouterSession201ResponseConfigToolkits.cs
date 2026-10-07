@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Toolkit configuration - either enabled list or disabled list
+    /// Toolkit configuration - either enabled list or disabled list, or toolkits whose tools need approval
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSession201ResponseConfigToolkits : IAdditionalDataHolder, IParsable
@@ -30,6 +30,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public List<string> Enabled { get; set; }
+#endif
+        /// <summary>Tool calls matched here pause until the user approves them.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RequireApproval { get; set; }
+#nullable restore
+#else
+        public List<string> RequireApproval { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigToolkits"/> and sets the default values.
@@ -58,6 +66,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "disabled", n => { Disabled = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "enabled", n => { Enabled = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "require_approval", n => { RequireApproval = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -69,6 +78,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("disabled", Disabled);
             writer.WriteCollectionOfPrimitiveValues<string>("enabled", Enabled);
+            writer.WriteCollectionOfPrimitiveValues<string>("require_approval", RequireApproval);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

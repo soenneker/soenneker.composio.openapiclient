@@ -7,46 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PostToolRouterSessionBySessionIdProxyExecute200Response : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class PostToolRouterSessionBySessionIdProxyExecute200Response : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Binary body response data. Present when the response is a binary file.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData? BinaryData { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput? ExecuteRequiresUserInput { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData BinaryData { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput ExecuteRequiresUserInput { get; set; }
 #endif
-        /// <summary>The response data returned from the proxied API</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData? Data { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted? ProxyExecuteCompleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData Data { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted ProxyExecuteCompleted { get; set; }
 #endif
-        /// <summary>The HTTP headers returned from the proxied API</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders? Headers { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders Headers { get; set; }
-#endif
-        /// <summary>The HTTP status code returned from the proxied API</summary>
-        public double? Status { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200Response"/> and sets the default values.
-        /// </summary>
-        public PostToolRouterSessionBySessionIdProxyExecute200Response()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -55,7 +37,17 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200Response();
+            var mappingValue = parseNode.GetChildNode("result_type")?.GetStringValue();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200Response();
+            if("ExecuteRequiresUserInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ExecuteRequiresUserInput = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput();
+            }
+            else if("completed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ProxyExecuteCompleted = new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,13 +55,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ExecuteRequiresUserInput != null)
             {
-                { "binary_data", n => { BinaryData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData.CreateFromDiscriminatorValue); } },
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData.CreateFromDiscriminatorValue); } },
-                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetDoubleValue(); } },
-            };
+                return ExecuteRequiresUserInput.GetFieldDeserializers();
+            }
+            else if(ProxyExecuteCompleted != null)
+            {
+                return ProxyExecuteCompleted.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -78,11 +72,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseBinaryData>("binary_data", BinaryData);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseData>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200ResponseHeaders>("headers", Headers);
-            writer.WriteDoubleValue("status", Status);
-            writer.WriteAdditionalData(AdditionalData);
+            if(ExecuteRequiresUserInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput>(null, ExecuteRequiresUserInput);
+            }
+            else if(ProxyExecuteCompleted != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted>(null, ProxyExecuteCompleted);
+            }
         }
     }
 }

@@ -78,7 +78,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestProxyExecute ProxyExecute { get; set; }
 #endif
-        /// <summary>Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.</summary>
+        /// <summary>Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags? Tags { get; set; }
@@ -86,7 +86,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags Tags { get; set; }
 #endif
-        /// <summary>Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive.</summary>
+        /// <summary>Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive. Experimentally, it can also list toolkits whose tools need approval, with or without a filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits? Toolkits { get; set; }
@@ -94,7 +94,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits Toolkits { get; set; }
 #endif
-        /// <summary>Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo&apos;d slugs fail session creation with a clear error listing which ones didn&apos;t match.</summary>
+        /// <summary>Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit, and experimentally to list tools that need approval. Every tool slug must be a valid Composio tool slug for that toolkit — invalid or typo&apos;d slugs fail session creation with a clear error listing which ones didn&apos;t match.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools? Tools { get; set; }

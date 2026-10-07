@@ -39,6 +39,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItem> CustomTools { get; set; }
 #endif
+        /// <summary>What session MCP does with a tool call that needs approval when the MCP client can&apos;t ask the user. Omitted when not set, which means deny.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalNoElicitationSupportFallback? NoElicitationSupportFallback { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimental"/> and sets the default values.
         /// </summary>
@@ -67,6 +69,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "assistive_prompt", n => { AssistivePrompt = n.GetStringValue(); } },
                 { "custom_toolkits", n => { CustomToolkits = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItem>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "custom_tools", n => { CustomTools = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItem>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "no_elicitation_support_fallback", n => { NoElicitationSupportFallback = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalNoElicitationSupportFallback>(); } },
             };
         }
         /// <summary>
@@ -79,6 +82,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("assistive_prompt", AssistivePrompt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItem>("custom_toolkits", CustomToolkits);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolsItem>("custom_tools", CustomTools);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseExperimentalNoElicitationSupportFallback>("no_elicitation_support_fallback", NoElicitationSupportFallback);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

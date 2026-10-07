@@ -22,6 +22,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string LinkUrlOverwrite { get; set; }
 #endif
+        /// <summary>What session MCP does with a tool call that needs approval when the MCP client can&apos;t ask the user. deny (default) rejects the call; allow runs it without approval.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback? NoElicitationSupportFallback { get; set; }
         /// <summary>Per-tool elicitation permission config. Replaces the stored block when provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,6 +60,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "fast_mode", n => { FastMode = n.GetBoolValue(); } },
                 { "link_url_overwrite", n => { LinkUrlOverwrite = n.GetStringValue(); } },
+                { "no_elicitation_support_fallback", n => { NoElicitationSupportFallback = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback>(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalPermissions>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalPermissions.CreateFromDiscriminatorValue); } },
                 { "submit_feedback", n => { SubmitFeedback = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalSubmitFeedback>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalSubmitFeedback.CreateFromDiscriminatorValue); } },
             };
@@ -71,6 +74,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("fast_mode", FastMode);
             writer.WriteStringValue("link_url_overwrite", LinkUrlOverwrite);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback>("no_elicitation_support_fallback", NoElicitationSupportFallback);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalPermissions>("permissions", Permissions);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalSubmitFeedback>("submit_feedback", SubmitFeedback);
         }

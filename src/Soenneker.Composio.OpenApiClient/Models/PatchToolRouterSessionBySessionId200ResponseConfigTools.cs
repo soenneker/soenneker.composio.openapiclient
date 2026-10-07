@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Tool-level configuration per toolkit
+    /// Tool-level configuration per toolkit: tools to enable or disable, or tools that need approval
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchToolRouterSessionBySessionId200ResponseConfigTools : IAdditionalDataHolder, IParsable

@@ -7,52 +7,36 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PostToolRouterSessionBySessionIdExecute200Response : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class PostToolRouterSessionBySessionIdExecute200Response : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The data returned by the tool execution</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseData? Data { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted? ExecuteCompleted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseData Data { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted ExecuteCompleted { get; set; }
 #endif
-        /// <summary>Error message if the execution failed, null otherwise</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed? ExecuteFailed { get; set; }
 #nullable restore
 #else
-        public string Error { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed ExecuteFailed { get; set; }
 #endif
-        /// <summary>Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge? InstantCharge { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput? ExecuteRequiresUserInput { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge InstantCharge { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput ExecuteRequiresUserInput { get; set; }
 #endif
-        /// <summary>Unique identifier for the execution log</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? LogId { get; set; }
-#nullable restore
-#else
-        public string LogId { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response"/> and sets the default values.
-        /// </summary>
-        public PostToolRouterSessionBySessionIdExecute200Response()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -61,7 +45,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response();
+            var mappingValue = parseNode.GetChildNode("result_type")?.GetStringValue();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response();
+            if("completed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ExecuteCompleted = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted();
+            }
+            else if("ExecuteFailed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ExecuteFailed = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed();
+            }
+            else if("ExecuteRequiresUserInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ExecuteRequiresUserInput = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,13 +67,19 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ExecuteCompleted != null)
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseData.CreateFromDiscriminatorValue); } },
-                { "error", n => { Error = n.GetStringValue(); } },
-                { "instant_charge", n => { InstantCharge = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge.CreateFromDiscriminatorValue); } },
-                { "log_id", n => { LogId = n.GetStringValue(); } },
-            };
+                return ExecuteCompleted.GetFieldDeserializers();
+            }
+            else if(ExecuteFailed != null)
+            {
+                return ExecuteFailed.GetFieldDeserializers();
+            }
+            else if(ExecuteRequiresUserInput != null)
+            {
+                return ExecuteRequiresUserInput.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -84,11 +88,18 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseData>("data", Data);
-            writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200ResponseInstantCharge>("instant_charge", InstantCharge);
-            writer.WriteStringValue("log_id", LogId);
-            writer.WriteAdditionalData(AdditionalData);
+            if(ExecuteCompleted != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted>(null, ExecuteCompleted);
+            }
+            else if(ExecuteFailed != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed>(null, ExecuteFailed);
+            }
+            else if(ExecuteRequiresUserInput != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput>(null, ExecuteRequiresUserInput);
+            }
         }
     }
 }

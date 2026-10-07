@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive.
+    /// Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive. Experimentally, it can also list toolkits whose tools need approval, with or without a filter.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchToolRouterSessionBySessionIdRequestToolkits : IAdditionalDataHolder, IParsable
@@ -30,6 +30,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public List<string> Enable { get; set; }
+#endif
+        /// <summary>Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? RequireApproval { get; set; }
+#nullable restore
+#else
+        public List<string> RequireApproval { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkits"/> and sets the default values.
@@ -58,6 +66,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "disable", n => { Disable = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "enable", n => { Enable = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "require_approval", n => { RequireApproval = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -69,6 +78,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("disable", Disable);
             writer.WriteCollectionOfPrimitiveValues<string>("enable", Enable);
+            writer.WriteCollectionOfPrimitiveValues<string>("require_approval", RequireApproval);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

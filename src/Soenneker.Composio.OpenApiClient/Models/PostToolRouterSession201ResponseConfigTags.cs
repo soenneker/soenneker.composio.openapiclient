@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.
+    /// MCP tool annotation hints for filtering tools with enabled/disabled support, and experimentally the tags whose tools need approval. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSession201ResponseConfigTags : IAdditionalDataHolder, IParsable
@@ -30,6 +30,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTagsEnabledItem?> Enabled { get; set; }
+#endif
+        /// <summary>Tool calls matched here pause until the user approves them.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTagsRequireApprovalItem?>? RequireApproval { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTagsRequireApprovalItem?> RequireApproval { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTags"/> and sets the default values.
@@ -58,6 +66,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "disabled", n => { Disabled = n.GetCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTagsDisabledItem>()?.AsList(); } },
                 { "enabled", n => { Enabled = n.GetCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTagsEnabledItem>()?.AsList(); } },
+                { "require_approval", n => { RequireApproval = n.GetCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTagsRequireApprovalItem>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -69,6 +78,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTagsDisabledItem>("disabled", Disabled);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTagsEnabledItem>("enabled", Enabled);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigTagsRequireApprovalItem>("require_approval", RequireApproval);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

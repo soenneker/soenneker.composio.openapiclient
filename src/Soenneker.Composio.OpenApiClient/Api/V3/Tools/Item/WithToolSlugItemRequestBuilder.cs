@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithToolSlugItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools/{toolSlug}{?toolkit_versions*,version*}", pathParameters)
+        public WithToolSlugItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools/{toolSlug}{?include_pricing*,toolkit_versions*,version*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithToolSlugItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools/{toolSlug}{?toolkit_versions*,version*}", rawUrl)
+        public WithToolSlugItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools/{toolSlug}{?include_pricing*,toolkit_versions*,version*}", rawUrl)
         {
         }
         /// <summary>
@@ -96,6 +96,9 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithToolSlugItemRequestBuilderGetQueryParameters 
         {
+            /// <summary>Whether to include published pricing within instant, when available. Defaults to false.</summary>
+            [QueryParameter("include_pricing")]
+            public bool? IncludePricing { get; set; }
             /// <summary>Toolkit version specification. Use &quot;latest&quot; for latest versions or bracket notation for specific versions per toolkit. Read only when version is omitted; when neither is supplied the tool resolves to the pinned version (&quot;00000000_00&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
