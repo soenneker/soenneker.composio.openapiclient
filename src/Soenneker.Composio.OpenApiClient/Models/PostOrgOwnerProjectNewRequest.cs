@@ -14,6 +14,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>IPv4 or IPv6 addresses allowed to use the project API key. Requires should_create_api_key to be true. Omit to allow requests from any IP address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ApiKeyAllowedIps { get; set; }
+#nullable restore
+#else
+        public List<string> ApiKeyAllowedIps { get; set; }
+#endif
+        /// <summary>Permission levels for the project API key. Requires should_create_api_key to be true. Omit to create a full-access API key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem>? ApiKeyPermissions { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem> ApiKeyPermissions { get; set; }
+#endif
         /// <summary>Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,6 +74,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "api_key_allowed_ips", n => { ApiKeyAllowedIps = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "api_key_permissions", n => { ApiKeyPermissions = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem>(global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "should_create_api_key", n => { ShouldCreateApiKey = n.GetBoolValue(); } },
@@ -70,6 +88,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("api_key_allowed_ips", ApiKeyAllowedIps);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem>("api_key_permissions", ApiKeyPermissions);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig>("config", Config);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("should_create_api_key", ShouldCreateApiKey);

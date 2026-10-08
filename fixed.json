@@ -13399,6 +13399,21 @@
             "default": false,
             "example": false
           },
+          "api_key_allowed_ips": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "ip"
+            },
+            "description": "IPv4 or IPv6 addresses allowed to use the project API key. Requires should_create_api_key to be true. Omit to allow requests from any IP address."
+          },
+          "api_key_permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestApiKeyPermissionsItem"
+            },
+            "description": "Permission levels for the project API key. Requires should_create_api_key to be true. Omit to create a full-access API key."
+          },
           "config": {
             "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestConfig"
           }
@@ -20870,7 +20885,8 @@
             "type": "string"
           },
           "id_token": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "token_type": {
             "type": "string"
@@ -21418,6 +21434,21 @@
             "type": "boolean",
             "description": "Whether this project has been deleted",
             "example": false
+          }
+        }
+      },
+      "PostOrgOwnerProjectNewRequestApiKeyPermissionsItem": {
+        "required": [
+          "preset",
+          "access"
+        ],
+        "type": "object",
+        "properties": {
+          "preset": {
+            "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestApiKeyPermissionsItemPreset"
+          },
+          "access": {
+            "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestApiKeyPermissionsItemAccess"
           }
         }
       },
@@ -25771,7 +25802,8 @@
             "type": "string"
           },
           "id_token": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "token_type": {
             "type": "string"
@@ -25897,7 +25929,8 @@
             "type": "string"
           },
           "id_token": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "token_type": {
             "type": "string"
@@ -27347,7 +27380,8 @@
             "type": "string"
           },
           "id_token": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "token_type": {
             "type": "string"
@@ -31764,6 +31798,115 @@
         "additionalProperties": false,
         "description": "Payload format version for Pusher real-time events only. For webhook configuration, use GET /api/v3/webhook_subscriptions.",
         "example": "V2"
+      },
+      "PostOrgOwnerProjectNewRequestApiKeyPermissionsItemPreset": {
+        "enum": [
+          "tools",
+          "tool_execution",
+          "proxy_execute",
+          "session_management",
+          "session_tool_execution",
+          "legacy_mcp",
+          "connected_accounts",
+          "auth_configs",
+          "toolkits",
+          "triggers",
+          "webhooks",
+          "observability",
+          "sessions"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostOrgOwnerProjectNewRequestApiKeyPermissionsItemPreset",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "tools",
+              "name": "Tools"
+            },
+            {
+              "value": "tool_execution",
+              "name": "ToolExecution"
+            },
+            {
+              "value": "proxy_execute",
+              "name": "ProxyExecute"
+            },
+            {
+              "value": "session_management",
+              "name": "SessionManagement"
+            },
+            {
+              "value": "session_tool_execution",
+              "name": "SessionToolExecution"
+            },
+            {
+              "value": "legacy_mcp",
+              "name": "LegacyMcp"
+            },
+            {
+              "value": "connected_accounts",
+              "name": "ConnectedAccounts"
+            },
+            {
+              "value": "auth_configs",
+              "name": "AuthConfigs"
+            },
+            {
+              "value": "toolkits",
+              "name": "Toolkits"
+            },
+            {
+              "value": "triggers",
+              "name": "Triggers"
+            },
+            {
+              "value": "webhooks",
+              "name": "Webhooks"
+            },
+            {
+              "value": "observability",
+              "name": "Observability"
+            },
+            {
+              "value": "sessions",
+              "name": "Sessions"
+            }
+          ]
+        }
+      },
+      "PostOrgOwnerProjectNewRequestApiKeyPermissionsItemAccess": {
+        "enum": [
+          "none",
+          "read",
+          "write",
+          "read_write"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostOrgOwnerProjectNewRequestApiKeyPermissionsItemAccess",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "read",
+              "name": "Read"
+            },
+            {
+              "value": "write",
+              "name": "Write"
+            },
+            {
+              "value": "read_write",
+              "name": "ReadWrite"
+            }
+          ]
+        }
       },
       "PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting": {
         "enum": [
