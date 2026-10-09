@@ -23434,7 +23434,7 @@
         },
         "description": "The user\u0027s answers to an \u0060input_required\u0060 response, keyed by the ids in its \u0060input_requests\u0060. Send them by repeating the same call (same tool and arguments) with this field added, along with the response\u0027s \u0060request_state\u0060 if present. An approved call runs; a denied or declined one returns \u0060failed\u0060.",
         "example": {
-          "approval_3f9a1c2b7d4e5f60": {
+          "elicit_3f9a1c2b7d4e5f60": {
             "action": "accept",
             "content": {
               "decision": "approve"
@@ -23463,7 +23463,7 @@
         },
         "description": "The user\u0027s answers to an \u0060input_required\u0060 response, keyed by the ids in its \u0060input_requests\u0060. Send them by repeating the same call (same tool and arguments) with this field added, along with the response\u0027s \u0060request_state\u0060 if present. An approved call runs; a denied or declined one returns \u0060failed\u0060.",
         "example": {
-          "approval_3f9a1c2b7d4e5f60": {
+          "elicit_3f9a1c2b7d4e5f60": {
             "action": "accept",
             "content": {
               "decision": "approve"
