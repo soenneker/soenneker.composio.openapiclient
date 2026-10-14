@@ -65,6 +65,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem> Parameters { get; set; }
 #endif
+        /// <summary>The user id (entity id) that owns connected_account_id. When the project has 2FA enabled, it is validated against the owner of that connection. Also selects which custom toolkits the request may use.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; set; }
+#nullable restore
+#else
+        public string UserId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequest"/> and sets the default values.
         /// </summary>
@@ -97,6 +105,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
                 { "method", n => { Method = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestMethod>(); } },
                 { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -113,6 +122,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("endpoint", Endpoint);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestMethod>("method", Method);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem>("parameters", Parameters);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
