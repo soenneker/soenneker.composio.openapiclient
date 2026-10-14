@@ -15,7 +15,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>List of URLs generated for each connected account ID</summary>
+        /// <summary>List of URLs generated for each connected account ID. URLs may carry the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ConnectedAccountUrls { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string McpUrl { get; set; }
 #endif
-        /// <summary>List of URLs generated for each user ID</summary>
+        /// <summary>List of URLs generated for each user ID. URLs may carry the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? UserIdsUrl { get; set; }

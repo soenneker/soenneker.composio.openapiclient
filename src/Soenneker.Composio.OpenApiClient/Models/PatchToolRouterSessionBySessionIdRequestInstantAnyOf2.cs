@@ -14,6 +14,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage.</summary>
         public bool? ReturnInstantCharge { get; set; }
+        /// <summary>Experimental. Show each instant tool&apos;s price in tool search results, under instant_account.prices. Defaults to false on create; omit on PATCH to keep the current value. Does not turn instant usage on or off.</summary>
+        public bool? ReturnPricesInSearch { get; set; }
         /// <summary>Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,6 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "return_instant_charge", n => { ReturnInstantCharge = n.GetBoolValue(); } },
+                { "return_prices_in_search", n => { ReturnPricesInSearch = n.GetBoolValue(); } },
                 { "toolkits", n => { Toolkits = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Toolkits>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Toolkits.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Tools>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Tools.CreateFromDiscriminatorValue); } },
             };
@@ -61,6 +64,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("return_instant_charge", ReturnInstantCharge);
+            writer.WriteBoolValue("return_prices_in_search", ReturnPricesInSearch);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Toolkits>("toolkits", Toolkits);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Tools>("tools", Tools);
         }

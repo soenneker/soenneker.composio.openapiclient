@@ -23,7 +23,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<string> ConnectedAccountIds { get; set; }
 #endif
-        /// <summary>Flag indicating if Composio manages authentication</summary>
+        /// <summary>Flag indicating if Composio manages authentication. When true, the generated URLs include the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools.</summary>
+        [Obsolete("")]
         public bool? ManagedAuthByComposio { get; set; }
         /// <summary>Unique identifier of the MCP server to generate URL for</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

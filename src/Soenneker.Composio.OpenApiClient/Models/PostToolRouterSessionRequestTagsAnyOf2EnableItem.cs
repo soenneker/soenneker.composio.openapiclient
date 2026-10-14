@@ -12,6 +12,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
         #pragma warning disable CS1591
         ReadOnlyHint,
         #pragma warning restore CS1591
+        [EnumMember(Value = "createHint")]
+        #pragma warning disable CS1591
+        CreateHint,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "updateHint")]
+        #pragma warning disable CS1591
+        UpdateHint,
+        #pragma warning restore CS1591
         [EnumMember(Value = "destructiveHint")]
         #pragma warning disable CS1591
         DestructiveHint,

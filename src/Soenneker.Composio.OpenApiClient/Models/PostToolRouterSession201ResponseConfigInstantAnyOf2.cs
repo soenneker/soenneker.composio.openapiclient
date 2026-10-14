@@ -14,6 +14,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only.</summary>
         public bool? ReturnInstantCharge { get; set; }
+        /// <summary>Experimental. Whether tool search results show each instant tool&apos;s price, under instant_account.prices. Defaults to false.</summary>
+        public bool? ReturnPricesInSearch { get; set; }
         /// <summary>Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,6 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "return_instant_charge", n => { ReturnInstantCharge = n.GetBoolValue(); } },
+                { "return_prices_in_search", n => { ReturnPricesInSearch = n.GetBoolValue(); } },
                 { "toolkits", n => { Toolkits = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Tools>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Tools.CreateFromDiscriminatorValue); } },
             };
@@ -61,6 +64,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("return_instant_charge", ReturnInstantCharge);
+            writer.WriteBoolValue("return_prices_in_search", ReturnPricesInSearch);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits>("toolkits", Toolkits);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Tools>("tools", Tools);
         }

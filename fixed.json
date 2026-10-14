@@ -15153,9 +15153,10 @@
           },
           "managed_auth_by_composio": {
             "type": "boolean",
-            "description": "Flag indicating if Composio manages authentication",
+            "description": "Flag indicating if Composio manages authentication. When true, the generated URLs include the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools.",
             "default": false,
-            "example": true
+            "example": true,
+            "deprecated": true
           },
           "user_ids": {
             "type": "array",
@@ -15185,21 +15186,21 @@
           "mcp_url": {
             "type": "string",
             "description": "Base MCP URL without any query parameters",
-            "example": "https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000"
+            "example": "https://backend.composio.dev/v3/mcp/550e8400-e29b-41d4-a716-446655440000"
           },
           "connected_account_urls": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of URLs generated for each connected account ID"
+            "description": "List of URLs generated for each connected account ID. URLs may carry the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools."
           },
           "user_ids_url": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of URLs generated for each user ID"
+            "description": "List of URLs generated for each user ID. URLs may carry the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools."
           }
         },
         "description": "Response containing the generated MCP URLs"
@@ -19195,6 +19196,11 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Show each instant tool\u0027s price in tool search results, under instant_account.prices. Defaults to false on create; omit on PATCH to keep the current value. Does not turn instant usage on or off.",
+            "x-experimental": true
           }
         },
         "description": "Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
@@ -19326,6 +19332,11 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Whether tool search results show each instant tool\u0027s price, under instant_account.prices. Defaults to false.",
+            "x-experimental": true
           }
         },
         "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
@@ -19353,6 +19364,11 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Whether tool search results show each instant tool\u0027s price, under instant_account.prices. Defaults to false.",
+            "x-experimental": true
           }
         },
         "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
@@ -19380,6 +19396,11 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Show each instant tool\u0027s price in tool search results, under instant_account.prices. Defaults to false on create; omit on PATCH to keep the current value. Does not turn instant usage on or off.",
+            "x-experimental": true
           }
         },
         "description": "Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
@@ -19511,6 +19532,11 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Whether tool search results show each instant tool\u0027s price, under instant_account.prices. Defaults to false.",
+            "x-experimental": true
           }
         },
         "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
@@ -19555,6 +19581,11 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Show each instant tool\u0027s price in tool search results, under instant_account.prices. Defaults to false on create; omit on PATCH to keep the current value. Does not turn instant usage on or off.",
+            "x-experimental": true
           }
         },
         "additionalProperties": false
@@ -19619,7 +19650,8 @@
       },
       "PostToolRouterSession201ResponseConfigInstantAnyOf2": {
         "required": [
-          "return_instant_charge"
+          "return_instant_charge",
+          "return_prices_in_search"
         ],
         "type": "object",
         "properties": {
@@ -19632,13 +19664,19 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Whether tool search results show each instant tool\u0027s price, under instant_account.prices. Defaults to false.",
+            "x-experimental": true
           }
         },
         "additionalProperties": false
       },
       "GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2": {
         "required": [
-          "return_instant_charge"
+          "return_instant_charge",
+          "return_prices_in_search"
         ],
         "type": "object",
         "properties": {
@@ -19651,6 +19689,11 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Whether tool search results show each instant tool\u0027s price, under instant_account.prices. Defaults to false.",
+            "x-experimental": true
           }
         },
         "additionalProperties": false
@@ -19667,6 +19710,11 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Show each instant tool\u0027s price in tool search results, under instant_account.prices. Defaults to false on create; omit on PATCH to keep the current value. Does not turn instant usage on or off.",
+            "x-experimental": true
           }
         },
         "additionalProperties": false
@@ -19731,7 +19779,8 @@
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2": {
         "required": [
-          "return_instant_charge"
+          "return_instant_charge",
+          "return_prices_in_search"
         ],
         "type": "object",
         "properties": {
@@ -19744,6 +19793,11 @@
           "return_instant_charge": {
             "type": "boolean",
             "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
+          },
+          "return_prices_in_search": {
+            "type": "boolean",
+            "description": "Experimental. Whether tool search results show each instant tool\u0027s price, under instant_account.prices. Defaults to false.",
+            "x-experimental": true
           }
         },
         "additionalProperties": false
@@ -27505,6 +27559,9 @@
               "type": "string"
             },
             "description": "Tools of this toolkit that run on the Composio instant account"
+          },
+          "prices": {
+            "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccountPrices"
           }
         },
         "description": "Present when the toolkit is connected through the Composio instant account rather than a connected account of the user."
@@ -28530,6 +28587,13 @@
           "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountsItemUserInfoAdditionalProperties"
         },
         "description": "Information about the connected user (email, name, etc.)"
+      },
+      "PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccountPrices": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ToolPricing"
+        },
+        "description": "Price of each tool, keyed by tool slug."
       },
       "PostToolRouterSessionBySessionIdSearch200ResponseToolSchemasAdditionalPropertiesInputSchema": {
         "type": "object",
@@ -30447,6 +30511,8 @@
       "PostToolRouterSessionRequestToolsAdditionalPropertiesAnyOf3TagsBranch1ValueItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30460,6 +30526,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30479,6 +30553,8 @@
       "PostToolRouterSessionRequestTagsBranch1ValueItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30492,6 +30568,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30532,6 +30616,8 @@
       "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesAnyOf3TagsBranch1ValueItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30545,6 +30631,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30564,6 +30658,8 @@
       "PatchToolRouterSessionBySessionIdRequestTagsBranch1ValueItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30577,6 +30673,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30620,6 +30724,8 @@
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2EnableItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30633,6 +30739,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30652,6 +30766,8 @@
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2DisableItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30665,6 +30781,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30684,6 +30808,8 @@
       "PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30697,6 +30823,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30716,6 +30850,8 @@
       "PostToolRouterSessionRequestTagsAnyOf2EnableItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30729,6 +30865,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30748,6 +30892,8 @@
       "PostToolRouterSessionRequestTagsAnyOf2DisableItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30761,6 +30907,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30780,6 +30934,8 @@
       "PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30793,6 +30949,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30812,6 +30976,8 @@
       "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2EnableItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30825,6 +30991,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30844,6 +31018,8 @@
       "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2DisableItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30857,6 +31033,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30876,6 +31060,8 @@
       "PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30889,6 +31075,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30908,6 +31102,8 @@
       "PatchToolRouterSessionBySessionIdRequestTagsAnyOf2EnableItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30921,6 +31117,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30940,6 +31144,8 @@
       "PatchToolRouterSessionBySessionIdRequestTagsAnyOf2DisableItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30953,6 +31159,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -30972,6 +31186,8 @@
       "PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -30985,6 +31201,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33279,6 +33503,8 @@
       "PostToolRouterSession201ResponseConfigTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33292,6 +33518,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33311,6 +33545,8 @@
       "PostToolRouterSession201ResponseConfigTagsDisabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33324,6 +33560,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33343,6 +33587,8 @@
       "PostToolRouterSession201ResponseConfigTagsRequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33356,6 +33602,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33408,6 +33662,8 @@
       "GetToolRouterSessionBySessionId200ResponseConfigTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33421,6 +33677,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33440,6 +33704,8 @@
       "GetToolRouterSessionBySessionId200ResponseConfigTagsDisabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33453,6 +33719,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33472,6 +33746,8 @@
       "GetToolRouterSessionBySessionId200ResponseConfigTagsRequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33485,6 +33761,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33565,6 +33849,8 @@
       "PatchToolRouterSessionBySessionId200ResponseConfigTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33578,6 +33864,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33597,6 +33891,8 @@
       "PatchToolRouterSessionBySessionId200ResponseConfigTagsDisabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33610,6 +33906,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33629,6 +33933,8 @@
       "PatchToolRouterSessionBySessionId200ResponseConfigTagsRequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33642,6 +33948,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33883,6 +34197,8 @@
       "PostToolRouterSession201ResponseConfigToolsAdditionalPropertiesTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33896,6 +34212,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33915,6 +34239,8 @@
       "PostToolRouterSession201ResponseConfigToolsAdditionalPropertiesTagsDisabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33928,6 +34254,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33947,6 +34281,8 @@
       "PostToolRouterSession201ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33960,6 +34296,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -33979,6 +34323,8 @@
       "GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -33992,6 +34338,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -34011,6 +34365,8 @@
       "GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsDisabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -34024,6 +34380,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -34043,6 +34407,8 @@
       "GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -34056,6 +34422,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -34075,6 +34449,8 @@
       "PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -34088,6 +34464,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -34107,6 +34491,8 @@
       "PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsDisabledItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -34120,6 +34506,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
@@ -34139,6 +34533,8 @@
       "PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTagsRequireApprovalItem": {
         "enum": [
           "readOnlyHint",
+          "createHint",
+          "updateHint",
           "destructiveHint",
           "idempotentHint",
           "openWorldHint"
@@ -34152,6 +34548,14 @@
             {
               "value": "readOnlyHint",
               "name": "ReadOnlyHint"
+            },
+            {
+              "value": "createHint",
+              "name": "CreateHint"
+            },
+            {
+              "value": "updateHint",
+              "name": "UpdateHint"
             },
             {
               "value": "destructiveHint",
