@@ -14,6 +14,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Additional values each user enters when connecting. Reference each field in a header, for example X-Org-Id: {{generic_id}}. Use display_name for the user-facing label. Every user must supply each declared field. Values are not secret.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields? AdditionalFields { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields AdditionalFields { get; set; }
+#endif
         /// <summary>Label and help text for the API key input on the connect page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +73,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "additional_fields", n => { AdditionalFields = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields.CreateFromDiscriminatorValue); } },
                 { "api_key_field", n => { ApiKeyField = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField.CreateFromDiscriminatorValue); } },
                 { "discovery_url", n => { DiscoveryUrl = n.GetStringValue(); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders.CreateFromDiscriminatorValue); } },
@@ -78,6 +87,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields>("additional_fields", AdditionalFields);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField>("api_key_field", ApiKeyField);
             writer.WriteStringValue("discovery_url", DiscoveryUrl);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders>("headers", Headers);

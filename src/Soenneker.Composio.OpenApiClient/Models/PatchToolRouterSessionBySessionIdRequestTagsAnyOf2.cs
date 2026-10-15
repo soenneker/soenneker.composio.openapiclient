@@ -30,7 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2EnableItem?> Enable { get; set; }
 #endif
-        /// <summary>Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.</summary>
+        /// <summary>Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit&apos;s own lists in `tools` replace the session-wide tag list for that toolkit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem?>? RequireApproval { get; set; }

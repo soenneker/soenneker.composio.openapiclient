@@ -76,7 +76,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestProxyExecute ProxyExecute { get; set; }
 #endif
-        /// <summary>Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.</summary>
+        /// <summary>Session-wide tags for filtering tools. Array format is treated as an enabled list. Object format supports `enable` (a tool must have at least one) and `disable` (a tool must have none), and experimentally the tags whose tools need approval. If a toolkit sets `tools.&lt;toolkit&gt;.tags`, its tools use that object instead of this one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTags? Tags { get; set; }

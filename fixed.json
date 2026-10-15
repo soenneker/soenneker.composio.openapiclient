@@ -19235,19 +19235,18 @@
             }
           },
           "require_approval": {
-            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. Setting this toolkit\u0027s own list, even an empty one, replaces the session-wide \u0060tags.require_approval\u0060 for its tools.",
             "example": [
               "destructiveHint"
             ],
             "x-experimental": true
           }
         },
-        "description": "MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.",
+        "description": "Tags for this toolkit. Any \u0060tags\u0060 object here fully replaces the session-wide \u0060tags\u0060 for this toolkit, including one that only sets \u0060require_approval\u0060. Array format is treated as an enabled list.",
         "example": {
           "disable": [
             "openWorldHint"
@@ -19292,14 +19291,14 @@
             "items": {
               "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit\u0027s own lists in \u0060tools\u0060 replace the session-wide tag list for that toolkit.",
             "example": [
               "destructiveHint"
             ],
             "x-experimental": true
           }
         },
-        "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.",
+        "description": "Session-wide tags for filtering tools. Array format is treated as an enabled list. Object format supports \u0060enable\u0060 (a tool must have at least one) and \u0060disable\u0060 (a tool must have none), and experimentally the tags whose tools need approval. If a toolkit sets \u0060tools.\u003Ctoolkit\u003E.tags\u0060, its tools use that object instead of this one.",
         "example": {
           "disable": [
             "openWorldHint"
@@ -19435,19 +19434,18 @@
             }
           },
           "require_approval": {
-            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. Setting this toolkit\u0027s own list, even an empty one, replaces the session-wide \u0060tags.require_approval\u0060 for its tools.",
             "example": [
               "destructiveHint"
             ],
             "x-experimental": true
           }
         },
-        "description": "MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.",
+        "description": "Tags for this toolkit. Any \u0060tags\u0060 object here fully replaces the session-wide \u0060tags\u0060 for this toolkit, including one that only sets \u0060require_approval\u0060. Array format is treated as an enabled list.",
         "example": {
           "disable": [
             "openWorldHint"
@@ -19492,14 +19490,14 @@
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit\u0027s own lists in \u0060tools\u0060 replace the session-wide tag list for that toolkit.",
             "example": [
               "destructiveHint"
             ],
             "x-experimental": true
           }
         },
-        "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.",
+        "description": "Session-wide tags for filtering tools. Array format is treated as an enabled list. Object format supports \u0060enable\u0060 (a tool must have at least one) and \u0060disable\u0060 (a tool must have none), and experimentally the tags whose tools need approval. If a toolkit sets \u0060tools.\u003Ctoolkit\u003E.tags\u0060, its tools use that object instead of this one.",
         "example": {
           "disable": [
             "openWorldHint"
@@ -19606,12 +19604,11 @@
             }
           },
           "require_approval": {
-            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PostToolRouterSessionRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. Setting this toolkit\u0027s own list, even an empty one, replaces the session-wide \u0060tags.require_approval\u0060 for its tools.",
             "example": [
               "destructiveHint"
             ],
@@ -19640,7 +19637,7 @@
             "items": {
               "$ref": "#/components/schemas/PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit\u0027s own lists in \u0060tools\u0060 replace the session-wide tag list for that toolkit.",
             "example": [
               "destructiveHint"
             ],
@@ -19735,12 +19732,11 @@
             }
           },
           "require_approval": {
-            "minItems": 1,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTagsAnyOf2RequireApprovalItem"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. Setting this toolkit\u0027s own list, even an empty one, replaces the session-wide \u0060tags.require_approval\u0060 for its tools.",
             "example": [
               "destructiveHint"
             ],
@@ -19769,7 +19765,7 @@
             "items": {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestTagsAnyOf2RequireApprovalItem"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit\u0027s own lists in \u0060tools\u0060 replace the session-wide tag list for that toolkit.",
             "example": [
               "destructiveHint"
             ],
@@ -21529,9 +21525,6 @@
           "log_visibility_setting": {
             "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting"
           },
-          "require_mcp_api_key": {
-            "type": "boolean"
-          },
           "is_composio_link_enabled_for_managed_auth": {
             "type": "boolean",
             "description": "Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don\u0027t use this key."
@@ -23135,7 +23128,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit\u0027s own lists in \u0060tools\u0060 replace the session-wide tag list for that toolkit.",
             "example": [
               "github"
             ],
@@ -23666,7 +23659,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit\u0027s own lists in \u0060tools\u0060 replace the session-wide tag list for that toolkit.",
             "example": [
               "github"
             ],
@@ -25542,6 +25535,9 @@
           "api_key_field": {
             "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField"
           },
+          "additional_fields": {
+            "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields"
+          },
           "discovery_url": {
             "type": "string",
             "description": "OAuth authorization server metadata URL, for example https://\u003Cauth server host\u003E/.well-known/oauth-authorization-server. Use the URL your authorization server publishes; it can be on a different host from the MCP server or include a path.",
@@ -26235,12 +26231,11 @@
             ]
           },
           "require_approval": {
-            "minItems": 1,
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. Setting this toolkit\u0027s own list, even an empty one, replaces the session-wide \u0060tags.require_approval\u0060 for its tools.",
             "example": [
               "GITHUB_DELETE_A_REPOSITORY"
             ],
@@ -26963,12 +26958,11 @@
             ]
           },
           "require_approval": {
-            "minItems": 1,
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+            "description": "Tool calls matched here pause until the user approves them. Setting this toolkit\u0027s own list, even an empty one, replaces the session-wide \u0060tags.require_approval\u0060 for its tools.",
             "example": [
               "GITHUB_DELETE_A_REPOSITORY"
             ],
@@ -28109,6 +28103,19 @@
         "additionalProperties": false,
         "description": "Label and help text for the API key input on the connect page"
       },
+      "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields": {
+        "required": [
+          "generic_id"
+        ],
+        "type": "object",
+        "properties": {
+          "generic_id": {
+            "$ref": "#/components/schemas/PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFieldsGenericId"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Additional values each user enters when connecting. Reference each field in a header, for example X-Org-Id: {{generic_id}}. Use display_name for the user-facing label. Every user must supply each declared field. Values are not secret."
+      },
       "GetToolkitsBySlug200ResponseAuthConfigDetailsItemFieldsAuthConfigCreation": {
         "required": [
           "required",
@@ -28646,6 +28653,27 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/GetInternalActionExecutionLogById200ResponseStepsItemLogsItemRequestJsonAdditionalProperties"
         }
+      },
+      "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFieldsGenericId": {
+        "required": [
+          "display_name"
+        ],
+        "type": "object",
+        "properties": {
+          "display_name": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string",
+            "description": "Label shown to the user connecting their account"
+          },
+          "description": {
+            "maxLength": 500,
+            "minLength": 1,
+            "type": "string",
+            "description": "Help text below the input"
+          }
+        },
+        "additionalProperties": false
       },
       "GetToolkitsBySlug200ResponseAuthConfigDetailsItemFieldsAuthConfigCreationRequiredItem": {
         "required": [

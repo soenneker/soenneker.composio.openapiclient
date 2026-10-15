@@ -47,8 +47,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string OauthCallbackVerifierUrl { get; set; }
 #endif
-        /// <summary>The require_mcp_api_key property</summary>
-        public bool? RequireMcpApiKey { get; set; }
         /// <summary>The signed_url_file_expiry_in_seconds property</summary>
         public double? SignedUrlFileExpiryInSeconds { get; set; }
         /// <summary>Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation.</summary>
@@ -93,7 +91,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "logo_url", n => { LogoUrl = n.GetStringValue(); } },
                 { "mask_secret_keys_in_connected_account", n => { MaskSecretKeysInConnectedAccount = n.GetBoolValue(); } },
                 { "oauth_callback_verifier_url", n => { OauthCallbackVerifierUrl = n.GetStringValue(); } },
-                { "require_mcp_api_key", n => { RequireMcpApiKey = n.GetBoolValue(); } },
                 { "signed_url_file_expiry_in_seconds", n => { SignedUrlFileExpiryInSeconds = n.GetDoubleValue(); } },
                 { "theme", n => { Theme = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme>(global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme.CreateFromDiscriminatorValue); } },
                 { "zdr_enabled", n => { ZdrEnabled = n.GetBoolValue(); } },
@@ -113,7 +110,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting>("log_visibility_setting", LogVisibilitySetting);
             writer.WriteBoolValue("mask_secret_keys_in_connected_account", MaskSecretKeysInConnectedAccount);
             writer.WriteStringValue("oauth_callback_verifier_url", OauthCallbackVerifierUrl);
-            writer.WriteBoolValue("require_mcp_api_key", RequireMcpApiKey);
             writer.WriteDoubleValue("signed_url_file_expiry_in_seconds", SignedUrlFileExpiryInSeconds);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme>("theme", Theme);
             writer.WriteBoolValue("zdr_enabled", ZdrEnabled);
