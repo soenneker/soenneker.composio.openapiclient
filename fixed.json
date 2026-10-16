@@ -10348,6 +10348,9 @@
           "shared_credentials": {
             "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateSharedCredentialsProperty"
           },
+          "shared_connection_fields": {
+            "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty"
+          },
           "is_enabled_for_tool_router": {
             "type": "boolean",
             "description": "Whether this auth config is enabled for tool router"
@@ -10395,6 +10398,9 @@
           "shared_credentials": {
             "$ref": "#/components/schemas/CustomAuthConfigCreateSharedCredentialsProperty"
           },
+          "shared_connection_fields": {
+            "$ref": "#/components/schemas/CustomAuthConfigCreateSharedConnectionFieldsProperty"
+          },
           "is_enabled_for_tool_router": {
             "type": "boolean",
             "description": "Whether this auth config is enabled for tool router"
@@ -10438,6 +10444,9 @@
           "shared_credentials": {
             "$ref": "#/components/schemas/CustomAuthConfigUpdateSharedCredentialsProperty"
           },
+          "shared_connection_fields": {
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateSharedConnectionFieldsProperty"
+          },
           "is_enabled_for_tool_router": {
             "type": "boolean",
             "description": "Whether this auth config is enabled for tool router"
@@ -10477,6 +10486,9 @@
           },
           "shared_credentials": {
             "$ref": "#/components/schemas/DefaultAuthConfigUpdateSharedCredentialsProperty"
+          },
+          "shared_connection_fields": {
+            "$ref": "#/components/schemas/DefaultAuthConfigUpdateSharedConnectionFieldsProperty"
           },
           "is_enabled_for_tool_router": {
             "type": "boolean",
@@ -11360,8 +11372,15 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateSharedCredentialsAdditionalProperties"
         },
-        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
-        "x-experimental": true
+        "description": "Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way.",
+        "deprecated": true
+      },
+      "ComposioManagedAuthConfigCreateSharedConnectionFields": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateSharedConnectionFieldsAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config (for example a region or subdomain). Non-secret values pre-fill the hosted Connect Link form; secret values are redacted in responses and never sent to the end user."
       },
       "CustomAuthConfigCreateCredentials": {
         "type": "object",
@@ -11423,8 +11442,15 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/CustomAuthConfigCreateSharedCredentialsAdditionalProperties"
         },
-        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
-        "x-experimental": true
+        "description": "Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way.",
+        "deprecated": true
+      },
+      "CustomAuthConfigCreateSharedConnectionFields": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CustomAuthConfigCreateSharedConnectionFieldsAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config (for example a region or subdomain). Non-secret values pre-fill the hosted Connect Link form; secret values are redacted in responses and never sent to the end user."
       },
       "CustomAuthConfigUpdateCredentials": {
         "type": "object",
@@ -11493,7 +11519,15 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/CustomAuthConfigUpdateSharedCredentialsAdditionalProperties"
         },
-        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
+        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way.",
+        "deprecated": true
+      },
+      "CustomAuthConfigUpdateSharedConnectionFields": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CustomAuthConfigUpdateSharedConnectionFieldsAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
       "DefaultAuthConfigUpdateToolAccessConfig": {
         "type": "object",
@@ -11523,7 +11557,15 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/DefaultAuthConfigUpdateSharedCredentialsAdditionalProperties"
         },
-        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
+        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way.",
+        "deprecated": true
+      },
+      "DefaultAuthConfigUpdateSharedConnectionFields": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/DefaultAuthConfigUpdateSharedConnectionFieldsAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
       "PatchConnectedAccountBodyConnection": {
         "required": [
@@ -12410,6 +12452,9 @@
           },
           "shared_credentials": {
             "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseSharedCredentials"
+          },
+          "shared_connection_fields": {
+            "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseSharedConnectionFields"
           },
           "is_enabled_for_tool_router": {
             "type": "boolean",
@@ -13624,7 +13669,8 @@
           "org_id",
           "project_type",
           "config",
-          "consumer_user_id"
+          "consumer_user_id",
+          "user_id"
         ],
         "type": "object",
         "properties": {
@@ -13656,6 +13702,10 @@
           "consumer_user_id": {
             "type": "string",
             "description": "Derived internal Composio user ID for the authenticated user in this consumer org context."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "ID of the authenticated user the request was made as."
           }
         }
       },
@@ -19803,7 +19853,14 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateSharedCredentialsPropertyAdditionalProperties"
         },
-        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config"
+        "description": "Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way."
+      },
+      "ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateSharedConnectionFieldsPropertyAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config (for example a region or subdomain). Non-secret values pre-fill the hosted Connect Link form; secret values are redacted in responses and never sent to the end user."
       },
       "CustomAuthConfigCreateSealedCredentialsProperty": {
         "type": "object",
@@ -19819,7 +19876,14 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/CustomAuthConfigCreateSharedCredentialsPropertyAdditionalProperties"
         },
-        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config"
+        "description": "Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way."
+      },
+      "CustomAuthConfigCreateSharedConnectionFieldsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CustomAuthConfigCreateSharedConnectionFieldsPropertyAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config (for example a region or subdomain). Non-secret values pre-fill the hosted Connect Link form; secret values are redacted in responses and never sent to the end user."
       },
       "CustomAuthConfigUpdateSealedCredentialsProperty": {
         "type": "object",
@@ -19835,14 +19899,28 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/CustomAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties"
         },
-        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
+        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way."
+      },
+      "CustomAuthConfigUpdateSharedConnectionFieldsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CustomAuthConfigUpdateSharedConnectionFieldsPropertyAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
       "DefaultAuthConfigUpdateSharedCredentialsProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/DefaultAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties"
         },
-        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
+        "description": "Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way."
+      },
+      "DefaultAuthConfigUpdateSharedConnectionFieldsProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/DefaultAuthConfigUpdateSharedConnectionFieldsPropertyAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged."
       },
       "ToolInputParametersProperty": {
         "type": "object",
@@ -19946,13 +20024,25 @@
       "ComposioManagedAuthConfigCreateSharedCredentialsAdditionalProperties": {
         "type": "object"
       },
+      "ComposioManagedAuthConfigCreateSharedConnectionFieldsAdditionalProperties": {
+        "type": "object"
+      },
       "CustomAuthConfigCreateSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "CustomAuthConfigCreateSharedConnectionFieldsAdditionalProperties": {
         "type": "object"
       },
       "CustomAuthConfigUpdateSharedCredentialsAdditionalProperties": {
         "type": "object"
       },
+      "CustomAuthConfigUpdateSharedConnectionFieldsAdditionalProperties": {
+        "type": "object"
+      },
       "DefaultAuthConfigUpdateSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "DefaultAuthConfigUpdateSharedConnectionFieldsAdditionalProperties": {
         "type": "object"
       },
       "ToolInputParametersAdditionalProperties": {
@@ -20349,6 +20439,9 @@
           "shared_credentials": {
             "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemSharedCredentials"
           },
+          "shared_connection_fields": {
+            "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemSharedConnectionFields"
+          },
           "is_enabled_for_tool_router": {
             "type": "boolean",
             "description": "Whether this auth config is enabled for tool router"
@@ -20484,8 +20577,15 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseSharedCredentialsAdditionalProperties"
         },
-        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
-        "x-experimental": true
+        "description": "Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way.",
+        "deprecated": true
+      },
+      "GetAuthConfigsByNanoid200ResponseSharedConnectionFields": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseSharedConnectionFieldsAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config. Same value as shared_credentials; secret values are redacted."
       },
       "PostCliCodactFailuresRequestToolInfo": {
         "type": "object",
@@ -24481,13 +24581,25 @@
       "ComposioManagedAuthConfigCreateSharedCredentialsPropertyAdditionalProperties": {
         "type": "object"
       },
+      "ComposioManagedAuthConfigCreateSharedConnectionFieldsPropertyAdditionalProperties": {
+        "type": "object"
+      },
       "CustomAuthConfigCreateSharedCredentialsPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "CustomAuthConfigCreateSharedConnectionFieldsPropertyAdditionalProperties": {
         "type": "object"
       },
       "CustomAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties": {
         "type": "object"
       },
+      "CustomAuthConfigUpdateSharedConnectionFieldsPropertyAdditionalProperties": {
+        "type": "object"
+      },
       "DefaultAuthConfigUpdateSharedCredentialsPropertyAdditionalProperties": {
+        "type": "object"
+      },
+      "DefaultAuthConfigUpdateSharedConnectionFieldsPropertyAdditionalProperties": {
         "type": "object"
       },
       "ToolInputParametersPropertyAdditionalProperties": {
@@ -24712,13 +24824,23 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemSharedCredentialsAdditionalProperties"
         },
-        "description": "[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config",
-        "x-experimental": true
+        "description": "Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use \u0060shared_connection_fields\u0060 instead. It takes the same value and behaves the same way.",
+        "deprecated": true
+      },
+      "GetAuthConfigs200ResponseItemsItemSharedConnectionFields": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemSharedConnectionFieldsAdditionalProperties"
+        },
+        "description": "Connection field values inherited by every connected account created under this auth config. Same value as shared_credentials; secret values are redacted."
       },
       "GetAuthConfigsByNanoid200ResponseCredentialsAdditionalProperties": {
         "type": "object"
       },
       "GetAuthConfigsByNanoid200ResponseSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "GetAuthConfigsByNanoid200ResponseSharedConnectionFieldsAdditionalProperties": {
         "type": "object"
       },
       "PostCliCodactFailuresRequestToolInfoTool": {
@@ -27718,6 +27840,9 @@
         "type": "object"
       },
       "GetAuthConfigs200ResponseItemsItemSharedCredentialsAdditionalProperties": {
+        "type": "object"
+      },
+      "GetAuthConfigs200ResponseItemsItemSharedConnectionFieldsAdditionalProperties": {
         "type": "object"
       },
       "GetConnectedAccounts200ResponseItemsItemExperimentalAclConfigForShared": {

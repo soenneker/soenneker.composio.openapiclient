@@ -41,7 +41,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<string> RestrictToFollowingTools { get; set; }
 #endif
-        /// <summary>[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config</summary>
+        /// <summary>Connection field values inherited by every connected account created under this auth config (for example a region or subdomain). Non-secret values pre-fill the hosted Connect Link form; secret values are redacted in responses and never sent to the end user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty? SharedConnectionFields { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty SharedConnectionFields { get; set; }
+#endif
+        /// <summary>Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedCredentialsProperty? SharedCredentials { get; set; }
@@ -89,6 +97,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "is_enabled_for_tool_router", n => { IsEnabledForToolRouter = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "restrict_to_following_tools", n => { RestrictToFollowingTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "shared_connection_fields", n => { SharedConnectionFields = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty>(global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "shared_credentials", n => { SharedCredentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedCredentialsProperty>(global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedCredentialsProperty.CreateFromDiscriminatorValue); } },
                 { "tool_access_config", n => { ToolAccessConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateToolAccessConfig>(global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateToolAccessConfig.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.UseComposioManagedAuthType>(); } },
@@ -105,6 +114,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("is_enabled_for_tool_router", IsEnabledForToolRouter);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("restrict_to_following_tools", RestrictToFollowingTools);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty>("shared_connection_fields", SharedConnectionFields);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedCredentialsProperty>("shared_credentials", SharedCredentials);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateToolAccessConfig>("tool_access_config", ToolAccessConfig);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.UseComposioManagedAuthType>("type", Type);

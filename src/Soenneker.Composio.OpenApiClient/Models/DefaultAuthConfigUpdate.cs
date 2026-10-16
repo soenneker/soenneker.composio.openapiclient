@@ -41,7 +41,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateScopes Scopes { get; set; }
 #endif
-        /// <summary>Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.</summary>
+        /// <summary>Connection field values inherited by every connected account created under this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateSharedConnectionFieldsProperty? SharedConnectionFields { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateSharedConnectionFieldsProperty SharedConnectionFields { get; set; }
+#endif
+        /// <summary>Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateSharedCredentialsProperty? SharedCredentials { get; set; }
@@ -97,6 +105,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "restrict_to_following_tools", n => { RestrictToFollowingTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "scopes", n => { Scopes = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateScopes>(global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateScopes.CreateFromDiscriminatorValue); } },
+                { "shared_connection_fields", n => { SharedConnectionFields = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateSharedConnectionFieldsProperty>(global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateSharedConnectionFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "shared_credentials", n => { SharedCredentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateSharedCredentialsProperty>(global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateSharedCredentialsProperty.CreateFromDiscriminatorValue); } },
                 { "tool_access_config", n => { ToolAccessConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateToolAccessConfig>(global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateToolAccessConfig.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultValueType>(); } },
@@ -114,6 +123,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("restrict_to_following_tools", RestrictToFollowingTools);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateScopes>("scopes", Scopes);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateSharedConnectionFieldsProperty>("shared_connection_fields", SharedConnectionFields);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateSharedCredentialsProperty>("shared_credentials", SharedCredentials);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultAuthConfigUpdateToolAccessConfig>("tool_access_config", ToolAccessConfig);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.DefaultValueType>("type", Type);

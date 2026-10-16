@@ -59,7 +59,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty SealedCredentials { get; set; }
 #endif
-        /// <summary>[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config</summary>
+        /// <summary>Connection field values inherited by every connected account created under this auth config (for example a region or subdomain). Non-secret values pre-fill the hosted Connect Link form; secret values are redacted in responses and never sent to the end user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty? SharedConnectionFields { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty SharedConnectionFields { get; set; }
+#endif
+        /// <summary>Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty? SharedCredentials { get; set; }
@@ -110,6 +118,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "proxy_config", n => { ProxyConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateProxyConfig>(global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateProxyConfig.CreateFromDiscriminatorValue); } },
                 { "restrict_to_following_tools", n => { RestrictToFollowingTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "sealed_credentials", n => { SealedCredentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty>(global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty.CreateFromDiscriminatorValue); } },
+                { "shared_connection_fields", n => { SharedConnectionFields = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty>(global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "shared_credentials", n => { SharedCredentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty>(global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty.CreateFromDiscriminatorValue); } },
                 { "tool_access_config", n => { ToolAccessConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig>(global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.UseCustomAuthType>(); } },
@@ -129,6 +138,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateProxyConfig>("proxy_config", ProxyConfig);
             writer.WriteCollectionOfPrimitiveValues<string>("restrict_to_following_tools", RestrictToFollowingTools);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty>("sealed_credentials", SealedCredentials);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty>("shared_connection_fields", SharedConnectionFields);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty>("shared_credentials", SharedCredentials);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig>("tool_access_config", ToolAccessConfig);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.UseCustomAuthType>("type", Type);

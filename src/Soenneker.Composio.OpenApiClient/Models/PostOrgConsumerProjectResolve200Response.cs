@@ -58,6 +58,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>Resolved project type.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType? ProjectType { get; set; }
+        /// <summary>ID of the authenticated user the request was made as.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; set; }
+#nullable restore
+#else
+        public string UserId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200Response"/> and sets the default values.
         /// </summary>
@@ -90,6 +98,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "project_name", n => { ProjectName = n.GetStringValue(); } },
                 { "project_nano_id", n => { ProjectNanoId = n.GetStringValue(); } },
                 { "project_type", n => { ProjectType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType>(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -106,6 +115,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("project_name", ProjectName);
             writer.WriteStringValue("project_nano_id", ProjectNanoId);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType>("project_type", ProjectType);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

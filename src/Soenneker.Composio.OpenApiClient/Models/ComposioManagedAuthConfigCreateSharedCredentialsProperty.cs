@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// [EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config
+    /// Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ComposioManagedAuthConfigCreateSharedCredentialsProperty : IAdditionalDataHolder, IParsable

@@ -95,7 +95,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<string> RestrictToFollowingTools { get; set; }
 #endif
-        /// <summary>[EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config</summary>
+        /// <summary>Connection field values inherited by every connected account created under this auth config. Same value as shared_credentials; secret values are redacted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields? SharedConnectionFields { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields SharedConnectionFields { get; set; }
+#endif
+        /// <summary>Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials? SharedCredentials { get; set; }
@@ -171,6 +180,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "no_of_connections", n => { NoOfConnections = n.GetDoubleValue(); } },
                 { "proxy_config", n => { ProxyConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig>(global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig.CreateFromDiscriminatorValue); } },
                 { "restrict_to_following_tools", n => { RestrictToFollowingTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "shared_connection_fields", n => { SharedConnectionFields = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields>(global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields.CreateFromDiscriminatorValue); } },
                 { "shared_credentials", n => { SharedCredentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials>(global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseStatus>(); } },
                 { "tool_access_config", n => { ToolAccessConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolAccessConfig>(global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolAccessConfig.CreateFromDiscriminatorValue); } },
@@ -199,6 +209,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteDoubleValue("no_of_connections", NoOfConnections);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig>("proxy_config", ProxyConfig);
             writer.WriteCollectionOfPrimitiveValues<string>("restrict_to_following_tools", RestrictToFollowingTools);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields>("shared_connection_fields", SharedConnectionFields);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials>("shared_credentials", SharedCredentials);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolAccessConfig>("tool_access_config", ToolAccessConfig);
