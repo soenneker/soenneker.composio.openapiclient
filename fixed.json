@@ -23429,6 +23429,12 @@
           "submit_feedback": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalSubmitFeedback"
           },
+          "restrict_egress_to_composio": {
+            "type": "boolean",
+            "description": "Set to true to confine the workbench sandbox to Composio: code running in it can reach the Composio API and its own storage volume, and no other network destination. Defaults to false. Set at session creation only.",
+            "default": false,
+            "x-experimental": true
+          },
           "no_elicitation_support_fallback": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback"
           }
