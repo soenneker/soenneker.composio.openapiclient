@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteBlocked"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSessionBySessionIdProxyExecute200Response : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput ExecuteRequiresUserInput { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteBlocked"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteBlocked? ProxyExecuteBlocked { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteBlocked ProxyExecuteBlocked { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,6 +51,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 result.ExecuteRequiresUserInput = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput();
             }
+            else if("blocked".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ProxyExecuteBlocked = new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteBlocked();
+            }
             else if("completed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ProxyExecuteCompleted = new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted();
@@ -58,6 +70,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ExecuteRequiresUserInput != null)
             {
                 return ExecuteRequiresUserInput.GetFieldDeserializers();
+            }
+            else if(ProxyExecuteBlocked != null)
+            {
+                return ProxyExecuteBlocked.GetFieldDeserializers();
             }
             else if(ProxyExecuteCompleted != null)
             {
@@ -75,6 +91,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ExecuteRequiresUserInput != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput>(null, ExecuteRequiresUserInput);
+            }
+            else if(ProxyExecuteBlocked != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteBlocked>(null, ProxyExecuteBlocked);
             }
             else if(ProxyExecuteCompleted != null)
             {

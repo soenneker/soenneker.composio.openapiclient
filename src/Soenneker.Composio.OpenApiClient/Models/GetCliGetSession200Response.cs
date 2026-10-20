@@ -46,7 +46,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string ExpiresAt { get; set; }
 #endif
-        /// <summary>The unique identifier for the CLI session</summary>
+        /// <summary>The CLI session ID, or the code for a lookup by code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }

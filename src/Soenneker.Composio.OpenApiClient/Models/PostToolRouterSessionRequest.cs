@@ -38,6 +38,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental Experimental { get; set; }
 #endif
+        /// <summary>Hooks that run on this session&apos;s tool calls. A hook can block a call before it runs, or block its result before the agent sees it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooks? Hooks { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooks Hooks { get; set; }
+#endif
         /// <summary>Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -146,6 +154,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "auth_configs", n => { AuthConfigs = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs.CreateFromDiscriminatorValue); } },
                 { "connected_accounts", n => { ConnectedAccounts = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts.CreateFromDiscriminatorValue); } },
                 { "experimental", n => { Experimental = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental.CreateFromDiscriminatorValue); } },
+                { "hooks", n => { Hooks = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooks>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooks.CreateFromDiscriminatorValue); } },
                 { "instant", n => { Instant = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant.CreateFromDiscriminatorValue); } },
                 { "manage_connections", n => { ManageConnections = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections.CreateFromDiscriminatorValue); } },
                 { "multi_account", n => { MultiAccount = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount.CreateFromDiscriminatorValue); } },
@@ -168,6 +177,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs>("auth_configs", AuthConfigs);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts>("connected_accounts", ConnectedAccounts);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental>("experimental", Experimental);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooks>("hooks", Hooks);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant>("instant", Instant);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections>("manage_connections", ManageConnections);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount>("multi_account", MultiAccount);

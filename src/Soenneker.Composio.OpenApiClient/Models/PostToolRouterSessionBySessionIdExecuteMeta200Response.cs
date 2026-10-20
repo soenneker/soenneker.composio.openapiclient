@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteBlocked"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSessionBySessionIdExecuteMeta200Response : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteBlocked"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteBlocked? ExecuteBlocked { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteBlocked ExecuteBlocked { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,7 +55,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("result_type")?.GetStringValue();
             var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200Response();
-            if("completed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("blocked".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ExecuteBlocked = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteBlocked();
+            }
+            else if("completed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ExecuteCompleted = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted();
             }
@@ -67,7 +79,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ExecuteCompleted != null)
+            if(ExecuteBlocked != null)
+            {
+                return ExecuteBlocked.GetFieldDeserializers();
+            }
+            else if(ExecuteCompleted != null)
             {
                 return ExecuteCompleted.GetFieldDeserializers();
             }
@@ -88,7 +104,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ExecuteCompleted != null)
+            if(ExecuteBlocked != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteBlocked>(null, ExecuteBlocked);
+            }
+            else if(ExecuteCompleted != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted>(null, ExecuteCompleted);
             }

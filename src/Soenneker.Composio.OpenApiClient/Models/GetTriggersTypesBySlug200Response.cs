@@ -72,8 +72,17 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseToolkit Toolkit { get; set; }
 #endif
-        /// <summary>The trigger mechanism - either webhook (event-based) or poll (scheduled check)</summary>
+        /// <summary>Deprecated: use types. poll for any trigger that polls, even one a webhook wakes; otherwise webhook.</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseType? Type { get; set; }
+        /// <summary>The trigger mechanisms this trigger supports, in order of preference: webhook (event-based) before poll (scheduled check).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseTypesItem?>? Types { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseTypesItem?> Types { get; set; }
+#endif
         /// <summary>Version of the trigger type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,6 +126,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "toolkit", n => { Toolkit = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseToolkit>(global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseToolkit.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseType>(); } },
+                { "types", n => { Types = n.GetCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseTypesItem>()?.AsList(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -136,6 +146,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("slug", Slug);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseToolkit>("toolkit", Toolkit);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseType>("type", Type);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.GetTriggersTypesBySlug200ResponseTypesItem>("types", Types);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }

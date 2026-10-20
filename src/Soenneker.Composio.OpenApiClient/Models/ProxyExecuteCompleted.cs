@@ -38,6 +38,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty Headers { get; set; }
 #endif
+        /// <summary>Every session hook that applied to this request. Omitted when none applied.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? HookResults { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult> HookResults { get; set; }
+#endif
         /// <summary>The tool ran and succeeded</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.CompletedResultType? ResultType { get; set; }
         /// <summary>The HTTP status code returned from the proxied API</summary>
@@ -70,6 +78,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "binary_data", n => { BinaryData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData>(global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData.CreateFromDiscriminatorValue); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedData>(global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedData.CreateFromDiscriminatorValue); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty>(global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty.CreateFromDiscriminatorValue); } },
+                { "hook_results", n => { HookResults = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.HookResult>(global::Soenneker.Composio.OpenApiClient.Models.HookResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "result_type", n => { ResultType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.CompletedResultType>(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
             };
@@ -84,6 +93,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData>("binary_data", BinaryData);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedData>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty>("headers", Headers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.HookResult>("hook_results", HookResults);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.CompletedResultType>("result_type", ResultType);
             writer.WriteDoubleValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);

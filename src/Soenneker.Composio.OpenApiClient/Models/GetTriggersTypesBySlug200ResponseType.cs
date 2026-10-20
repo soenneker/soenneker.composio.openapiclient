@@ -3,8 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>The trigger mechanism - either webhook (event-based) or poll (scheduled check)</summary>
+    /// <summary>Deprecated: use types. poll for any trigger that polls, even one a webhook wakes; otherwise webhook.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    [Obsolete("")]
     public enum GetTriggersTypesBySlug200ResponseType
     {
         [EnumMember(Value = "webhook")]

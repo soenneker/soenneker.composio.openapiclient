@@ -30,6 +30,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string Error { get; set; }
 #endif
+        /// <summary>Every session hook that applied to this call. Omitted when none applied.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? HookResults { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult> HookResults { get; set; }
+#endif
         /// <summary>Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +83,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedDataProperty>(global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedDataProperty.CreateFromDiscriminatorValue); } },
                 { "error", n => { Error = n.GetStringValue(); } },
+                { "hook_results", n => { HookResults = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.HookResult>(global::Soenneker.Composio.OpenApiClient.Models.HookResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "instant_charge", n => { InstantCharge = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge>(global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge.CreateFromDiscriminatorValue); } },
                 { "log_id", n => { LogId = n.GetStringValue(); } },
                 { "result_type", n => { ResultType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.FailedResultType>(); } },
@@ -89,6 +98,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedDataProperty>("data", Data);
             writer.WriteStringValue("error", Error);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.HookResult>("hook_results", HookResults);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge>("instant_charge", InstantCharge);
             writer.WriteStringValue("log_id", LogId);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.FailedResultType>("result_type", ResultType);
