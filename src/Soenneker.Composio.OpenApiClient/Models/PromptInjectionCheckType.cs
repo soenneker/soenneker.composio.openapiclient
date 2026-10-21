@@ -5,12 +5,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum BlockOnMatch
+    public enum PromptInjectionCheckType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "block")]
+        [EnumMember(Value = "prompt_injection_check")]
         #pragma warning disable CS1591
-        Block,
+        PromptInjectionCheck,
         #pragma warning restore CS1591
     }
 }

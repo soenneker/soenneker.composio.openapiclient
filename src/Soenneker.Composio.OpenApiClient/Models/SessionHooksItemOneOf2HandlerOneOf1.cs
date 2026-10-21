@@ -12,18 +12,18 @@ namespace Soenneker.Composio.OpenApiClient.Models
     public partial class SessionHooksItemOneOf2HandlerOneOf1 : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The on_match property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.BlockOnMatch? OnMatch { get; set; }
+        /// <summary>The action property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.BlockAction? Action { get; set; }
         /// <summary>What to block, written as a plain sentence. For example: &quot;Sending email to anyone outside example.org&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Prompt { get; set; }
+        public string? Condition { get; set; }
 #nullable restore
 #else
-        public string Prompt { get; set; }
+        public string Condition { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PromptType? Type { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ConditionCheckType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,9 +42,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "on_match", n => { OnMatch = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BlockOnMatch>(); } },
-                { "prompt", n => { Prompt = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PromptType>(); } },
+                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BlockAction>(); } },
+                { "condition", n => { Condition = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.ConditionCheckType>(); } },
             };
         }
         /// <summary>
@@ -54,9 +54,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BlockOnMatch>("on_match", OnMatch);
-            writer.WriteStringValue("prompt", Prompt);
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PromptType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BlockAction>("action", Action);
+            writer.WriteStringValue("condition", Condition);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.ConditionCheckType>("type", Type);
         }
     }
 }

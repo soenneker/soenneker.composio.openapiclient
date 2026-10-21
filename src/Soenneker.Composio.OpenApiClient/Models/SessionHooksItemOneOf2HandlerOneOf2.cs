@@ -13,10 +13,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SessionHooksItemOneOf2HandlerOneOf2 : IParsable
     {
-        /// <summary>The on_match property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.BlockOnMatch? OnMatch { get; set; }
+        /// <summary>The action property</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.BlockAction? Action { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PromptInjectionType? Type { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PromptInjectionCheckType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -35,8 +35,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "on_match", n => { OnMatch = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BlockOnMatch>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PromptInjectionType>(); } },
+                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BlockAction>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PromptInjectionCheckType>(); } },
             };
         }
         /// <summary>
@@ -46,8 +46,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BlockOnMatch>("on_match", OnMatch);
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PromptInjectionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BlockAction>("action", Action);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PromptInjectionCheckType>("type", Type);
         }
     }
 }

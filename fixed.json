@@ -11614,14 +11614,14 @@
           }
         ],
         "properties": {
-          "prompt": {
+          "condition": {
             "maxLength": 2000,
             "minLength": 1,
             "type": "string",
             "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
           },
-          "on_match": {
-            "$ref": "#/components/schemas/BlockOnMatch"
+          "action": {
+            "$ref": "#/components/schemas/BlockAction"
           }
         }
       },
@@ -11710,22 +11710,22 @@
       "SessionHooksItemOneOf2HandlerOneOf1": {
         "required": [
           "type",
-          "prompt",
-          "on_match"
+          "condition",
+          "action"
         ],
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/PromptType"
+            "$ref": "#/components/schemas/ConditionCheckType"
           },
-          "prompt": {
+          "condition": {
             "maxLength": 2000,
             "minLength": 1,
             "type": "string",
             "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
           },
-          "on_match": {
-            "$ref": "#/components/schemas/BlockOnMatch"
+          "action": {
+            "$ref": "#/components/schemas/BlockAction"
           }
         },
         "additionalProperties": false
@@ -11733,15 +11733,15 @@
       "SessionHooksItemOneOf2HandlerOneOf2": {
         "required": [
           "type",
-          "on_match"
+          "action"
         ],
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/PromptInjectionType"
+            "$ref": "#/components/schemas/PromptInjectionCheckType"
           },
-          "on_match": {
-            "$ref": "#/components/schemas/BlockOnMatch"
+          "action": {
+            "$ref": "#/components/schemas/BlockAction"
           }
         },
         "additionalProperties": false,
@@ -12530,22 +12530,22 @@
       "SessionHooksItemOneOf1Handler": {
         "required": [
           "type",
-          "prompt",
-          "on_match"
+          "condition",
+          "action"
         ],
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/PromptType"
+            "$ref": "#/components/schemas/ConditionCheckType"
           },
-          "prompt": {
+          "condition": {
             "maxLength": 2000,
             "minLength": 1,
             "type": "string",
             "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
           },
-          "on_match": {
-            "$ref": "#/components/schemas/BlockOnMatch"
+          "action": {
+            "$ref": "#/components/schemas/BlockAction"
           }
         },
         "additionalProperties": false
@@ -30321,31 +30321,31 @@
           ]
         }
       },
-      "PromptType": {
+      "ConditionCheckType": {
         "enum": [
-          "prompt"
+          "condition_check"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "PromptType",
+          "name": "ConditionCheckType",
           "modelAsString": false,
           "values": [
             {
-              "value": "prompt",
-              "name": "Prompt"
+              "value": "condition_check",
+              "name": "ConditionCheck"
             }
           ]
         }
       },
-      "BlockOnMatch": {
+      "BlockAction": {
         "enum": [
           "block"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "BlockOnMatch",
+          "name": "BlockAction",
           "modelAsString": false,
           "values": [
             {
@@ -30355,19 +30355,19 @@
           ]
         }
       },
-      "PromptInjectionType": {
+      "PromptInjectionCheckType": {
         "enum": [
-          "prompt_injection"
+          "prompt_injection_check"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "PromptInjectionType",
+          "name": "PromptInjectionCheckType",
           "modelAsString": false,
           "values": [
             {
-              "value": "prompt_injection",
-              "name": "PromptInjection"
+              "value": "prompt_injection_check",
+              "name": "PromptInjectionCheck"
             }
           ]
         }

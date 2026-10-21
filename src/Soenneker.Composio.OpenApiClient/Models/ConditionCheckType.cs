@@ -5,12 +5,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum PromptInjectionType
+    public enum ConditionCheckType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "prompt_injection")]
+        [EnumMember(Value = "condition_check")]
         #pragma warning disable CS1591
-        PromptInjection,
+        ConditionCheck,
         #pragma warning restore CS1591
     }
 }
