@@ -9,29 +9,26 @@ namespace Soenneker.Composio.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SessionHooksItemOneOf2AppliesToWrapper : IAdditionalDataHolder, IParsable
+    public partial class PostToolRouterSessionRequestHooksItemAppliesToAnyOf2 : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The value property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.AllValue? Value { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.SessionHooksItemOneOf2AppliesToWrapper"/> and sets the default values.
-        /// </summary>
-        public SessionHooksItemOneOf2AppliesToWrapper()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Toolkit slugs</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Toolkits { get; set; }
+#nullable restore
+#else
+        public List<string> Toolkits { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.SessionHooksItemOneOf2AppliesToWrapper"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItemAppliesToAnyOf2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.SessionHooksItemOneOf2AppliesToWrapper CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItemAppliesToAnyOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.SessionHooksItemOneOf2AppliesToWrapper();
+            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItemAppliesToAnyOf2();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,7 +38,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.AllValue>(); } },
+                { "toolkits", n => { Toolkits = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -51,8 +48,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.AllValue>("value", Value);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteCollectionOfPrimitiveValues<string>("toolkits", Toolkits);
         }
     }
 }

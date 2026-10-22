@@ -10788,14 +10788,6 @@
           }
         }
       },
-      "SessionHooks": {
-        "maxItems": 20,
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SessionHooksItem"
-        },
-        "description": "Hooks that run on this session\u0027s tool calls."
-      },
       "HookResult": {
         "type": "object",
         "oneOf": [
@@ -11283,30 +11275,6 @@
           }
         }
       },
-      "SessionHooksItem": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf1"
-          },
-          {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf2"
-          }
-        ],
-        "properties": {
-          "id": {
-            "pattern": "^[a-z0-9_-]{1,64}$",
-            "type": "string",
-            "description": "Unique within the session. Shows up in results and logs."
-          },
-          "name": {
-            "maxLength": 120,
-            "minLength": 1,
-            "type": "string",
-            "description": "A readable name. The agent sees it when this hook blocks a call."
-          }
-        }
-      },
       "HookResultOneOf1": {
         "required": [
           "id",
@@ -11425,70 +11393,6 @@
           }
         }
       },
-      "SessionHooksItemOneOf1": {
-        "required": [
-          "type",
-          "id",
-          "applies_to",
-          "handler"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/BeforeExecuteType"
-          },
-          "id": {
-            "pattern": "^[a-z0-9_-]{1,64}$",
-            "type": "string",
-            "description": "Unique within the session. Shows up in results and logs."
-          },
-          "name": {
-            "maxLength": 120,
-            "minLength": 1,
-            "type": "string",
-            "description": "A readable name. The agent sees it when this hook blocks a call."
-          },
-          "applies_to": {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf1AppliesTo"
-          },
-          "handler": {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf1Handler"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SessionHooksItemOneOf2": {
-        "required": [
-          "type",
-          "id",
-          "applies_to",
-          "handler"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/AfterExecuteType"
-          },
-          "id": {
-            "pattern": "^[a-z0-9_-]{1,64}$",
-            "type": "string",
-            "description": "Unique within the session. Shows up in results and logs."
-          },
-          "name": {
-            "maxLength": 120,
-            "minLength": 1,
-            "type": "string",
-            "description": "A readable name. The agent sees it when this hook blocks a call."
-          },
-          "applies_to": {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf2AppliesTo"
-          },
-          "handler": {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf2Handler"
-          }
-        },
-        "additionalProperties": false
-      },
       "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItem": {
         "type": "object",
         "anyOf": [
@@ -11551,80 +11455,6 @@
           }
         }
       },
-      "SessionHooksItemOneOf1AppliesTo": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf1AppliesToWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf1AppliesToAnyOf2"
-          }
-        ],
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/AllValue"
-          },
-          "toolkits": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "description": "Toolkit slugs"
-          }
-        },
-        "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
-      },
-      "SessionHooksItemOneOf2AppliesTo": {
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf2AppliesToWrapper"
-          },
-          {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf2AppliesToAnyOf2"
-          }
-        ],
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/AllValue"
-          },
-          "toolkits": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "description": "Toolkit slugs"
-          }
-        },
-        "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
-      },
-      "SessionHooksItemOneOf2Handler": {
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf2HandlerOneOf1"
-          },
-          {
-            "$ref": "#/components/schemas/SessionHooksItemOneOf2HandlerOneOf2"
-          }
-        ],
-        "properties": {
-          "condition": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
-          },
-          "action": {
-            "$ref": "#/components/schemas/BlockAction"
-          }
-        }
-      },
       "ToolScopeRequirementsAllOfItemAnyOf2AnyOfItemAnyOf2": {
         "required": [
           "all_of"
@@ -11670,82 +11500,6 @@
             }
           }
         }
-      },
-      "SessionHooksItemOneOf1AppliesToAnyOf2": {
-        "required": [
-          "toolkits"
-        ],
-        "type": "object",
-        "properties": {
-          "toolkits": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "description": "Toolkit slugs"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SessionHooksItemOneOf2AppliesToAnyOf2": {
-        "required": [
-          "toolkits"
-        ],
-        "type": "object",
-        "properties": {
-          "toolkits": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "description": "Toolkit slugs"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SessionHooksItemOneOf2HandlerOneOf1": {
-        "required": [
-          "type",
-          "condition",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/ConditionCheckType"
-          },
-          "condition": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
-          },
-          "action": {
-            "$ref": "#/components/schemas/BlockAction"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SessionHooksItemOneOf2HandlerOneOf2": {
-        "required": [
-          "type",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/PromptInjectionCheckType"
-          },
-          "action": {
-            "$ref": "#/components/schemas/BlockAction"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
       },
       "ErrorError": {
         "required": [
@@ -12526,29 +12280,6 @@
             "type": "string"
           }
         }
-      },
-      "SessionHooksItemOneOf1Handler": {
-        "required": [
-          "type",
-          "condition",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/ConditionCheckType"
-          },
-          "condition": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
-          },
-          "action": {
-            "$ref": "#/components/schemas/BlockAction"
-          }
-        },
-        "additionalProperties": false
       },
       "PatchConnectedAccountBodyConnectionState": {
         "required": [
@@ -16267,7 +15998,12 @@
             "$ref": "#/components/schemas/PostToolRouterSessionRequestPreload"
           },
           "hooks": {
-            "$ref": "#/components/schemas/PostToolRouterSessionRequestHooks"
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItem"
+            },
+            "description": "Hooks that run on this session\u0027s tool calls. A hook can block a call before it runs, or block its result before the agent sees it."
           }
         }
       },
@@ -16599,7 +16335,13 @@
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestPreload"
           },
           "hooks": {
-            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooks"
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItem"
+            },
+            "description": "Hooks that run on this session\u0027s tool calls. A hook can block a call before it runs, or block its result before the agent sees it.",
+            "nullable": true
           },
           "experimental": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestExperimental"
@@ -17051,28 +16793,6 @@
               "$ref": "#/components/schemas/GetToolkitsChangelog200ResponseItemsItem"
             },
             "description": "List of toolkits with their changelogs"
-          }
-        }
-      },
-      "SessionHooksItemOneOf1AppliesToWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/AllValue"
-          }
-        }
-      },
-      "SessionHooksItemOneOf2AppliesToWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/AllValue"
           }
         }
       },
@@ -19336,19 +19056,25 @@
           }
         }
       },
-      "SessionHooksWrapper": {
+      "PostToolRouterSessionRequestHooksItemOneOf1AppliesToBranch1": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "maxItems": 20,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SessionHooksItem"
-            },
-            "description": "Hooks that run on this session\u0027s tool calls."
+            "$ref": "#/components/schemas/AllValue"
+          }
+        }
+      },
+      "PostToolRouterSessionRequestHooksItemOneOf2AppliesToBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
           }
         }
       },
@@ -19363,6 +19089,28 @@
           }
         }
       },
+      "PostToolRouterSession201ResponseConfigHooksItemOneOf1AppliesToBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
+          }
+        }
+      },
+      "PostToolRouterSession201ResponseConfigHooksItemOneOf2AppliesToBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
+          }
+        }
+      },
       "GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1": {
         "required": [
           "value"
@@ -19371,6 +19119,28 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1Value"
+          }
+        }
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1AppliesToBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
+          }
+        }
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2AppliesToBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
           }
         }
       },
@@ -19413,19 +19183,25 @@
           }
         }
       },
-      "SessionHooksWrapper2": {
+      "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1AppliesToBranch1": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "maxItems": 20,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SessionHooksItem"
-            },
-            "description": "Hooks that run on this session\u0027s tool calls."
+            "$ref": "#/components/schemas/AllValue"
+          }
+        }
+      },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2AppliesToBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
           }
         }
       },
@@ -19437,6 +19213,28 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigInstantBranch1Value"
+          }
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1AppliesToBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
+          }
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2AppliesToBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
           }
         }
       },
@@ -19974,6 +19772,32 @@
           ]
         }
       },
+      "PostToolRouterSessionRequestHooksItemAppliesTo": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1AppliesToBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemAppliesToAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
+          },
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
+          }
+        },
+        "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
+      },
       "PostToolRouterSession201ResponseConfigInstant": {
         "type": "object",
         "anyOf": [
@@ -20006,6 +19830,32 @@
         },
         "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
       },
+      "PostToolRouterSession201ResponseConfigHooksItemAppliesTo": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1AppliesToBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemAppliesToAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
+          },
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
+          }
+        },
+        "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
+      },
       "GetToolRouterSessionBySessionId200ResponseConfigInstant": {
         "type": "object",
         "anyOf": [
@@ -20037,6 +19887,32 @@
           }
         },
         "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesTo": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1AppliesToBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesToAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
+          },
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
+          }
+        },
+        "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
       },
       "PatchToolRouterSessionBySessionIdRequestInstant": {
         "type": "object",
@@ -20173,6 +20049,32 @@
           ]
         }
       },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemAppliesTo": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1AppliesToBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemAppliesToAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
+          },
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
+          }
+        },
+        "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
+      },
       "PatchToolRouterSessionBySessionId200ResponseConfigInstant": {
         "type": "object",
         "anyOf": [
@@ -20204,6 +20106,32 @@
           }
         },
         "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesTo": {
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1AppliesToBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesToAnyOf2"
+          }
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AllValue"
+          },
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
+          }
+        },
+        "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
       },
       "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataValExpiresIn": {
         "type": "object",
@@ -20311,6 +20239,24 @@
           }
         }
       },
+      "PostToolRouterSessionRequestHooksItemAppliesToAnyOf2": {
+        "required": [
+          "toolkits"
+        ],
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
+          }
+        },
+        "additionalProperties": false
+      },
       "PostToolRouterSession201ResponseConfigInstantAnyOf2": {
         "required": [
           "return_instant_charge",
@@ -20336,6 +20282,24 @@
         },
         "additionalProperties": false
       },
+      "PostToolRouterSession201ResponseConfigHooksItemAppliesToAnyOf2": {
+        "required": [
+          "toolkits"
+        ],
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
+          }
+        },
+        "additionalProperties": false
+      },
       "GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2": {
         "required": [
           "return_instant_charge",
@@ -20357,6 +20321,24 @@
             "type": "boolean",
             "description": "Experimental. Whether tool search results show each instant tool\u0027s price, under instant_account.prices. Defaults to false.",
             "x-experimental": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesToAnyOf2": {
+        "required": [
+          "toolkits"
+        ],
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
           }
         },
         "additionalProperties": false
@@ -20439,6 +20421,24 @@
           }
         }
       },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemAppliesToAnyOf2": {
+        "required": [
+          "toolkits"
+        ],
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
+          }
+        },
+        "additionalProperties": false
+      },
       "PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2": {
         "required": [
           "return_instant_charge",
@@ -20460,6 +20460,24 @@
             "type": "boolean",
             "description": "Experimental. Whether tool search results show each instant tool\u0027s price, under instant_account.prices. Defaults to false.",
             "x-experimental": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesToAnyOf2": {
+        "required": [
+          "toolkits"
+        ],
+        "type": "object",
+        "properties": {
+          "toolkits": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": "Toolkit slugs"
           }
         },
         "additionalProperties": false
@@ -22258,6 +22276,10 @@
           },
           "theme": {
             "$ref": "#/components/schemas/PostOrgOwnerProjectNewRequestConfigTheme"
+          },
+          "enable_instant": {
+            "type": "boolean",
+            "description": "Enable Instant Toolkits for this project."
           },
           "zdr_enabled": {
             "type": "boolean",
@@ -24081,22 +24103,36 @@
         "additionalProperties": false,
         "description": "Preload configuration for Composio tools. Controls which tools appear in \u0060session.tools\u0060 and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use \u0060preload\u0060 on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools."
       },
-      "PostToolRouterSessionRequestHooks": {
+      "PostToolRouterSessionRequestHooksItem": {
         "required": [
-          "value"
+          "type",
+          "id",
+          "applies_to",
+          "handler"
         ],
         "type": "object",
         "properties": {
-          "value": {
-            "maxItems": 20,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SessionHooksItem"
-            },
-            "description": "Hooks that run on this session\u0027s tool calls."
+          "type": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemType"
+          },
+          "id": {
+            "pattern": "^[a-z0-9_-]{1,64}$",
+            "type": "string",
+            "description": "Unique within the session. Shows up in results and logs."
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "description": "A readable name. The agent sees it when this hook blocks a call."
+          },
+          "applies_to": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemAppliesTo"
+          },
+          "handler": {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemHandler"
           }
-        },
-        "description": "Hooks that run on this session\u0027s tool calls. A hook can block a call before it runs, or block its result before the agent sees it."
+        }
       },
       "PostToolRouterSession201ResponseMcp": {
         "required": [
@@ -24165,7 +24201,7 @@
             "maxItems": 20,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SessionHooksItem"
+              "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItem"
             },
             "description": "Hooks that run on this session\u0027s tool calls."
           },
@@ -24347,7 +24383,7 @@
             "maxItems": 20,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SessionHooksItem"
+              "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItem"
             },
             "description": "Hooks that run on this session\u0027s tool calls."
           },
@@ -24587,22 +24623,36 @@
         "additionalProperties": false,
         "description": "Preload configuration for Composio tools. Controls which tools appear in \u0060session.tools\u0060 and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use \u0060preload\u0060 on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools."
       },
-      "PatchToolRouterSessionBySessionIdRequestHooks": {
+      "PatchToolRouterSessionBySessionIdRequestHooksItem": {
         "required": [
-          "value"
+          "type",
+          "id",
+          "applies_to",
+          "handler"
         ],
         "type": "object",
         "properties": {
-          "value": {
-            "maxItems": 20,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SessionHooksItem"
-            },
-            "description": "Hooks that run on this session\u0027s tool calls."
+          "type": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemType"
+          },
+          "id": {
+            "pattern": "^[a-z0-9_-]{1,64}$",
+            "type": "string",
+            "description": "Unique within the session. Shows up in results and logs."
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "description": "A readable name. The agent sees it when this hook blocks a call."
+          },
+          "applies_to": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemAppliesTo"
+          },
+          "handler": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemHandler"
           }
-        },
-        "description": "Hooks that run on this session\u0027s tool calls. A hook can block a call before it runs, or block its result before the agent sees it."
+        }
       },
       "PatchToolRouterSessionBySessionIdRequestExperimental": {
         "type": "object",
@@ -24699,7 +24749,7 @@
             "maxItems": 20,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SessionHooksItem"
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItem"
             },
             "description": "Hooks that run on this session\u0027s tool calls."
           },
@@ -27200,6 +27250,29 @@
         "description": "Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.",
         "x-experimental": true
       },
+      "PostToolRouterSessionRequestHooksItemHandler": {
+        "required": [
+          "type",
+          "condition",
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConditionCheckType"
+          },
+          "condition": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string",
+            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+          },
+          "action": {
+            "$ref": "#/components/schemas/BlockAction"
+          }
+        },
+        "additionalProperties": false
+      },
       "PostToolRouterSession201ResponseConfigToolkits": {
         "type": "object",
         "properties": {
@@ -27376,6 +27449,37 @@
           }
         },
         "description": "Proxy execute configuration for this session. Omitted when not set."
+      },
+      "PostToolRouterSession201ResponseConfigHooksItem": {
+        "required": [
+          "type",
+          "id",
+          "applies_to",
+          "handler"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemType"
+          },
+          "id": {
+            "pattern": "^[a-z0-9_-]{1,64}$",
+            "type": "string",
+            "description": "Unique within the session. Shows up in results and logs."
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "description": "A readable name. The agent sees it when this hook blocks a call."
+          },
+          "applies_to": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemAppliesTo"
+          },
+          "handler": {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemHandler"
+          }
+        }
       },
       "PostToolRouterSession201ResponseConfigPreload": {
         "required": [
@@ -27657,6 +27761,37 @@
         },
         "description": "Proxy execute configuration for this session. Omitted when not set."
       },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItem": {
+        "required": [
+          "type",
+          "id",
+          "applies_to",
+          "handler"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemType"
+          },
+          "id": {
+            "pattern": "^[a-z0-9_-]{1,64}$",
+            "type": "string",
+            "description": "Unique within the session. Shows up in results and logs."
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "description": "A readable name. The agent sees it when this hook blocks a call."
+          },
+          "applies_to": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesTo"
+          },
+          "handler": {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemHandler"
+          }
+        }
+      },
       "GetToolRouterSessionBySessionId200ResponseConfigPreload": {
         "required": [
           "tools"
@@ -27793,6 +27928,29 @@
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestToolsAdditionalPropertiesTags"
           }
         }
+      },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemHandler": {
+        "required": [
+          "type",
+          "condition",
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConditionCheckType"
+          },
+          "condition": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string",
+            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+          },
+          "action": {
+            "$ref": "#/components/schemas/BlockAction"
+          }
+        },
+        "additionalProperties": false
       },
       "PatchToolRouterSessionBySessionIdRequestExperimentalPermissions": {
         "required": [
@@ -28000,6 +28158,37 @@
           }
         },
         "description": "Proxy execute configuration for this session. Omitted when not set."
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItem": {
+        "required": [
+          "type",
+          "id",
+          "applies_to",
+          "handler"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemType"
+          },
+          "id": {
+            "pattern": "^[a-z0-9_-]{1,64}$",
+            "type": "string",
+            "description": "Unique within the session. Shows up in results and logs."
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string",
+            "description": "A readable name. The agent sees it when this hook blocks a call."
+          },
+          "applies_to": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesTo"
+          },
+          "handler": {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemHandler"
+          }
+        }
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigPreload": {
         "required": [
@@ -29156,6 +29345,29 @@
           }
         }
       },
+      "PostToolRouterSession201ResponseConfigHooksItemHandler": {
+        "required": [
+          "type",
+          "condition",
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConditionCheckType"
+          },
+          "condition": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string",
+            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+          },
+          "action": {
+            "$ref": "#/components/schemas/BlockAction"
+          }
+        },
+        "additionalProperties": false
+      },
       "PostToolRouterSession201ResponseExperimentalCustomToolkitsItemToolsItem": {
         "required": [
           "slug",
@@ -29235,6 +29447,29 @@
             "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTags"
           }
         }
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemHandler": {
+        "required": [
+          "type",
+          "condition",
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConditionCheckType"
+          },
+          "condition": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string",
+            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+          },
+          "action": {
+            "$ref": "#/components/schemas/BlockAction"
+          }
+        },
+        "additionalProperties": false
       },
       "GetToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItem": {
         "required": [
@@ -29322,6 +29557,29 @@
             "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigToolsAdditionalPropertiesTags"
           }
         }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemHandler": {
+        "required": [
+          "type",
+          "condition",
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConditionCheckType"
+          },
+          "condition": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "type": "string",
+            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+          },
+          "action": {
+            "$ref": "#/components/schemas/BlockAction"
+          }
+        },
+        "additionalProperties": false
       },
       "PatchToolRouterSessionBySessionId200ResponseExperimentalCustomToolkitsItemToolsItem": {
         "required": [
@@ -30283,91 +30541,6 @@
             {
               "value": "response_blocked",
               "name": "ResponseBlocked"
-            }
-          ]
-        }
-      },
-      "BeforeExecuteType": {
-        "enum": [
-          "before_execute"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "BeforeExecuteType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "before_execute",
-              "name": "BeforeExecute"
-            }
-          ]
-        }
-      },
-      "AfterExecuteType": {
-        "enum": [
-          "after_execute"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "AfterExecuteType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "after_execute",
-              "name": "AfterExecute"
-            }
-          ]
-        }
-      },
-      "ConditionCheckType": {
-        "enum": [
-          "condition_check"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "ConditionCheckType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "condition_check",
-              "name": "ConditionCheck"
-            }
-          ]
-        }
-      },
-      "BlockAction": {
-        "enum": [
-          "block"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "BlockAction",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "block",
-              "name": "Block"
-            }
-          ]
-        }
-      },
-      "PromptInjectionCheckType": {
-        "enum": [
-          "prompt_injection_check"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PromptInjectionCheckType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "prompt_injection_check",
-              "name": "PromptInjectionCheck"
             }
           ]
         }
@@ -31563,23 +31736,6 @@
           ]
         }
       },
-      "AllValue": {
-        "enum": [
-          "all"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "AllValue",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "all",
-              "name": "All"
-            }
-          ]
-        }
-      },
       "PostToolRouterSessionRequestInstantBranch1Value": {
         "enum": [
           false
@@ -31667,6 +31823,23 @@
             {
               "value": "openWorldHint",
               "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
+      "AllValue": {
+        "enum": [
+          "all"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "AllValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "all",
+              "name": "All"
             }
           ]
         }
@@ -33652,6 +33825,28 @@
           ]
         }
       },
+      "PostToolRouterSessionRequestHooksItemType": {
+        "enum": [
+          "before_execute",
+          "after_execute"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostToolRouterSessionRequestHooksItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "before_execute",
+              "name": "BeforeExecute"
+            },
+            {
+              "value": "after_execute",
+              "name": "AfterExecute"
+            }
+          ]
+        }
+      },
       "HttpType": {
         "enum": [
           "http"
@@ -33767,6 +33962,28 @@
             {
               "value": "xlarge",
               "name": "Xlarge"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemType": {
+        "enum": [
+          "before_execute",
+          "after_execute"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionIdRequestHooksItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "before_execute",
+              "name": "BeforeExecute"
+            },
+            {
+              "value": "after_execute",
+              "name": "AfterExecute"
             }
           ]
         }
@@ -34602,6 +34819,40 @@
           ]
         }
       },
+      "ConditionCheckType": {
+        "enum": [
+          "condition_check"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ConditionCheckType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "condition_check",
+              "name": "ConditionCheck"
+            }
+          ]
+        }
+      },
+      "BlockAction": {
+        "enum": [
+          "block"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "BlockAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            }
+          ]
+        }
+      },
       "PostToolRouterSession201ResponseConfigTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
@@ -34761,6 +35012,28 @@
           ]
         }
       },
+      "PostToolRouterSession201ResponseConfigHooksItemType": {
+        "enum": [
+          "before_execute",
+          "after_execute"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PostToolRouterSession201ResponseConfigHooksItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "before_execute",
+              "name": "BeforeExecute"
+            },
+            {
+              "value": "after_execute",
+              "name": "AfterExecute"
+            }
+          ]
+        }
+      },
       "GetToolRouterSessionBySessionId200ResponseConfigTagsEnabledItem": {
         "enum": [
           "readOnlyHint",
@@ -34916,6 +35189,28 @@
             {
               "value": "xlarge",
               "name": "Xlarge"
+            }
+          ]
+        }
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemType": {
+        "enum": [
+          "before_execute",
+          "after_execute"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "GetToolRouterSessionBySessionId200ResponseConfigHooksItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "before_execute",
+              "name": "BeforeExecute"
+            },
+            {
+              "value": "after_execute",
+              "name": "AfterExecute"
             }
           ]
         }
@@ -35103,6 +35398,28 @@
             {
               "value": "xlarge",
               "name": "Xlarge"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemType": {
+        "enum": [
+          "before_execute",
+          "after_execute"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "before_execute",
+              "name": "BeforeExecute"
+            },
+            {
+              "value": "after_execute",
+              "name": "AfterExecute"
             }
           ]
         }

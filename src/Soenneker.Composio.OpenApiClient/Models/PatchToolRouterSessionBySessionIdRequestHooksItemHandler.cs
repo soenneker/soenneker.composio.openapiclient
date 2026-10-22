@@ -9,7 +9,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SessionHooksItemOneOf1Handler : IParsable
+    public partial class PatchToolRouterSessionBySessionIdRequestHooksItemHandler : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
@@ -27,12 +27,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.SessionHooksItemOneOf1Handler"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestHooksItemHandler"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Composio.OpenApiClient.Models.SessionHooksItemOneOf1Handler CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestHooksItemHandler CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.SessionHooksItemOneOf1Handler();
+            return new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestHooksItemHandler();
         }
         /// <summary>
         /// The deserialization information for the current model

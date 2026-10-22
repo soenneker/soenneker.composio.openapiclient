@@ -5,9 +5,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum AfterExecuteType
+    public enum GetToolRouterSessionBySessionId200ResponseConfigHooksItemType
     #pragma warning restore CS1591
     {
+        [EnumMember(Value = "before_execute")]
+        #pragma warning disable CS1591
+        BeforeExecute,
+        #pragma warning restore CS1591
         [EnumMember(Value = "after_execute")]
         #pragma warning disable CS1591
         AfterExecute,

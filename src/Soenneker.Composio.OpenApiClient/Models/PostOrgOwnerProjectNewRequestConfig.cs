@@ -23,6 +23,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string DisplayName { get; set; }
 #endif
+        /// <summary>Enable Instant Toolkits for this project.</summary>
+        public bool? EnableInstant { get; set; }
         /// <summary>The is_2FA_enabled property</summary>
         public bool? Is2FAEnabled { get; set; }
         /// <summary>Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don&apos;t use this key.</summary>
@@ -85,6 +87,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
+                { "enable_instant", n => { EnableInstant = n.GetBoolValue(); } },
                 { "is_2FA_enabled", n => { Is2FAEnabled = n.GetBoolValue(); } },
                 { "is_composio_link_enabled_for_managed_auth", n => { IsComposioLinkEnabledForManagedAuth = n.GetBoolValue(); } },
                 { "log_visibility_setting", n => { LogVisibilitySetting = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting>(); } },
@@ -104,6 +107,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("display_name", DisplayName);
+            writer.WriteBoolValue("enable_instant", EnableInstant);
             writer.WriteBoolValue("is_2FA_enabled", Is2FAEnabled);
             writer.WriteBoolValue("is_composio_link_enabled_for_managed_auth", IsComposioLinkEnabledForManagedAuth);
             writer.WriteStringValue("logo_url", LogoUrl);
