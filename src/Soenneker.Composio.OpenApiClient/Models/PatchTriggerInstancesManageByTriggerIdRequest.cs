@@ -24,7 +24,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #endif
         /// <summary>Enable or disable the trigger instance.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PatchTriggerInstancesManageByTriggerIdRequestStatus? Status { get; set; }
-        /// <summary>The user id that owns the connected account behind this trigger. Optional: when sent on a project with 2FA enabled it must be the owner of a private connection or allowed on a shared one, whatever is being updated. Required to set egress_url when 2FA is enabled. Ignored when 2FA is disabled.</summary>
+        /// <summary>The user id acting on the connected account behind this trigger. On a shared connection it must be allowed by the connection ACL, and it is required to enable the trigger or set egress_url. On a private connection it must be the owner when the project has 2FA enabled, and is ignored when 2FA is disabled. Required to set egress_url when 2FA is enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }

@@ -64,7 +64,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig TriggerConfig { get; set; }
 #endif
-        /// <summary>The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger&apos;s toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.</summary>
+        /// <summary>The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger&apos;s toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided, user_id is checked against that connection: always against a SHARED connection&apos;s ACL (user_id is then required), and against a PRIVATE connection&apos;s owner when the project has 2FA enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }

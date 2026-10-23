@@ -65,7 +65,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem> Parameters { get; set; }
 #endif
-        /// <summary>The user id (entity id) that owns connected_account_id. When the project has 2FA enabled, it is validated against the owner of that connection. Also selects which custom toolkits the request may use.</summary>
+        /// <summary>The user id (entity id) acting on connected_account_id. Required for a SHARED connection, where it is checked against the connection&apos;s ACL. When the project has 2FA enabled, it is also validated against the owner of a PRIVATE connection. Also selects which custom toolkits the request may use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }
