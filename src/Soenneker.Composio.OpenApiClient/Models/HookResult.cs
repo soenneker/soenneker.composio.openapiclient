@@ -37,13 +37,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.HookResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             var result = new global::Soenneker.Composio.OpenApiClient.Models.HookResult();
-            if("HookResultOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("evaluated".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.HookResultOneOf1 = new global::Soenneker.Composio.OpenApiClient.Models.HookResultOneOf1();
             }
-            else if("HookResultOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("unavailable".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.HookResultOneOf2 = new global::Soenneker.Composio.OpenApiClient.Models.HookResultOneOf2();
             }

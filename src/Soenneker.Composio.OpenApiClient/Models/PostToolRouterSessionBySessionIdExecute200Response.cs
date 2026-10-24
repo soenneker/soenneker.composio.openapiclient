@@ -63,11 +63,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 result.ExecuteCompleted = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteCompleted();
             }
-            else if("ExecuteFailed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("failed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ExecuteFailed = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed();
             }
-            else if("ExecuteRequiresUserInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("input_required".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ExecuteRequiresUserInput = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput();
             }

@@ -10,6 +10,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// <summary>
     /// Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.
     /// </summary>
+    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomAuthConfigCreateSharedCredentialsProperty : IAdditionalDataHolder, IParsable
     {

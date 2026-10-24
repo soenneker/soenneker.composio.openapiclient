@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsBranch1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2"/>, List&lt;global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf1Item&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSessionRequestTags : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf1Item&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf1Item>? PostToolRouterSessionRequestTagsAnyOf1Item { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf1Item> PostToolRouterSessionRequestTagsAnyOf1Item { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,14 +28,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2 PostToolRouterSessionRequestTagsAnyOf2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsBranch1? PostToolRouterSessionRequestTagsBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsBranch1 PostToolRouterSessionRequestTagsBranch1 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,8 +38,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags();
-            result.PostToolRouterSessionRequestTagsAnyOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2();
-            result.PostToolRouterSessionRequestTagsBranch1 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsBranch1();
+            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf1Item>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf1Item> postToolRouterSessionRequestTagsAnyOf1ItemValue)
+            {
+                result.PostToolRouterSessionRequestTagsAnyOf1Item = postToolRouterSessionRequestTagsAnyOf1ItemValue;
+            }
+            else {
+                result.PostToolRouterSessionRequestTagsAnyOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2();
+            }
             return result;
         }
         /// <summary>
@@ -48,9 +53,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(PostToolRouterSessionRequestTagsAnyOf2 != null || PostToolRouterSessionRequestTagsBranch1 != null)
+            if(PostToolRouterSessionRequestTagsAnyOf2 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostToolRouterSessionRequestTagsAnyOf2, PostToolRouterSessionRequestTagsBranch1);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostToolRouterSessionRequestTagsAnyOf2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +66,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2>(null, PostToolRouterSessionRequestTagsAnyOf2, PostToolRouterSessionRequestTagsBranch1);
+            if(PostToolRouterSessionRequestTagsAnyOf1Item != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf1Item>(null, PostToolRouterSessionRequestTagsAnyOf1Item);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2>(null, PostToolRouterSessionRequestTagsAnyOf2);
+            }
         }
     }
 }

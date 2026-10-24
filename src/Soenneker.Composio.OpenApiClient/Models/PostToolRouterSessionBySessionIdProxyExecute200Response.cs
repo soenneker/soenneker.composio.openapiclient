@@ -47,7 +47,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("result_type")?.GetStringValue();
             var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200Response();
-            if("ExecuteRequiresUserInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("input_required".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ExecuteRequiresUserInput = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput();
             }

@@ -7,54 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PatchToolRouterSessionBySessionId200ResponseConfigHooksItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class PatchToolRouterSessionBySessionId200ResponseConfigHooksItem : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Which tools the hook covers: &quot;all&quot; for all of them, or only the listed toolkits.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesTo? AppliesTo { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1? PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesTo AppliesTo { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1 PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1 { get; set; }
 #endif
-        /// <summary>The handler property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemHandler? Handler { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2? PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemHandler Handler { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2 PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2 { get; set; }
 #endif
-        /// <summary>Unique within the session. Shows up in results and logs.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Id { get; set; }
-#nullable restore
-#else
-        public string Id { get; set; }
-#endif
-        /// <summary>A readable name. The agent sees it when this hook blocks a call.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
-        /// <summary>The type property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemType? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItem"/> and sets the default values.
-        /// </summary>
-        public PatchToolRouterSessionBySessionId200ResponseConfigHooksItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -63,7 +37,17 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItem();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItem();
+            if("before_execute".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1 = new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1();
+            }
+            else if("after_execute".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,14 +55,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1 != null)
             {
-                { "applies_to", n => { AppliesTo = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesTo>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesTo.CreateFromDiscriminatorValue); } },
-                { "handler", n => { Handler = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemHandler>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemHandler.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemType>(); } },
-            };
+                return PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1.GetFieldDeserializers();
+            }
+            else if(PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2 != null)
+            {
+                return PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -87,12 +72,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemAppliesTo>("applies_to", AppliesTo);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemHandler>("handler", Handler);
-            writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemType>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            if(PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1>(null, PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1);
+            }
+            else if(PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2>(null, PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2);
+            }
         }
     }
 }

@@ -8,11 +8,13 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1"/>
+    /// Composed type wrapper for classes <see cref="bool"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetToolRouterSessionBySessionId200ResponseConfigInstant : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="bool"/></summary>
+        public bool? Boolean { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,14 +22,6 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2 GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1? GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1 GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,8 +32,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstant();
-            result.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2 = new global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2();
-            result.GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1 = new global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1();
+            if(parseNode.GetBoolValue() is bool booleanValue)
+            {
+                result.Boolean = booleanValue;
+            }
+            else {
+                result.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2 = new global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2();
+            }
             return result;
         }
         /// <summary>
@@ -48,9 +47,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2 != null || GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1 != null)
+            if(GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2 != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2, GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +60,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2>(null, GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2, GetToolRouterSessionBySessionId200ResponseConfigInstantBranch1);
+            if(Boolean != null)
+            {
+                writer.WriteBoolValue(null, Boolean);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2>(null, GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2);
+            }
         }
     }
 }

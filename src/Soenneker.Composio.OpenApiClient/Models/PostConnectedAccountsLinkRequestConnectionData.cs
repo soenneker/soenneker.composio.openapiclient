@@ -8,538 +8,707 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional data to pre-fill connection fields with default values
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf10"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf11"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf12"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf13"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf14"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf15"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf16"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf17"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf18"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf19"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf20"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf21"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf22"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf23"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf24"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf25"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf26"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf27"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf28"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf29"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf3"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf30"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf31"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf32"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf33"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf34"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf35"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf36"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf37"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf38"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf39"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf4"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf40"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf41"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf42"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf43"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf44"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf45"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf46"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf47"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf48"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf49"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf5"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf50"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf51"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf52"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf53"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf54"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf55"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf56"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf57"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf58"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf59"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf6"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf60"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf61"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf62"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf63"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf64"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf65"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf66"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf67"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf68"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf69"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf7"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf70"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf71"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf72"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf73"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf74"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf75"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf76"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf77"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf78"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf79"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf8"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf80"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf81"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf82"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf83"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf84"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf85"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf86"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf87"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PostConnectedAccountsLinkRequestConnectionData : IAdditionalDataHolder, IParsable
+    public partial class PostConnectedAccountsLinkRequestConnectionData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>The access_token property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccessToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf1? PostConnectedAccountsLinkRequestConnectionDataAnyOf1 { get; set; }
 #nullable restore
 #else
-        public string AccessToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf1 PostConnectedAccountsLinkRequestConnectionDataAnyOf1 { get; set; }
 #endif
-        /// <summary>The account_id property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf10"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf10? PostConnectedAccountsLinkRequestConnectionDataAnyOf10 { get; set; }
 #nullable restore
 #else
-        public string AccountId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf10 PostConnectedAccountsLinkRequestConnectionDataAnyOf10 { get; set; }
 #endif
-        /// <summary>The account_url property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf11"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf11? PostConnectedAccountsLinkRequestConnectionDataAnyOf11 { get; set; }
 #nullable restore
 #else
-        public string AccountUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf11 PostConnectedAccountsLinkRequestConnectionDataAnyOf11 { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The api_key property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf12"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf12? PostConnectedAccountsLinkRequestConnectionDataAnyOf12 { get; set; }
 #nullable restore
 #else
-        public string ApiKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf12 PostConnectedAccountsLinkRequestConnectionDataAnyOf12 { get; set; }
 #endif
-        /// <summary>The api_url property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf13"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf13? PostConnectedAccountsLinkRequestConnectionDataAnyOf13 { get; set; }
 #nullable restore
 #else
-        public string ApiUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf13 PostConnectedAccountsLinkRequestConnectionDataAnyOf13 { get; set; }
 #endif
-        /// <summary>The application_id property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf14"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApplicationId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf14? PostConnectedAccountsLinkRequestConnectionDataAnyOf14 { get; set; }
 #nullable restore
 #else
-        public string ApplicationId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf14 PostConnectedAccountsLinkRequestConnectionDataAnyOf14 { get; set; }
 #endif
-        /// <summary>for slack user scopes</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf15"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAuthedUser? AuthedUser { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf15? PostConnectedAccountsLinkRequestConnectionDataAnyOf15 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAuthedUser AuthedUser { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf15 PostConnectedAccountsLinkRequestConnectionDataAnyOf15 { get; set; }
 #endif
-        /// <summary>The authUri property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf16"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthUri { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf16? PostConnectedAccountsLinkRequestConnectionDataAnyOf16 { get; set; }
 #nullable restore
 #else
-        public string AuthUri { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf16 PostConnectedAccountsLinkRequestConnectionDataAnyOf16 { get; set; }
 #endif
-        /// <summary>The base_url property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf17"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf17? PostConnectedAccountsLinkRequestConnectionDataAnyOf17 { get; set; }
 #nullable restore
 #else
-        public string BaseUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf17 PostConnectedAccountsLinkRequestConnectionDataAnyOf17 { get; set; }
 #endif
-        /// <summary>The basic_encoded property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf18"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BasicEncoded { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf18? PostConnectedAccountsLinkRequestConnectionDataAnyOf18 { get; set; }
 #nullable restore
 #else
-        public string BasicEncoded { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf18 PostConnectedAccountsLinkRequestConnectionDataAnyOf18 { get; set; }
 #endif
-        /// <summary>The bearer_token property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf19"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BearerToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf19? PostConnectedAccountsLinkRequestConnectionDataAnyOf19 { get; set; }
 #nullable restore
 #else
-        public string BearerToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf19 PostConnectedAccountsLinkRequestConnectionDataAnyOf19 { get; set; }
 #endif
-        /// <summary>The borneo_dashboard_url property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BorneoDashboardUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf2? PostConnectedAccountsLinkRequestConnectionDataAnyOf2 { get; set; }
 #nullable restore
 #else
-        public string BorneoDashboardUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf2 PostConnectedAccountsLinkRequestConnectionDataAnyOf2 { get; set; }
 #endif
-        /// <summary>The callback_url property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf20"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Callback_url { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf20? PostConnectedAccountsLinkRequestConnectionDataAnyOf20 { get; set; }
 #nullable restore
 #else
-        public string Callback_url { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf20 PostConnectedAccountsLinkRequestConnectionDataAnyOf20 { get; set; }
 #endif
-        /// <summary>The callbackUrl property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf21"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallbackUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf21? PostConnectedAccountsLinkRequestConnectionDataAnyOf21 { get; set; }
 #nullable restore
 #else
-        public string CallbackUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf21 PostConnectedAccountsLinkRequestConnectionDataAnyOf21 { get; set; }
 #endif
-        /// <summary>Dynamically registered client ID</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf22"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf22? PostConnectedAccountsLinkRequestConnectionDataAnyOf22 { get; set; }
 #nullable restore
 #else
-        public string ClientId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf22 PostConnectedAccountsLinkRequestConnectionDataAnyOf22 { get; set; }
 #endif
-        /// <summary>The client_id_issued_at property</summary>
-        public double? ClientIdIssuedAt { get; set; }
-        /// <summary>Dynamically registered client secret</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf23"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientSecret { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf23? PostConnectedAccountsLinkRequestConnectionDataAnyOf23 { get; set; }
 #nullable restore
 #else
-        public string ClientSecret { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf23 PostConnectedAccountsLinkRequestConnectionDataAnyOf23 { get; set; }
 #endif
-        /// <summary>The client_secret_expires_at property</summary>
-        public double? ClientSecretExpiresAt { get; set; }
-        /// <summary>The code_verifier property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf24"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CodeVerifier { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf24? PostConnectedAccountsLinkRequestConnectionDataAnyOf24 { get; set; }
 #nullable restore
 #else
-        public string CodeVerifier { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf24 PostConnectedAccountsLinkRequestConnectionDataAnyOf24 { get; set; }
 #endif
-        /// <summary>The COMPANYDOMAIN property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf25"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? COMPANYDOMAIN { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf25? PostConnectedAccountsLinkRequestConnectionDataAnyOf25 { get; set; }
 #nullable restore
 #else
-        public string COMPANYDOMAIN { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf25 PostConnectedAccountsLinkRequestConnectionDataAnyOf25 { get; set; }
 #endif
-        /// <summary>The composio_link_redirect_url property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf26"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ComposioLinkRedirectUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf26? PostConnectedAccountsLinkRequestConnectionDataAnyOf26 { get; set; }
 #nullable restore
 #else
-        public string ComposioLinkRedirectUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf26 PostConnectedAccountsLinkRequestConnectionDataAnyOf26 { get; set; }
 #endif
-        /// <summary>The consumer_key property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf27"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConsumerKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf27? PostConnectedAccountsLinkRequestConnectionDataAnyOf27 { get; set; }
 #nullable restore
 #else
-        public string ConsumerKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf27 PostConnectedAccountsLinkRequestConnectionDataAnyOf27 { get; set; }
 #endif
-        /// <summary>The credentials_json property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf28"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CredentialsJson { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf28? PostConnectedAccountsLinkRequestConnectionDataAnyOf28 { get; set; }
 #nullable restore
 #else
-        public string CredentialsJson { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf28 PostConnectedAccountsLinkRequestConnectionDataAnyOf28 { get; set; }
 #endif
-        /// <summary>The dc property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf29"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Dc { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf29? PostConnectedAccountsLinkRequestConnectionDataAnyOf29 { get; set; }
 #nullable restore
 #else
-        public string Dc { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf29 PostConnectedAccountsLinkRequestConnectionDataAnyOf29 { get; set; }
 #endif
-        /// <summary>The devKey property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DevKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf3? PostConnectedAccountsLinkRequestConnectionDataAnyOf3 { get; set; }
 #nullable restore
 #else
-        public string DevKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf3 PostConnectedAccountsLinkRequestConnectionDataAnyOf3 { get; set; }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf30"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf30? PostConnectedAccountsLinkRequestConnectionDataAnyOf30 { get; set; }
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf30 PostConnectedAccountsLinkRequestConnectionDataAnyOf30 { get; set; }
 #endif
-        /// <summary>The domain property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf31"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf31? PostConnectedAccountsLinkRequestConnectionDataAnyOf31 { get; set; }
 #nullable restore
 #else
-        public string Domain { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf31 PostConnectedAccountsLinkRequestConnectionDataAnyOf31 { get; set; }
 #endif
-        /// <summary>The error property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf32"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf32? PostConnectedAccountsLinkRequestConnectionDataAnyOf32 { get; set; }
 #nullable restore
 #else
-        public string Error { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf32 PostConnectedAccountsLinkRequestConnectionDataAnyOf32 { get; set; }
 #endif
-        /// <summary>The error_description property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf33"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorDescription { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf33? PostConnectedAccountsLinkRequestConnectionDataAnyOf33 { get; set; }
 #nullable restore
 #else
-        public string ErrorDescription { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf33 PostConnectedAccountsLinkRequestConnectionDataAnyOf33 { get; set; }
 #endif
-        /// <summary>The expired_at property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf34"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpiredAt { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf34? PostConnectedAccountsLinkRequestConnectionDataAnyOf34 { get; set; }
 #nullable restore
 #else
-        public string ExpiredAt { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf34 PostConnectedAccountsLinkRequestConnectionDataAnyOf34 { get; set; }
 #endif
-        /// <summary>The expires_at property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf35"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpiresAt { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf35? PostConnectedAccountsLinkRequestConnectionDataAnyOf35 { get; set; }
 #nullable restore
 #else
-        public string ExpiresAt { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf35 PostConnectedAccountsLinkRequestConnectionDataAnyOf35 { get; set; }
 #endif
-        /// <summary>The expires_in property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf36"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresIn? ExpiresIn { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf36? PostConnectedAccountsLinkRequestConnectionDataAnyOf36 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresIn ExpiresIn { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf36 PostConnectedAccountsLinkRequestConnectionDataAnyOf36 { get; set; }
 #endif
-        /// <summary>The extension property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf37"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Extension { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf37? PostConnectedAccountsLinkRequestConnectionDataAnyOf37 { get; set; }
 #nullable restore
 #else
-        public string Extension { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf37 PostConnectedAccountsLinkRequestConnectionDataAnyOf37 { get; set; }
 #endif
-        /// <summary>The extra_token_data property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf38"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExtraTokenData? ExtraTokenData { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf38? PostConnectedAccountsLinkRequestConnectionDataAnyOf38 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExtraTokenData ExtraTokenData { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf38 PostConnectedAccountsLinkRequestConnectionDataAnyOf38 { get; set; }
 #endif
-        /// <summary>The finalRedirectUri property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf39"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FinalRedirectUri { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf39? PostConnectedAccountsLinkRequestConnectionDataAnyOf39 { get; set; }
 #nullable restore
 #else
-        public string FinalRedirectUri { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf39 PostConnectedAccountsLinkRequestConnectionDataAnyOf39 { get; set; }
 #endif
-        /// <summary>The form_api_base_url property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FormApiBaseUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf4? PostConnectedAccountsLinkRequestConnectionDataAnyOf4 { get; set; }
 #nullable restore
 #else
-        public string FormApiBaseUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf4 PostConnectedAccountsLinkRequestConnectionDataAnyOf4 { get; set; }
 #endif
-        /// <summary>The generic_api_key property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf40"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GenericApiKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf40? PostConnectedAccountsLinkRequestConnectionDataAnyOf40 { get; set; }
 #nullable restore
 #else
-        public string GenericApiKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf40 PostConnectedAccountsLinkRequestConnectionDataAnyOf40 { get; set; }
 #endif
-        /// <summary>The id_token property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf41"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf41? PostConnectedAccountsLinkRequestConnectionDataAnyOf41 { get; set; }
 #nullable restore
 #else
-        public string IdToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf41 PostConnectedAccountsLinkRequestConnectionDataAnyOf41 { get; set; }
 #endif
-        /// <summary>The installation_id property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf42"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InstallationId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf42? PostConnectedAccountsLinkRequestConnectionDataAnyOf42 { get; set; }
 #nullable restore
 #else
-        public string InstallationId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf42 PostConnectedAccountsLinkRequestConnectionDataAnyOf42 { get; set; }
 #endif
-        /// <summary>The instanceEndpoint property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf43"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InstanceEndpoint { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf43? PostConnectedAccountsLinkRequestConnectionDataAnyOf43 { get; set; }
 #nullable restore
 #else
-        public string InstanceEndpoint { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf43 PostConnectedAccountsLinkRequestConnectionDataAnyOf43 { get; set; }
 #endif
-        /// <summary>The instanceName property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf44"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InstanceName { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf44? PostConnectedAccountsLinkRequestConnectionDataAnyOf44 { get; set; }
 #nullable restore
 #else
-        public string InstanceName { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf44 PostConnectedAccountsLinkRequestConnectionDataAnyOf44 { get; set; }
 #endif
-        /// <summary>Whether to return the redirect url without shortening</summary>
-        public bool? LongRedirectUrl { get; set; }
-        /// <summary>The oauth_token property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf45"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf45? PostConnectedAccountsLinkRequestConnectionDataAnyOf45 { get; set; }
 #nullable restore
 #else
-        public string OauthToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf45 PostConnectedAccountsLinkRequestConnectionDataAnyOf45 { get; set; }
 #endif
-        /// <summary>The oauth_token_secret property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf46"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthTokenSecret { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf46? PostConnectedAccountsLinkRequestConnectionDataAnyOf46 { get; set; }
 #nullable restore
 #else
-        public string OauthTokenSecret { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf46 PostConnectedAccountsLinkRequestConnectionDataAnyOf46 { get; set; }
 #endif
-        /// <summary>The oauth_verifier property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf47"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthVerifier { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf47? PostConnectedAccountsLinkRequestConnectionDataAnyOf47 { get; set; }
 #nullable restore
 #else
-        public string OauthVerifier { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf47 PostConnectedAccountsLinkRequestConnectionDataAnyOf47 { get; set; }
 #endif
-        /// <summary>The password property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf48"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Password { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf48? PostConnectedAccountsLinkRequestConnectionDataAnyOf48 { get; set; }
 #nullable restore
 #else
-        public string Password { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf48 PostConnectedAccountsLinkRequestConnectionDataAnyOf48 { get; set; }
 #endif
-        /// <summary>The private_key property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf49"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrivateKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf49? PostConnectedAccountsLinkRequestConnectionDataAnyOf49 { get; set; }
 #nullable restore
 #else
-        public string PrivateKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf49 PostConnectedAccountsLinkRequestConnectionDataAnyOf49 { get; set; }
 #endif
-        /// <summary>The proxy_password property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProxyPassword { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf5? PostConnectedAccountsLinkRequestConnectionDataAnyOf5 { get; set; }
 #nullable restore
 #else
-        public string ProxyPassword { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf5 PostConnectedAccountsLinkRequestConnectionDataAnyOf5 { get; set; }
 #endif
-        /// <summary>The proxy_username property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf50"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProxyUsername { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf50? PostConnectedAccountsLinkRequestConnectionDataAnyOf50 { get; set; }
 #nullable restore
 #else
-        public string ProxyUsername { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf50 PostConnectedAccountsLinkRequestConnectionDataAnyOf50 { get; set; }
 #endif
-        /// <summary>The redirectUrl property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf51"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedirectUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf51? PostConnectedAccountsLinkRequestConnectionDataAnyOf51 { get; set; }
 #nullable restore
 #else
-        public string RedirectUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf51 PostConnectedAccountsLinkRequestConnectionDataAnyOf51 { get; set; }
 #endif
-        /// <summary>The refresh_token property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf52"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RefreshToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf52? PostConnectedAccountsLinkRequestConnectionDataAnyOf52 { get; set; }
 #nullable restore
 #else
-        public string RefreshToken { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf52 PostConnectedAccountsLinkRequestConnectionDataAnyOf52 { get; set; }
 #endif
-        /// <summary>The region property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf53"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf53? PostConnectedAccountsLinkRequestConnectionDataAnyOf53 { get; set; }
 #nullable restore
 #else
-        public string Region { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf53 PostConnectedAccountsLinkRequestConnectionDataAnyOf53 { get; set; }
 #endif
-        /// <summary>The revoked_at property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf54"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RevokedAt { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf54? PostConnectedAccountsLinkRequestConnectionDataAnyOf54 { get; set; }
 #nullable restore
 #else
-        public string RevokedAt { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf54 PostConnectedAccountsLinkRequestConnectionDataAnyOf54 { get; set; }
 #endif
-        /// <summary>The scope property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf55"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataScope? Scope { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf55? PostConnectedAccountsLinkRequestConnectionDataAnyOf55 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataScope Scope { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf55 PostConnectedAccountsLinkRequestConnectionDataAnyOf55 { get; set; }
 #endif
-        /// <summary>The server_location property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf56"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerLocation { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf56? PostConnectedAccountsLinkRequestConnectionDataAnyOf56 { get; set; }
 #nullable restore
 #else
-        public string ServerLocation { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf56 PostConnectedAccountsLinkRequestConnectionDataAnyOf56 { get; set; }
 #endif
-        /// <summary>The sessionId property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf57"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SessionId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf57? PostConnectedAccountsLinkRequestConnectionDataAnyOf57 { get; set; }
 #nullable restore
 #else
-        public string SessionId { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf57 PostConnectedAccountsLinkRequestConnectionDataAnyOf57 { get; set; }
 #endif
-        /// <summary>The shop property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf58"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Shop { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf58? PostConnectedAccountsLinkRequestConnectionDataAnyOf58 { get; set; }
 #nullable restore
 #else
-        public string Shop { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf58 PostConnectedAccountsLinkRequestConnectionDataAnyOf58 { get; set; }
 #endif
-        /// <summary>The site_name property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf59"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SiteName { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf59? PostConnectedAccountsLinkRequestConnectionDataAnyOf59 { get; set; }
 #nullable restore
 #else
-        public string SiteName { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf59 PostConnectedAccountsLinkRequestConnectionDataAnyOf59 { get; set; }
 #endif
-        /// <summary>The oauth2 state prefix for the connection</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf6"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatePrefix { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf6? PostConnectedAccountsLinkRequestConnectionDataAnyOf6 { get; set; }
 #nullable restore
 #else
-        public string StatePrefix { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf6 PostConnectedAccountsLinkRequestConnectionDataAnyOf6 { get; set; }
 #endif
-        /// <summary>The subdomain property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf60"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subdomain { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf60? PostConnectedAccountsLinkRequestConnectionDataAnyOf60 { get; set; }
 #nullable restore
 #else
-        public string Subdomain { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf60 PostConnectedAccountsLinkRequestConnectionDataAnyOf60 { get; set; }
 #endif
-        /// <summary>The token property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf61"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf61? PostConnectedAccountsLinkRequestConnectionDataAnyOf61 { get; set; }
 #nullable restore
 #else
-        public string Token { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf61 PostConnectedAccountsLinkRequestConnectionDataAnyOf61 { get; set; }
 #endif
-        /// <summary>The token_type property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf62"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenType { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf62? PostConnectedAccountsLinkRequestConnectionDataAnyOf62 { get; set; }
 #nullable restore
 #else
-        public string TokenType { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf62 PostConnectedAccountsLinkRequestConnectionDataAnyOf62 { get; set; }
 #endif
-        /// <summary>The username property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf63"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Username { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf63? PostConnectedAccountsLinkRequestConnectionDataAnyOf63 { get; set; }
 #nullable restore
 #else
-        public string Username { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf63 PostConnectedAccountsLinkRequestConnectionDataAnyOf63 { get; set; }
 #endif
-        /// <summary>The version property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf64"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf64? PostConnectedAccountsLinkRequestConnectionDataAnyOf64 { get; set; }
 #nullable restore
 #else
-        public string Version { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf64 PostConnectedAccountsLinkRequestConnectionDataAnyOf64 { get; set; }
 #endif
-        /// <summary>The webhook_signature property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf65"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookSignature { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf65? PostConnectedAccountsLinkRequestConnectionDataAnyOf65 { get; set; }
 #nullable restore
 #else
-        public string WebhookSignature { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf65 PostConnectedAccountsLinkRequestConnectionDataAnyOf65 { get; set; }
 #endif
-        /// <summary>The yourDomain property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf66"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? YourDomain { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf66? PostConnectedAccountsLinkRequestConnectionDataAnyOf66 { get; set; }
 #nullable restore
 #else
-        public string YourDomain { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf66 PostConnectedAccountsLinkRequestConnectionDataAnyOf66 { get; set; }
 #endif
-        /// <summary>The your_server property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf67"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? YourServer { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf67? PostConnectedAccountsLinkRequestConnectionDataAnyOf67 { get; set; }
 #nullable restore
 #else
-        public string YourServer { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf67 PostConnectedAccountsLinkRequestConnectionDataAnyOf67 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionData"/> and sets the default values.
-        /// </summary>
-        public PostConnectedAccountsLinkRequestConnectionData()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf68"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf68? PostConnectedAccountsLinkRequestConnectionDataAnyOf68 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf68 PostConnectedAccountsLinkRequestConnectionDataAnyOf68 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf69"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf69? PostConnectedAccountsLinkRequestConnectionDataAnyOf69 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf69 PostConnectedAccountsLinkRequestConnectionDataAnyOf69 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf7"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf7? PostConnectedAccountsLinkRequestConnectionDataAnyOf7 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf7 PostConnectedAccountsLinkRequestConnectionDataAnyOf7 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf70"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf70? PostConnectedAccountsLinkRequestConnectionDataAnyOf70 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf70 PostConnectedAccountsLinkRequestConnectionDataAnyOf70 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf71"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf71? PostConnectedAccountsLinkRequestConnectionDataAnyOf71 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf71 PostConnectedAccountsLinkRequestConnectionDataAnyOf71 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf72"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf72? PostConnectedAccountsLinkRequestConnectionDataAnyOf72 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf72 PostConnectedAccountsLinkRequestConnectionDataAnyOf72 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf73"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf73? PostConnectedAccountsLinkRequestConnectionDataAnyOf73 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf73 PostConnectedAccountsLinkRequestConnectionDataAnyOf73 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf74"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf74? PostConnectedAccountsLinkRequestConnectionDataAnyOf74 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf74 PostConnectedAccountsLinkRequestConnectionDataAnyOf74 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf75"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf75? PostConnectedAccountsLinkRequestConnectionDataAnyOf75 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf75 PostConnectedAccountsLinkRequestConnectionDataAnyOf75 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf76"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf76? PostConnectedAccountsLinkRequestConnectionDataAnyOf76 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf76 PostConnectedAccountsLinkRequestConnectionDataAnyOf76 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf77"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf77? PostConnectedAccountsLinkRequestConnectionDataAnyOf77 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf77 PostConnectedAccountsLinkRequestConnectionDataAnyOf77 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf78"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf78? PostConnectedAccountsLinkRequestConnectionDataAnyOf78 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf78 PostConnectedAccountsLinkRequestConnectionDataAnyOf78 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf79"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf79? PostConnectedAccountsLinkRequestConnectionDataAnyOf79 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf79 PostConnectedAccountsLinkRequestConnectionDataAnyOf79 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf8"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf8? PostConnectedAccountsLinkRequestConnectionDataAnyOf8 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf8 PostConnectedAccountsLinkRequestConnectionDataAnyOf8 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf80"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf80? PostConnectedAccountsLinkRequestConnectionDataAnyOf80 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf80 PostConnectedAccountsLinkRequestConnectionDataAnyOf80 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf81"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf81? PostConnectedAccountsLinkRequestConnectionDataAnyOf81 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf81 PostConnectedAccountsLinkRequestConnectionDataAnyOf81 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf82"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf82? PostConnectedAccountsLinkRequestConnectionDataAnyOf82 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf82 PostConnectedAccountsLinkRequestConnectionDataAnyOf82 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf83"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf83? PostConnectedAccountsLinkRequestConnectionDataAnyOf83 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf83 PostConnectedAccountsLinkRequestConnectionDataAnyOf83 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf84"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf84? PostConnectedAccountsLinkRequestConnectionDataAnyOf84 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf84 PostConnectedAccountsLinkRequestConnectionDataAnyOf84 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf85"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf85? PostConnectedAccountsLinkRequestConnectionDataAnyOf85 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf85 PostConnectedAccountsLinkRequestConnectionDataAnyOf85 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf86"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf86? PostConnectedAccountsLinkRequestConnectionDataAnyOf86 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf86 PostConnectedAccountsLinkRequestConnectionDataAnyOf86 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf87"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf87? PostConnectedAccountsLinkRequestConnectionDataAnyOf87 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf87 PostConnectedAccountsLinkRequestConnectionDataAnyOf87 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9? PostConnectedAccountsLinkRequestConnectionDataAnyOf9 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9 PostConnectedAccountsLinkRequestConnectionDataAnyOf9 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -548,7 +717,95 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionData();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionData();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf1 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf1();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf10 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf10();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf11 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf11();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf12 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf12();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf13 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf13();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf14 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf14();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf15 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf15();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf16 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf16();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf17 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf17();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf18 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf18();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf19 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf19();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf2();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf20 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf20();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf21 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf21();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf22 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf22();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf23 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf23();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf24 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf24();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf25 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf25();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf26 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf26();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf27 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf27();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf28 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf28();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf29 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf29();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf3 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf3();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf30 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf30();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf31 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf31();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf32 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf32();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf33 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf33();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf34 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf34();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf35 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf35();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf36 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf36();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf37 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf37();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf38 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf38();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf39 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf39();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf4 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf4();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf40 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf40();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf41 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf41();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf42 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf42();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf43 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf43();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf44 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf44();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf45 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf45();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf46 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf46();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf47 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf47();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf48 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf48();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf49 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf49();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf5 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf5();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf50 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf50();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf51 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf51();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf52 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf52();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf53 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf53();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf54 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf54();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf55 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf55();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf56 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf56();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf57 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf57();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf58 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf58();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf59 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf59();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf6 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf6();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf60 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf60();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf61 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf61();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf62 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf62();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf63 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf63();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf64 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf64();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf65 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf65();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf66 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf66();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf67 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf67();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf68 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf68();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf69 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf69();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf7 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf7();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf70 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf70();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf71 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf71();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf72 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf72();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf73 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf73();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf74 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf74();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf75 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf75();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf76 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf76();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf77 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf77();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf78 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf78();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf79 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf79();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf8 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf8();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf80 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf80();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf81 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf81();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf82 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf82();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf83 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf83();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf84 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf84();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf85 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf85();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf86 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf86();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf87 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf87();
+            result.PostConnectedAccountsLinkRequestConnectionDataAnyOf9 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf9();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -556,76 +813,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(PostConnectedAccountsLinkRequestConnectionDataAnyOf1 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf10 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf11 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf12 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf13 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf14 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf15 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf16 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf17 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf18 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf19 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf2 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf20 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf21 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf22 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf23 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf24 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf25 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf26 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf27 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf28 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf29 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf3 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf30 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf31 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf32 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf33 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf34 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf35 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf36 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf37 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf38 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf39 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf4 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf40 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf41 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf42 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf43 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf44 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf45 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf46 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf47 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf48 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf49 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf5 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf50 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf51 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf52 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf53 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf54 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf55 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf56 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf57 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf58 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf59 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf6 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf60 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf61 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf62 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf63 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf64 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf65 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf66 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf67 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf68 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf69 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf7 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf70 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf71 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf72 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf73 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf74 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf75 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf76 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf77 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf78 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf79 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf8 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf80 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf81 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf82 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf83 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf84 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf85 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf86 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf87 != null || PostConnectedAccountsLinkRequestConnectionDataAnyOf9 != null)
             {
-                { "access_token", n => { AccessToken = n.GetStringValue(); } },
-                { "account_id", n => { AccountId = n.GetStringValue(); } },
-                { "account_url", n => { AccountUrl = n.GetStringValue(); } },
-                { "api_key", n => { ApiKey = n.GetStringValue(); } },
-                { "api_url", n => { ApiUrl = n.GetStringValue(); } },
-                { "application_id", n => { ApplicationId = n.GetStringValue(); } },
-                { "authUri", n => { AuthUri = n.GetStringValue(); } },
-                { "authed_user", n => { AuthedUser = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAuthedUser>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAuthedUser.CreateFromDiscriminatorValue); } },
-                { "base_url", n => { BaseUrl = n.GetStringValue(); } },
-                { "basic_encoded", n => { BasicEncoded = n.GetStringValue(); } },
-                { "bearer_token", n => { BearerToken = n.GetStringValue(); } },
-                { "borneo_dashboard_url", n => { BorneoDashboardUrl = n.GetStringValue(); } },
-                { "COMPANYDOMAIN", n => { COMPANYDOMAIN = n.GetStringValue(); } },
-                { "callbackUrl", n => { CallbackUrl = n.GetStringValue(); } },
-                { "client_id", n => { ClientId = n.GetStringValue(); } },
-                { "client_id_issued_at", n => { ClientIdIssuedAt = n.GetDoubleValue(); } },
-                { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
-                { "client_secret_expires_at", n => { ClientSecretExpiresAt = n.GetDoubleValue(); } },
-                { "code_verifier", n => { CodeVerifier = n.GetStringValue(); } },
-                { "composio_link_redirect_url", n => { ComposioLinkRedirectUrl = n.GetStringValue(); } },
-                { "consumer_key", n => { ConsumerKey = n.GetStringValue(); } },
-                { "credentials_json", n => { CredentialsJson = n.GetStringValue(); } },
-                { "dc", n => { Dc = n.GetStringValue(); } },
-                { "devKey", n => { DevKey = n.GetStringValue(); } },
-                { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "domain", n => { Domain = n.GetStringValue(); } },
-                { "error", n => { Error = n.GetStringValue(); } },
-                { "error_description", n => { ErrorDescription = n.GetStringValue(); } },
-                { "expired_at", n => { ExpiredAt = n.GetStringValue(); } },
-                { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
-                { "expires_in", n => { ExpiresIn = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresIn>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresIn.CreateFromDiscriminatorValue); } },
-                { "extension", n => { Extension = n.GetStringValue(); } },
-                { "extra_token_data", n => { ExtraTokenData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExtraTokenData>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExtraTokenData.CreateFromDiscriminatorValue); } },
-                { "finalRedirectUri", n => { FinalRedirectUri = n.GetStringValue(); } },
-                { "form_api_base_url", n => { FormApiBaseUrl = n.GetStringValue(); } },
-                { "generic_api_key", n => { GenericApiKey = n.GetStringValue(); } },
-                { "id_token", n => { IdToken = n.GetStringValue(); } },
-                { "installation_id", n => { InstallationId = n.GetStringValue(); } },
-                { "instanceEndpoint", n => { InstanceEndpoint = n.GetStringValue(); } },
-                { "instanceName", n => { InstanceName = n.GetStringValue(); } },
-                { "long_redirect_url", n => { LongRedirectUrl = n.GetBoolValue(); } },
-                { "oauth_token", n => { OauthToken = n.GetStringValue(); } },
-                { "oauth_token_secret", n => { OauthTokenSecret = n.GetStringValue(); } },
-                { "oauth_verifier", n => { OauthVerifier = n.GetStringValue(); } },
-                { "password", n => { Password = n.GetStringValue(); } },
-                { "private_key", n => { PrivateKey = n.GetStringValue(); } },
-                { "proxy_password", n => { ProxyPassword = n.GetStringValue(); } },
-                { "proxy_username", n => { ProxyUsername = n.GetStringValue(); } },
-                { "redirectUrl", n => { RedirectUrl = n.GetStringValue(); } },
-                { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetStringValue(); } },
-                { "revoked_at", n => { RevokedAt = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataScope>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataScope.CreateFromDiscriminatorValue); } },
-                { "server_location", n => { ServerLocation = n.GetStringValue(); } },
-                { "sessionId", n => { SessionId = n.GetStringValue(); } },
-                { "shop", n => { Shop = n.GetStringValue(); } },
-                { "site_name", n => { SiteName = n.GetStringValue(); } },
-                { "state_prefix", n => { StatePrefix = n.GetStringValue(); } },
-                { "subdomain", n => { Subdomain = n.GetStringValue(); } },
-                { "token", n => { Token = n.GetStringValue(); } },
-                { "token_type", n => { TokenType = n.GetStringValue(); } },
-                { "username", n => { Username = n.GetStringValue(); } },
-                { "version", n => { Version = n.GetStringValue(); } },
-                { "webhook_signature", n => { WebhookSignature = n.GetStringValue(); } },
-                { "your-domain", n => { YourDomain = n.GetStringValue(); } },
-                { "your_server", n => { YourServer = n.GetStringValue(); } },
-                { "callback_url", n => { Callback_url = n.GetStringValue(); } },
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostConnectedAccountsLinkRequestConnectionDataAnyOf1, PostConnectedAccountsLinkRequestConnectionDataAnyOf10, PostConnectedAccountsLinkRequestConnectionDataAnyOf11, PostConnectedAccountsLinkRequestConnectionDataAnyOf12, PostConnectedAccountsLinkRequestConnectionDataAnyOf13, PostConnectedAccountsLinkRequestConnectionDataAnyOf14, PostConnectedAccountsLinkRequestConnectionDataAnyOf15, PostConnectedAccountsLinkRequestConnectionDataAnyOf16, PostConnectedAccountsLinkRequestConnectionDataAnyOf17, PostConnectedAccountsLinkRequestConnectionDataAnyOf18, PostConnectedAccountsLinkRequestConnectionDataAnyOf19, PostConnectedAccountsLinkRequestConnectionDataAnyOf2, PostConnectedAccountsLinkRequestConnectionDataAnyOf20, PostConnectedAccountsLinkRequestConnectionDataAnyOf21, PostConnectedAccountsLinkRequestConnectionDataAnyOf22, PostConnectedAccountsLinkRequestConnectionDataAnyOf23, PostConnectedAccountsLinkRequestConnectionDataAnyOf24, PostConnectedAccountsLinkRequestConnectionDataAnyOf25, PostConnectedAccountsLinkRequestConnectionDataAnyOf26, PostConnectedAccountsLinkRequestConnectionDataAnyOf27, PostConnectedAccountsLinkRequestConnectionDataAnyOf28, PostConnectedAccountsLinkRequestConnectionDataAnyOf29, PostConnectedAccountsLinkRequestConnectionDataAnyOf3, PostConnectedAccountsLinkRequestConnectionDataAnyOf30, PostConnectedAccountsLinkRequestConnectionDataAnyOf31, PostConnectedAccountsLinkRequestConnectionDataAnyOf32, PostConnectedAccountsLinkRequestConnectionDataAnyOf33, PostConnectedAccountsLinkRequestConnectionDataAnyOf34, PostConnectedAccountsLinkRequestConnectionDataAnyOf35, PostConnectedAccountsLinkRequestConnectionDataAnyOf36, PostConnectedAccountsLinkRequestConnectionDataAnyOf37, PostConnectedAccountsLinkRequestConnectionDataAnyOf38, PostConnectedAccountsLinkRequestConnectionDataAnyOf39, PostConnectedAccountsLinkRequestConnectionDataAnyOf4, PostConnectedAccountsLinkRequestConnectionDataAnyOf40, PostConnectedAccountsLinkRequestConnectionDataAnyOf41, PostConnectedAccountsLinkRequestConnectionDataAnyOf42, PostConnectedAccountsLinkRequestConnectionDataAnyOf43, PostConnectedAccountsLinkRequestConnectionDataAnyOf44, PostConnectedAccountsLinkRequestConnectionDataAnyOf45, PostConnectedAccountsLinkRequestConnectionDataAnyOf46, PostConnectedAccountsLinkRequestConnectionDataAnyOf47, PostConnectedAccountsLinkRequestConnectionDataAnyOf48, PostConnectedAccountsLinkRequestConnectionDataAnyOf49, PostConnectedAccountsLinkRequestConnectionDataAnyOf5, PostConnectedAccountsLinkRequestConnectionDataAnyOf50, PostConnectedAccountsLinkRequestConnectionDataAnyOf51, PostConnectedAccountsLinkRequestConnectionDataAnyOf52, PostConnectedAccountsLinkRequestConnectionDataAnyOf53, PostConnectedAccountsLinkRequestConnectionDataAnyOf54, PostConnectedAccountsLinkRequestConnectionDataAnyOf55, PostConnectedAccountsLinkRequestConnectionDataAnyOf56, PostConnectedAccountsLinkRequestConnectionDataAnyOf57, PostConnectedAccountsLinkRequestConnectionDataAnyOf58, PostConnectedAccountsLinkRequestConnectionDataAnyOf59, PostConnectedAccountsLinkRequestConnectionDataAnyOf6, PostConnectedAccountsLinkRequestConnectionDataAnyOf60, PostConnectedAccountsLinkRequestConnectionDataAnyOf61, PostConnectedAccountsLinkRequestConnectionDataAnyOf62, PostConnectedAccountsLinkRequestConnectionDataAnyOf63, PostConnectedAccountsLinkRequestConnectionDataAnyOf64, PostConnectedAccountsLinkRequestConnectionDataAnyOf65, PostConnectedAccountsLinkRequestConnectionDataAnyOf66, PostConnectedAccountsLinkRequestConnectionDataAnyOf67, PostConnectedAccountsLinkRequestConnectionDataAnyOf68, PostConnectedAccountsLinkRequestConnectionDataAnyOf69, PostConnectedAccountsLinkRequestConnectionDataAnyOf7, PostConnectedAccountsLinkRequestConnectionDataAnyOf70, PostConnectedAccountsLinkRequestConnectionDataAnyOf71, PostConnectedAccountsLinkRequestConnectionDataAnyOf72, PostConnectedAccountsLinkRequestConnectionDataAnyOf73, PostConnectedAccountsLinkRequestConnectionDataAnyOf74, PostConnectedAccountsLinkRequestConnectionDataAnyOf75, PostConnectedAccountsLinkRequestConnectionDataAnyOf76, PostConnectedAccountsLinkRequestConnectionDataAnyOf77, PostConnectedAccountsLinkRequestConnectionDataAnyOf78, PostConnectedAccountsLinkRequestConnectionDataAnyOf79, PostConnectedAccountsLinkRequestConnectionDataAnyOf8, PostConnectedAccountsLinkRequestConnectionDataAnyOf80, PostConnectedAccountsLinkRequestConnectionDataAnyOf81, PostConnectedAccountsLinkRequestConnectionDataAnyOf82, PostConnectedAccountsLinkRequestConnectionDataAnyOf83, PostConnectedAccountsLinkRequestConnectionDataAnyOf84, PostConnectedAccountsLinkRequestConnectionDataAnyOf85, PostConnectedAccountsLinkRequestConnectionDataAnyOf86, PostConnectedAccountsLinkRequestConnectionDataAnyOf87, PostConnectedAccountsLinkRequestConnectionDataAnyOf9);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -634,74 +826,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("access_token", AccessToken);
-            writer.WriteStringValue("account_id", AccountId);
-            writer.WriteStringValue("account_url", AccountUrl);
-            writer.WriteStringValue("api_key", ApiKey);
-            writer.WriteStringValue("api_url", ApiUrl);
-            writer.WriteStringValue("application_id", ApplicationId);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAuthedUser>("authed_user", AuthedUser);
-            writer.WriteStringValue("authUri", AuthUri);
-            writer.WriteStringValue("base_url", BaseUrl);
-            writer.WriteStringValue("basic_encoded", BasicEncoded);
-            writer.WriteStringValue("bearer_token", BearerToken);
-            writer.WriteStringValue("borneo_dashboard_url", BorneoDashboardUrl);
-            writer.WriteStringValue("callback_url", Callback_url);
-            writer.WriteStringValue("callbackUrl", CallbackUrl);
-            writer.WriteStringValue("client_id", ClientId);
-            writer.WriteDoubleValue("client_id_issued_at", ClientIdIssuedAt);
-            writer.WriteStringValue("client_secret", ClientSecret);
-            writer.WriteDoubleValue("client_secret_expires_at", ClientSecretExpiresAt);
-            writer.WriteStringValue("code_verifier", CodeVerifier);
-            writer.WriteStringValue("COMPANYDOMAIN", COMPANYDOMAIN);
-            writer.WriteStringValue("composio_link_redirect_url", ComposioLinkRedirectUrl);
-            writer.WriteStringValue("consumer_key", ConsumerKey);
-            writer.WriteStringValue("credentials_json", CredentialsJson);
-            writer.WriteStringValue("dc", Dc);
-            writer.WriteStringValue("devKey", DevKey);
-            writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteStringValue("domain", Domain);
-            writer.WriteStringValue("error", Error);
-            writer.WriteStringValue("error_description", ErrorDescription);
-            writer.WriteStringValue("expired_at", ExpiredAt);
-            writer.WriteStringValue("expires_at", ExpiresAt);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExpiresIn>("expires_in", ExpiresIn);
-            writer.WriteStringValue("extension", Extension);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataExtraTokenData>("extra_token_data", ExtraTokenData);
-            writer.WriteStringValue("finalRedirectUri", FinalRedirectUri);
-            writer.WriteStringValue("form_api_base_url", FormApiBaseUrl);
-            writer.WriteStringValue("generic_api_key", GenericApiKey);
-            writer.WriteStringValue("id_token", IdToken);
-            writer.WriteStringValue("installation_id", InstallationId);
-            writer.WriteStringValue("instanceEndpoint", InstanceEndpoint);
-            writer.WriteStringValue("instanceName", InstanceName);
-            writer.WriteBoolValue("long_redirect_url", LongRedirectUrl);
-            writer.WriteStringValue("oauth_token", OauthToken);
-            writer.WriteStringValue("oauth_token_secret", OauthTokenSecret);
-            writer.WriteStringValue("oauth_verifier", OauthVerifier);
-            writer.WriteStringValue("password", Password);
-            writer.WriteStringValue("private_key", PrivateKey);
-            writer.WriteStringValue("proxy_password", ProxyPassword);
-            writer.WriteStringValue("proxy_username", ProxyUsername);
-            writer.WriteStringValue("redirectUrl", RedirectUrl);
-            writer.WriteStringValue("refresh_token", RefreshToken);
-            writer.WriteStringValue("region", Region);
-            writer.WriteStringValue("revoked_at", RevokedAt);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataScope>("scope", Scope);
-            writer.WriteStringValue("server_location", ServerLocation);
-            writer.WriteStringValue("sessionId", SessionId);
-            writer.WriteStringValue("shop", Shop);
-            writer.WriteStringValue("site_name", SiteName);
-            writer.WriteStringValue("state_prefix", StatePrefix);
-            writer.WriteStringValue("subdomain", Subdomain);
-            writer.WriteStringValue("token", Token);
-            writer.WriteStringValue("token_type", TokenType);
-            writer.WriteStringValue("username", Username);
-            writer.WriteStringValue("version", Version);
-            writer.WriteStringValue("webhook_signature", WebhookSignature);
-            writer.WriteStringValue("your-domain", YourDomain);
-            writer.WriteStringValue("your_server", YourServer);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestConnectionDataAnyOf1>(null, PostConnectedAccountsLinkRequestConnectionDataAnyOf1, PostConnectedAccountsLinkRequestConnectionDataAnyOf10, PostConnectedAccountsLinkRequestConnectionDataAnyOf11, PostConnectedAccountsLinkRequestConnectionDataAnyOf12, PostConnectedAccountsLinkRequestConnectionDataAnyOf13, PostConnectedAccountsLinkRequestConnectionDataAnyOf14, PostConnectedAccountsLinkRequestConnectionDataAnyOf15, PostConnectedAccountsLinkRequestConnectionDataAnyOf16, PostConnectedAccountsLinkRequestConnectionDataAnyOf17, PostConnectedAccountsLinkRequestConnectionDataAnyOf18, PostConnectedAccountsLinkRequestConnectionDataAnyOf19, PostConnectedAccountsLinkRequestConnectionDataAnyOf2, PostConnectedAccountsLinkRequestConnectionDataAnyOf20, PostConnectedAccountsLinkRequestConnectionDataAnyOf21, PostConnectedAccountsLinkRequestConnectionDataAnyOf22, PostConnectedAccountsLinkRequestConnectionDataAnyOf23, PostConnectedAccountsLinkRequestConnectionDataAnyOf24, PostConnectedAccountsLinkRequestConnectionDataAnyOf25, PostConnectedAccountsLinkRequestConnectionDataAnyOf26, PostConnectedAccountsLinkRequestConnectionDataAnyOf27, PostConnectedAccountsLinkRequestConnectionDataAnyOf28, PostConnectedAccountsLinkRequestConnectionDataAnyOf29, PostConnectedAccountsLinkRequestConnectionDataAnyOf3, PostConnectedAccountsLinkRequestConnectionDataAnyOf30, PostConnectedAccountsLinkRequestConnectionDataAnyOf31, PostConnectedAccountsLinkRequestConnectionDataAnyOf32, PostConnectedAccountsLinkRequestConnectionDataAnyOf33, PostConnectedAccountsLinkRequestConnectionDataAnyOf34, PostConnectedAccountsLinkRequestConnectionDataAnyOf35, PostConnectedAccountsLinkRequestConnectionDataAnyOf36, PostConnectedAccountsLinkRequestConnectionDataAnyOf37, PostConnectedAccountsLinkRequestConnectionDataAnyOf38, PostConnectedAccountsLinkRequestConnectionDataAnyOf39, PostConnectedAccountsLinkRequestConnectionDataAnyOf4, PostConnectedAccountsLinkRequestConnectionDataAnyOf40, PostConnectedAccountsLinkRequestConnectionDataAnyOf41, PostConnectedAccountsLinkRequestConnectionDataAnyOf42, PostConnectedAccountsLinkRequestConnectionDataAnyOf43, PostConnectedAccountsLinkRequestConnectionDataAnyOf44, PostConnectedAccountsLinkRequestConnectionDataAnyOf45, PostConnectedAccountsLinkRequestConnectionDataAnyOf46, PostConnectedAccountsLinkRequestConnectionDataAnyOf47, PostConnectedAccountsLinkRequestConnectionDataAnyOf48, PostConnectedAccountsLinkRequestConnectionDataAnyOf49, PostConnectedAccountsLinkRequestConnectionDataAnyOf5, PostConnectedAccountsLinkRequestConnectionDataAnyOf50, PostConnectedAccountsLinkRequestConnectionDataAnyOf51, PostConnectedAccountsLinkRequestConnectionDataAnyOf52, PostConnectedAccountsLinkRequestConnectionDataAnyOf53, PostConnectedAccountsLinkRequestConnectionDataAnyOf54, PostConnectedAccountsLinkRequestConnectionDataAnyOf55, PostConnectedAccountsLinkRequestConnectionDataAnyOf56, PostConnectedAccountsLinkRequestConnectionDataAnyOf57, PostConnectedAccountsLinkRequestConnectionDataAnyOf58, PostConnectedAccountsLinkRequestConnectionDataAnyOf59, PostConnectedAccountsLinkRequestConnectionDataAnyOf6, PostConnectedAccountsLinkRequestConnectionDataAnyOf60, PostConnectedAccountsLinkRequestConnectionDataAnyOf61, PostConnectedAccountsLinkRequestConnectionDataAnyOf62, PostConnectedAccountsLinkRequestConnectionDataAnyOf63, PostConnectedAccountsLinkRequestConnectionDataAnyOf64, PostConnectedAccountsLinkRequestConnectionDataAnyOf65, PostConnectedAccountsLinkRequestConnectionDataAnyOf66, PostConnectedAccountsLinkRequestConnectionDataAnyOf67, PostConnectedAccountsLinkRequestConnectionDataAnyOf68, PostConnectedAccountsLinkRequestConnectionDataAnyOf69, PostConnectedAccountsLinkRequestConnectionDataAnyOf7, PostConnectedAccountsLinkRequestConnectionDataAnyOf70, PostConnectedAccountsLinkRequestConnectionDataAnyOf71, PostConnectedAccountsLinkRequestConnectionDataAnyOf72, PostConnectedAccountsLinkRequestConnectionDataAnyOf73, PostConnectedAccountsLinkRequestConnectionDataAnyOf74, PostConnectedAccountsLinkRequestConnectionDataAnyOf75, PostConnectedAccountsLinkRequestConnectionDataAnyOf76, PostConnectedAccountsLinkRequestConnectionDataAnyOf77, PostConnectedAccountsLinkRequestConnectionDataAnyOf78, PostConnectedAccountsLinkRequestConnectionDataAnyOf79, PostConnectedAccountsLinkRequestConnectionDataAnyOf8, PostConnectedAccountsLinkRequestConnectionDataAnyOf80, PostConnectedAccountsLinkRequestConnectionDataAnyOf81, PostConnectedAccountsLinkRequestConnectionDataAnyOf82, PostConnectedAccountsLinkRequestConnectionDataAnyOf83, PostConnectedAccountsLinkRequestConnectionDataAnyOf84, PostConnectedAccountsLinkRequestConnectionDataAnyOf85, PostConnectedAccountsLinkRequestConnectionDataAnyOf86, PostConnectedAccountsLinkRequestConnectionDataAnyOf87, PostConnectedAccountsLinkRequestConnectionDataAnyOf9);
         }
     }
 }

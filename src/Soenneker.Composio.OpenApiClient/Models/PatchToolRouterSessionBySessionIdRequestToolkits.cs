@@ -8,44 +8,35 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive. Experimentally, it can also list toolkits whose tools need approval, with or without a filter.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PatchToolRouterSessionBySessionIdRequestToolkits : IAdditionalDataHolder, IParsable
+    public partial class PatchToolRouterSessionBySessionIdRequestToolkits : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>These specific toolkits will be disabled</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Disable { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1? PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1 { get; set; }
 #nullable restore
 #else
-        public List<string> Disable { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1 PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1 { get; set; }
 #endif
-        /// <summary>Only these specific toolkits will be enabled</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Enable { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2? PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2 { get; set; }
 #nullable restore
 #else
-        public List<string> Enable { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2 PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2 { get; set; }
 #endif
-        /// <summary>Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit&apos;s own lists in `tools` replace the session-wide tag list for that toolkit.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RequireApproval { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3? PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3 { get; set; }
 #nullable restore
 #else
-        public List<string> RequireApproval { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3 PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkits"/> and sets the default values.
-        /// </summary>
-        public PatchToolRouterSessionBySessionIdRequestToolkits()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,7 +45,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkits CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkits();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkits();
+            result.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1 = new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1();
+            result.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2();
+            result.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3 = new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,12 +57,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1 != null || PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2 != null || PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3 != null)
             {
-                { "disable", n => { Disable = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "enable", n => { Enable = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "require_approval", n => { RequireApproval = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1, PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2, PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -76,10 +70,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("disable", Disable);
-            writer.WriteCollectionOfPrimitiveValues<string>("enable", Enable);
-            writer.WriteCollectionOfPrimitiveValues<string>("require_approval", RequireApproval);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1>(null, PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf1, PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf2, PatchToolRouterSessionBySessionIdRequestToolkitsAnyOf3);
         }
     }
 }

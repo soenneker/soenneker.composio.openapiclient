@@ -8,30 +8,131 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// The connection data of the connected account
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf10"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf11"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf12"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf14"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf15"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf3"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf4"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf5"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf6"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf7"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf8"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PostConnectedAccounts201ResponseConnectionData : IAdditionalDataHolder, IParsable
+    public partial class PostConnectedAccounts201ResponseConnectionData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The authScheme property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataAuthScheme? AuthScheme { get; set; }
-        /// <summary>The val property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataVal? Val { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf1? PostConnectedAccounts201ResponseConnectionDataOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataVal Val { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf1 PostConnectedAccounts201ResponseConnectionDataOneOf1 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionData"/> and sets the default values.
-        /// </summary>
-        public PostConnectedAccounts201ResponseConnectionData()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf10? PostConnectedAccounts201ResponseConnectionDataOneOf10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf10 PostConnectedAccounts201ResponseConnectionDataOneOf10 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf11"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf11? PostConnectedAccounts201ResponseConnectionDataOneOf11 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf11 PostConnectedAccounts201ResponseConnectionDataOneOf11 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf12"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf12? PostConnectedAccounts201ResponseConnectionDataOneOf12 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf12 PostConnectedAccounts201ResponseConnectionDataOneOf12 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13? PostConnectedAccounts201ResponseConnectionDataOneOf13 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13 PostConnectedAccounts201ResponseConnectionDataOneOf13 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf14"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf14? PostConnectedAccounts201ResponseConnectionDataOneOf14 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf14 PostConnectedAccounts201ResponseConnectionDataOneOf14 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf15"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf15? PostConnectedAccounts201ResponseConnectionDataOneOf15 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf15 PostConnectedAccounts201ResponseConnectionDataOneOf15 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf2? PostConnectedAccounts201ResponseConnectionDataOneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf2 PostConnectedAccounts201ResponseConnectionDataOneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf3? PostConnectedAccounts201ResponseConnectionDataOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf3 PostConnectedAccounts201ResponseConnectionDataOneOf3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf4? PostConnectedAccounts201ResponseConnectionDataOneOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf4 PostConnectedAccounts201ResponseConnectionDataOneOf4 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf5? PostConnectedAccounts201ResponseConnectionDataOneOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf5 PostConnectedAccounts201ResponseConnectionDataOneOf5 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf6"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf6? PostConnectedAccounts201ResponseConnectionDataOneOf6 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf6 PostConnectedAccounts201ResponseConnectionDataOneOf6 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf7"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf7? PostConnectedAccounts201ResponseConnectionDataOneOf7 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf7 PostConnectedAccounts201ResponseConnectionDataOneOf7 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf8"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf8? PostConnectedAccounts201ResponseConnectionDataOneOf8 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf8 PostConnectedAccounts201ResponseConnectionDataOneOf8 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf9"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf9? PostConnectedAccounts201ResponseConnectionDataOneOf9 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf9 PostConnectedAccounts201ResponseConnectionDataOneOf9 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -40,7 +141,69 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionData();
+            var mappingValue = parseNode.GetChildNode("authScheme")?.GetStringValue();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionData();
+            if("OAUTH1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf1 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf1();
+            }
+            else if("BASIC_WITH_JWT".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf10 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf10();
+            }
+            else if("SERVICE_ACCOUNT".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf11 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf11();
+            }
+            else if("SAML".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf12 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf12();
+            }
+            else if("DCR_OAUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf13 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13();
+            }
+            else if("CIMD_OAUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf14 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf14();
+            }
+            else if("S2S_OAUTH2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf15 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf15();
+            }
+            else if("OAUTH2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf2();
+            }
+            else if("API_KEY".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf3 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf3();
+            }
+            else if("BASIC".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf4 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf4();
+            }
+            else if("BEARER_TOKEN".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf5 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf5();
+            }
+            else if("GOOGLE_SERVICE_ACCOUNT".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf6 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf6();
+            }
+            else if("NO_AUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf7 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf7();
+            }
+            else if("CALCOM_AUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf8 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf8();
+            }
+            else if("BILLCOM_AUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostConnectedAccounts201ResponseConnectionDataOneOf9 = new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf9();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +211,67 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(PostConnectedAccounts201ResponseConnectionDataOneOf1 != null)
             {
-                { "authScheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataAuthScheme>(); } },
-                { "val", n => { Val = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataVal>(global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataVal.CreateFromDiscriminatorValue); } },
-            };
+                return PostConnectedAccounts201ResponseConnectionDataOneOf1.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf10 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf10.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf11 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf11.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf12 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf12.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf13 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf13.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf14 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf14.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf15 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf15.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf2 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf2.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf3 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf3.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf4 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf4.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf5 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf5.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf6 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf6.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf7 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf7.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf8 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf8.GetFieldDeserializers();
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf9 != null)
+            {
+                return PostConnectedAccounts201ResponseConnectionDataOneOf9.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,9 +280,66 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataAuthScheme>("authScheme", AuthScheme);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataVal>("val", Val);
-            writer.WriteAdditionalData(AdditionalData);
+            if(PostConnectedAccounts201ResponseConnectionDataOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf1>(null, PostConnectedAccounts201ResponseConnectionDataOneOf1);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf10>(null, PostConnectedAccounts201ResponseConnectionDataOneOf10);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf11 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf11>(null, PostConnectedAccounts201ResponseConnectionDataOneOf11);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf12 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf12>(null, PostConnectedAccounts201ResponseConnectionDataOneOf12);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf13 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13>(null, PostConnectedAccounts201ResponseConnectionDataOneOf13);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf14 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf14>(null, PostConnectedAccounts201ResponseConnectionDataOneOf14);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf15 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf15>(null, PostConnectedAccounts201ResponseConnectionDataOneOf15);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf2>(null, PostConnectedAccounts201ResponseConnectionDataOneOf2);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf3>(null, PostConnectedAccounts201ResponseConnectionDataOneOf3);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf4>(null, PostConnectedAccounts201ResponseConnectionDataOneOf4);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf5>(null, PostConnectedAccounts201ResponseConnectionDataOneOf5);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf6 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf6>(null, PostConnectedAccounts201ResponseConnectionDataOneOf6);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf7 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf7>(null, PostConnectedAccounts201ResponseConnectionDataOneOf7);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf8 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf8>(null, PostConnectedAccounts201ResponseConnectionDataOneOf8);
+            }
+            else if(PostConnectedAccounts201ResponseConnectionDataOneOf9 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf9>(null, PostConnectedAccounts201ResponseConnectionDataOneOf9);
+            }
         }
     }
 }

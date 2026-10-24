@@ -7,39 +7,100 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    [Obsolete("")]
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf10"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf11"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf3"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf4"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf5"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf7"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf8"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf9"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PostToolsExecuteProxyRequestCustomConnectionData : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class PostToolsExecuteProxyRequestCustomConnectionData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The authScheme property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataAuthScheme? AuthScheme { get; set; }
-        /// <summary>The toolkitSlug property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolkitSlug { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1? PostToolsExecuteProxyRequestCustomConnectionDataOneOf1 { get; set; }
 #nullable restore
 #else
-        public string ToolkitSlug { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1 PostToolsExecuteProxyRequestCustomConnectionDataOneOf1 { get; set; }
 #endif
-        /// <summary>The val property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf10"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataVal? Val { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf10? PostToolsExecuteProxyRequestCustomConnectionDataOneOf10 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataVal Val { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf10 PostToolsExecuteProxyRequestCustomConnectionDataOneOf10 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData"/> and sets the default values.
-        /// </summary>
-        public PostToolsExecuteProxyRequestCustomConnectionData()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf11"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf11? PostToolsExecuteProxyRequestCustomConnectionDataOneOf11 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf11 PostToolsExecuteProxyRequestCustomConnectionDataOneOf11 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf2? PostToolsExecuteProxyRequestCustomConnectionDataOneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf2 PostToolsExecuteProxyRequestCustomConnectionDataOneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf3? PostToolsExecuteProxyRequestCustomConnectionDataOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf3 PostToolsExecuteProxyRequestCustomConnectionDataOneOf3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf4? PostToolsExecuteProxyRequestCustomConnectionDataOneOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf4 PostToolsExecuteProxyRequestCustomConnectionDataOneOf4 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf5? PostToolsExecuteProxyRequestCustomConnectionDataOneOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf5 PostToolsExecuteProxyRequestCustomConnectionDataOneOf5 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6? PostToolsExecuteProxyRequestCustomConnectionDataOneOf6 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6 PostToolsExecuteProxyRequestCustomConnectionDataOneOf6 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf7"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf7? PostToolsExecuteProxyRequestCustomConnectionDataOneOf7 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf7 PostToolsExecuteProxyRequestCustomConnectionDataOneOf7 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf8"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf8? PostToolsExecuteProxyRequestCustomConnectionDataOneOf8 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf8 PostToolsExecuteProxyRequestCustomConnectionDataOneOf8 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf9"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf9? PostToolsExecuteProxyRequestCustomConnectionDataOneOf9 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf9 PostToolsExecuteProxyRequestCustomConnectionDataOneOf9 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,7 +109,53 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData();
+            var mappingValue = parseNode.GetChildNode("authScheme")?.GetStringValue();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData();
+            if("OAUTH2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1();
+            }
+            else if("GOOGLE_SERVICE_ACCOUNT".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf10 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf10();
+            }
+            else if("S2S_OAUTH2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf11 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf11();
+            }
+            else if("DCR_OAUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf2();
+            }
+            else if("API_KEY".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf3 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf3();
+            }
+            else if("BASIC_WITH_JWT".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf4 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf4();
+            }
+            else if("BASIC".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf5 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf5();
+            }
+            else if("BEARER_TOKEN".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6();
+            }
+            else if("OAUTH1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf7 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf7();
+            }
+            else if("NO_AUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf8 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf8();
+            }
+            else if("SERVICE_ACCOUNT".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostToolsExecuteProxyRequestCustomConnectionDataOneOf9 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf9();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,12 +163,51 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf1 != null)
             {
-                { "authScheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataAuthScheme>(); } },
-                { "toolkitSlug", n => { ToolkitSlug = n.GetStringValue(); } },
-                { "val", n => { Val = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataVal>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataVal.CreateFromDiscriminatorValue); } },
-            };
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf1.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf10 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf10.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf11 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf11.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf2 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf2.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf3 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf3.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf4 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf4.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf5 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf5.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf6 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf6.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf7 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf7.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf8 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf8.GetFieldDeserializers();
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf9 != null)
+            {
+                return PostToolsExecuteProxyRequestCustomConnectionDataOneOf9.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -70,10 +216,50 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataAuthScheme>("authScheme", AuthScheme);
-            writer.WriteStringValue("toolkitSlug", ToolkitSlug);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataVal>("val", Val);
-            writer.WriteAdditionalData(AdditionalData);
+            if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf1);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf10>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf10);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf11 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf11>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf11);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf2>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf2);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf3>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf3);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf4>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf4);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf5>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf5);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf6 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf6);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf7 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf7>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf7);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf8 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf8>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf8);
+            }
+            else if(PostToolsExecuteProxyRequestCustomConnectionDataOneOf9 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf9>(null, PostToolsExecuteProxyRequestCustomConnectionDataOneOf9);
+            }
         }
     }
 }

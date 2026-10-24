@@ -18,10 +18,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The all_of property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsScopeRequirementsAllOfItem>? AllOf { get; set; }
+        public List<string>? AllOf { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsScopeRequirementsAllOfItem> AllOf { get; set; }
+        public List<string> AllOf { get; set; }
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "all_of", n => { AllOf = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsScopeRequirementsAllOfItem>(global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsScopeRequirementsAllOfItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "all_of", n => { AllOf = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "source", n => { Source = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsScopeRequirementsAllOfItem>("all_of", AllOf);
+            writer.WriteCollectionOfPrimitiveValues<string>("all_of", AllOf);
             writer.WriteCollectionOfPrimitiveValues<string>("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }

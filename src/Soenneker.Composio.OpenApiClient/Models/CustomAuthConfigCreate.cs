@@ -68,6 +68,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty SharedConnectionFields { get; set; }
 #endif
         /// <summary>Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty? SharedCredentials { get; set; }

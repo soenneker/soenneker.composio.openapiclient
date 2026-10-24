@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh
 {
     /// <summary>
-    /// Builds and executes requests for operations under \api\v3\connected_accounts\{nano-id}\refresh
+    /// Builds and executes requests for operations under \api\v3\connected_accounts\{nanoid}\refresh
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RefreshRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refres
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RefreshRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts/{nano%2Did}/refresh{?redirect_url*}", pathParameters)
+        public RefreshRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts/{nanoid}/refresh{?redirect_url*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refres
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RefreshRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts/{nano%2Did}/refresh{?redirect_url*}", rawUrl)
+        public RefreshRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/connected_accounts/{nanoid}/refresh{?redirect_url*}", rawUrl)
         {
         }
         /// <summary>

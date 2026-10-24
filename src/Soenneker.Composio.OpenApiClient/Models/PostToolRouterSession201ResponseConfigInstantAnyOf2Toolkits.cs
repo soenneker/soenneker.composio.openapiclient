@@ -8,36 +8,27 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits : IAdditionalDataHolder, IParsable
+    public partial class PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The disabled property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Disabled { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1? PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1 { get; set; }
 #nullable restore
 #else
-        public List<string> Disabled { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1 PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1 { get; set; }
 #endif
-        /// <summary>The enabled property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Enabled { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2? PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2 { get; set; }
 #nullable restore
 #else
-        public List<string> Enabled { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2 PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits"/> and sets the default values.
-        /// </summary>
-        public PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -46,7 +37,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2Toolkits();
+            result.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1();
+            result.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,11 +48,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1 != null || PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2 != null)
             {
-                { "disabled", n => { Disabled = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "enabled", n => { Enabled = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1, PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -67,9 +61,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("disabled", Disabled);
-            writer.WriteCollectionOfPrimitiveValues<string>("enabled", Enabled);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1>(null, PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf1, PostToolRouterSession201ResponseConfigInstantAnyOf2ToolkitsAnyOf2);
         }
     }
 }

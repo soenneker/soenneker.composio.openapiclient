@@ -26,14 +26,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts
         }
         /// <summary>Gets an item from the Soenneker.Composio.OpenApiClient.api.v3.connected_accounts.item collection</summary>
         /// <param name="position">The unique identifier (nanoid) of the connected account</param>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder"/></returns>
-        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.WithNanoItemRequestBuilder"/></returns>
+        public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.WithNanoItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("nano%2Did", position);
-                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.NanoItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("nanoid", position);
+                return new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.WithNanoItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

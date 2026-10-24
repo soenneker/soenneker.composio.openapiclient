@@ -37,13 +37,13 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.BlockReason CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Composio.OpenApiClient.Models.BlockReason();
-            if("BlockReasonOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("request_blocked".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BlockReasonOneOf1 = new global::Soenneker.Composio.OpenApiClient.Models.BlockReasonOneOf1();
             }
-            else if("BlockReasonOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("response_blocked".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.BlockReasonOneOf2 = new global::Soenneker.Composio.OpenApiClient.Models.BlockReasonOneOf2();
             }

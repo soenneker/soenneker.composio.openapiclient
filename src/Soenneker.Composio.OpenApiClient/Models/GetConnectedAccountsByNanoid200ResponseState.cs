@@ -8,30 +8,131 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// The state of the connection
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf10"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf11"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf12"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf13"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf14"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf15"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf4"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf6"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf7"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf8"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetConnectedAccountsByNanoid200ResponseState : IAdditionalDataHolder, IParsable
+    public partial class GetConnectedAccountsByNanoid200ResponseState : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The authScheme property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateAuthScheme? AuthScheme { get; set; }
-        /// <summary>The val property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateVal? Val { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf1? GetConnectedAccountsByNanoid200ResponseStateOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateVal Val { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf1 GetConnectedAccountsByNanoid200ResponseStateOneOf1 { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseState"/> and sets the default values.
-        /// </summary>
-        public GetConnectedAccountsByNanoid200ResponseState()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf10? GetConnectedAccountsByNanoid200ResponseStateOneOf10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf10 GetConnectedAccountsByNanoid200ResponseStateOneOf10 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf11"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf11? GetConnectedAccountsByNanoid200ResponseStateOneOf11 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf11 GetConnectedAccountsByNanoid200ResponseStateOneOf11 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf12"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf12? GetConnectedAccountsByNanoid200ResponseStateOneOf12 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf12 GetConnectedAccountsByNanoid200ResponseStateOneOf12 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf13"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf13? GetConnectedAccountsByNanoid200ResponseStateOneOf13 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf13 GetConnectedAccountsByNanoid200ResponseStateOneOf13 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf14"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf14? GetConnectedAccountsByNanoid200ResponseStateOneOf14 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf14 GetConnectedAccountsByNanoid200ResponseStateOneOf14 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf15"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf15? GetConnectedAccountsByNanoid200ResponseStateOneOf15 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf15 GetConnectedAccountsByNanoid200ResponseStateOneOf15 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf2? GetConnectedAccountsByNanoid200ResponseStateOneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf2 GetConnectedAccountsByNanoid200ResponseStateOneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3? GetConnectedAccountsByNanoid200ResponseStateOneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3 GetConnectedAccountsByNanoid200ResponseStateOneOf3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf4? GetConnectedAccountsByNanoid200ResponseStateOneOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf4 GetConnectedAccountsByNanoid200ResponseStateOneOf4 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5? GetConnectedAccountsByNanoid200ResponseStateOneOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5 GetConnectedAccountsByNanoid200ResponseStateOneOf5 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf6"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf6? GetConnectedAccountsByNanoid200ResponseStateOneOf6 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf6 GetConnectedAccountsByNanoid200ResponseStateOneOf6 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf7"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf7? GetConnectedAccountsByNanoid200ResponseStateOneOf7 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf7 GetConnectedAccountsByNanoid200ResponseStateOneOf7 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf8"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf8? GetConnectedAccountsByNanoid200ResponseStateOneOf8 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf8 GetConnectedAccountsByNanoid200ResponseStateOneOf8 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf9"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf9? GetConnectedAccountsByNanoid200ResponseStateOneOf9 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf9 GetConnectedAccountsByNanoid200ResponseStateOneOf9 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -40,7 +141,69 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseState();
+            var mappingValue = parseNode.GetChildNode("authScheme")?.GetStringValue();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseState();
+            if("OAUTH1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf1 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf1();
+            }
+            else if("BASIC_WITH_JWT".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf10 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf10();
+            }
+            else if("SERVICE_ACCOUNT".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf11 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf11();
+            }
+            else if("SAML".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf12 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf12();
+            }
+            else if("DCR_OAUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf13 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf13();
+            }
+            else if("CIMD_OAUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf14 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf14();
+            }
+            else if("S2S_OAUTH2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf15 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf15();
+            }
+            else if("OAUTH2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf2 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf2();
+            }
+            else if("API_KEY".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf3 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3();
+            }
+            else if("BASIC".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf4 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf4();
+            }
+            else if("BEARER_TOKEN".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf5 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5();
+            }
+            else if("GOOGLE_SERVICE_ACCOUNT".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf6 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf6();
+            }
+            else if("NO_AUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf7 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf7();
+            }
+            else if("CALCOM_AUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf8 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf8();
+            }
+            else if("BILLCOM_AUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetConnectedAccountsByNanoid200ResponseStateOneOf9 = new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf9();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +211,67 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(GetConnectedAccountsByNanoid200ResponseStateOneOf1 != null)
             {
-                { "authScheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateAuthScheme>(); } },
-                { "val", n => { Val = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateVal>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateVal.CreateFromDiscriminatorValue); } },
-            };
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf1.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf10 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf10.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf11 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf11.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf12 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf12.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf13 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf13.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf14 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf14.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf15 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf15.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf2 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf2.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf3 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf3.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf4 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf4.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf5 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf5.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf6 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf6.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf7 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf7.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf8 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf8.GetFieldDeserializers();
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf9 != null)
+            {
+                return GetConnectedAccountsByNanoid200ResponseStateOneOf9.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,9 +280,66 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateAuthScheme>("authScheme", AuthScheme);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateVal>("val", Val);
-            writer.WriteAdditionalData(AdditionalData);
+            if(GetConnectedAccountsByNanoid200ResponseStateOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf1>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf1);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf10>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf10);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf11 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf11>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf11);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf12 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf12>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf12);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf13 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf13>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf13);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf14 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf14>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf14);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf15 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf15>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf15);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf2>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf2);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf3);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf4>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf4);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf5);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf6 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf6>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf6);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf7 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf7>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf7);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf8 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf8>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf8);
+            }
+            else if(GetConnectedAccountsByNanoid200ResponseStateOneOf9 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf9>(null, GetConnectedAccountsByNanoid200ResponseStateOneOf9);
+            }
         }
     }
 }

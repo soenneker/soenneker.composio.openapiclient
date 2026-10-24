@@ -7,54 +7,36 @@ using System.IO;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2"/>, <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Additional values each user enters when connecting. Reference each field in a header, for example X-Org-Id: {{generic_id}}. Use display_name for the user-facing label. Every user must supply each declared field. Values are not secret.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields? AdditionalFields { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1? PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields AdditionalFields { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1 PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1 { get; set; }
 #endif
-        /// <summary>Label and help text for the API key input on the connect page</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField? ApiKeyField { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2? PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField ApiKeyField { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2 PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2 { get; set; }
 #endif
-        /// <summary>OAuth authorization server metadata URL, for example https://&lt;auth server host&gt;/.well-known/oauth-authorization-server. Use the URL your authorization server publishes; it can be on a different host from the MCP server or include a path.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DiscoveryUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3? PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3 { get; set; }
 #nullable restore
 #else
-        public string DiscoveryUrl { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3 PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3 { get; set; }
 #endif
-        /// <summary>Headers sent to the MCP server. Use {{generic_api_key}} where the API key goes.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders? Headers { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders Headers { get; set; }
-#endif
-        /// <summary>The mode property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemMode? Mode { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem"/> and sets the default values.
-        /// </summary>
-        public PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -63,7 +45,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem();
+            var mappingValue = parseNode.GetChildNode("mode")?.GetStringValue();
+            var result = new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem();
+            if("NO_AUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1 = new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1();
+            }
+            else if("API_KEY".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2 = new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2();
+            }
+            else if("DCR_OAUTH".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3 = new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,14 +67,19 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1 != null)
             {
-                { "additional_fields", n => { AdditionalFields = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields.CreateFromDiscriminatorValue); } },
-                { "api_key_field", n => { ApiKeyField = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField.CreateFromDiscriminatorValue); } },
-                { "discovery_url", n => { DiscoveryUrl = n.GetStringValue(); } },
-                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders.CreateFromDiscriminatorValue); } },
-                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemMode>(); } },
-            };
+                return PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1.GetFieldDeserializers();
+            }
+            else if(PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2 != null)
+            {
+                return PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2.GetFieldDeserializers();
+            }
+            else if(PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3 != null)
+            {
+                return PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -87,12 +88,18 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemAdditionalFields>("additional_fields", AdditionalFields);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemApiKeyField>("api_key_field", ApiKeyField);
-            writer.WriteStringValue("discovery_url", DiscoveryUrl);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemHeaders>("headers", Headers);
-            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemMode>("mode", Mode);
-            writer.WriteAdditionalData(AdditionalData);
+            if(PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1>(null, PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1);
+            }
+            else if(PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2>(null, PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2);
+            }
+            else if(PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3>(null, PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3);
+            }
         }
     }
 }

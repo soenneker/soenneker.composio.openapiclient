@@ -25,10 +25,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The response data returned from the proxied API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedData? Data { get; set; }
+        public UntypedNode? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedData Data { get; set; }
+        public UntypedNode Data { get; set; }
 #endif
         /// <summary>The HTTP headers returned from the proxied API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,7 +76,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "binary_data", n => { BinaryData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData>(global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData.CreateFromDiscriminatorValue); } },
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedData>(global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedData.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty>(global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty.CreateFromDiscriminatorValue); } },
                 { "hook_results", n => { HookResults = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.HookResult>(global::Soenneker.Composio.OpenApiClient.Models.HookResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "result_type", n => { ResultType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.CompletedResultType>(); } },
@@ -91,7 +91,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData>("binary_data", BinaryData);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedData>("data", Data);
+            writer.WriteObjectValue<UntypedNode>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty>("headers", Headers);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.HookResult>("hook_results", HookResults);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.CompletedResultType>("result_type", ResultType);
