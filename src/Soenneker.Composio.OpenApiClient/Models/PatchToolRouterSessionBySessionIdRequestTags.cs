@@ -38,7 +38,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTags();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf1Item>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf1Item> patchToolRouterSessionBySessionIdRequestTagsAnyOf1ItemValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf1Item>(global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf1Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestTagsAnyOf1Item> patchToolRouterSessionBySessionIdRequestTagsAnyOf1ItemValue)
             {
                 result.PatchToolRouterSessionBySessionIdRequestTagsAnyOf1Item = patchToolRouterSessionBySessionIdRequestTagsAnyOf1ItemValue;
             }

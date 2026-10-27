@@ -50,7 +50,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 result.PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3ScopeString = postConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3ScopeStringValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
             {
                 result.String = stringValue;
             }
