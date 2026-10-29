@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs
         {
         }
         /// <summary>
-        /// Search and retrieve action execution logs
+        /// DEPRECATED: This endpoint is deprecated and will be removed in a future release. Use `POST /api/v3.1/logs/tool_execution` instead. Responses carry a `Deprecation` header (RFC 9745) for client-side detection.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -43,6 +43,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200Response?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,11 +64,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Search and retrieve action execution logs
+        /// DEPRECATED: This endpoint is deprecated and will be removed in a future release. Use `POST /api/v3.1/logs/tool_execution` instead. Responses carry a `Deprecation` header (RFC 9745) for client-side detection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -89,6 +91,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsRequestBuilder(rawUrl, RequestAdapter);

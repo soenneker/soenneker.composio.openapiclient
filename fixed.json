@@ -755,7 +755,8 @@
     "/api/v3/cli/codact_failures": {
       "post": {
         "tags": [
-          "CLI"
+          "CLI",
+          "x-internal"
         ],
         "summary": "Ingest CLI codact failures",
         "description": "Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.",
@@ -2171,7 +2172,8 @@
           "Logs",
           "x-internal"
         ],
-        "summary": "Search and retrieve action execution logs",
+        "summary": "Search and retrieve action execution logs (DEPRECATED)",
+        "description": "DEPRECATED: This endpoint is deprecated and will be removed in a future release. Use \u0060POST /api/v3.1/logs/tool_execution\u0060 instead. Responses carry a \u0060Deprecation\u0060 header (RFC 9745) for client-side detection.",
         "operationId": "PostInternalActionExecutionLogs",
         "requestBody": {
           "content": {
@@ -2224,6 +2226,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "ApiKeyAuth": []
@@ -13307,7 +13310,8 @@
           },
           "limit": {
             "type": "number",
-            "description": "number_of_logs_to_return"
+            "description": "number_of_logs_to_return",
+            "default": 10
           },
           "case_sensitive": {
             "type": "boolean",
