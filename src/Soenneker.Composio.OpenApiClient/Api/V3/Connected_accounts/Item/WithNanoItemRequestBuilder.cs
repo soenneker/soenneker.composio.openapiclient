@@ -20,11 +20,13 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
     public partial class WithNanoItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The refresh property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh.RefreshRequestBuilder Refresh
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Refresh.RefreshRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The status property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status.StatusRequestBuilder Status
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item.Status.StatusRequestBuilder(PathParameters, RequestAdapter);
@@ -73,6 +75,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 { "403", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.DeleteConnectedAccountsByNanoid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -106,6 +110,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "501", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -141,6 +147,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Connected_accounts.Item
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountsByNanoid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

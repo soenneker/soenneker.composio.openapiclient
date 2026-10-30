@@ -12,17 +12,32 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostOrgConsumerProjectResolve200ResponseConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("clanker") is { } nullNodeClanker && nullNodeClanker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Clanker = null;
+            if (parseNode.GetChildNode("consumer_experience_enabled") is { } nullNodeConsumerExperienceEnabled && nullNodeConsumerExperienceEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumerExperienceEnabled = null;
+            if (parseNode.GetChildNode("enable_instant") is { } nullNodeEnableInstant && nullNodeEnableInstant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableInstant = null;
+            if (parseNode.GetChildNode("enhanced_controls") is { } nullNodeEnhancedControls && nullNodeEnhancedControls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnhancedControls = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether org members share a single clanker bot identity for connected accounts.</summary>
-        public bool? Clanker { get; set; }
+        public bool? Clanker { get => _explicitNullValueClanker; set { _explicitNullValueClanker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clanker"); else _explicitNullProperties?.Remove("clanker"); } }
+        private bool? _explicitNullValueClanker = default!;
         /// <summary>Whether the consumer experience is enabled for this project.</summary>
-        public bool? ConsumerExperienceEnabled { get; set; }
+        public bool? ConsumerExperienceEnabled { get => _explicitNullValueConsumerExperienceEnabled; set { _explicitNullValueConsumerExperienceEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_experience_enabled"); else _explicitNullProperties?.Remove("consumer_experience_enabled"); } }
+        private bool? _explicitNullValueConsumerExperienceEnabled = default!;
         /// <summary>Whether Instant Tools are enabled for this consumer project.</summary>
-        public bool? EnableInstant { get; set; }
+        public bool? EnableInstant { get => _explicitNullValueEnableInstant; set { _explicitNullValueEnableInstant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_instant"); else _explicitNullProperties?.Remove("enable_instant"); } }
+        private bool? _explicitNullValueEnableInstant = default!;
         /// <summary>Whether enhanced controls are enabled for this consumer project.</summary>
-        public bool? EnhancedControls { get; set; }
+        public bool? EnhancedControls { get => _explicitNullValueEnhancedControls; set { _explicitNullValueEnhancedControls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enhanced_controls"); else _explicitNullProperties?.Remove("enhanced_controls"); } }
+        private bool? _explicitNullValueEnhancedControls = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("consumer_experience_enabled", ConsumerExperienceEnabled);
             writer.WriteBoolValue("enable_instant", EnableInstant);
             writer.WriteBoolValue("enhanced_controls", EnhancedControls);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

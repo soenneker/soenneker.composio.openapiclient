@@ -11,32 +11,48 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PostToolRouterSessionRequestTagsAnyOf2 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("disable") is { } nullNodeDisable && nullNodeDisable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disable = null;
+            if (parseNode.GetChildNode("enable") is { } nullNodeEnable && nullNodeEnable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enable = null;
+            if (parseNode.GetChildNode("require_approval") is { } nullNodeRequireApproval && nullNodeRequireApproval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireApproval = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The disable property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2DisableItem?>? Disable { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2DisableItem?>? Disable { get => _explicitNullValueDisable; set { _explicitNullValueDisable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable"); else _explicitNullProperties?.Remove("disable"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2DisableItem?>? _explicitNullValueDisable = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2DisableItem?> Disable { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2DisableItem?> Disable { get => _explicitNullValueDisable; set { _explicitNullValueDisable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable"); else _explicitNullProperties?.Remove("disable"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2DisableItem?> _explicitNullValueDisable = default!;
 #endif
         /// <summary>The enable property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2EnableItem?>? Enable { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2EnableItem?>? Enable { get => _explicitNullValueEnable; set { _explicitNullValueEnable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable"); else _explicitNullProperties?.Remove("enable"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2EnableItem?>? _explicitNullValueEnable = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2EnableItem?> Enable { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2EnableItem?> Enable { get => _explicitNullValueEnable; set { _explicitNullValueEnable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable"); else _explicitNullProperties?.Remove("enable"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2EnableItem?> _explicitNullValueEnable = default!;
 #endif
         /// <summary>Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit&apos;s own lists in `tools` replace the session-wide tag list for that toolkit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem?>? RequireApproval { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem?>? RequireApproval { get => _explicitNullValueRequireApproval; set { _explicitNullValueRequireApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_approval"); else _explicitNullProperties?.Remove("require_approval"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem?>? _explicitNullValueRequireApproval = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem?> RequireApproval { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem?> RequireApproval { get => _explicitNullValueRequireApproval; set { _explicitNullValueRequireApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_approval"); else _explicitNullProperties?.Remove("require_approval"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem?> _explicitNullValueRequireApproval = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2DisableItem>("disable", Disable);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2EnableItem>("enable", Enable);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTagsAnyOf2RequireApprovalItem>("require_approval", RequireApproval);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,166 +11,230 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetTriggerInstancesActive200ResponseItemsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("connected_account_id") is { } nullNodeConnected_account_id && nullNodeConnected_account_id.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connected_account_id = null;
+            if (parseNode.GetChildNode("connectedAccountId") is { } nullNodeConnectedAccountId && nullNodeConnectedAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountId = null;
+            if (parseNode.GetChildNode("connected_account_uuid") is { } nullNodeConnectedAccountUuid && nullNodeConnectedAccountUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountUuid = null;
+            if (parseNode.GetChildNode("deprecated") is { } nullNodeDeprecated && nullNodeDeprecated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deprecated = null;
+            if (parseNode.GetChildNode("disabled_at") is { } nullNodeDisabled_at && nullNodeDisabled_at.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disabled_at = null;
+            if (parseNode.GetChildNode("disabledAt") is { } nullNodeDisabledAt && nullNodeDisabledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabledAt = null;
+            if (parseNode.GetChildNode("egress_url") is { } nullNodeEgressUrl && nullNodeEgressUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EgressUrl = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("trigger_config") is { } nullNodeTrigger_config && nullNodeTrigger_config.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trigger_config = null;
+            if (parseNode.GetChildNode("trigger_name") is { } nullNodeTrigger_name && nullNodeTrigger_name.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trigger_name = null;
+            if (parseNode.GetChildNode("triggerConfig") is { } nullNodeTriggerConfig && nullNodeTriggerConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerConfig = null;
+            if (parseNode.GetChildNode("trigger_data") is { } nullNodeTriggerData && nullNodeTriggerData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerData = null;
+            if (parseNode.GetChildNode("triggerName") is { } nullNodeTriggerName && nullNodeTriggerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerName = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdated_at && nullNodeUpdated_at.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Updated_at = null;
+            if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("uuid") is { } nullNodeUuid && nullNodeUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uuid = null;
+            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ID of the connected account this trigger is associated with</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Connected_account_id { get; set; }
+        public string? Connected_account_id { get => _explicitNullValueConnected_account_id; set { _explicitNullValueConnected_account_id = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
+        private string? _explicitNullValueConnected_account_id = default!;
 #nullable restore
 #else
-        public string Connected_account_id { get; set; }
+        public string Connected_account_id { get => _explicitNullValueConnected_account_id; set { _explicitNullValueConnected_account_id = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
+        private string _explicitNullValueConnected_account_id = default!;
 #endif
         /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectedAccountId { get; set; }
+        public string? ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedAccountId"); else _explicitNullProperties?.Remove("connectedAccountId"); } }
+        private string? _explicitNullValueConnectedAccountId = default!;
 #nullable restore
 #else
-        public string ConnectedAccountId { get; set; }
+        public string ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedAccountId"); else _explicitNullProperties?.Remove("connectedAccountId"); } }
+        private string _explicitNullValueConnectedAccountId = default!;
 #endif
         /// <summary>UUID of the connected account this trigger is associated with</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectedAccountUuid { get; set; }
+        public string? ConnectedAccountUuid { get => _explicitNullValueConnectedAccountUuid; set { _explicitNullValueConnectedAccountUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_uuid"); else _explicitNullProperties?.Remove("connected_account_uuid"); } }
+        private string? _explicitNullValueConnectedAccountUuid = default!;
 #nullable restore
 #else
-        public string ConnectedAccountUuid { get; set; }
+        public string ConnectedAccountUuid { get => _explicitNullValueConnectedAccountUuid; set { _explicitNullValueConnectedAccountUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_uuid"); else _explicitNullProperties?.Remove("connected_account_uuid"); } }
+        private string _explicitNullValueConnectedAccountUuid = default!;
 #endif
         /// <summary>Deprecated fields for the trigger instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated? Deprecated { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated? Deprecated { get => _explicitNullValueDeprecated; set { _explicitNullValueDeprecated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deprecated"); else _explicitNullProperties?.Remove("deprecated"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated? _explicitNullValueDeprecated = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated Deprecated { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated Deprecated { get => _explicitNullValueDeprecated; set { _explicitNullValueDeprecated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deprecated"); else _explicitNullProperties?.Remove("deprecated"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated _explicitNullValueDeprecated = default!;
 #endif
         /// <summary>ISO 8601 timestamp when the trigger instance was disabled, if applicable</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Disabled_at { get; set; }
+        public string? Disabled_at { get => _explicitNullValueDisabled_at; set { _explicitNullValueDisabled_at = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_at"); else _explicitNullProperties?.Remove("disabled_at"); } }
+        private string? _explicitNullValueDisabled_at = default!;
 #nullable restore
 #else
-        public string Disabled_at { get; set; }
+        public string Disabled_at { get => _explicitNullValueDisabled_at; set { _explicitNullValueDisabled_at = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled_at"); else _explicitNullProperties?.Remove("disabled_at"); } }
+        private string _explicitNullValueDisabled_at = default!;
 #endif
         /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use disabled_at instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisabledAt { get; set; }
+        public string? DisabledAt { get => _explicitNullValueDisabledAt; set { _explicitNullValueDisabledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabledAt"); else _explicitNullProperties?.Remove("disabledAt"); } }
+        private string? _explicitNullValueDisabledAt = default!;
 #nullable restore
 #else
-        public string DisabledAt { get; set; }
+        public string DisabledAt { get => _explicitNullValueDisabledAt; set { _explicitNullValueDisabledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabledAt"); else _explicitNullProperties?.Remove("disabledAt"); } }
+        private string _explicitNullValueDisabledAt = default!;
 #endif
         /// <summary>Delivery URL override for this trigger instance: its events are sent here instead of the project webhook URL, while signing, the payload version and enabled events still come from the project webhook subscription. Null means no override.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EgressUrl { get; set; }
+        public string? EgressUrl { get => _explicitNullValueEgressUrl; set { _explicitNullValueEgressUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_url"); else _explicitNullProperties?.Remove("egress_url"); } }
+        private string? _explicitNullValueEgressUrl = default!;
 #nullable restore
 #else
-        public string EgressUrl { get; set; }
+        public string EgressUrl { get => _explicitNullValueEgressUrl; set { _explicitNullValueEgressUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_url"); else _explicitNullProperties?.Remove("egress_url"); } }
+        private string _explicitNullValueEgressUrl = default!;
 #endif
         /// <summary>Nano ID of the trigger instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>DEPRECATED: This field exposes internal state and will be removed in a future version.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState? State { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState? _explicitNullValueState = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState State { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState _explicitNullValueState = default!;
 #endif
         /// <summary>Configuration for the trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfig? Trigger_config { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfig? Trigger_config { get => _explicitNullValueTrigger_config; set { _explicitNullValueTrigger_config = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfig? _explicitNullValueTrigger_config = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfig Trigger_config { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfig Trigger_config { get => _explicitNullValueTrigger_config; set { _explicitNullValueTrigger_config = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfig _explicitNullValueTrigger_config = default!;
 #endif
         /// <summary>Name of the trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Trigger_name { get; set; }
+        public string? Trigger_name { get => _explicitNullValueTrigger_name; set { _explicitNullValueTrigger_name = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_name"); else _explicitNullProperties?.Remove("trigger_name"); } }
+        private string? _explicitNullValueTrigger_name = default!;
 #nullable restore
 #else
-        public string Trigger_name { get; set; }
+        public string Trigger_name { get => _explicitNullValueTrigger_name; set { _explicitNullValueTrigger_name = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_name"); else _explicitNullProperties?.Remove("trigger_name"); } }
+        private string _explicitNullValueTrigger_name = default!;
 #endif
         /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty? TriggerConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty? TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerConfig"); else _explicitNullProperties?.Remove("triggerConfig"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty? _explicitNullValueTriggerConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty TriggerConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerConfig"); else _explicitNullProperties?.Remove("triggerConfig"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty _explicitNullValueTriggerConfig = default!;
 #endif
         /// <summary>Additional data associated with the trigger instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerData { get; set; }
+        public string? TriggerData { get => _explicitNullValueTriggerData; set { _explicitNullValueTriggerData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_data"); else _explicitNullProperties?.Remove("trigger_data"); } }
+        private string? _explicitNullValueTriggerData = default!;
 #nullable restore
 #else
-        public string TriggerData { get; set; }
+        public string TriggerData { get => _explicitNullValueTriggerData; set { _explicitNullValueTriggerData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_data"); else _explicitNullProperties?.Remove("trigger_data"); } }
+        private string _explicitNullValueTriggerData = default!;
 #endif
         /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use trigger_name instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerName { get; set; }
+        public string? TriggerName { get => _explicitNullValueTriggerName; set { _explicitNullValueTriggerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerName"); else _explicitNullProperties?.Remove("triggerName"); } }
+        private string? _explicitNullValueTriggerName = default!;
 #nullable restore
 #else
-        public string TriggerName { get; set; }
+        public string TriggerName { get => _explicitNullValueTriggerName; set { _explicitNullValueTriggerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerName"); else _explicitNullProperties?.Remove("triggerName"); } }
+        private string _explicitNullValueTriggerName = default!;
 #endif
         /// <summary>ISO 8601 timestamp when the trigger instance was updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Updated_at { get; set; }
+        public string? Updated_at { get => _explicitNullValueUpdated_at; set { _explicitNullValueUpdated_at = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private string? _explicitNullValueUpdated_at = default!;
 #nullable restore
 #else
-        public string Updated_at { get; set; }
+        public string Updated_at { get => _explicitNullValueUpdated_at; set { _explicitNullValueUpdated_at = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private string _explicitNullValueUpdated_at = default!;
 #endif
         /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use updated_at instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get; set; }
+        public string? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private string? _explicitNullValueUpdatedAt = default!;
 #nullable restore
 #else
-        public string UpdatedAt { get; set; }
+        public string UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private string _explicitNullValueUpdatedAt = default!;
 #endif
         /// <summary>ID of the user this trigger is associated with</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get; set; }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get; set; }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>Unique identifier of the trigger instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uuid { get; set; }
+        public string? Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
+        private string? _explicitNullValueUuid = default!;
 #nullable restore
 #else
-        public string Uuid { get; set; }
+        public string Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
+        private string _explicitNullValueUuid = default!;
 #endif
         /// <summary>Version of the trigger instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get; set; }
+        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string? _explicitNullValueVersion = default!;
 #nullable restore
 #else
-        public string Version { get; set; }
+        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string _explicitNullValueVersion = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItem"/> and sets the default values.
@@ -187,7 +251,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -244,6 +308,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("user_id", UserId);
             writer.WriteStringValue("uuid", Uuid);
             writer.WriteStringValue("version", Version);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

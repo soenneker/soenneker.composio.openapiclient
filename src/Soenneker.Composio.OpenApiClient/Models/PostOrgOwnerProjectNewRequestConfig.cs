@@ -12,55 +12,88 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostOrgOwnerProjectNewRequestConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("enable_instant") is { } nullNodeEnableInstant && nullNodeEnableInstant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableInstant = null;
+            if (parseNode.GetChildNode("is_2FA_enabled") is { } nullNodeIs2FAEnabled && nullNodeIs2FAEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Is2FAEnabled = null;
+            if (parseNode.GetChildNode("is_composio_link_enabled_for_managed_auth") is { } nullNodeIsComposioLinkEnabledForManagedAuth && nullNodeIsComposioLinkEnabledForManagedAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsComposioLinkEnabledForManagedAuth = null;
+            if (parseNode.GetChildNode("logo_url") is { } nullNodeLogoUrl && nullNodeLogoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoUrl = null;
+            if (parseNode.GetChildNode("log_visibility_setting") is { } nullNodeLogVisibilitySetting && nullNodeLogVisibilitySetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogVisibilitySetting = null;
+            if (parseNode.GetChildNode("mask_secret_keys_in_connected_account") is { } nullNodeMaskSecretKeysInConnectedAccount && nullNodeMaskSecretKeysInConnectedAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaskSecretKeysInConnectedAccount = null;
+            if (parseNode.GetChildNode("oauth_callback_verifier_url") is { } nullNodeOauthCallbackVerifierUrl && nullNodeOauthCallbackVerifierUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthCallbackVerifierUrl = null;
+            if (parseNode.GetChildNode("signed_url_file_expiry_in_seconds") is { } nullNodeSignedUrlFileExpiryInSeconds && nullNodeSignedUrlFileExpiryInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignedUrlFileExpiryInSeconds = null;
+            if (parseNode.GetChildNode("theme") is { } nullNodeTheme && nullNodeTheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Theme = null;
+            if (parseNode.GetChildNode("zdr_enabled") is { } nullNodeZdrEnabled && nullNodeZdrEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ZdrEnabled = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The display_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>Enable Instant Toolkits for this project.</summary>
-        public bool? EnableInstant { get; set; }
+        public bool? EnableInstant { get => _explicitNullValueEnableInstant; set { _explicitNullValueEnableInstant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_instant"); else _explicitNullProperties?.Remove("enable_instant"); } }
+        private bool? _explicitNullValueEnableInstant = default!;
         /// <summary>The is_2FA_enabled property</summary>
-        public bool? Is2FAEnabled { get; set; }
+        public bool? Is2FAEnabled { get => _explicitNullValueIs2FAEnabled; set { _explicitNullValueIs2FAEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_2FA_enabled"); else _explicitNullProperties?.Remove("is_2FA_enabled"); } }
+        private bool? _explicitNullValueIs2FAEnabled = default!;
         /// <summary>Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don&apos;t use this key.</summary>
-        public bool? IsComposioLinkEnabledForManagedAuth { get; set; }
+        public bool? IsComposioLinkEnabledForManagedAuth { get => _explicitNullValueIsComposioLinkEnabledForManagedAuth; set { _explicitNullValueIsComposioLinkEnabledForManagedAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_composio_link_enabled_for_managed_auth"); else _explicitNullProperties?.Remove("is_composio_link_enabled_for_managed_auth"); } }
+        private bool? _explicitNullValueIsComposioLinkEnabledForManagedAuth = default!;
         /// <summary>The logo_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogoUrl { get; set; }
+        public string? LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_url"); else _explicitNullProperties?.Remove("logo_url"); } }
+        private string? _explicitNullValueLogoUrl = default!;
 #nullable restore
 #else
-        public string LogoUrl { get; set; }
+        public string LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_url"); else _explicitNullProperties?.Remove("logo_url"); } }
+        private string _explicitNullValueLogoUrl = default!;
 #endif
         /// <summary>The log_visibility_setting property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting? LogVisibilitySetting { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting? LogVisibilitySetting { get => _explicitNullValueLogVisibilitySetting; set { _explicitNullValueLogVisibilitySetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_visibility_setting"); else _explicitNullProperties?.Remove("log_visibility_setting"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting? _explicitNullValueLogVisibilitySetting = default!;
         /// <summary>The mask_secret_keys_in_connected_account property</summary>
-        public bool? MaskSecretKeysInConnectedAccount { get; set; }
+        public bool? MaskSecretKeysInConnectedAccount { get => _explicitNullValueMaskSecretKeysInConnectedAccount; set { _explicitNullValueMaskSecretKeysInConnectedAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mask_secret_keys_in_connected_account"); else _explicitNullProperties?.Remove("mask_secret_keys_in_connected_account"); } }
+        private bool? _explicitNullValueMaskSecretKeysInConnectedAccount = default!;
         /// <summary>Developer-hosted OAuth callback verifier URL. Setting it enables per-user callback identity verification; null disables it. Must be https and pass SSRF checks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OauthCallbackVerifierUrl { get; set; }
+        public string? OauthCallbackVerifierUrl { get => _explicitNullValueOauthCallbackVerifierUrl; set { _explicitNullValueOauthCallbackVerifierUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_callback_verifier_url"); else _explicitNullProperties?.Remove("oauth_callback_verifier_url"); } }
+        private string? _explicitNullValueOauthCallbackVerifierUrl = default!;
 #nullable restore
 #else
-        public string OauthCallbackVerifierUrl { get; set; }
+        public string OauthCallbackVerifierUrl { get => _explicitNullValueOauthCallbackVerifierUrl; set { _explicitNullValueOauthCallbackVerifierUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_callback_verifier_url"); else _explicitNullProperties?.Remove("oauth_callback_verifier_url"); } }
+        private string _explicitNullValueOauthCallbackVerifierUrl = default!;
 #endif
         /// <summary>The signed_url_file_expiry_in_seconds property</summary>
-        public double? SignedUrlFileExpiryInSeconds { get; set; }
+        public double? SignedUrlFileExpiryInSeconds { get => _explicitNullValueSignedUrlFileExpiryInSeconds; set { _explicitNullValueSignedUrlFileExpiryInSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signed_url_file_expiry_in_seconds"); else _explicitNullProperties?.Remove("signed_url_file_expiry_in_seconds"); } }
+        private double? _explicitNullValueSignedUrlFileExpiryInSeconds = default!;
         /// <summary>Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme? Theme { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme? Theme { get => _explicitNullValueTheme; set { _explicitNullValueTheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("theme"); else _explicitNullProperties?.Remove("theme"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme? _explicitNullValueTheme = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme Theme { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme Theme { get => _explicitNullValueTheme; set { _explicitNullValueTheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("theme"); else _explicitNullProperties?.Remove("theme"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme _explicitNullValueTheme = default!;
 #endif
         /// <summary>Enable Zero Data Retention for the new project. Hobby cannot enable it. Enterprise defaults to enabled; other paid plans default to disabled. An explicit value overrides the default.</summary>
-        public bool? ZdrEnabled { get; set; }
+        public bool? ZdrEnabled { get => _explicitNullValueZdrEnabled; set { _explicitNullValueZdrEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("zdr_enabled"); else _explicitNullProperties?.Remove("zdr_enabled"); } }
+        private bool? _explicitNullValueZdrEnabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig"/> and sets the default values.
         /// </summary>
@@ -76,7 +109,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -117,6 +150,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteDoubleValue("signed_url_file_expiry_in_seconds", SignedUrlFileExpiryInSeconds);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfigTheme>("theme", Theme);
             writer.WriteBoolValue("zdr_enabled", ZdrEnabled);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

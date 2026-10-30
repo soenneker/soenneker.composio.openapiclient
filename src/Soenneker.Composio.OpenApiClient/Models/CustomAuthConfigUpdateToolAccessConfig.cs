@@ -13,26 +13,39 @@ namespace Soenneker.Composio.OpenApiClient.Models
     [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomAuthConfigUpdateToolAccessConfig : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("tools_available_for_execution") is { } nullNodeToolsAvailableForExecution && nullNodeToolsAvailableForExecution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolsAvailableForExecution = null;
+            if (parseNode.GetChildNode("tools_for_connected_account_creation") is { } nullNodeToolsForConnectedAccountCreation && nullNodeToolsForConnectedAccountCreation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolsForConnectedAccountCreation = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The actions that the user can perform on the auth config. If passed, this will update the actions that the user can perform on the auth config. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ToolsAvailableForExecution { get; set; }
+        public List<string>? ToolsAvailableForExecution { get => _explicitNullValueToolsAvailableForExecution; set { _explicitNullValueToolsAvailableForExecution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_available_for_execution"); else _explicitNullProperties?.Remove("tools_available_for_execution"); } }
+        private List<string>? _explicitNullValueToolsAvailableForExecution = default!;
 #nullable restore
 #else
-        public List<string> ToolsAvailableForExecution { get; set; }
+        public List<string> ToolsAvailableForExecution { get => _explicitNullValueToolsAvailableForExecution; set { _explicitNullValueToolsAvailableForExecution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_available_for_execution"); else _explicitNullProperties?.Remove("tools_available_for_execution"); } }
+        private List<string> _explicitNullValueToolsAvailableForExecution = default!;
 #endif
         /// <summary>Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ToolsForConnectedAccountCreation { get; set; }
+        public List<string>? ToolsForConnectedAccountCreation { get => _explicitNullValueToolsForConnectedAccountCreation; set { _explicitNullValueToolsForConnectedAccountCreation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_for_connected_account_creation"); else _explicitNullProperties?.Remove("tools_for_connected_account_creation"); } }
+        private List<string>? _explicitNullValueToolsForConnectedAccountCreation = default!;
 #nullable restore
 #else
-        public List<string> ToolsForConnectedAccountCreation { get; set; }
+        public List<string> ToolsForConnectedAccountCreation { get => _explicitNullValueToolsForConnectedAccountCreation; set { _explicitNullValueToolsForConnectedAccountCreation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_for_connected_account_creation"); else _explicitNullProperties?.Remove("tools_for_connected_account_creation"); } }
+        private List<string> _explicitNullValueToolsForConnectedAccountCreation = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateToolAccessConfig"/> and sets the default values.
@@ -49,7 +62,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateToolAccessConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateToolAccessConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateToolAccessConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +85,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("tools_available_for_execution", ToolsAvailableForExecution);
             writer.WriteCollectionOfPrimitiveValues<string>("tools_for_connected_account_creation", ToolsForConnectedAccountCreation);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

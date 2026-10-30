@@ -11,32 +11,48 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetToolkitsBySlug200ResponseDeprecated : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("getCurrentUserEndpoint") is { } nullNodeGetCurrentUserEndpoint && nullNodeGetCurrentUserEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GetCurrentUserEndpoint = null;
+            if (parseNode.GetChildNode("rawProxyInfoByAuthSchemes") is { } nullNodeRawProxyInfoByAuthSchemes && nullNodeRawProxyInfoByAuthSchemes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RawProxyInfoByAuthSchemes = null;
+            if (parseNode.GetChildNode("toolkitId") is { } nullNodeToolkitId && nullNodeToolkitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The getCurrentUserEndpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GetCurrentUserEndpoint { get; set; }
+        public string? GetCurrentUserEndpoint { get => _explicitNullValueGetCurrentUserEndpoint; set { _explicitNullValueGetCurrentUserEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("getCurrentUserEndpoint"); else _explicitNullProperties?.Remove("getCurrentUserEndpoint"); } }
+        private string? _explicitNullValueGetCurrentUserEndpoint = default!;
 #nullable restore
 #else
-        public string GetCurrentUserEndpoint { get; set; }
+        public string GetCurrentUserEndpoint { get => _explicitNullValueGetCurrentUserEndpoint; set { _explicitNullValueGetCurrentUserEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("getCurrentUserEndpoint"); else _explicitNullProperties?.Remove("getCurrentUserEndpoint"); } }
+        private string _explicitNullValueGetCurrentUserEndpoint = default!;
 #endif
         /// <summary>The rawProxyInfoByAuthSchemes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItem>? RawProxyInfoByAuthSchemes { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItem>? RawProxyInfoByAuthSchemes { get => _explicitNullValueRawProxyInfoByAuthSchemes; set { _explicitNullValueRawProxyInfoByAuthSchemes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rawProxyInfoByAuthSchemes"); else _explicitNullProperties?.Remove("rawProxyInfoByAuthSchemes"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItem>? _explicitNullValueRawProxyInfoByAuthSchemes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItem> RawProxyInfoByAuthSchemes { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItem> RawProxyInfoByAuthSchemes { get => _explicitNullValueRawProxyInfoByAuthSchemes; set { _explicitNullValueRawProxyInfoByAuthSchemes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rawProxyInfoByAuthSchemes"); else _explicitNullProperties?.Remove("rawProxyInfoByAuthSchemes"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItem> _explicitNullValueRawProxyInfoByAuthSchemes = default!;
 #endif
         /// <summary>The toolkitId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolkitId { get; set; }
+        public string? ToolkitId { get => _explicitNullValueToolkitId; set { _explicitNullValueToolkitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitId"); else _explicitNullProperties?.Remove("toolkitId"); } }
+        private string? _explicitNullValueToolkitId = default!;
 #nullable restore
 #else
-        public string ToolkitId { get; set; }
+        public string ToolkitId { get => _explicitNullValueToolkitId; set { _explicitNullValueToolkitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitId"); else _explicitNullProperties?.Remove("toolkitId"); } }
+        private string _explicitNullValueToolkitId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecated"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecated CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecated();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecated(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("getCurrentUserEndpoint", GetCurrentUserEndpoint);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseDeprecatedRawProxyInfoByAuthSchemesItem>("rawProxyInfoByAuthSchemes", RawProxyInfoByAuthSchemes);
             writer.WriteStringValue("toolkitId", ToolkitId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

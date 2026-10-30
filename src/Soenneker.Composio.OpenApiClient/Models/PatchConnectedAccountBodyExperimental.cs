@@ -12,14 +12,24 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PatchConnectedAccountBodyExperimental : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acl_config_for_shared") is { } nullNodeAclConfigForShared && nullNodeAclConfigForShared.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AclConfigForShared = null;
+        }
+
         /// <summary>Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimentalAclConfigForShared? AclConfigForShared { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimentalAclConfigForShared? AclConfigForShared { get => _explicitNullValueAclConfigForShared; set { _explicitNullValueAclConfigForShared = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl_config_for_shared"); else _explicitNullProperties?.Remove("acl_config_for_shared"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimentalAclConfigForShared? _explicitNullValueAclConfigForShared = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimentalAclConfigForShared AclConfigForShared { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimentalAclConfigForShared AclConfigForShared { get => _explicitNullValueAclConfigForShared; set { _explicitNullValueAclConfigForShared = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl_config_for_shared"); else _explicitNullProperties?.Remove("acl_config_for_shared"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimentalAclConfigForShared _explicitNullValueAclConfigForShared = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -38,7 +48,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimental CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimental();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimental(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,6 +69,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PatchConnectedAccountBodyExperimentalAclConfigForShared>("acl_config_for_shared", AclConfigForShared);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

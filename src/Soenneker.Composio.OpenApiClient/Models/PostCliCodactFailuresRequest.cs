@@ -11,42 +11,63 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PostCliCodactFailuresRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ctx") is { } nullNodeCtx && nullNodeCtx.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ctx = null;
+            if (parseNode.GetChildNode("failure_type") is { } nullNodeFailureType && nullNodeFailureType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureType = null;
+            if (parseNode.GetChildNode("request_id") is { } nullNodeRequestId && nullNodeRequestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestId = null;
+            if (parseNode.GetChildNode("session") is { } nullNodeSession && nullNodeSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Session = null;
+            if (parseNode.GetChildNode("tool_info") is { } nullNodeToolInfo && nullNodeToolInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolInfo = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Arbitrary failure context from the CLI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestCtx? Ctx { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestCtx? Ctx { get => _explicitNullValueCtx; set { _explicitNullValueCtx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ctx"); else _explicitNullProperties?.Remove("ctx"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestCtx? _explicitNullValueCtx = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestCtx Ctx { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestCtx Ctx { get => _explicitNullValueCtx; set { _explicitNullValueCtx = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ctx"); else _explicitNullProperties?.Remove("ctx"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestCtx _explicitNullValueCtx = default!;
 #endif
         /// <summary>Type of codact failure being recorded.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestFailureType? FailureType { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestFailureType? FailureType { get => _explicitNullValueFailureType; set { _explicitNullValueFailureType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_type"); else _explicitNullProperties?.Remove("failure_type"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestFailureType? _explicitNullValueFailureType = default!;
         /// <summary>Optional request identifier associated with the failure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestId { get; set; }
+        public string? RequestId { get => _explicitNullValueRequestId; set { _explicitNullValueRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_id"); else _explicitNullProperties?.Remove("request_id"); } }
+        private string? _explicitNullValueRequestId = default!;
 #nullable restore
 #else
-        public string RequestId { get; set; }
+        public string RequestId { get => _explicitNullValueRequestId; set { _explicitNullValueRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_id"); else _explicitNullProperties?.Remove("request_id"); } }
+        private string _explicitNullValueRequestId = default!;
 #endif
         /// <summary>Arbitrary session payload from the CLI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestSession? Session { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestSession? Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestSession? _explicitNullValueSession = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestSession Session { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestSession Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestSession _explicitNullValueSession = default!;
 #endif
         /// <summary>Optional tool metadata when the failure can be tied to a toolkit or concrete tool version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestToolInfo? ToolInfo { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestToolInfo? ToolInfo { get => _explicitNullValueToolInfo; set { _explicitNullValueToolInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_info"); else _explicitNullProperties?.Remove("tool_info"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestToolInfo? _explicitNullValueToolInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestToolInfo ToolInfo { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestToolInfo ToolInfo { get => _explicitNullValueToolInfo; set { _explicitNullValueToolInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_info"); else _explicitNullProperties?.Remove("tool_info"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestToolInfo _explicitNullValueToolInfo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequest"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("request_id", RequestId);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestSession>("session", Session);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestToolInfo>("tool_info", ToolInfo);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

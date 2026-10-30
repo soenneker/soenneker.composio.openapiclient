@@ -12,7 +12,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSessionBySessionIdProxyExecute200Response : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,21 +50,30 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("result_type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecute200Response();
-            if("input_required".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ExecuteRequiresUserInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ExecuteRequiresUserInput = new global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput();
+                
             }
-            else if("blocked".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ProxyExecuteBlocked".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ProxyExecuteBlocked = new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteBlocked();
+                
             }
-            else if("completed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ProxyExecuteCompleted".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ProxyExecuteCompleted = new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("result_type") != null && (parseNode.GetChildNode("result_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("completed".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("status") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("result_type") != null && (parseNode.GetChildNode("result_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("blocked".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("reason") != null && parseNode.GetChildNode("message") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("result_type") != null && (parseNode.GetChildNode("result_type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("input_required".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("input_requests") != null))();
+            if (result.ExecuteRequiresUserInput == null && result.ProxyExecuteBlocked == null && result.ProxyExecuteCompleted == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.ProxyExecuteCompleted = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted(), parseNode);
+            if (result.ExecuteRequiresUserInput == null && result.ProxyExecuteBlocked == null && result.ProxyExecuteCompleted == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.ProxyExecuteBlocked = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteBlocked(), parseNode);
+            if (result.ExecuteRequiresUserInput == null && result.ProxyExecuteBlocked == null && result.ProxyExecuteCompleted == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.ExecuteRequiresUserInput = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput(), parseNode);
+            if (result.ExecuteRequiresUserInput == null && result.ProxyExecuteBlocked == null && result.ProxyExecuteCompleted == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ExecuteRequiresUserInput == null && ProxyExecuteBlocked == null && ProxyExecuteCompleted == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ExecuteRequiresUserInput != null && ProxyExecuteBlocked == null && ProxyExecuteCompleted == null) { if (ExecuteRequiresUserInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ExecuteRequiresUserInput); return; }
+            if (ProxyExecuteBlocked != null && ExecuteRequiresUserInput == null && ProxyExecuteCompleted == null) { if (ProxyExecuteBlocked is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ProxyExecuteBlocked); return; }
+            if (ProxyExecuteCompleted != null && ExecuteRequiresUserInput == null && ProxyExecuteBlocked == null) { if (ProxyExecuteCompleted is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ProxyExecuteCompleted); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ExecuteRequiresUserInput != null)
             {
+                if (ExecuteRequiresUserInput is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput>(null, ExecuteRequiresUserInput);
             }
             else if(ProxyExecuteBlocked != null)
             {
+                if (ProxyExecuteBlocked is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteBlocked>(null, ProxyExecuteBlocked);
             }
             else if(ProxyExecuteCompleted != null)
             {
+                if (ProxyExecuteCompleted is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted>(null, ProxyExecuteCompleted);
             }
         }

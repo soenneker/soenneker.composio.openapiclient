@@ -12,27 +12,42 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ExecuteRequiresUserInput : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("input_requests") is { } nullNodeInputRequests && nullNodeInputRequests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputRequests = null;
+            if (parseNode.GetChildNode("request_state") is { } nullNodeRequestState && nullNodeRequestState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestState = null;
+            if (parseNode.GetChildNode("result_type") is { } nullNodeResultType && nullNodeResultType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Questions for the user, keyed by an ID the answers must reuse</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInputInputRequestsProperty? InputRequests { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInputInputRequestsProperty? InputRequests { get => _explicitNullValueInputRequests; set { _explicitNullValueInputRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_requests"); else _explicitNullProperties?.Remove("input_requests"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInputInputRequestsProperty? _explicitNullValueInputRequests = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInputInputRequestsProperty InputRequests { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInputInputRequestsProperty InputRequests { get => _explicitNullValueInputRequests; set { _explicitNullValueInputRequests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_requests"); else _explicitNullProperties?.Remove("input_requests"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInputInputRequestsProperty _explicitNullValueInputRequests = default!;
 #endif
         /// <summary>Send this back unchanged in `request_state` with the answers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestState { get; set; }
+        public string? RequestState { get => _explicitNullValueRequestState; set { _explicitNullValueRequestState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_state"); else _explicitNullProperties?.Remove("request_state"); } }
+        private string? _explicitNullValueRequestState = default!;
 #nullable restore
 #else
-        public string RequestState { get; set; }
+        public string RequestState { get => _explicitNullValueRequestState; set { _explicitNullValueRequestState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_state"); else _explicitNullProperties?.Remove("request_state"); } }
+        private string _explicitNullValueRequestState = default!;
 #endif
         /// <summary>The call needs the user&apos;s input before it runs</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.InputRequiredResultType? ResultType { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.InputRequiredResultType? ResultType { get => _explicitNullValueResultType; set { _explicitNullValueResultType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result_type"); else _explicitNullProperties?.Remove("result_type"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.InputRequiredResultType? _explicitNullValueResultType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteRequiresUserInputInputRequestsProperty>("input_requests", InputRequests);
             writer.WriteStringValue("request_state", RequestState);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.InputRequiredResultType>("result_type", ResultType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

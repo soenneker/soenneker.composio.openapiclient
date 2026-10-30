@@ -23,6 +23,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.App.AppRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The servers property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder Servers
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.ServersRequestBuilder(PathParameters, RequestAdapter);

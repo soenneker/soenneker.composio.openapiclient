@@ -55,6 +55,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Event_ty
             {
                 { "401", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetWebhookSubscriptionsEventTypes200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetWebhookSubscriptionsEventTypes200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

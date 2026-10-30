@@ -19,6 +19,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item
     public partial class WithToolSlugItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The input property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputRequestBuilder Input
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item.Input.InputRequestBuilder(PathParameters, RequestAdapter);
@@ -87,6 +88,8 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools.Execute.Item
                 { "501", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteByToolSlug200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

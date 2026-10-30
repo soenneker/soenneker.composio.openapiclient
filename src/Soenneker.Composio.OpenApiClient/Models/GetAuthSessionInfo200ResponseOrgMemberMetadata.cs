@@ -12,21 +12,40 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetAuthSessionInfo200ResponseOrgMemberMetadata : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("onboarding_platform") is { } nullNodeOnboardingPlatform && nullNodeOnboardingPlatform.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnboardingPlatform = null;
+            if (parseNode.GetChildNode("prefers_old_dashboard") is { } nullNodePrefersOldDashboard && nullNodePrefersOldDashboard.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrefersOldDashboard = null;
+            if (parseNode.GetChildNode("seen_connect_announcement") is { } nullNodeSeenConnectAnnouncement && nullNodeSeenConnectAnnouncement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeenConnectAnnouncement = null;
+            if (parseNode.GetChildNode("seen_flow_cli") is { } nullNodeSeenFlowCli && nullNodeSeenFlowCli.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeenFlowCli = null;
+            if (parseNode.GetChildNode("seen_flow_consumer") is { } nullNodeSeenFlowConsumer && nullNodeSeenFlowConsumer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeenFlowConsumer = null;
+            if (parseNode.GetChildNode("seen_flow_developer") is { } nullNodeSeenFlowDeveloper && nullNodeSeenFlowDeveloper.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeenFlowDeveloper = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Platform the user onboarded on.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadataOnboardingPlatform? OnboardingPlatform { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadataOnboardingPlatform? OnboardingPlatform { get => _explicitNullValueOnboardingPlatform; set { _explicitNullValueOnboardingPlatform = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onboarding_platform"); else _explicitNullProperties?.Remove("onboarding_platform"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadataOnboardingPlatform? _explicitNullValueOnboardingPlatform = default!;
         /// <summary>If true, the user will be redirected to the legacy dashboard at platform.composio.dev.</summary>
-        public bool? PrefersOldDashboard { get; set; }
+        public bool? PrefersOldDashboard { get => _explicitNullValuePrefersOldDashboard; set { _explicitNullValuePrefersOldDashboard = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prefers_old_dashboard"); else _explicitNullProperties?.Remove("prefers_old_dashboard"); } }
+        private bool? _explicitNullValuePrefersOldDashboard = default!;
         /// <summary>True once the user has dismissed the Composio For You announcement modal in the developer dashboard.</summary>
-        public bool? SeenConnectAnnouncement { get; set; }
+        public bool? SeenConnectAnnouncement { get => _explicitNullValueSeenConnectAnnouncement; set { _explicitNullValueSeenConnectAnnouncement = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seen_connect_announcement"); else _explicitNullProperties?.Remove("seen_connect_announcement"); } }
+        private bool? _explicitNullValueSeenConnectAnnouncement = default!;
         /// <summary>True once the user has completed the CLI onboarding flow.</summary>
-        public bool? SeenFlowCli { get; set; }
+        public bool? SeenFlowCli { get => _explicitNullValueSeenFlowCli; set { _explicitNullValueSeenFlowCli = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seen_flow_cli"); else _explicitNullProperties?.Remove("seen_flow_cli"); } }
+        private bool? _explicitNullValueSeenFlowCli = default!;
         /// <summary>True once the user has completed the consumer onboarding flow.</summary>
-        public bool? SeenFlowConsumer { get; set; }
+        public bool? SeenFlowConsumer { get => _explicitNullValueSeenFlowConsumer; set { _explicitNullValueSeenFlowConsumer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seen_flow_consumer"); else _explicitNullProperties?.Remove("seen_flow_consumer"); } }
+        private bool? _explicitNullValueSeenFlowConsumer = default!;
         /// <summary>True once the user has completed the developer onboarding flow.</summary>
-        public bool? SeenFlowDeveloper { get; set; }
+        public bool? SeenFlowDeveloper { get => _explicitNullValueSeenFlowDeveloper; set { _explicitNullValueSeenFlowDeveloper = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seen_flow_developer"); else _explicitNullProperties?.Remove("seen_flow_developer"); } }
+        private bool? _explicitNullValueSeenFlowDeveloper = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadata"/> and sets the default values.
         /// </summary>
@@ -42,7 +61,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadata();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMemberMetadata(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +92,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("seen_flow_cli", SeenFlowCli);
             writer.WriteBoolValue("seen_flow_consumer", SeenFlowConsumer);
             writer.WriteBoolValue("seen_flow_developer", SeenFlowDeveloper);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

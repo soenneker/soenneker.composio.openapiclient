@@ -11,45 +11,68 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ProxyExecuteCompleted : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("binary_data") is { } nullNodeBinaryData && nullNodeBinaryData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BinaryData = null;
+            if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
+            if (parseNode.GetChildNode("headers") is { } nullNodeHeaders && nullNodeHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headers = null;
+            if (parseNode.GetChildNode("hook_results") is { } nullNodeHookResults && nullNodeHookResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HookResults = null;
+            if (parseNode.GetChildNode("result_type") is { } nullNodeResultType && nullNodeResultType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultType = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Binary body response data. Present when the response is a binary file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData? BinaryData { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData? BinaryData { get => _explicitNullValueBinaryData; set { _explicitNullValueBinaryData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_data"); else _explicitNullProperties?.Remove("binary_data"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData? _explicitNullValueBinaryData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData BinaryData { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData BinaryData { get => _explicitNullValueBinaryData; set { _explicitNullValueBinaryData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_data"); else _explicitNullProperties?.Remove("binary_data"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedBinaryData _explicitNullValueBinaryData = default!;
 #endif
         /// <summary>The response data returned from the proxied API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Data { get; set; }
+        public UntypedNode? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private UntypedNode? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public UntypedNode Data { get; set; }
+        public UntypedNode Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private UntypedNode _explicitNullValueData = default!;
 #endif
         /// <summary>The HTTP headers returned from the proxied API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty? Headers { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty? Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty? _explicitNullValueHeaders = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty Headers { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty _explicitNullValueHeaders = default!;
 #endif
         /// <summary>Every session hook that applied to this request. Omitted when none applied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? HookResults { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? HookResults { get => _explicitNullValueHookResults; set { _explicitNullValueHookResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_results"); else _explicitNullProperties?.Remove("hook_results"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? _explicitNullValueHookResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult> HookResults { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult> HookResults { get => _explicitNullValueHookResults; set { _explicitNullValueHookResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_results"); else _explicitNullProperties?.Remove("hook_results"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.HookResult> _explicitNullValueHookResults = default!;
 #endif
         /// <summary>The tool ran and succeeded</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.CompletedResultType? ResultType { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CompletedResultType? ResultType { get => _explicitNullValueResultType; set { _explicitNullValueResultType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result_type"); else _explicitNullProperties?.Remove("result_type"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CompletedResultType? _explicitNullValueResultType = default!;
         /// <summary>The HTTP status code returned from the proxied API</summary>
-        public double? Status { get; set; }
+        public double? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private double? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted"/> and sets the default values.
         /// </summary>
@@ -65,7 +88,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompleted(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,6 +119,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.HookResult>("hook_results", HookResults);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.CompletedResultType>("result_type", ResultType);
             writer.WriteDoubleValue("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

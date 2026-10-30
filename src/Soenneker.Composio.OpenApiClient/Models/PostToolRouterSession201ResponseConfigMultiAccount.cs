@@ -12,15 +12,28 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSession201ResponseConfigMultiAccount : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enable") is { } nullNodeEnable && nullNodeEnable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enable = null;
+            if (parseNode.GetChildNode("max_accounts_per_toolkit") is { } nullNodeMaxAccountsPerToolkit && nullNodeMaxAccountsPerToolkit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAccountsPerToolkit = null;
+            if (parseNode.GetChildNode("require_explicit_selection") is { } nullNodeRequireExplicitSelection && nullNodeRequireExplicitSelection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireExplicitSelection = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When true, enables multi-account mode for this session. When not set, falls back to org/project-level configuration.</summary>
-        public bool? Enable { get; set; }
+        public bool? Enable { get => _explicitNullValueEnable; set { _explicitNullValueEnable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable"); else _explicitNullProperties?.Remove("enable"); } }
+        private bool? _explicitNullValueEnable = default!;
         /// <summary>Maximum number of connected accounts allowed per toolkit. Defaults to 5 when multi-account is enabled.</summary>
-        public int? MaxAccountsPerToolkit { get; set; }
+        public int? MaxAccountsPerToolkit { get => _explicitNullValueMaxAccountsPerToolkit; set { _explicitNullValueMaxAccountsPerToolkit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_accounts_per_toolkit"); else _explicitNullProperties?.Remove("max_accounts_per_toolkit"); } }
+        private int? _explicitNullValueMaxAccountsPerToolkit = default!;
         /// <summary>When true, require explicit account selection when multiple accounts are connected. When false (default), use the first/default account.</summary>
-        public bool? RequireExplicitSelection { get; set; }
+        public bool? RequireExplicitSelection { get => _explicitNullValueRequireExplicitSelection; set { _explicitNullValueRequireExplicitSelection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_explicit_selection"); else _explicitNullProperties?.Remove("require_explicit_selection"); } }
+        private bool? _explicitNullValueRequireExplicitSelection = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigMultiAccount"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigMultiAccount CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigMultiAccount();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigMultiAccount(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("enable", Enable);
             writer.WriteIntValue("max_accounts_per_toolkit", MaxAccountsPerToolkit);
             writer.WriteBoolValue("require_explicit_selection", RequireExplicitSelection);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,82 +11,119 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CustomAuthConfigCreate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("authScheme") is { } nullNodeAuthScheme && nullNodeAuthScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthScheme = null;
+            if (parseNode.GetChildNode("credentials") is { } nullNodeCredentials && nullNodeCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credentials = null;
+            if (parseNode.GetChildNode("is_enabled_for_tool_router") is { } nullNodeIsEnabledForToolRouter && nullNodeIsEnabledForToolRouter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsEnabledForToolRouter = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("proxy_config") is { } nullNodeProxyConfig && nullNodeProxyConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyConfig = null;
+            if (parseNode.GetChildNode("restrict_to_following_tools") is { } nullNodeRestrictToFollowingTools && nullNodeRestrictToFollowingTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictToFollowingTools = null;
+            if (parseNode.GetChildNode("sealed_credentials") is { } nullNodeSealedCredentials && nullNodeSealedCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SealedCredentials = null;
+            if (parseNode.GetChildNode("shared_connection_fields") is { } nullNodeSharedConnectionFields && nullNodeSharedConnectionFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedConnectionFields = null;
+            if (parseNode.GetChildNode("shared_credentials") is { } nullNodeSharedCredentials && nullNodeSharedCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedCredentials = null;
+            if (parseNode.GetChildNode("tool_access_config") is { } nullNodeToolAccessConfig && nullNodeToolAccessConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolAccessConfig = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The authScheme property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateAuthScheme? AuthScheme { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateAuthScheme? AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authScheme"); else _explicitNullProperties?.Remove("authScheme"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateAuthScheme? _explicitNullValueAuthScheme = default!;
         /// <summary>The credentials property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials? Credentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials? Credentials { get => _explicitNullValueCredentials; set { _explicitNullValueCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentials"); else _explicitNullProperties?.Remove("credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials? _explicitNullValueCredentials = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials Credentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials Credentials { get => _explicitNullValueCredentials; set { _explicitNullValueCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentials"); else _explicitNullProperties?.Remove("credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials _explicitNullValueCredentials = default!;
 #endif
         /// <summary>Whether this auth config is enabled for tool router</summary>
-        public bool? IsEnabledForToolRouter { get; set; }
+        public bool? IsEnabledForToolRouter { get => _explicitNullValueIsEnabledForToolRouter; set { _explicitNullValueIsEnabledForToolRouter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_enabled_for_tool_router"); else _explicitNullProperties?.Remove("is_enabled_for_tool_router"); } }
+        private bool? _explicitNullValueIsEnabledForToolRouter = default!;
         /// <summary>The name of the integration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The proxy_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateProxyConfig? ProxyConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateProxyConfig? ProxyConfig { get => _explicitNullValueProxyConfig; set { _explicitNullValueProxyConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_config"); else _explicitNullProperties?.Remove("proxy_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateProxyConfig? _explicitNullValueProxyConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateProxyConfig ProxyConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateProxyConfig ProxyConfig { get => _explicitNullValueProxyConfig; set { _explicitNullValueProxyConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_config"); else _explicitNullProperties?.Remove("proxy_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateProxyConfig _explicitNullValueProxyConfig = default!;
 #endif
         /// <summary>List of tool slugs this auth config is restricted to use with. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RestrictToFollowingTools { get; set; }
+        public List<string>? RestrictToFollowingTools { get => _explicitNullValueRestrictToFollowingTools; set { _explicitNullValueRestrictToFollowingTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrict_to_following_tools"); else _explicitNullProperties?.Remove("restrict_to_following_tools"); } }
+        private List<string>? _explicitNullValueRestrictToFollowingTools = default!;
 #nullable restore
 #else
-        public List<string> RestrictToFollowingTools { get; set; }
+        public List<string> RestrictToFollowingTools { get => _explicitNullValueRestrictToFollowingTools; set { _explicitNullValueRestrictToFollowingTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrict_to_following_tools"); else _explicitNullProperties?.Remove("restrict_to_following_tools"); } }
+        private List<string> _explicitNullValueRestrictToFollowingTools = default!;
 #endif
         /// <summary>[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty? SealedCredentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty? SealedCredentials { get => _explicitNullValueSealedCredentials; set { _explicitNullValueSealedCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sealed_credentials"); else _explicitNullProperties?.Remove("sealed_credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty? _explicitNullValueSealedCredentials = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty SealedCredentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty SealedCredentials { get => _explicitNullValueSealedCredentials; set { _explicitNullValueSealedCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sealed_credentials"); else _explicitNullProperties?.Remove("sealed_credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSealedCredentialsProperty _explicitNullValueSealedCredentials = default!;
 #endif
         /// <summary>Connection field values inherited by every connected account created under this auth config (for example a region or subdomain). Non-secret values pre-fill the hosted Connect Link form; secret values are redacted in responses and never sent to the end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty? SharedConnectionFields { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty? SharedConnectionFields { get => _explicitNullValueSharedConnectionFields; set { _explicitNullValueSharedConnectionFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_connection_fields"); else _explicitNullProperties?.Remove("shared_connection_fields"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty? _explicitNullValueSharedConnectionFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty SharedConnectionFields { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty SharedConnectionFields { get => _explicitNullValueSharedConnectionFields; set { _explicitNullValueSharedConnectionFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_connection_fields"); else _explicitNullProperties?.Remove("shared_connection_fields"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedConnectionFieldsProperty _explicitNullValueSharedConnectionFields = default!;
 #endif
         /// <summary>Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty? SharedCredentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty? SharedCredentials { get => _explicitNullValueSharedCredentials; set { _explicitNullValueSharedCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_credentials"); else _explicitNullProperties?.Remove("shared_credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty? _explicitNullValueSharedCredentials = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty SharedCredentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty SharedCredentials { get => _explicitNullValueSharedCredentials; set { _explicitNullValueSharedCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_credentials"); else _explicitNullProperties?.Remove("shared_credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty _explicitNullValueSharedCredentials = default!;
 #endif
         /// <summary>DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig? ToolAccessConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig? ToolAccessConfig { get => _explicitNullValueToolAccessConfig; set { _explicitNullValueToolAccessConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_access_config"); else _explicitNullProperties?.Remove("tool_access_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig? _explicitNullValueToolAccessConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig ToolAccessConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig ToolAccessConfig { get => _explicitNullValueToolAccessConfig; set { _explicitNullValueToolAccessConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_access_config"); else _explicitNullProperties?.Remove("tool_access_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig _explicitNullValueToolAccessConfig = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.UseCustomAuthType? Type { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.UseCustomAuthType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.UseCustomAuthType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate"/> and sets the default values.
         /// </summary>
@@ -102,7 +139,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -143,6 +180,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateSharedCredentialsProperty>("shared_credentials", SharedCredentials);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateToolAccessConfig>("tool_access_config", ToolAccessConfig);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.UseCustomAuthType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

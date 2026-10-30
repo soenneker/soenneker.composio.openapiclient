@@ -11,24 +11,37 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PostAuthConfigsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auth_config") is { } nullNodeAuthConfig && nullNodeAuthConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthConfig = null;
+            if (parseNode.GetChildNode("toolkit") is { } nullNodeToolkit && nullNodeToolkit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkit = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The auth_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig? AuthConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig? AuthConfig { get => _explicitNullValueAuthConfig; set { _explicitNullValueAuthConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config"); else _explicitNullProperties?.Remove("auth_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig? _explicitNullValueAuthConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig AuthConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig AuthConfig { get => _explicitNullValueAuthConfig; set { _explicitNullValueAuthConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config"); else _explicitNullProperties?.Remove("auth_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig _explicitNullValueAuthConfig = default!;
 #endif
         /// <summary>The toolkit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestToolkit? Toolkit { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestToolkit? Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestToolkit? _explicitNullValueToolkit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestToolkit Toolkit { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestToolkit Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestToolkit _explicitNullValueToolkit = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequest"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestAuthConfig>("auth_config", AuthConfig);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigsRequestToolkit>("toolkit", Toolkit);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

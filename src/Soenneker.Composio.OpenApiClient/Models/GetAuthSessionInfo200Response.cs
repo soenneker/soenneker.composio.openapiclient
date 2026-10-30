@@ -12,32 +12,48 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetAuthSessionInfo200Response : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("api_key") is { } nullNodeApiKey && nullNodeApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKey = null;
+            if (parseNode.GetChildNode("org_member") is { } nullNodeOrgMember && nullNodeOrgMember.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgMember = null;
+            if (parseNode.GetChildNode("project") is { } nullNodeProject && nullNodeProject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Project = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Details of the API key used for authentication (null if using session auth)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseApiKey? ApiKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseApiKey? ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseApiKey? _explicitNullValueApiKey = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseApiKey ApiKey { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseApiKey ApiKey { get => _explicitNullValueApiKey; set { _explicitNullValueApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key"); else _explicitNullProperties?.Remove("api_key"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseApiKey _explicitNullValueApiKey = default!;
 #endif
         /// <summary>Information about the authenticated user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMember? OrgMember { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMember? OrgMember { get => _explicitNullValueOrgMember; set { _explicitNullValueOrgMember = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_member"); else _explicitNullProperties?.Remove("org_member"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMember? _explicitNullValueOrgMember = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMember OrgMember { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMember OrgMember { get => _explicitNullValueOrgMember; set { _explicitNullValueOrgMember = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_member"); else _explicitNullProperties?.Remove("org_member"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMember _explicitNullValueOrgMember = default!;
 #endif
         /// <summary>Details of the current active project (null if accessing with org-level credentials)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseProject? Project { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseProject? Project { get => _explicitNullValueProject; set { _explicitNullValueProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project"); else _explicitNullProperties?.Remove("project"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseProject? _explicitNullValueProject = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseProject Project { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseProject Project { get => _explicitNullValueProject; set { _explicitNullValueProject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project"); else _explicitNullProperties?.Remove("project"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseProject _explicitNullValueProject = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200Response"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseApiKey>("api_key", ApiKey);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseOrgMember>("org_member", OrgMember);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthSessionInfo200ResponseProject>("project", Project);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

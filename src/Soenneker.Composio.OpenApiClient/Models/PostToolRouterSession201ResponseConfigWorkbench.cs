@@ -12,19 +12,36 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSession201ResponseConfigWorkbench : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auto_offload_threshold") is { } nullNodeAutoOffloadThreshold && nullNodeAutoOffloadThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoOffloadThreshold = null;
+            if (parseNode.GetChildNode("enable") is { } nullNodeEnable && nullNodeEnable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enable = null;
+            if (parseNode.GetChildNode("proxy_execution_enabled") is { } nullNodeProxyExecutionEnabled && nullNodeProxyExecutionEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyExecutionEnabled = null;
+            if (parseNode.GetChildNode("sandbox_size") is { } nullNodeSandboxSize && nullNodeSandboxSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxSize = null;
+            if (parseNode.GetChildNode("tool_execution_enabled") is { } nullNodeToolExecutionEnabled && nullNodeToolExecutionEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolExecutionEnabled = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Character threshold after which tool execution response are saved to a file in workbench. Default is 20k.</summary>
-        public double? AutoOffloadThreshold { get; set; }
+        public double? AutoOffloadThreshold { get => _explicitNullValueAutoOffloadThreshold; set { _explicitNullValueAutoOffloadThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_offload_threshold"); else _explicitNullProperties?.Remove("auto_offload_threshold"); } }
+        private double? _explicitNullValueAutoOffloadThreshold = default!;
         /// <summary>Whether the workbench (code execution sandbox) is enabled. When false, COMPOSIO_REMOTE_WORKBENCH and COMPOSIO_REMOTE_BASH_TOOL are not exposed.</summary>
-        public bool? Enable { get; set; }
+        public bool? Enable { get => _explicitNullValueEnable; set { _explicitNullValueEnable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable"); else _explicitNullProperties?.Remove("enable"); } }
+        private bool? _explicitNullValueEnable = default!;
         /// <summary>Whether proxy execution is enabled in the workbench</summary>
-        public bool? ProxyExecutionEnabled { get; set; }
+        public bool? ProxyExecutionEnabled { get => _explicitNullValueProxyExecutionEnabled; set { _explicitNullValueProxyExecutionEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_execution_enabled"); else _explicitNullProperties?.Remove("proxy_execution_enabled"); } }
+        private bool? _explicitNullValueProxyExecutionEnabled = default!;
         /// <summary>Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbenchSandboxSize? SandboxSize { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbenchSandboxSize? SandboxSize { get => _explicitNullValueSandboxSize; set { _explicitNullValueSandboxSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_size"); else _explicitNullProperties?.Remove("sandbox_size"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbenchSandboxSize? _explicitNullValueSandboxSize = default!;
         /// <summary>Whether tool execution is enabled in the workbench</summary>
-        public bool? ToolExecutionEnabled { get; set; }
+        public bool? ToolExecutionEnabled { get => _explicitNullValueToolExecutionEnabled; set { _explicitNullValueToolExecutionEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_execution_enabled"); else _explicitNullProperties?.Remove("tool_execution_enabled"); } }
+        private bool? _explicitNullValueToolExecutionEnabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbench"/> and sets the default values.
         /// </summary>
@@ -40,7 +57,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbench CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbench();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbench(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +86,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("proxy_execution_enabled", ProxyExecutionEnabled);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigWorkbenchSandboxSize>("sandbox_size", SandboxSize);
             writer.WriteBoolValue("tool_execution_enabled", ToolExecutionEnabled);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

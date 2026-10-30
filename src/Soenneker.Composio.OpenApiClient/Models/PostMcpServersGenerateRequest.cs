@@ -12,35 +12,53 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostMcpServersGenerateRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("connected_account_ids") is { } nullNodeConnectedAccountIds && nullNodeConnectedAccountIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountIds = null;
+            if (parseNode.GetChildNode("managed_auth_by_composio") is { } nullNodeManagedAuthByComposio && nullNodeManagedAuthByComposio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAuthByComposio = null;
+            if (parseNode.GetChildNode("mcp_server_id") is { } nullNodeMcpServerId && nullNodeMcpServerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerId = null;
+            if (parseNode.GetChildNode("user_ids") is { } nullNodeUserIds && nullNodeUserIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of connected account identifiers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ConnectedAccountIds { get; set; }
+        public List<string>? ConnectedAccountIds { get => _explicitNullValueConnectedAccountIds; set { _explicitNullValueConnectedAccountIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_ids"); else _explicitNullProperties?.Remove("connected_account_ids"); } }
+        private List<string>? _explicitNullValueConnectedAccountIds = default!;
 #nullable restore
 #else
-        public List<string> ConnectedAccountIds { get; set; }
+        public List<string> ConnectedAccountIds { get => _explicitNullValueConnectedAccountIds; set { _explicitNullValueConnectedAccountIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_ids"); else _explicitNullProperties?.Remove("connected_account_ids"); } }
+        private List<string> _explicitNullValueConnectedAccountIds = default!;
 #endif
         /// <summary>Flag indicating if Composio manages authentication. When true, the generated URLs include the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools.</summary>
         [Obsolete("")]
-        public bool? ManagedAuthByComposio { get; set; }
+        public bool? ManagedAuthByComposio { get => _explicitNullValueManagedAuthByComposio; set { _explicitNullValueManagedAuthByComposio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_auth_by_composio"); else _explicitNullProperties?.Remove("managed_auth_by_composio"); } }
+        private bool? _explicitNullValueManagedAuthByComposio = default!;
         /// <summary>Unique identifier of the MCP server to generate URL for</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? McpServerId { get; set; }
+        public string? McpServerId { get => _explicitNullValueMcpServerId; set { _explicitNullValueMcpServerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_id"); else _explicitNullProperties?.Remove("mcp_server_id"); } }
+        private string? _explicitNullValueMcpServerId = default!;
 #nullable restore
 #else
-        public string McpServerId { get; set; }
+        public string McpServerId { get => _explicitNullValueMcpServerId; set { _explicitNullValueMcpServerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_id"); else _explicitNullProperties?.Remove("mcp_server_id"); } }
+        private string _explicitNullValueMcpServerId = default!;
 #endif
         /// <summary>List of user identifiers for whom the URL is generated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UserIds { get; set; }
+        public List<string>? UserIds { get => _explicitNullValueUserIds; set { _explicitNullValueUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_ids"); else _explicitNullProperties?.Remove("user_ids"); } }
+        private List<string>? _explicitNullValueUserIds = default!;
 #nullable restore
 #else
-        public List<string> UserIds { get; set; }
+        public List<string> UserIds { get => _explicitNullValueUserIds; set { _explicitNullValueUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_ids"); else _explicitNullProperties?.Remove("user_ids"); } }
+        private List<string> _explicitNullValueUserIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersGenerateRequest"/> and sets the default values.
@@ -58,7 +76,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersGenerateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersGenerateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersGenerateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,6 +103,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("managed_auth_by_composio", ManagedAuthByComposio);
             writer.WriteStringValue("mcp_server_id", McpServerId);
             writer.WriteCollectionOfPrimitiveValues<string>("user_ids", UserIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

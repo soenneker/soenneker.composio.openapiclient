@@ -11,120 +11,169 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PostToolRouterSessionRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auth_configs") is { } nullNodeAuthConfigs && nullNodeAuthConfigs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthConfigs = null;
+            if (parseNode.GetChildNode("connected_accounts") is { } nullNodeConnectedAccounts && nullNodeConnectedAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccounts = null;
+            if (parseNode.GetChildNode("experimental") is { } nullNodeExperimental && nullNodeExperimental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Experimental = null;
+            if (parseNode.GetChildNode("hooks") is { } nullNodeHooks && nullNodeHooks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hooks = null;
+            if (parseNode.GetChildNode("instant") is { } nullNodeInstant && nullNodeInstant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instant = null;
+            if (parseNode.GetChildNode("manage_connections") is { } nullNodeManageConnections && nullNodeManageConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManageConnections = null;
+            if (parseNode.GetChildNode("multi_account") is { } nullNodeMultiAccount && nullNodeMultiAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MultiAccount = null;
+            if (parseNode.GetChildNode("preload") is { } nullNodePreload && nullNodePreload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Preload = null;
+            if (parseNode.GetChildNode("proxy_execute") is { } nullNodeProxyExecute && nullNodeProxyExecute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyExecute = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("toolkits") is { } nullNodeToolkits && nullNodeToolkits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkits = null;
+            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+            if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("workbench") is { } nullNodeWorkbench && nullNodeWorkbench.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workbench = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The auth configs to use for the session. This will override the default behavior and use the given auth config when specific toolkits are being executed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs? AuthConfigs { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs? AuthConfigs { get => _explicitNullValueAuthConfigs; set { _explicitNullValueAuthConfigs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_configs"); else _explicitNullProperties?.Remove("auth_configs"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs? _explicitNullValueAuthConfigs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs AuthConfigs { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs AuthConfigs { get => _explicitNullValueAuthConfigs; set { _explicitNullValueAuthConfigs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_configs"); else _explicitNullProperties?.Remove("auth_configs"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestAuthConfigs _explicitNullValueAuthConfigs = default!;
 #endif
         /// <summary>Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts? ConnectedAccounts { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts? ConnectedAccounts { get => _explicitNullValueConnectedAccounts; set { _explicitNullValueConnectedAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_accounts"); else _explicitNullProperties?.Remove("connected_accounts"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts? _explicitNullValueConnectedAccounts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts ConnectedAccounts { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts ConnectedAccounts { get => _explicitNullValueConnectedAccounts; set { _explicitNullValueConnectedAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_accounts"); else _explicitNullProperties?.Remove("connected_accounts"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestConnectedAccounts _explicitNullValueConnectedAccounts = default!;
 #endif
         /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental? Experimental { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental? Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental? _explicitNullValueExperimental = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental Experimental { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental _explicitNullValueExperimental = default!;
 #endif
         /// <summary>Hooks that run on this session&apos;s tool calls. A hook can block a call before it runs, or block its result before the agent sees it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItem>? Hooks { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItem>? Hooks { get => _explicitNullValueHooks; set { _explicitNullValueHooks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hooks"); else _explicitNullProperties?.Remove("hooks"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItem>? _explicitNullValueHooks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItem> Hooks { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItem> Hooks { get => _explicitNullValueHooks; set { _explicitNullValueHooks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hooks"); else _explicitNullProperties?.Remove("hooks"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItem> _explicitNullValueHooks = default!;
 #endif
         /// <summary>Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant? Instant { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant? Instant { get => _explicitNullValueInstant; set { _explicitNullValueInstant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instant"); else _explicitNullProperties?.Remove("instant"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant? _explicitNullValueInstant = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant Instant { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant Instant { get => _explicitNullValueInstant; set { _explicitNullValueInstant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instant"); else _explicitNullProperties?.Remove("instant"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestInstant _explicitNullValueInstant = default!;
 #endif
         /// <summary>Configuration for connection management settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections? ManageConnections { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections? ManageConnections { get => _explicitNullValueManageConnections; set { _explicitNullValueManageConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manage_connections"); else _explicitNullProperties?.Remove("manage_connections"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections? _explicitNullValueManageConnections = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections ManageConnections { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections ManageConnections { get => _explicitNullValueManageConnections; set { _explicitNullValueManageConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manage_connections"); else _explicitNullProperties?.Remove("manage_connections"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestManageConnections _explicitNullValueManageConnections = default!;
 #endif
         /// <summary>Configure multi-account behavior. When enabled, users can connect multiple accounts per toolkit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount? MultiAccount { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount? MultiAccount { get => _explicitNullValueMultiAccount; set { _explicitNullValueMultiAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_account"); else _explicitNullProperties?.Remove("multi_account"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount? _explicitNullValueMultiAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount MultiAccount { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount MultiAccount { get => _explicitNullValueMultiAccount; set { _explicitNullValueMultiAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multi_account"); else _explicitNullProperties?.Remove("multi_account"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestMultiAccount _explicitNullValueMultiAccount = default!;
 #endif
         /// <summary>Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload? Preload { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload? Preload { get => _explicitNullValuePreload; set { _explicitNullValuePreload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preload"); else _explicitNullProperties?.Remove("preload"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload? _explicitNullValuePreload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload Preload { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload Preload { get => _explicitNullValuePreload; set { _explicitNullValuePreload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preload"); else _explicitNullProperties?.Remove("preload"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestPreload _explicitNullValuePreload = default!;
 #endif
         /// <summary>Configure proxy execute. Omitted from responses when not set. Session creation fails when enable is false and workbench.enable_proxy_execution is explicitly true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestProxyExecute? ProxyExecute { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestProxyExecute? ProxyExecute { get => _explicitNullValueProxyExecute; set { _explicitNullValueProxyExecute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_execute"); else _explicitNullProperties?.Remove("proxy_execute"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestProxyExecute? _explicitNullValueProxyExecute = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestProxyExecute ProxyExecute { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestProxyExecute ProxyExecute { get => _explicitNullValueProxyExecute; set { _explicitNullValueProxyExecute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_execute"); else _explicitNullProperties?.Remove("proxy_execute"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestProxyExecute _explicitNullValueProxyExecute = default!;
 #endif
         /// <summary>Session-wide tags for filtering tools. Array format is treated as an enabled list. Object format supports `enable` (a tool must have at least one) and `disable` (a tool must have none), and experimentally the tags whose tools need approval. If a toolkit sets `tools.&lt;toolkit&gt;.tags`, its tools use that object instead of this one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags? Tags { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags Tags { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTags _explicitNullValueTags = default!;
 #endif
         /// <summary>Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive. Experimentally, it can also list toolkits whose tools need approval, with or without a filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits? Toolkits { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits? Toolkits { get => _explicitNullValueToolkits; set { _explicitNullValueToolkits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkits"); else _explicitNullProperties?.Remove("toolkits"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits? _explicitNullValueToolkits = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits Toolkits { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits Toolkits { get => _explicitNullValueToolkits; set { _explicitNullValueToolkits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkits"); else _explicitNullProperties?.Remove("toolkits"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestToolkits _explicitNullValueToolkits = default!;
 #endif
         /// <summary>Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit, and experimentally to list tools that need approval. Every tool slug must be a valid Composio tool slug for that toolkit — invalid or typo&apos;d slugs fail session creation with a clear error listing which ones didn&apos;t match.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools? Tools { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools Tools { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools _explicitNullValueTools = default!;
 #endif
         /// <summary>The identifier of the user who is initiating the session, ideally a unique identifier from your database like a user ID or email address</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get; set; }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get; set; }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>Configuration for workbench behavior</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbench? Workbench { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbench? Workbench { get => _explicitNullValueWorkbench; set { _explicitNullValueWorkbench = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workbench"); else _explicitNullProperties?.Remove("workbench"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbench? _explicitNullValueWorkbench = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbench Workbench { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbench Workbench { get => _explicitNullValueWorkbench; set { _explicitNullValueWorkbench = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workbench"); else _explicitNullProperties?.Remove("workbench"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbench _explicitNullValueWorkbench = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequest"/> and sets the default values.
@@ -141,7 +190,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -188,6 +237,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestTools>("tools", Tools);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestWorkbench>("workbench", Workbench);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

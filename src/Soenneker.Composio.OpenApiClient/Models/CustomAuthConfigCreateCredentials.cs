@@ -11,24 +11,37 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CustomAuthConfigCreateCredentials : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("scopes") is { } nullNodeScopes && nullNodeScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scopes = null;
+            if (parseNode.GetChildNode("user_scopes") is { } nullNodeUserScopes && nullNodeUserScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserScopes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>OAuth scopes requested for the custom auth config.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsScopes? Scopes { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsScopes? Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsScopes? _explicitNullValueScopes = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsScopes Scopes { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsScopes Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsScopes _explicitNullValueScopes = default!;
 #endif
         /// <summary>OAuth user-token scopes requested for the custom auth config. This is primarily used by Slack OAuth v2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsUserScopes? UserScopes { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsUserScopes? UserScopes { get => _explicitNullValueUserScopes; set { _explicitNullValueUserScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_scopes"); else _explicitNullProperties?.Remove("user_scopes"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsUserScopes? _explicitNullValueUserScopes = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsUserScopes UserScopes { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsUserScopes UserScopes { get => _explicitNullValueUserScopes; set { _explicitNullValueUserScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_scopes"); else _explicitNullProperties?.Remove("user_scopes"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsUserScopes _explicitNullValueUserScopes = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentials(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsScopes>("scopes", Scopes);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigCreateCredentialsUserScopes>("user_scopes", UserScopes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,26 +12,41 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostConnectedAccountsLinkRequestExperimentalAclConfigForShared : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allow_all_users") is { } nullNodeAllowAllUsers && nullNodeAllowAllUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowAllUsers = null;
+            if (parseNode.GetChildNode("allowed_user_ids") is { } nullNodeAllowedUserIds && nullNodeAllowedUserIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedUserIds = null;
+            if (parseNode.GetChildNode("not_allowed_user_ids") is { } nullNodeNotAllowedUserIds && nullNodeNotAllowedUserIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotAllowedUserIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Wildcard &quot;any user_id in the project&quot; allow toggle. Only valid on SHARED connections.</summary>
-        public bool? AllowAllUsers { get; set; }
+        public bool? AllowAllUsers { get => _explicitNullValueAllowAllUsers; set { _explicitNullValueAllowAllUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_all_users"); else _explicitNullProperties?.Remove("allow_all_users"); } }
+        private bool? _explicitNullValueAllowAllUsers = default!;
         /// <summary>Explicit allow list of user_ids who can use this SHARED connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedUserIds { get; set; }
+        public List<string>? AllowedUserIds { get => _explicitNullValueAllowedUserIds; set { _explicitNullValueAllowedUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_user_ids"); else _explicitNullProperties?.Remove("allowed_user_ids"); } }
+        private List<string>? _explicitNullValueAllowedUserIds = default!;
 #nullable restore
 #else
-        public List<string> AllowedUserIds { get; set; }
+        public List<string> AllowedUserIds { get => _explicitNullValueAllowedUserIds; set { _explicitNullValueAllowedUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_user_ids"); else _explicitNullProperties?.Remove("allowed_user_ids"); } }
+        private List<string> _explicitNullValueAllowedUserIds = default!;
 #endif
         /// <summary>Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NotAllowedUserIds { get; set; }
+        public List<string>? NotAllowedUserIds { get => _explicitNullValueNotAllowedUserIds; set { _explicitNullValueNotAllowedUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_allowed_user_ids"); else _explicitNullProperties?.Remove("not_allowed_user_ids"); } }
+        private List<string>? _explicitNullValueNotAllowedUserIds = default!;
 #nullable restore
 #else
-        public List<string> NotAllowedUserIds { get; set; }
+        public List<string> NotAllowedUserIds { get => _explicitNullValueNotAllowedUserIds; set { _explicitNullValueNotAllowedUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_allowed_user_ids"); else _explicitNullProperties?.Remove("not_allowed_user_ids"); } }
+        private List<string> _explicitNullValueNotAllowedUserIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestExperimentalAclConfigForShared"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestExperimentalAclConfigForShared CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestExperimentalAclConfigForShared();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLinkRequestExperimentalAclConfigForShared(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteBoolValue("allow_all_users", AllowAllUsers);
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_user_ids", AllowedUserIds);
             writer.WriteCollectionOfPrimitiveValues<string>("not_allowed_user_ids", NotAllowedUserIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

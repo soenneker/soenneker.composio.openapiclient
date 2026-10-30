@@ -17,6 +17,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Files
     public partial class FilesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The list property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Files.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Files.List.ListRequestBuilder(PathParameters, RequestAdapter);

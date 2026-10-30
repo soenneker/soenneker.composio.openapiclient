@@ -12,62 +12,93 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostToolRouterSessionRequestExperimental : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assistive_prompt_config") is { } nullNodeAssistivePromptConfig && nullNodeAssistivePromptConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssistivePromptConfig = null;
+            if (parseNode.GetChildNode("custom_toolkits") is { } nullNodeCustomToolkits && nullNodeCustomToolkits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomToolkits = null;
+            if (parseNode.GetChildNode("custom_tools") is { } nullNodeCustomTools && nullNodeCustomTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomTools = null;
+            if (parseNode.GetChildNode("fast_mode") is { } nullNodeFastMode && nullNodeFastMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FastMode = null;
+            if (parseNode.GetChildNode("link_url_overwrite") is { } nullNodeLinkUrlOverwrite && nullNodeLinkUrlOverwrite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkUrlOverwrite = null;
+            if (parseNode.GetChildNode("no_elicitation_support_fallback") is { } nullNodeNoElicitationSupportFallback && nullNodeNoElicitationSupportFallback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoElicitationSupportFallback = null;
+            if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
+            if (parseNode.GetChildNode("restrict_egress_to_composio") is { } nullNodeRestrictEgressToComposio && nullNodeRestrictEgressToComposio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictEgressToComposio = null;
+            if (parseNode.GetChildNode("submit_feedback") is { } nullNodeSubmitFeedback && nullNodeSubmitFeedback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmitFeedback = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Customize assistive prompt generation (e.g., timezone).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalAssistivePromptConfig? AssistivePromptConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalAssistivePromptConfig? AssistivePromptConfig { get => _explicitNullValueAssistivePromptConfig; set { _explicitNullValueAssistivePromptConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistive_prompt_config"); else _explicitNullProperties?.Remove("assistive_prompt_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalAssistivePromptConfig? _explicitNullValueAssistivePromptConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalAssistivePromptConfig AssistivePromptConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalAssistivePromptConfig AssistivePromptConfig { get => _explicitNullValueAssistivePromptConfig; set { _explicitNullValueAssistivePromptConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assistive_prompt_config"); else _explicitNullProperties?.Remove("assistive_prompt_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalAssistivePromptConfig _explicitNullValueAssistivePromptConfig = default!;
 #endif
         /// <summary>Custom toolkits with grouped tools. Toolkit slugs must not conflict with existing Composio toolkits. All tools are no-auth.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolkitsItem>? CustomToolkits { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolkitsItem>? CustomToolkits { get => _explicitNullValueCustomToolkits; set { _explicitNullValueCustomToolkits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_toolkits"); else _explicitNullProperties?.Remove("custom_toolkits"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolkitsItem>? _explicitNullValueCustomToolkits = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolkitsItem> CustomToolkits { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolkitsItem> CustomToolkits { get => _explicitNullValueCustomToolkits; set { _explicitNullValueCustomToolkits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_toolkits"); else _explicitNullProperties?.Remove("custom_toolkits"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolkitsItem> _explicitNullValueCustomToolkits = default!;
 #endif
         /// <summary>Custom tools to include in search. Standalone tools need no auth. Tools with extends_toolkit inherit the Composio toolkit&apos;s connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolsItem>? CustomTools { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolsItem>? CustomTools { get => _explicitNullValueCustomTools; set { _explicitNullValueCustomTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_tools"); else _explicitNullProperties?.Remove("custom_tools"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolsItem>? _explicitNullValueCustomTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolsItem> CustomTools { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolsItem> CustomTools { get => _explicitNullValueCustomTools; set { _explicitNullValueCustomTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_tools"); else _explicitNullProperties?.Remove("custom_tools"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolsItem> _explicitNullValueCustomTools = default!;
 #endif
         /// <summary>Fast mode reduces search latency. It is experimental, so tool search quality may be affected.</summary>
-        public bool? FastMode { get; set; }
+        public bool? FastMode { get => _explicitNullValueFastMode; set { _explicitNullValueFastMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fast_mode"); else _explicitNullProperties?.Remove("fast_mode"); } }
+        private bool? _explicitNullValueFastMode = default!;
         /// <summary>Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LinkUrlOverwrite { get; set; }
+        public string? LinkUrlOverwrite { get => _explicitNullValueLinkUrlOverwrite; set { _explicitNullValueLinkUrlOverwrite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_url_overwrite"); else _explicitNullProperties?.Remove("link_url_overwrite"); } }
+        private string? _explicitNullValueLinkUrlOverwrite = default!;
 #nullable restore
 #else
-        public string LinkUrlOverwrite { get; set; }
+        public string LinkUrlOverwrite { get => _explicitNullValueLinkUrlOverwrite; set { _explicitNullValueLinkUrlOverwrite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_url_overwrite"); else _explicitNullProperties?.Remove("link_url_overwrite"); } }
+        private string _explicitNullValueLinkUrlOverwrite = default!;
 #endif
         /// <summary>What session MCP does with a tool call that needs approval when the MCP client can&apos;t ask the user. deny (default) rejects the call; allow runs it without approval.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback? NoElicitationSupportFallback { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback? NoElicitationSupportFallback { get => _explicitNullValueNoElicitationSupportFallback; set { _explicitNullValueNoElicitationSupportFallback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_elicitation_support_fallback"); else _explicitNullProperties?.Remove("no_elicitation_support_fallback"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback? _explicitNullValueNoElicitationSupportFallback = default!;
         /// <summary>Per-tool elicitation permission config. Default behavior + per-tool always_allow/always_deny overrides. Mutation via PATCH.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions? Permissions { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions? _explicitNullValuePermissions = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions Permissions { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions _explicitNullValuePermissions = default!;
 #endif
         /// <summary>Set to true to confine the workbench sandbox to Composio: code running in it can reach the Composio API and its own storage volume, and no other network destination. Defaults to false. Set at session creation only.</summary>
-        public bool? RestrictEgressToComposio { get; set; }
+        public bool? RestrictEgressToComposio { get => _explicitNullValueRestrictEgressToComposio; set { _explicitNullValueRestrictEgressToComposio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrict_egress_to_composio"); else _explicitNullProperties?.Remove("restrict_egress_to_composio"); } }
+        private bool? _explicitNullValueRestrictEgressToComposio = default!;
         /// <summary>Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback? SubmitFeedback { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback? SubmitFeedback { get => _explicitNullValueSubmitFeedback; set { _explicitNullValueSubmitFeedback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submit_feedback"); else _explicitNullProperties?.Remove("submit_feedback"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback? _explicitNullValueSubmitFeedback = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback SubmitFeedback { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback SubmitFeedback { get => _explicitNullValueSubmitFeedback; set { _explicitNullValueSubmitFeedback = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submit_feedback"); else _explicitNullProperties?.Remove("submit_feedback"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback _explicitNullValueSubmitFeedback = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental"/> and sets the default values.
@@ -85,7 +116,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimental(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -122,6 +153,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissions>("permissions", Permissions);
             writer.WriteBoolValue("restrict_egress_to_composio", RestrictEgressToComposio);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalSubmitFeedback>("submit_feedback", SubmitFeedback);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

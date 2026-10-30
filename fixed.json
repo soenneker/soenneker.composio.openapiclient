@@ -3685,6 +3685,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/PostWebhookEndpointsSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/PostWebhookEndpoints200Response"
                 }
               }
@@ -3695,6 +3698,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/PostWebhookEndpointsSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/PostWebhookEndpoints201Response"
                 }
               }
@@ -5618,6 +5624,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsertSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert200Response"
                 }
               }
@@ -5628,6 +5637,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsertSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert201Response"
                 }
               }
@@ -5638,6 +5650,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsertSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert204ResponseSchema"
                 }
               }
@@ -10323,6 +10338,7 @@
             "$ref": "#/components/schemas/UseComposioManagedAuthType"
           },
           "name": {
+            "maxLength": 255,
             "type": "string",
             "description": "The name of the integration"
           },
@@ -10364,6 +10380,7 @@
             "$ref": "#/components/schemas/UseCustomAuthType"
           },
           "name": {
+            "maxLength": 255,
             "type": "string",
             "description": "The name of the integration"
           },
@@ -10413,6 +10430,7 @@
             "$ref": "#/components/schemas/CustomType"
           },
           "name": {
+            "maxLength": 255,
             "minLength": 1,
             "type": "string",
             "description": "The display name of the authentication configuration"
@@ -10459,6 +10477,7 @@
             "$ref": "#/components/schemas/DefaultValueType"
           },
           "name": {
+            "maxLength": 255,
             "minLength": 1,
             "type": "string",
             "description": "The display name of the authentication configuration"
@@ -10496,6 +10515,7 @@
         "type": "object",
         "properties": {
           "alias": {
+            "maxLength": 255,
             "type": "string",
             "description": "A human-readable alias for this connected account. Pass an empty string to clear the alias. Must be unique per entity and toolkit within the project."
           },
@@ -12574,9 +12594,6 @@
         }
       },
       "PatchAuthConfigsByNanoidRequest": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/CustomAuthConfigUpdate"
@@ -12585,12 +12602,7 @@
             "$ref": "#/components/schemas/DefaultAuthConfigUpdate"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "custom": "#/components/schemas/CustomAuthConfigUpdate",
@@ -13163,6 +13175,7 @@
             "description": "The user id to create a link for"
           },
           "alias": {
+            "maxLength": 255,
             "type": "string",
             "description": "A human-readable alias for this connected account. Must be unique per entity and toolkit within the project."
           },
@@ -16189,9 +16202,6 @@
         }
       },
       "PostToolRouterSessionBySessionIdExecute200Response": {
-        "required": [
-          "result_type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ExecuteCompleted"
@@ -16206,12 +16216,7 @@
             "$ref": "#/components/schemas/ExecuteRequiresUserInput"
           }
         ],
-        "properties": {
-          "result_type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "result_type",
           "mapping": {
             "completed": "#/components/schemas/ExecuteCompleted",
@@ -16244,9 +16249,6 @@
         }
       },
       "PostToolRouterSessionBySessionIdExecuteMeta200Response": {
-        "required": [
-          "result_type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ExecuteCompleted"
@@ -16261,12 +16263,7 @@
             "$ref": "#/components/schemas/ExecuteRequiresUserInput"
           }
         ],
-        "properties": {
-          "result_type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "result_type",
           "mapping": {
             "completed": "#/components/schemas/ExecuteCompleted",
@@ -16444,6 +16441,7 @@
             "example": "github"
           },
           "alias": {
+            "maxLength": 255,
             "type": "string",
             "description": "A human-readable alias for this connected account. Must be unique per entity and toolkit within the project."
           },
@@ -16544,9 +16542,6 @@
         }
       },
       "PostToolRouterSessionBySessionIdProxyExecute200Response": {
-        "required": [
-          "result_type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/ProxyExecuteCompleted"
@@ -16558,12 +16553,7 @@
             "$ref": "#/components/schemas/ExecuteRequiresUserInput"
           }
         ],
-        "properties": {
-          "result_type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "result_type",
           "mapping": {
             "completed": "#/components/schemas/ProxyExecuteCompleted",
@@ -64751,6 +64741,7 @@
             "default": "default"
           },
           "alias": {
+            "maxLength": 255,
             "type": "string",
             "description": "A human-readable alias for this connected account. Must be unique per entity and toolkit within the project."
           },
@@ -65339,6 +65330,7 @@
             "type": "string"
           },
           "display_name": {
+            "maxLength": 75,
             "type": "string"
           },
           "mask_secret_keys_in_connected_account": {
@@ -80308,6 +80300,29 @@
           "type": "string"
         },
         "description": "Object representation of parsed bracket notation"
+      },
+      "PostWebhookEndpointsSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PostWebhookEndpoints200Response"
+          },
+          {
+            "$ref": "#/components/schemas/PostWebhookEndpoints201Response"
+          }
+        ]
+      },
+      "PostTriggerInstancesBySlugUpsertSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert200Response"
+          },
+          {
+            "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert201Response"
+          },
+          {
+            "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsert204ResponseSchema"
+          }
+        ]
       }
     },
     "securitySchemes": {

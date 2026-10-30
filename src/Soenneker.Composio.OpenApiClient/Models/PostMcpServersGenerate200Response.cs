@@ -12,32 +12,48 @@ namespace Soenneker.Composio.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostMcpServersGenerate200Response : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("connected_account_urls") is { } nullNodeConnectedAccountUrls && nullNodeConnectedAccountUrls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountUrls = null;
+            if (parseNode.GetChildNode("mcp_url") is { } nullNodeMcpUrl && nullNodeMcpUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpUrl = null;
+            if (parseNode.GetChildNode("user_ids_url") is { } nullNodeUserIdsUrl && nullNodeUserIdsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserIdsUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of URLs generated for each connected account ID. URLs may carry the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ConnectedAccountUrls { get; set; }
+        public List<string>? ConnectedAccountUrls { get => _explicitNullValueConnectedAccountUrls; set { _explicitNullValueConnectedAccountUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_urls"); else _explicitNullProperties?.Remove("connected_account_urls"); } }
+        private List<string>? _explicitNullValueConnectedAccountUrls = default!;
 #nullable restore
 #else
-        public List<string> ConnectedAccountUrls { get; set; }
+        public List<string> ConnectedAccountUrls { get => _explicitNullValueConnectedAccountUrls; set { _explicitNullValueConnectedAccountUrls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_urls"); else _explicitNullProperties?.Remove("connected_account_urls"); } }
+        private List<string> _explicitNullValueConnectedAccountUrls = default!;
 #endif
         /// <summary>Base MCP URL without any query parameters</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? McpUrl { get; set; }
+        public string? McpUrl { get => _explicitNullValueMcpUrl; set { _explicitNullValueMcpUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_url"); else _explicitNullProperties?.Remove("mcp_url"); } }
+        private string? _explicitNullValueMcpUrl = default!;
 #nullable restore
 #else
-        public string McpUrl { get; set; }
+        public string McpUrl { get => _explicitNullValueMcpUrl; set { _explicitNullValueMcpUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_url"); else _explicitNullProperties?.Remove("mcp_url"); } }
+        private string _explicitNullValueMcpUrl = default!;
 #endif
         /// <summary>List of URLs generated for each user ID. URLs may carry the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UserIdsUrl { get; set; }
+        public List<string>? UserIdsUrl { get => _explicitNullValueUserIdsUrl; set { _explicitNullValueUserIdsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_ids_url"); else _explicitNullProperties?.Remove("user_ids_url"); } }
+        private List<string>? _explicitNullValueUserIdsUrl = default!;
 #nullable restore
 #else
-        public List<string> UserIdsUrl { get; set; }
+        public List<string> UserIdsUrl { get => _explicitNullValueUserIdsUrl; set { _explicitNullValueUserIdsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_ids_url"); else _explicitNullProperties?.Remove("user_ids_url"); } }
+        private List<string> _explicitNullValueUserIdsUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersGenerate200Response"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersGenerate200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersGenerate200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostMcpServersGenerate200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("connected_account_urls", ConnectedAccountUrls);
             writer.WriteStringValue("mcp_url", McpUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("user_ids_url", UserIdsUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

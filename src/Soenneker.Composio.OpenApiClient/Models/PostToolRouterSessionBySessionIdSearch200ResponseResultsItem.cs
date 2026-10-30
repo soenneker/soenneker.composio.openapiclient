@@ -11,114 +11,162 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PostToolRouterSessionBySessionIdSearch200ResponseResultsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cached_plan_usecase") is { } nullNodeCachedPlanUsecase && nullNodeCachedPlanUsecase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CachedPlanUsecase = null;
+            if (parseNode.GetChildNode("difficulty") is { } nullNodeDifficulty && nullNodeDifficulty.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Difficulty = null;
+            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("execution_guidance") is { } nullNodeExecutionGuidance && nullNodeExecutionGuidance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionGuidance = null;
+            if (parseNode.GetChildNode("index") is { } nullNodeIndex && nullNodeIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Index = null;
+            if (parseNode.GetChildNode("known_pitfalls") is { } nullNodeKnownPitfalls && nullNodeKnownPitfalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KnownPitfalls = null;
+            if (parseNode.GetChildNode("memory") is { } nullNodeMemory && nullNodeMemory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Memory = null;
+            if (parseNode.GetChildNode("plan_id") is { } nullNodePlanId && nullNodePlanId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanId = null;
+            if (parseNode.GetChildNode("primary_tool_slugs") is { } nullNodePrimaryToolSlugs && nullNodePrimaryToolSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryToolSlugs = null;
+            if (parseNode.GetChildNode("recommended_plan_steps") is { } nullNodeRecommendedPlanSteps && nullNodeRecommendedPlanSteps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecommendedPlanSteps = null;
+            if (parseNode.GetChildNode("reference_workbench_snippets") is { } nullNodeReferenceWorkbenchSnippets && nullNodeReferenceWorkbenchSnippets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceWorkbenchSnippets = null;
+            if (parseNode.GetChildNode("related_tool_slugs") is { } nullNodeRelatedToolSlugs && nullNodeRelatedToolSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedToolSlugs = null;
+            if (parseNode.GetChildNode("toolkits") is { } nullNodeToolkits && nullNodeToolkits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkits = null;
+            if (parseNode.GetChildNode("use_case") is { } nullNodeUseCase && nullNodeUseCase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseCase = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Use case the cached plan was originally built for, if a cached plan is available. May differ from `use_case` when the cached plan was matched from a similar query.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CachedPlanUsecase { get; set; }
+        public string? CachedPlanUsecase { get => _explicitNullValueCachedPlanUsecase; set { _explicitNullValueCachedPlanUsecase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_plan_usecase"); else _explicitNullProperties?.Remove("cached_plan_usecase"); } }
+        private string? _explicitNullValueCachedPlanUsecase = default!;
 #nullable restore
 #else
-        public string CachedPlanUsecase { get; set; }
+        public string CachedPlanUsecase { get => _explicitNullValueCachedPlanUsecase; set { _explicitNullValueCachedPlanUsecase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached_plan_usecase"); else _explicitNullProperties?.Remove("cached_plan_usecase"); } }
+        private string _explicitNullValueCachedPlanUsecase = default!;
 #endif
         /// <summary>Task difficulty assessment (e.g., &quot;easy - Simple single-tool operation with known parameters&quot;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Difficulty { get; set; }
+        public string? Difficulty { get => _explicitNullValueDifficulty; set { _explicitNullValueDifficulty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("difficulty"); else _explicitNullProperties?.Remove("difficulty"); } }
+        private string? _explicitNullValueDifficulty = default!;
 #nullable restore
 #else
-        public string Difficulty { get; set; }
+        public string Difficulty { get => _explicitNullValueDifficulty; set { _explicitNullValueDifficulty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("difficulty"); else _explicitNullProperties?.Remove("difficulty"); } }
+        private string _explicitNullValueDifficulty = default!;
 #endif
         /// <summary>Error message if the search for this query failed, null otherwise. Always present for failed queries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get; set; }
+        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private string? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public string Error { get; set; }
+        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private string _explicitNullValueError = default!;
 #endif
         /// <summary>Guidance message about the search results, particularly when a cached plan is available</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExecutionGuidance { get; set; }
+        public string? ExecutionGuidance { get => _explicitNullValueExecutionGuidance; set { _explicitNullValueExecutionGuidance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution_guidance"); else _explicitNullProperties?.Remove("execution_guidance"); } }
+        private string? _explicitNullValueExecutionGuidance = default!;
 #nullable restore
 #else
-        public string ExecutionGuidance { get; set; }
+        public string ExecutionGuidance { get => _explicitNullValueExecutionGuidance; set { _explicitNullValueExecutionGuidance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution_guidance"); else _explicitNullProperties?.Remove("execution_guidance"); } }
+        private string _explicitNullValueExecutionGuidance = default!;
 #endif
         /// <summary>1-based index of the query in the request</summary>
-        public double? Index { get; set; }
+        public double? Index { get => _explicitNullValueIndex; set { _explicitNullValueIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index"); else _explicitNullProperties?.Remove("index"); } }
+        private double? _explicitNullValueIndex = default!;
         /// <summary>Common pitfalls and considerations (only present when cached plan is available)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? KnownPitfalls { get; set; }
+        public List<string>? KnownPitfalls { get => _explicitNullValueKnownPitfalls; set { _explicitNullValueKnownPitfalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("known_pitfalls"); else _explicitNullProperties?.Remove("known_pitfalls"); } }
+        private List<string>? _explicitNullValueKnownPitfalls = default!;
 #nullable restore
 #else
-        public List<string> KnownPitfalls { get; set; }
+        public List<string> KnownPitfalls { get => _explicitNullValueKnownPitfalls; set { _explicitNullValueKnownPitfalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("known_pitfalls"); else _explicitNullProperties?.Remove("known_pitfalls"); } }
+        private List<string> _explicitNullValueKnownPitfalls = default!;
 #endif
         /// <summary>Memory data relevant to this query, grouped by app. Only present for non-cached search results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemMemory? Memory { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemMemory? Memory { get => _explicitNullValueMemory; set { _explicitNullValueMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory"); else _explicitNullProperties?.Remove("memory"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemMemory? _explicitNullValueMemory = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemMemory Memory { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemMemory Memory { get => _explicitNullValueMemory; set { _explicitNullValueMemory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory"); else _explicitNullProperties?.Remove("memory"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemMemory _explicitNullValueMemory = default!;
 #endif
         /// <summary>ID of cached plan if available</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlanId { get; set; }
+        public string? PlanId { get => _explicitNullValuePlanId; set { _explicitNullValuePlanId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_id"); else _explicitNullProperties?.Remove("plan_id"); } }
+        private string? _explicitNullValuePlanId = default!;
 #nullable restore
 #else
-        public string PlanId { get; set; }
+        public string PlanId { get => _explicitNullValuePlanId; set { _explicitNullValuePlanId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_id"); else _explicitNullProperties?.Remove("plan_id"); } }
+        private string _explicitNullValuePlanId = default!;
 #endif
         /// <summary>List of main tool slugs matching the search criteria</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PrimaryToolSlugs { get; set; }
+        public List<string>? PrimaryToolSlugs { get => _explicitNullValuePrimaryToolSlugs; set { _explicitNullValuePrimaryToolSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_tool_slugs"); else _explicitNullProperties?.Remove("primary_tool_slugs"); } }
+        private List<string>? _explicitNullValuePrimaryToolSlugs = default!;
 #nullable restore
 #else
-        public List<string> PrimaryToolSlugs { get; set; }
+        public List<string> PrimaryToolSlugs { get => _explicitNullValuePrimaryToolSlugs; set { _explicitNullValuePrimaryToolSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_tool_slugs"); else _explicitNullProperties?.Remove("primary_tool_slugs"); } }
+        private List<string> _explicitNullValuePrimaryToolSlugs = default!;
 #endif
         /// <summary>Workflow steps from cached plan (only present when cached plan is available)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RecommendedPlanSteps { get; set; }
+        public List<string>? RecommendedPlanSteps { get => _explicitNullValueRecommendedPlanSteps; set { _explicitNullValueRecommendedPlanSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recommended_plan_steps"); else _explicitNullProperties?.Remove("recommended_plan_steps"); } }
+        private List<string>? _explicitNullValueRecommendedPlanSteps = default!;
 #nullable restore
 #else
-        public List<string> RecommendedPlanSteps { get; set; }
+        public List<string> RecommendedPlanSteps { get => _explicitNullValueRecommendedPlanSteps; set { _explicitNullValueRecommendedPlanSteps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recommended_plan_steps"); else _explicitNullProperties?.Remove("recommended_plan_steps"); } }
+        private List<string> _explicitNullValueRecommendedPlanSteps = default!;
 #endif
         /// <summary>Reference Python code snippets for processing tool responses in the workbench (only present when cached plan is available)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemReferenceWorkbenchSnippetsItem>? ReferenceWorkbenchSnippets { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemReferenceWorkbenchSnippetsItem>? ReferenceWorkbenchSnippets { get => _explicitNullValueReferenceWorkbenchSnippets; set { _explicitNullValueReferenceWorkbenchSnippets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reference_workbench_snippets"); else _explicitNullProperties?.Remove("reference_workbench_snippets"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemReferenceWorkbenchSnippetsItem>? _explicitNullValueReferenceWorkbenchSnippets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemReferenceWorkbenchSnippetsItem> ReferenceWorkbenchSnippets { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemReferenceWorkbenchSnippetsItem> ReferenceWorkbenchSnippets { get => _explicitNullValueReferenceWorkbenchSnippets; set { _explicitNullValueReferenceWorkbenchSnippets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reference_workbench_snippets"); else _explicitNullProperties?.Remove("reference_workbench_snippets"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItemReferenceWorkbenchSnippetsItem> _explicitNullValueReferenceWorkbenchSnippets = default!;
 #endif
         /// <summary>List of related tool slugs that might be useful</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RelatedToolSlugs { get; set; }
+        public List<string>? RelatedToolSlugs { get => _explicitNullValueRelatedToolSlugs; set { _explicitNullValueRelatedToolSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related_tool_slugs"); else _explicitNullProperties?.Remove("related_tool_slugs"); } }
+        private List<string>? _explicitNullValueRelatedToolSlugs = default!;
 #nullable restore
 #else
-        public List<string> RelatedToolSlugs { get; set; }
+        public List<string> RelatedToolSlugs { get => _explicitNullValueRelatedToolSlugs; set { _explicitNullValueRelatedToolSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related_tool_slugs"); else _explicitNullProperties?.Remove("related_tool_slugs"); } }
+        private List<string> _explicitNullValueRelatedToolSlugs = default!;
 #endif
         /// <summary>List of unique toolkit slugs used by tools in this query</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Toolkits { get; set; }
+        public List<string>? Toolkits { get => _explicitNullValueToolkits; set { _explicitNullValueToolkits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkits"); else _explicitNullProperties?.Remove("toolkits"); } }
+        private List<string>? _explicitNullValueToolkits = default!;
 #nullable restore
 #else
-        public List<string> Toolkits { get; set; }
+        public List<string> Toolkits { get => _explicitNullValueToolkits; set { _explicitNullValueToolkits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkits"); else _explicitNullProperties?.Remove("toolkits"); } }
+        private List<string> _explicitNullValueToolkits = default!;
 #endif
         /// <summary>The use case that was searched</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UseCase { get; set; }
+        public string? UseCase { get => _explicitNullValueUseCase; set { _explicitNullValueUseCase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_case"); else _explicitNullProperties?.Remove("use_case"); } }
+        private string? _explicitNullValueUseCase = default!;
 #nullable restore
 #else
-        public string UseCase { get; set; }
+        public string UseCase { get => _explicitNullValueUseCase; set { _explicitNullValueUseCase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_case"); else _explicitNullProperties?.Remove("use_case"); } }
+        private string _explicitNullValueUseCase = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem"/> and sets the default values.
@@ -135,7 +183,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -182,6 +230,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("related_tool_slugs", RelatedToolSlugs);
             writer.WriteCollectionOfPrimitiveValues<string>("toolkits", Toolkits);
             writer.WriteStringValue("use_case", UseCase);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

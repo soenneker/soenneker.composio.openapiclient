@@ -18,6 +18,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution
     public partial class Action_executionRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The fields property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Fields.FieldsRequestBuilder Fields
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Fields.FieldsRequestBuilder(PathParameters, RequestAdapter);
@@ -28,6 +29,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Log.LogRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The logs property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsRequestBuilder Logs
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Internal.Action_execution.Logs.LogsRequestBuilder(PathParameters, RequestAdapter);

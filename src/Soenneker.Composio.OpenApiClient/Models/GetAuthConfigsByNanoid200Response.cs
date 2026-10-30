@@ -11,136 +11,197 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetAuthConfigsByNanoid200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auth_scheme") is { } nullNodeAuthScheme && nullNodeAuthScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthScheme = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("created_by") is { } nullNodeCreatedBy && nullNodeCreatedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedBy = null;
+            if (parseNode.GetChildNode("credentials") is { } nullNodeCredentials && nullNodeCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credentials = null;
+            if (parseNode.GetChildNode("expected_input_fields") is { } nullNodeExpectedInputFields && nullNodeExpectedInputFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedInputFields = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("is_composio_managed") is { } nullNodeIsComposioManaged && nullNodeIsComposioManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsComposioManaged = null;
+            if (parseNode.GetChildNode("is_enabled_for_tool_router") is { } nullNodeIsEnabledForToolRouter && nullNodeIsEnabledForToolRouter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsEnabledForToolRouter = null;
+            if (parseNode.GetChildNode("last_updated_at") is { } nullNodeLastUpdatedAt && nullNodeLastUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUpdatedAt = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("no_of_connections") is { } nullNodeNoOfConnections && nullNodeNoOfConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoOfConnections = null;
+            if (parseNode.GetChildNode("proxy_config") is { } nullNodeProxyConfig && nullNodeProxyConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyConfig = null;
+            if (parseNode.GetChildNode("restrict_to_following_tools") is { } nullNodeRestrictToFollowingTools && nullNodeRestrictToFollowingTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictToFollowingTools = null;
+            if (parseNode.GetChildNode("shared_connection_fields") is { } nullNodeSharedConnectionFields && nullNodeSharedConnectionFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedConnectionFields = null;
+            if (parseNode.GetChildNode("shared_credentials") is { } nullNodeSharedCredentials && nullNodeSharedCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedCredentials = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("tool_access_config") is { } nullNodeToolAccessConfig && nullNodeToolAccessConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolAccessConfig = null;
+            if (parseNode.GetChildNode("toolkit") is { } nullNodeToolkit && nullNodeToolkit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkit = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("uuid") is { } nullNodeUuid && nullNodeUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uuid = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The authentication scheme used (e.g., OAuth2, API Key, etc.)</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseAuthScheme? AuthScheme { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseAuthScheme? AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_scheme"); else _explicitNullProperties?.Remove("auth_scheme"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseAuthScheme? _explicitNullValueAuthScheme = default!;
         /// <summary>ISO 8601 date-time when the auth config was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; set; }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get; set; }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>The identifier of the user who created the auth config</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedBy { get; set; }
+        public string? CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
+        private string? _explicitNullValueCreatedBy = default!;
 #nullable restore
 #else
-        public string CreatedBy { get; set; }
+        public string CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
+        private string _explicitNullValueCreatedBy = default!;
 #endif
         /// <summary>The authentication credentials (tokens, keys, etc.) - may be partially hidden for security</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials? Credentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials? Credentials { get => _explicitNullValueCredentials; set { _explicitNullValueCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentials"); else _explicitNullProperties?.Remove("credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials? _explicitNullValueCredentials = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials Credentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials Credentials { get => _explicitNullValueCredentials; set { _explicitNullValueCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credentials"); else _explicitNullProperties?.Remove("credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseCredentials _explicitNullValueCredentials = default!;
 #endif
         /// <summary>Fields expected during connection initialization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseExpectedInputFieldsItem>? ExpectedInputFields { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseExpectedInputFieldsItem>? ExpectedInputFields { get => _explicitNullValueExpectedInputFields; set { _explicitNullValueExpectedInputFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_input_fields"); else _explicitNullProperties?.Remove("expected_input_fields"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseExpectedInputFieldsItem>? _explicitNullValueExpectedInputFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseExpectedInputFieldsItem> ExpectedInputFields { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseExpectedInputFieldsItem> ExpectedInputFields { get => _explicitNullValueExpectedInputFields; set { _explicitNullValueExpectedInputFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected_input_fields"); else _explicitNullProperties?.Remove("expected_input_fields"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseExpectedInputFieldsItem> _explicitNullValueExpectedInputFields = default!;
 #endif
         /// <summary>The unique ID of the authentication configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Whether this authentication configuration is managed by Composio or the user</summary>
-        public bool? IsComposioManaged { get; set; }
+        public bool? IsComposioManaged { get => _explicitNullValueIsComposioManaged; set { _explicitNullValueIsComposioManaged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_composio_managed"); else _explicitNullProperties?.Remove("is_composio_managed"); } }
+        private bool? _explicitNullValueIsComposioManaged = default!;
         /// <summary>Whether this auth config is enabled for tool router</summary>
-        public bool? IsEnabledForToolRouter { get; set; }
+        public bool? IsEnabledForToolRouter { get => _explicitNullValueIsEnabledForToolRouter; set { _explicitNullValueIsEnabledForToolRouter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_enabled_for_tool_router"); else _explicitNullProperties?.Remove("is_enabled_for_tool_router"); } }
+        private bool? _explicitNullValueIsEnabledForToolRouter = default!;
         /// <summary>ISO 8601 date-time when the auth config was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastUpdatedAt { get; set; }
+        public string? LastUpdatedAt { get => _explicitNullValueLastUpdatedAt; set { _explicitNullValueLastUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_updated_at"); else _explicitNullProperties?.Remove("last_updated_at"); } }
+        private string? _explicitNullValueLastUpdatedAt = default!;
 #nullable restore
 #else
-        public string LastUpdatedAt { get; set; }
+        public string LastUpdatedAt { get => _explicitNullValueLastUpdatedAt; set { _explicitNullValueLastUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_updated_at"); else _explicitNullProperties?.Remove("last_updated_at"); } }
+        private string _explicitNullValueLastUpdatedAt = default!;
 #endif
         /// <summary>The display name of the authentication configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The number of active connections using this auth config</summary>
-        public double? NoOfConnections { get; set; }
+        public double? NoOfConnections { get => _explicitNullValueNoOfConnections; set { _explicitNullValueNoOfConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_of_connections"); else _explicitNullProperties?.Remove("no_of_connections"); } }
+        private double? _explicitNullValueNoOfConnections = default!;
         /// <summary>The proxy_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig? ProxyConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig? ProxyConfig { get => _explicitNullValueProxyConfig; set { _explicitNullValueProxyConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_config"); else _explicitNullProperties?.Remove("proxy_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig? _explicitNullValueProxyConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig ProxyConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig ProxyConfig { get => _explicitNullValueProxyConfig; set { _explicitNullValueProxyConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_config"); else _explicitNullProperties?.Remove("proxy_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig _explicitNullValueProxyConfig = default!;
 #endif
         /// <summary>List of tool slugs this auth config is restricted to use with. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RestrictToFollowingTools { get; set; }
+        public List<string>? RestrictToFollowingTools { get => _explicitNullValueRestrictToFollowingTools; set { _explicitNullValueRestrictToFollowingTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrict_to_following_tools"); else _explicitNullProperties?.Remove("restrict_to_following_tools"); } }
+        private List<string>? _explicitNullValueRestrictToFollowingTools = default!;
 #nullable restore
 #else
-        public List<string> RestrictToFollowingTools { get; set; }
+        public List<string> RestrictToFollowingTools { get => _explicitNullValueRestrictToFollowingTools; set { _explicitNullValueRestrictToFollowingTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrict_to_following_tools"); else _explicitNullProperties?.Remove("restrict_to_following_tools"); } }
+        private List<string> _explicitNullValueRestrictToFollowingTools = default!;
 #endif
         /// <summary>Connection field values inherited by every connected account created under this auth config. Same value as shared_credentials; secret values are redacted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields? SharedConnectionFields { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields? SharedConnectionFields { get => _explicitNullValueSharedConnectionFields; set { _explicitNullValueSharedConnectionFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_connection_fields"); else _explicitNullProperties?.Remove("shared_connection_fields"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields? _explicitNullValueSharedConnectionFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields SharedConnectionFields { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields SharedConnectionFields { get => _explicitNullValueSharedConnectionFields; set { _explicitNullValueSharedConnectionFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_connection_fields"); else _explicitNullProperties?.Remove("shared_connection_fields"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedConnectionFields _explicitNullValueSharedConnectionFields = default!;
 #endif
         /// <summary>Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials? SharedCredentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials? SharedCredentials { get => _explicitNullValueSharedCredentials; set { _explicitNullValueSharedCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_credentials"); else _explicitNullProperties?.Remove("shared_credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials? _explicitNullValueSharedCredentials = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials SharedCredentials { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials SharedCredentials { get => _explicitNullValueSharedCredentials; set { _explicitNullValueSharedCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_credentials"); else _explicitNullProperties?.Remove("shared_credentials"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseSharedCredentials _explicitNullValueSharedCredentials = default!;
 #endif
         /// <summary>Current status of the authentication configuration</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseStatus? Status { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseStatus? _explicitNullValueStatus = default!;
         /// <summary>DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolAccessConfig? ToolAccessConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolAccessConfig? ToolAccessConfig { get => _explicitNullValueToolAccessConfig; set { _explicitNullValueToolAccessConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_access_config"); else _explicitNullProperties?.Remove("tool_access_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolAccessConfig? _explicitNullValueToolAccessConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolAccessConfig ToolAccessConfig { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolAccessConfig ToolAccessConfig { get => _explicitNullValueToolAccessConfig; set { _explicitNullValueToolAccessConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_access_config"); else _explicitNullProperties?.Remove("tool_access_config"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolAccessConfig _explicitNullValueToolAccessConfig = default!;
 #endif
         /// <summary>Information about the associated integration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolkit? Toolkit { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolkit? Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolkit? _explicitNullValueToolkit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolkit Toolkit { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolkit Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolkit _explicitNullValueToolkit = default!;
 #endif
         /// <summary>The type of the authentication configuration (custom or default)</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseType? Type { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseType? _explicitNullValueType = default!;
         /// <summary>The UUID of the authentication configuration (for backward compatibility)</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uuid { get; set; }
+        public string? Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
+        private string? _explicitNullValueUuid = default!;
 #nullable restore
 #else
-        public string Uuid { get; set; }
+        public string Uuid { get => _explicitNullValueUuid; set { _explicitNullValueUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uuid"); else _explicitNullProperties?.Remove("uuid"); } }
+        private string _explicitNullValueUuid = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200Response"/> and sets the default values.
@@ -157,7 +218,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -216,6 +277,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseToolkit>("toolkit", Toolkit);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseType>("type", Type);
             writer.WriteStringValue("uuid", Uuid);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

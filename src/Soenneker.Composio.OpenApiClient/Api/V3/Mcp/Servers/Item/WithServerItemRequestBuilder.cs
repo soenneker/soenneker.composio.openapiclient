@@ -16,6 +16,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item
     public partial class WithServerItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The instances property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.InstancesRequestBuilder Instances
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Mcp.Servers.Item.Instances.InstancesRequestBuilder(PathParameters, RequestAdapter);

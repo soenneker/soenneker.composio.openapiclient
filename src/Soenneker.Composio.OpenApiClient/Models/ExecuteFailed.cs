@@ -11,51 +11,75 @@ namespace Soenneker.Composio.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ExecuteFailed : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
+            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("hook_results") is { } nullNodeHookResults && nullNodeHookResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HookResults = null;
+            if (parseNode.GetChildNode("instant_charge") is { } nullNodeInstantCharge && nullNodeInstantCharge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstantCharge = null;
+            if (parseNode.GetChildNode("log_id") is { } nullNodeLogId && nullNodeLogId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogId = null;
+            if (parseNode.GetChildNode("result_type") is { } nullNodeResultType && nullNodeResultType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The data returned by the tool execution</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedDataProperty? Data { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedDataProperty? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedDataProperty? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedDataProperty Data { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedDataProperty Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedDataProperty _explicitNullValueData = default!;
 #endif
         /// <summary>Error message if the execution failed, null otherwise</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get; set; }
+        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private string? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public string Error { get; set; }
+        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private string _explicitNullValueError = default!;
 #endif
         /// <summary>Every session hook that applied to this call. Omitted when none applied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? HookResults { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? HookResults { get => _explicitNullValueHookResults; set { _explicitNullValueHookResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_results"); else _explicitNullProperties?.Remove("hook_results"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? _explicitNullValueHookResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult> HookResults { get; set; }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult> HookResults { get => _explicitNullValueHookResults; set { _explicitNullValueHookResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_results"); else _explicitNullProperties?.Remove("hook_results"); } }
+        private List<global::Soenneker.Composio.OpenApiClient.Models.HookResult> _explicitNullValueHookResults = default!;
 #endif
         /// <summary>Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge? InstantCharge { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge? InstantCharge { get => _explicitNullValueInstantCharge; set { _explicitNullValueInstantCharge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instant_charge"); else _explicitNullProperties?.Remove("instant_charge"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge? _explicitNullValueInstantCharge = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge InstantCharge { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge InstantCharge { get => _explicitNullValueInstantCharge; set { _explicitNullValueInstantCharge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instant_charge"); else _explicitNullProperties?.Remove("instant_charge"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge _explicitNullValueInstantCharge = default!;
 #endif
         /// <summary>Unique identifier for the execution log</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogId { get; set; }
+        public string? LogId { get => _explicitNullValueLogId; set { _explicitNullValueLogId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_id"); else _explicitNullProperties?.Remove("log_id"); } }
+        private string? _explicitNullValueLogId = default!;
 #nullable restore
 #else
-        public string LogId { get; set; }
+        public string LogId { get => _explicitNullValueLogId; set { _explicitNullValueLogId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_id"); else _explicitNullProperties?.Remove("log_id"); } }
+        private string _explicitNullValueLogId = default!;
 #endif
         /// <summary>The tool ran and failed, or the user did not approve it</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.FailedResultType? ResultType { get; set; }
+        public global::Soenneker.Composio.OpenApiClient.Models.FailedResultType? ResultType { get => _explicitNullValueResultType; set { _explicitNullValueResultType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result_type"); else _explicitNullProperties?.Remove("result_type"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.FailedResultType? _explicitNullValueResultType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed"/> and sets the default values.
         /// </summary>
@@ -71,7 +95,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public static global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailed(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,6 +126,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ExecuteFailedInstantCharge>("instant_charge", InstantCharge);
             writer.WriteStringValue("log_id", LogId);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.FailedResultType>("result_type", ResultType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
