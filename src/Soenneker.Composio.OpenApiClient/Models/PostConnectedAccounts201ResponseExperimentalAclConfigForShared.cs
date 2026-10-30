@@ -18,34 +18,37 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allow_all_users") is { } nullNodeAllowAllUsers && nullNodeAllowAllUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowAllUsers = null;
-            if (parseNode.GetChildNode("allowed_user_ids") is { } nullNodeAllowedUserIds && nullNodeAllowedUserIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedUserIds = null;
-            if (parseNode.GetChildNode("not_allowed_user_ids") is { } nullNodeNotAllowedUserIds && nullNodeNotAllowedUserIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotAllowedUserIds = null;
+            if (parseNode.GetChildNode("allow_all_users") is null) { _explicitNullValueAllowAllUsers = default!; _explicitNullProperties?.Remove("allow_all_users"); }
+            else if (parseNode.GetChildNode("allow_all_users") is { } nullNodeAllowAllUsers && nullNodeAllowAllUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowAllUsers = null;
+            if (parseNode.GetChildNode("allowed_user_ids") is null) { _explicitNullValueAllowedUserIds = default!; _explicitNullProperties?.Remove("allowed_user_ids"); }
+            else if (parseNode.GetChildNode("allowed_user_ids") is { } nullNodeAllowedUserIds && nullNodeAllowedUserIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedUserIds = null;
+            if (parseNode.GetChildNode("not_allowed_user_ids") is null) { _explicitNullValueNotAllowedUserIds = default!; _explicitNullProperties?.Remove("not_allowed_user_ids"); }
+            else if (parseNode.GetChildNode("not_allowed_user_ids") is { } nullNodeNotAllowedUserIds && nullNodeNotAllowedUserIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotAllowedUserIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The allow_all_users property</summary>
-        public bool? AllowAllUsers { get => _explicitNullValueAllowAllUsers; set { _explicitNullValueAllowAllUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_all_users"); else _explicitNullProperties?.Remove("allow_all_users"); } }
+        public bool? AllowAllUsers { get => _explicitNullValueAllowAllUsers; set { _explicitNullValueAllowAllUsers = value; AdditionalData?.Remove("allow_all_users"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_all_users"); else _explicitNullProperties?.Remove("allow_all_users"); } }
         private bool? _explicitNullValueAllowAllUsers = default!;
         /// <summary>The allowed_user_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedUserIds { get => _explicitNullValueAllowedUserIds; set { _explicitNullValueAllowedUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_user_ids"); else _explicitNullProperties?.Remove("allowed_user_ids"); } }
+        public List<string>? AllowedUserIds { get => _explicitNullValueAllowedUserIds; set { _explicitNullValueAllowedUserIds = value; AdditionalData?.Remove("allowed_user_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_user_ids"); else _explicitNullProperties?.Remove("allowed_user_ids"); } }
         private List<string>? _explicitNullValueAllowedUserIds = default!;
 #nullable restore
 #else
-        public List<string> AllowedUserIds { get => _explicitNullValueAllowedUserIds; set { _explicitNullValueAllowedUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_user_ids"); else _explicitNullProperties?.Remove("allowed_user_ids"); } }
+        public List<string> AllowedUserIds { get => _explicitNullValueAllowedUserIds; set { _explicitNullValueAllowedUserIds = value; AdditionalData?.Remove("allowed_user_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_user_ids"); else _explicitNullProperties?.Remove("allowed_user_ids"); } }
         private List<string> _explicitNullValueAllowedUserIds = default!;
 #endif
         /// <summary>The not_allowed_user_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NotAllowedUserIds { get => _explicitNullValueNotAllowedUserIds; set { _explicitNullValueNotAllowedUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_allowed_user_ids"); else _explicitNullProperties?.Remove("not_allowed_user_ids"); } }
+        public List<string>? NotAllowedUserIds { get => _explicitNullValueNotAllowedUserIds; set { _explicitNullValueNotAllowedUserIds = value; AdditionalData?.Remove("not_allowed_user_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_allowed_user_ids"); else _explicitNullProperties?.Remove("not_allowed_user_ids"); } }
         private List<string>? _explicitNullValueNotAllowedUserIds = default!;
 #nullable restore
 #else
-        public List<string> NotAllowedUserIds { get => _explicitNullValueNotAllowedUserIds; set { _explicitNullValueNotAllowedUserIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_allowed_user_ids"); else _explicitNullProperties?.Remove("not_allowed_user_ids"); } }
+        public List<string> NotAllowedUserIds { get => _explicitNullValueNotAllowedUserIds; set { _explicitNullValueNotAllowedUserIds = value; AdditionalData?.Remove("not_allowed_user_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("not_allowed_user_ids"); else _explicitNullProperties?.Remove("not_allowed_user_ids"); } }
         private List<string> _explicitNullValueNotAllowedUserIds = default!;
 #endif
         /// <summary>

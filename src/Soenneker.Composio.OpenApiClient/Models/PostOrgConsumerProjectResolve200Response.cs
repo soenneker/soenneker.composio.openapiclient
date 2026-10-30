@@ -17,14 +17,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
-            if (parseNode.GetChildNode("consumer_user_id") is { } nullNodeConsumerUserId && nullNodeConsumerUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumerUserId = null;
-            if (parseNode.GetChildNode("org_id") is { } nullNodeOrgId && nullNodeOrgId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgId = null;
-            if (parseNode.GetChildNode("project_id") is { } nullNodeProjectId && nullNodeProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectId = null;
-            if (parseNode.GetChildNode("project_name") is { } nullNodeProjectName && nullNodeProjectName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectName = null;
-            if (parseNode.GetChildNode("project_nano_id") is { } nullNodeProjectNanoId && nullNodeProjectNanoId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectNanoId = null;
-            if (parseNode.GetChildNode("project_type") is { } nullNodeProjectType && nullNodeProjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectType = null;
-            if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("config") is null) { _explicitNullValueConfig = default!; _explicitNullProperties?.Remove("config"); }
+            else if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
+            if (parseNode.GetChildNode("consumer_user_id") is null) { _explicitNullValueConsumerUserId = default!; _explicitNullProperties?.Remove("consumer_user_id"); }
+            else if (parseNode.GetChildNode("consumer_user_id") is { } nullNodeConsumerUserId && nullNodeConsumerUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumerUserId = null;
+            if (parseNode.GetChildNode("org_id") is null) { _explicitNullValueOrgId = default!; _explicitNullProperties?.Remove("org_id"); }
+            else if (parseNode.GetChildNode("org_id") is { } nullNodeOrgId && nullNodeOrgId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgId = null;
+            if (parseNode.GetChildNode("project_id") is null) { _explicitNullValueProjectId = default!; _explicitNullProperties?.Remove("project_id"); }
+            else if (parseNode.GetChildNode("project_id") is { } nullNodeProjectId && nullNodeProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectId = null;
+            if (parseNode.GetChildNode("project_name") is null) { _explicitNullValueProjectName = default!; _explicitNullProperties?.Remove("project_name"); }
+            else if (parseNode.GetChildNode("project_name") is { } nullNodeProjectName && nullNodeProjectName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectName = null;
+            if (parseNode.GetChildNode("project_nano_id") is null) { _explicitNullValueProjectNanoId = default!; _explicitNullProperties?.Remove("project_nano_id"); }
+            else if (parseNode.GetChildNode("project_nano_id") is { } nullNodeProjectNanoId && nullNodeProjectNanoId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectNanoId = null;
+            if (parseNode.GetChildNode("project_type") is null) { _explicitNullValueProjectType = default!; _explicitNullProperties?.Remove("project_type"); }
+            else if (parseNode.GetChildNode("project_type") is { } nullNodeProjectType && nullNodeProjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectType = null;
+            if (parseNode.GetChildNode("user_id") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("user_id"); }
+            else if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,67 +40,67 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Consumer project configuration bag (consumer-experience and enhanced-controls flags, plus any provider-specific keys).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig? _explicitNullValueConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig _explicitNullValueConfig = default!;
 #endif
         /// <summary>Derived internal Composio user ID for the authenticated user in this consumer org context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConsumerUserId { get => _explicitNullValueConsumerUserId; set { _explicitNullValueConsumerUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_user_id"); else _explicitNullProperties?.Remove("consumer_user_id"); } }
+        public string? ConsumerUserId { get => _explicitNullValueConsumerUserId; set { _explicitNullValueConsumerUserId = value; AdditionalData?.Remove("consumer_user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_user_id"); else _explicitNullProperties?.Remove("consumer_user_id"); } }
         private string? _explicitNullValueConsumerUserId = default!;
 #nullable restore
 #else
-        public string ConsumerUserId { get => _explicitNullValueConsumerUserId; set { _explicitNullValueConsumerUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_user_id"); else _explicitNullProperties?.Remove("consumer_user_id"); } }
+        public string ConsumerUserId { get => _explicitNullValueConsumerUserId; set { _explicitNullValueConsumerUserId = value; AdditionalData?.Remove("consumer_user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_user_id"); else _explicitNullProperties?.Remove("consumer_user_id"); } }
         private string _explicitNullValueConsumerUserId = default!;
 #endif
         /// <summary>Organization nano ID that owns the consumer project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrgId { get => _explicitNullValueOrgId; set { _explicitNullValueOrgId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_id"); else _explicitNullProperties?.Remove("org_id"); } }
+        public string? OrgId { get => _explicitNullValueOrgId; set { _explicitNullValueOrgId = value; AdditionalData?.Remove("org_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_id"); else _explicitNullProperties?.Remove("org_id"); } }
         private string? _explicitNullValueOrgId = default!;
 #nullable restore
 #else
-        public string OrgId { get => _explicitNullValueOrgId; set { _explicitNullValueOrgId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_id"); else _explicitNullProperties?.Remove("org_id"); } }
+        public string OrgId { get => _explicitNullValueOrgId; set { _explicitNullValueOrgId = value; AdditionalData?.Remove("org_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_id"); else _explicitNullProperties?.Remove("org_id"); } }
         private string _explicitNullValueOrgId = default!;
 #endif
         /// <summary>UUID of the resolved consumer project.</summary>
-        public Guid? ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
+        public Guid? ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; AdditionalData?.Remove("project_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
         private Guid? _explicitNullValueProjectId = default!;
         /// <summary>Name of the resolved consumer project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProjectName { get => _explicitNullValueProjectName; set { _explicitNullValueProjectName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_name"); else _explicitNullProperties?.Remove("project_name"); } }
+        public string? ProjectName { get => _explicitNullValueProjectName; set { _explicitNullValueProjectName = value; AdditionalData?.Remove("project_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_name"); else _explicitNullProperties?.Remove("project_name"); } }
         private string? _explicitNullValueProjectName = default!;
 #nullable restore
 #else
-        public string ProjectName { get => _explicitNullValueProjectName; set { _explicitNullValueProjectName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_name"); else _explicitNullProperties?.Remove("project_name"); } }
+        public string ProjectName { get => _explicitNullValueProjectName; set { _explicitNullValueProjectName = value; AdditionalData?.Remove("project_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_name"); else _explicitNullProperties?.Remove("project_name"); } }
         private string _explicitNullValueProjectName = default!;
 #endif
         /// <summary>Nano ID of the resolved consumer project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProjectNanoId { get => _explicitNullValueProjectNanoId; set { _explicitNullValueProjectNanoId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_nano_id"); else _explicitNullProperties?.Remove("project_nano_id"); } }
+        public string? ProjectNanoId { get => _explicitNullValueProjectNanoId; set { _explicitNullValueProjectNanoId = value; AdditionalData?.Remove("project_nano_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_nano_id"); else _explicitNullProperties?.Remove("project_nano_id"); } }
         private string? _explicitNullValueProjectNanoId = default!;
 #nullable restore
 #else
-        public string ProjectNanoId { get => _explicitNullValueProjectNanoId; set { _explicitNullValueProjectNanoId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_nano_id"); else _explicitNullProperties?.Remove("project_nano_id"); } }
+        public string ProjectNanoId { get => _explicitNullValueProjectNanoId; set { _explicitNullValueProjectNanoId = value; AdditionalData?.Remove("project_nano_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_nano_id"); else _explicitNullProperties?.Remove("project_nano_id"); } }
         private string _explicitNullValueProjectNanoId = default!;
 #endif
         /// <summary>Resolved project type.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType? ProjectType { get => _explicitNullValueProjectType; set { _explicitNullValueProjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_type"); else _explicitNullProperties?.Remove("project_type"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType? ProjectType { get => _explicitNullValueProjectType; set { _explicitNullValueProjectType = value; AdditionalData?.Remove("project_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_type"); else _explicitNullProperties?.Remove("project_type"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType? _explicitNullValueProjectType = default!;
         /// <summary>ID of the authenticated user the request was made as.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
         private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
         private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>
@@ -126,7 +134,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "project_id", n => { ProjectId = n.GetGuidValue(); } },
                 { "project_name", n => { ProjectName = n.GetStringValue(); } },
                 { "project_nano_id", n => { ProjectNanoId = n.GetStringValue(); } },
-                { "project_type", n => { ProjectType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType>(); } },
+                { "project_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.ConsumerProjectType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProjectType = default; _explicitNullProperties?.Remove("project_type"); AdditionalData["project_type"] = unknown; } else { ProjectType = parsed; AdditionalData.Remove("project_type"); } } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }

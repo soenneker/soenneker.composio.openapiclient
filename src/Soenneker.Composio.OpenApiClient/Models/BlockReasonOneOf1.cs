@@ -17,8 +17,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hook_id") is { } nullNodeHookId && nullNodeHookId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HookId = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("hook_id") is null) { _explicitNullValueHookId = default!; _explicitNullProperties?.Remove("hook_id"); }
+            else if (parseNode.GetChildNode("hook_id") is { } nullNodeHookId && nullNodeHookId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HookId = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The hook_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HookId { get => _explicitNullValueHookId; set { _explicitNullValueHookId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_id"); else _explicitNullProperties?.Remove("hook_id"); } }
+        public string? HookId { get => _explicitNullValueHookId; set { _explicitNullValueHookId = value; AdditionalData?.Remove("hook_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_id"); else _explicitNullProperties?.Remove("hook_id"); } }
         private string? _explicitNullValueHookId = default!;
 #nullable restore
 #else
-        public string HookId { get => _explicitNullValueHookId; set { _explicitNullValueHookId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_id"); else _explicitNullProperties?.Remove("hook_id"); } }
+        public string HookId { get => _explicitNullValueHookId; set { _explicitNullValueHookId = value; AdditionalData?.Remove("hook_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_id"); else _explicitNullProperties?.Remove("hook_id"); } }
         private string _explicitNullValueHookId = default!;
 #endif
         /// <summary>A before_execute hook stopped the call. The tool did not run.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.RequestBlockedType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.RequestBlockedType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.RequestBlockedType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.BlockReasonOneOf1"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "hook_id", n => { HookId = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.RequestBlockedType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.RequestBlockedType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

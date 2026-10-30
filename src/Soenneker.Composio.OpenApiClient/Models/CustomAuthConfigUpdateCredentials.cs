@@ -17,8 +17,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("scopes") is { } nullNodeScopes && nullNodeScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scopes = null;
-            if (parseNode.GetChildNode("user_scopes") is { } nullNodeUserScopes && nullNodeUserScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserScopes = null;
+            if (parseNode.GetChildNode("scopes") is null) { _explicitNullValueScopes = default!; _explicitNullProperties?.Remove("scopes"); }
+            else if (parseNode.GetChildNode("scopes") is { } nullNodeScopes && nullNodeScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scopes = null;
+            if (parseNode.GetChildNode("user_scopes") is null) { _explicitNullValueUserScopes = default!; _explicitNullProperties?.Remove("user_scopes"); }
+            else if (parseNode.GetChildNode("user_scopes") is { } nullNodeUserScopes && nullNodeUserScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserScopes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>OAuth scopes requested for the auth config.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsScopes? Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsScopes? Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; AdditionalData?.Remove("scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsScopes? _explicitNullValueScopes = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsScopes Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsScopes Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; AdditionalData?.Remove("scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsScopes _explicitNullValueScopes = default!;
 #endif
         /// <summary>OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsUserScopes? UserScopes { get => _explicitNullValueUserScopes; set { _explicitNullValueUserScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_scopes"); else _explicitNullProperties?.Remove("user_scopes"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsUserScopes? UserScopes { get => _explicitNullValueUserScopes; set { _explicitNullValueUserScopes = value; AdditionalData?.Remove("user_scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_scopes"); else _explicitNullProperties?.Remove("user_scopes"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsUserScopes? _explicitNullValueUserScopes = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsUserScopes UserScopes { get => _explicitNullValueUserScopes; set { _explicitNullValueUserScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_scopes"); else _explicitNullProperties?.Remove("user_scopes"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsUserScopes UserScopes { get => _explicitNullValueUserScopes; set { _explicitNullValueUserScopes = value; AdditionalData?.Remove("user_scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_scopes"); else _explicitNullProperties?.Remove("user_scopes"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.CustomAuthConfigUpdateCredentialsUserScopes _explicitNullValueUserScopes = default!;
 #endif
         /// <summary>

@@ -17,10 +17,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("last_modified") is { } nullNodeLastModified && nullNodeLastModified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastModified = null;
-            if (parseNode.GetChildNode("mount_relative_path") is { } nullNodeMountRelativePath && nullNodeMountRelativePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MountRelativePath = null;
-            if (parseNode.GetChildNode("sandbox_mount_prefix") is { } nullNodeSandboxMountPrefix && nullNodeSandboxMountPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxMountPrefix = null;
-            if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
+            if (parseNode.GetChildNode("last_modified") is null) { _explicitNullValueLastModified = default!; _explicitNullProperties?.Remove("last_modified"); }
+            else if (parseNode.GetChildNode("last_modified") is { } nullNodeLastModified && nullNodeLastModified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastModified = null;
+            if (parseNode.GetChildNode("mount_relative_path") is null) { _explicitNullValueMountRelativePath = default!; _explicitNullProperties?.Remove("mount_relative_path"); }
+            else if (parseNode.GetChildNode("mount_relative_path") is { } nullNodeMountRelativePath && nullNodeMountRelativePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MountRelativePath = null;
+            if (parseNode.GetChildNode("sandbox_mount_prefix") is null) { _explicitNullValueSandboxMountPrefix = default!; _explicitNullProperties?.Remove("sandbox_mount_prefix"); }
+            else if (parseNode.GetChildNode("sandbox_mount_prefix") is { } nullNodeSandboxMountPrefix && nullNodeSandboxMountPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SandboxMountPrefix = null;
+            if (parseNode.GetChildNode("size") is null) { _explicitNullValueSize = default!; _explicitNullProperties?.Remove("size"); }
+            else if (parseNode.GetChildNode("size") is { } nullNodeSize && nullNodeSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Size = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>ISO 8601 timestamp of last modification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastModified { get => _explicitNullValueLastModified; set { _explicitNullValueLastModified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_modified"); else _explicitNullProperties?.Remove("last_modified"); } }
+        public string? LastModified { get => _explicitNullValueLastModified; set { _explicitNullValueLastModified = value; AdditionalData?.Remove("last_modified"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_modified"); else _explicitNullProperties?.Remove("last_modified"); } }
         private string? _explicitNullValueLastModified = default!;
 #nullable restore
 #else
-        public string LastModified { get => _explicitNullValueLastModified; set { _explicitNullValueLastModified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_modified"); else _explicitNullProperties?.Remove("last_modified"); } }
+        public string LastModified { get => _explicitNullValueLastModified; set { _explicitNullValueLastModified = value; AdditionalData?.Remove("last_modified"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_modified"); else _explicitNullProperties?.Remove("last_modified"); } }
         private string _explicitNullValueLastModified = default!;
 #endif
         /// <summary>Relative file path within the mount (e.g. &quot;report.pdf&quot;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
+        public string? MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; AdditionalData?.Remove("mount_relative_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
         private string? _explicitNullValueMountRelativePath = default!;
 #nullable restore
 #else
-        public string MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
+        public string MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; AdditionalData?.Remove("mount_relative_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
         private string _explicitNullValueMountRelativePath = default!;
 #endif
         /// <summary>Absolute mount path inside the sandbox (e.g. /mnt/files)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SandboxMountPrefix { get => _explicitNullValueSandboxMountPrefix; set { _explicitNullValueSandboxMountPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_mount_prefix"); else _explicitNullProperties?.Remove("sandbox_mount_prefix"); } }
+        public string? SandboxMountPrefix { get => _explicitNullValueSandboxMountPrefix; set { _explicitNullValueSandboxMountPrefix = value; AdditionalData?.Remove("sandbox_mount_prefix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_mount_prefix"); else _explicitNullProperties?.Remove("sandbox_mount_prefix"); } }
         private string? _explicitNullValueSandboxMountPrefix = default!;
 #nullable restore
 #else
-        public string SandboxMountPrefix { get => _explicitNullValueSandboxMountPrefix; set { _explicitNullValueSandboxMountPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_mount_prefix"); else _explicitNullProperties?.Remove("sandbox_mount_prefix"); } }
+        public string SandboxMountPrefix { get => _explicitNullValueSandboxMountPrefix; set { _explicitNullValueSandboxMountPrefix = value; AdditionalData?.Remove("sandbox_mount_prefix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox_mount_prefix"); else _explicitNullProperties?.Remove("sandbox_mount_prefix"); } }
         private string _explicitNullValueSandboxMountPrefix = default!;
 #endif
         /// <summary>File size in bytes</summary>
-        public double? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
+        public double? Size { get => _explicitNullValueSize; set { _explicitNullValueSize = value; AdditionalData?.Remove("size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("size"); else _explicitNullProperties?.Remove("size"); } }
         private double? _explicitNullValueSize = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetToolRouterSessionBySessionIdMountsByMountIdItems200ResponseItemsItem"/> and sets the default values.

@@ -18,8 +18,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowed_tool_slugs") is { } nullNodeAllowedToolSlugs && nullNodeAllowedToolSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedToolSlugs = null;
-            if (parseNode.GetChildNode("prices") is { } nullNodePrices && nullNodePrices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prices = null;
+            if (parseNode.GetChildNode("allowed_tool_slugs") is null) { _explicitNullValueAllowedToolSlugs = default!; _explicitNullProperties?.Remove("allowed_tool_slugs"); }
+            else if (parseNode.GetChildNode("allowed_tool_slugs") is { } nullNodeAllowedToolSlugs && nullNodeAllowedToolSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedToolSlugs = null;
+            if (parseNode.GetChildNode("prices") is null) { _explicitNullValuePrices = default!; _explicitNullProperties?.Remove("prices"); }
+            else if (parseNode.GetChildNode("prices") is { } nullNodePrices && nullNodePrices.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prices = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Tools of this toolkit that run on the Composio instant account</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedToolSlugs { get => _explicitNullValueAllowedToolSlugs; set { _explicitNullValueAllowedToolSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tool_slugs"); else _explicitNullProperties?.Remove("allowed_tool_slugs"); } }
+        public List<string>? AllowedToolSlugs { get => _explicitNullValueAllowedToolSlugs; set { _explicitNullValueAllowedToolSlugs = value; AdditionalData?.Remove("allowed_tool_slugs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tool_slugs"); else _explicitNullProperties?.Remove("allowed_tool_slugs"); } }
         private List<string>? _explicitNullValueAllowedToolSlugs = default!;
 #nullable restore
 #else
-        public List<string> AllowedToolSlugs { get => _explicitNullValueAllowedToolSlugs; set { _explicitNullValueAllowedToolSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tool_slugs"); else _explicitNullProperties?.Remove("allowed_tool_slugs"); } }
+        public List<string> AllowedToolSlugs { get => _explicitNullValueAllowedToolSlugs; set { _explicitNullValueAllowedToolSlugs = value; AdditionalData?.Remove("allowed_tool_slugs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tool_slugs"); else _explicitNullProperties?.Remove("allowed_tool_slugs"); } }
         private List<string> _explicitNullValueAllowedToolSlugs = default!;
 #endif
         /// <summary>Price of each tool, keyed by tool slug.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccountPrices? Prices { get => _explicitNullValuePrices; set { _explicitNullValuePrices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prices"); else _explicitNullProperties?.Remove("prices"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccountPrices? Prices { get => _explicitNullValuePrices; set { _explicitNullValuePrices = value; AdditionalData?.Remove("prices"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prices"); else _explicitNullProperties?.Remove("prices"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccountPrices? _explicitNullValuePrices = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccountPrices Prices { get => _explicitNullValuePrices; set { _explicitNullValuePrices = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prices"); else _explicitNullProperties?.Remove("prices"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccountPrices Prices { get => _explicitNullValuePrices; set { _explicitNullValuePrices = value; AdditionalData?.Remove("prices"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("prices"); else _explicitNullProperties?.Remove("prices"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemInstantAccountPrices _explicitNullValuePrices = default!;
 #endif
         /// <summary>

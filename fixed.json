@@ -8718,7 +8718,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecuteMeta200Response"
+                  "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdExecute200Response"
                 }
               }
             }
@@ -10483,10 +10483,10 @@
             "description": "The display name of the authentication configuration"
           },
           "scopes": {
-            "$ref": "#/components/schemas/DefaultAuthConfigUpdateScopes"
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateCredentialsScopes"
           },
           "user_scopes": {
-            "$ref": "#/components/schemas/DefaultAuthConfigUpdateUserScopes"
+            "$ref": "#/components/schemas/CustomAuthConfigUpdateCredentialsUserScopes"
           },
           "restrict_to_following_tools": {
             "type": "array",
@@ -17578,15 +17578,6 @@
         }
       },
       "PostTriggerInstancesBySlugUpsertRequestToolkitVersions": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "$ref": "#/components/schemas/PostTriggerInstancesBySlugUpsertRequestToolkitVersionsAnyOf2"
-          },
-          {}
-        ],
         "description": "Toolkit version specification. Supports \u0022latest\u0022 string or a record mapping toolkit slugs to specific versions.",
         "example": "latest"
       },
@@ -30247,356 +30238,34 @@
           }
         }
       },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf9Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf10ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf10Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf78ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf78Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf79ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf79Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf84ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf84Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf85ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsLinkRequestConnectionDataAnyOf85Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf2ValExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf2ValScope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf11ValExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf11ValScope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValScope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf2ValExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf2ValScope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf11ValExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf11ValScope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf9ExpiresIn": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf9Scope": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf10ExpiresIn": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf10Scope": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72ExpiresIn": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf72Scope": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73ExpiresIn": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf73Scope": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf78ExpiresIn": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf78Scope": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf79ExpiresIn": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf79Scope": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf84ExpiresIn": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf84Scope": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf85ExpiresIn": {},
+      "PostConnectedAccountsLinkRequestConnectionDataAnyOf85Scope": {},
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValExpiresIn": {},
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf1ValScope": {},
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf2ValExpiresIn": {},
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf2ValScope": {},
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf11ValExpiresIn": {},
+      "PostToolsExecuteByToolSlugRequestCustomConnectionDataOneOf11ValScope": {},
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValExpiresIn": {},
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf1ValScope": {},
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf2ValExpiresIn": {},
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf2ValScope": {},
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf11ValExpiresIn": {},
+      "PostToolsExecuteProxyRequestCustomConnectionDataOneOf11ValScope": {},
       "PostToolRouterSessionRequestInstantAnyOf2Toolkits": {
         "anyOf": [
           {
@@ -30941,81 +30610,12 @@
           }
         }
       },
-      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValScope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2ValExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2ValScope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11ValExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11ValScope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValExpiresIn": {},
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1ValScope": {},
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2ValExpiresIn": {},
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2ValScope": {},
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11ValExpiresIn": {},
+      "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11ValScope": {},
       "GetConnectedAccounts200ResponseItemsItemStateOneOf1ValOneOf1": {
         "required": [
           "status"
@@ -63036,806 +62636,70 @@
         "additionalProperties": false,
         "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
       },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf3ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf3Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf4ExpiresIn": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          },
-          {}
-        ]
-      },
-      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf4Scope": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          {}
-        ]
-      },
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf3ExpiresIn": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf3Scope": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf4ExpiresIn": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf2ValOneOf4Scope": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3ExpiresIn": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3Scope": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4ExpiresIn": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4Scope": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf3ExpiresIn": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf3Scope": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf4ExpiresIn": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf14ValOneOf4Scope": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf3ExpiresIn": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf3Scope": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf4ExpiresIn": {},
+      "GetConnectedAccounts200ResponseItemsItemStateOneOf15ValOneOf4Scope": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf3ExpiresIn": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf3Scope": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf4ExpiresIn": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf2ValOneOf4Scope": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf3ExpiresIn": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf3Scope": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf4ExpiresIn": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf13ValOneOf4Scope": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf3ExpiresIn": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf3Scope": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf4ExpiresIn": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf14ValOneOf4Scope": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf3ExpiresIn": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf3Scope": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf4ExpiresIn": {},
+      "PostConnectedAccountsRequestConnectionStateOneOf15ValOneOf4Scope": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf3ExpiresIn": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf3Scope": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf4ExpiresIn": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf2ValOneOf4Scope": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3ExpiresIn": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3Scope": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4ExpiresIn": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4Scope": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf3ExpiresIn": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf3Scope": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf4ExpiresIn": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf14ValOneOf4Scope": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3ExpiresIn": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf3Scope": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf4ExpiresIn": {},
+      "PostConnectedAccounts201ResponseConnectionDataOneOf15ValOneOf4Scope": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf3ExpiresIn": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf3Scope": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf4ExpiresIn": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf2ValOneOf4Scope": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf3ExpiresIn": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf3Scope": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf4ExpiresIn": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf13ValOneOf4Scope": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf3ExpiresIn": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf3Scope": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf4ExpiresIn": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf14ValOneOf4Scope": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf3ExpiresIn": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf3Scope": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf4ExpiresIn": {},
+      "GetConnectedAccountsByNanoid200ResponseStateOneOf15ValOneOf4Scope": {},
       "ComposioManagedAuthConfigCreateSharedCredentialsProperty": {
         "type": "object",
         "additionalProperties": {},
@@ -80265,12 +79129,6 @@
               "name": "Desc"
             }
           ]
-        }
-      },
-      "PostTriggerInstancesBySlugUpsertRequestToolkitVersionsAnyOf2": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
         }
       },
       "ToolkitVersionsOneOf3": {

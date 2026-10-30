@@ -17,33 +17,37 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auth_scheme") is { } nullNodeAuthScheme && nullNodeAuthScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthScheme = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("is_composio_managed") is { } nullNodeIsComposioManaged && nullNodeIsComposioManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsComposioManaged = null;
-            if (parseNode.GetChildNode("is_disabled") is { } nullNodeIsDisabled && nullNodeIsDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDisabled = null;
+            if (parseNode.GetChildNode("auth_scheme") is null) { _explicitNullValueAuthScheme = default!; _explicitNullProperties?.Remove("auth_scheme"); }
+            else if (parseNode.GetChildNode("auth_scheme") is { } nullNodeAuthScheme && nullNodeAuthScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthScheme = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("is_composio_managed") is null) { _explicitNullValueIsComposioManaged = default!; _explicitNullProperties?.Remove("is_composio_managed"); }
+            else if (parseNode.GetChildNode("is_composio_managed") is { } nullNodeIsComposioManaged && nullNodeIsComposioManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsComposioManaged = null;
+            if (parseNode.GetChildNode("is_disabled") is null) { _explicitNullValueIsDisabled = default!; _explicitNullProperties?.Remove("is_disabled"); }
+            else if (parseNode.GetChildNode("is_disabled") is { } nullNodeIsDisabled && nullNodeIsDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDisabled = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>the authScheme is part of the connection state use it there</summary>
         [Obsolete("")]
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigAuthScheme? AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_scheme"); else _explicitNullProperties?.Remove("auth_scheme"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigAuthScheme? AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; AdditionalData?.Remove("auth_scheme"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_scheme"); else _explicitNullProperties?.Remove("auth_scheme"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigAuthScheme? _explicitNullValueAuthScheme = default!;
         /// <summary>The id of the auth config</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>Whether the auth config is managed by Composio</summary>
-        public bool? IsComposioManaged { get => _explicitNullValueIsComposioManaged; set { _explicitNullValueIsComposioManaged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_composio_managed"); else _explicitNullProperties?.Remove("is_composio_managed"); } }
+        public bool? IsComposioManaged { get => _explicitNullValueIsComposioManaged; set { _explicitNullValueIsComposioManaged = value; AdditionalData?.Remove("is_composio_managed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_composio_managed"); else _explicitNullProperties?.Remove("is_composio_managed"); } }
         private bool? _explicitNullValueIsComposioManaged = default!;
         /// <summary>Whether the auth config is disabled</summary>
-        public bool? IsDisabled { get => _explicitNullValueIsDisabled; set { _explicitNullValueIsDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_disabled"); else _explicitNullProperties?.Remove("is_disabled"); } }
+        public bool? IsDisabled { get => _explicitNullValueIsDisabled; set { _explicitNullValueIsDisabled = value; AdditionalData?.Remove("is_disabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_disabled"); else _explicitNullProperties?.Remove("is_disabled"); } }
         private bool? _explicitNullValueIsDisabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfig"/> and sets the default values.
@@ -70,7 +74,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auth_scheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigAuthScheme>(); } },
+                { "auth_scheme", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemAuthConfigAuthScheme>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthScheme = default; _explicitNullProperties?.Remove("auth_scheme"); AdditionalData["auth_scheme"] = unknown; } else { AuthScheme = parsed; AdditionalData.Remove("auth_scheme"); } } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_composio_managed", n => { IsComposioManaged = n.GetBoolValue(); } },
                 { "is_disabled", n => { IsDisabled = n.GetBoolValue(); } },

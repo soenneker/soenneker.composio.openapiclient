@@ -19,9 +19,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("claude") is { } nullNodeClaude && nullNodeClaude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Claude = null;
-            if (parseNode.GetChildNode("cursor") is { } nullNodeCursor && nullNodeCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cursor = null;
-            if (parseNode.GetChildNode("windsurf") is { } nullNodeWindsurf && nullNodeWindsurf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Windsurf = null;
+            if (parseNode.GetChildNode("claude") is null) { _explicitNullValueClaude = default!; _explicitNullProperties?.Remove("claude"); }
+            else if (parseNode.GetChildNode("claude") is { } nullNodeClaude && nullNodeClaude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Claude = null;
+            if (parseNode.GetChildNode("cursor") is null) { _explicitNullValueCursor = default!; _explicitNullProperties?.Remove("cursor"); }
+            else if (parseNode.GetChildNode("cursor") is { } nullNodeCursor && nullNodeCursor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cursor = null;
+            if (parseNode.GetChildNode("windsurf") is null) { _explicitNullValueWindsurf = default!; _explicitNullProperties?.Remove("windsurf"); }
+            else if (parseNode.GetChildNode("windsurf") is { } nullNodeWindsurf && nullNodeWindsurf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Windsurf = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,33 +33,33 @@ namespace Soenneker.Composio.OpenApiClient.Models
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Claude { get => _explicitNullValueClaude; set { _explicitNullValueClaude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claude"); else _explicitNullProperties?.Remove("claude"); } }
+        public string? Claude { get => _explicitNullValueClaude; set { _explicitNullValueClaude = value; AdditionalData?.Remove("claude"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claude"); else _explicitNullProperties?.Remove("claude"); } }
         private string? _explicitNullValueClaude = default!;
 #nullable restore
 #else
-        public string Claude { get => _explicitNullValueClaude; set { _explicitNullValueClaude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claude"); else _explicitNullProperties?.Remove("claude"); } }
+        public string Claude { get => _explicitNullValueClaude; set { _explicitNullValueClaude = value; AdditionalData?.Remove("claude"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claude"); else _explicitNullProperties?.Remove("claude"); } }
         private string _explicitNullValueClaude = default!;
 #endif
         /// <summary>Command line instruction for Cursor client setup</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cursor { get => _explicitNullValueCursor; set { _explicitNullValueCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cursor"); else _explicitNullProperties?.Remove("cursor"); } }
+        public string? Cursor { get => _explicitNullValueCursor; set { _explicitNullValueCursor = value; AdditionalData?.Remove("cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cursor"); else _explicitNullProperties?.Remove("cursor"); } }
         private string? _explicitNullValueCursor = default!;
 #nullable restore
 #else
-        public string Cursor { get => _explicitNullValueCursor; set { _explicitNullValueCursor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cursor"); else _explicitNullProperties?.Remove("cursor"); } }
+        public string Cursor { get => _explicitNullValueCursor; set { _explicitNullValueCursor = value; AdditionalData?.Remove("cursor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cursor"); else _explicitNullProperties?.Remove("cursor"); } }
         private string _explicitNullValueCursor = default!;
 #endif
         /// <summary>Command line instruction for Windsurf client setup</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Windsurf { get => _explicitNullValueWindsurf; set { _explicitNullValueWindsurf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windsurf"); else _explicitNullProperties?.Remove("windsurf"); } }
+        public string? Windsurf { get => _explicitNullValueWindsurf; set { _explicitNullValueWindsurf = value; AdditionalData?.Remove("windsurf"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windsurf"); else _explicitNullProperties?.Remove("windsurf"); } }
         private string? _explicitNullValueWindsurf = default!;
 #nullable restore
 #else
-        public string Windsurf { get => _explicitNullValueWindsurf; set { _explicitNullValueWindsurf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windsurf"); else _explicitNullProperties?.Remove("windsurf"); } }
+        public string Windsurf { get => _explicitNullValueWindsurf; set { _explicitNullValueWindsurf = value; AdditionalData?.Remove("windsurf"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windsurf"); else _explicitNullProperties?.Remove("windsurf"); } }
         private string _explicitNullValueWindsurf = default!;
 #endif
         /// <summary>

@@ -17,11 +17,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available_versions") is { } nullNodeAvailableVersions && nullNodeAvailableVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableVersions = null;
-            if (parseNode.GetChildNode("displayName") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
-            if (parseNode.GetChildNode("is_deprecated") is { } nullNodeIsDeprecated && nullNodeIsDeprecated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDeprecated = null;
-            if (parseNode.GetChildNode("toolkit") is { } nullNodeToolkit && nullNodeToolkit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkit = null;
-            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("available_versions") is null) { _explicitNullValueAvailableVersions = default!; _explicitNullProperties?.Remove("available_versions"); }
+            else if (parseNode.GetChildNode("available_versions") is { } nullNodeAvailableVersions && nullNodeAvailableVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableVersions = null;
+            if (parseNode.GetChildNode("displayName") is null) { _explicitNullValueDisplayName = default!; _explicitNullProperties?.Remove("displayName"); }
+            else if (parseNode.GetChildNode("displayName") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("is_deprecated") is null) { _explicitNullValueIsDeprecated = default!; _explicitNullProperties?.Remove("is_deprecated"); }
+            else if (parseNode.GetChildNode("is_deprecated") is { } nullNodeIsDeprecated && nullNodeIsDeprecated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDeprecated = null;
+            if (parseNode.GetChildNode("toolkit") is null) { _explicitNullValueToolkit = default!; _explicitNullProperties?.Remove("toolkit"); }
+            else if (parseNode.GetChildNode("toolkit") is { } nullNodeToolkit && nullNodeToolkit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkit = null;
+            if (parseNode.GetChildNode("version") is null) { _explicitNullValueVersion = default!; _explicitNullProperties?.Remove("version"); }
+            else if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,44 +34,44 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>List of all available versions for this tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AvailableVersions { get => _explicitNullValueAvailableVersions; set { _explicitNullValueAvailableVersions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_versions"); else _explicitNullProperties?.Remove("available_versions"); } }
+        public List<string>? AvailableVersions { get => _explicitNullValueAvailableVersions; set { _explicitNullValueAvailableVersions = value; AdditionalData?.Remove("available_versions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_versions"); else _explicitNullProperties?.Remove("available_versions"); } }
         private List<string>? _explicitNullValueAvailableVersions = default!;
 #nullable restore
 #else
-        public List<string> AvailableVersions { get => _explicitNullValueAvailableVersions; set { _explicitNullValueAvailableVersions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_versions"); else _explicitNullProperties?.Remove("available_versions"); } }
+        public List<string> AvailableVersions { get => _explicitNullValueAvailableVersions; set { _explicitNullValueAvailableVersions = value; AdditionalData?.Remove("available_versions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_versions"); else _explicitNullProperties?.Remove("available_versions"); } }
         private List<string> _explicitNullValueAvailableVersions = default!;
 #endif
         /// <summary>The display name of the tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("displayName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
         private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("displayName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
         private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>Indicates if this tool is deprecated and may be removed in the future</summary>
-        public bool? IsDeprecated { get => _explicitNullValueIsDeprecated; set { _explicitNullValueIsDeprecated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_deprecated"); else _explicitNullProperties?.Remove("is_deprecated"); } }
+        public bool? IsDeprecated { get => _explicitNullValueIsDeprecated; set { _explicitNullValueIsDeprecated = value; AdditionalData?.Remove("is_deprecated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_deprecated"); else _explicitNullProperties?.Remove("is_deprecated"); } }
         private bool? _explicitNullValueIsDeprecated = default!;
         /// <summary>The toolkit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsDeprecatedToolkit? Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsDeprecatedToolkit? Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; AdditionalData?.Remove("toolkit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsDeprecatedToolkit? _explicitNullValueToolkit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsDeprecatedToolkit Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsDeprecatedToolkit Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; AdditionalData?.Remove("toolkit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.ToolDetailsDeprecatedToolkit _explicitNullValueToolkit = default!;
 #endif
         /// <summary>Current version identifier of the tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private string? _explicitNullValueVersion = default!;
 #nullable restore
 #else
-        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private string _explicitNullValueVersion = default!;
 #endif
         /// <summary>

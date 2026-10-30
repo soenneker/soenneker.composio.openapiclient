@@ -17,11 +17,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connected_account_id") is { } nullNodeConnectedAccountId && nullNodeConnectedAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountId = null;
-            if (parseNode.GetChildNode("experimental") is { } nullNodeExperimental && nullNodeExperimental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Experimental = null;
-            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
-            if (parseNode.GetChildNode("link_token") is { } nullNodeLinkToken && nullNodeLinkToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkToken = null;
-            if (parseNode.GetChildNode("redirect_url") is { } nullNodeRedirectUrl && nullNodeRedirectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUrl = null;
+            if (parseNode.GetChildNode("connected_account_id") is null) { _explicitNullValueConnectedAccountId = default!; _explicitNullProperties?.Remove("connected_account_id"); }
+            else if (parseNode.GetChildNode("connected_account_id") is { } nullNodeConnectedAccountId && nullNodeConnectedAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountId = null;
+            if (parseNode.GetChildNode("experimental") is null) { _explicitNullValueExperimental = default!; _explicitNullProperties?.Remove("experimental"); }
+            else if (parseNode.GetChildNode("experimental") is { } nullNodeExperimental && nullNodeExperimental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Experimental = null;
+            if (parseNode.GetChildNode("expires_at") is null) { _explicitNullValueExpiresAt = default!; _explicitNullProperties?.Remove("expires_at"); }
+            else if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("link_token") is null) { _explicitNullValueLinkToken = default!; _explicitNullProperties?.Remove("link_token"); }
+            else if (parseNode.GetChildNode("link_token") is { } nullNodeLinkToken && nullNodeLinkToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkToken = null;
+            if (parseNode.GetChildNode("redirect_url") is null) { _explicitNullValueRedirectUrl = default!; _explicitNullProperties?.Remove("redirect_url"); }
+            else if (parseNode.GetChildNode("redirect_url") is { } nullNodeRedirectUrl && nullNodeRedirectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The connected account ID that was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
+        public string? ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; AdditionalData?.Remove("connected_account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
         private string? _explicitNullValueConnectedAccountId = default!;
 #nullable restore
 #else
-        public string ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
+        public string ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; AdditionalData?.Remove("connected_account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
         private string _explicitNullValueConnectedAccountId = default!;
 #endif
         /// <summary>Experimental features - not stable, may be modified or removed in future versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLink201ResponseExperimental? Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLink201ResponseExperimental? Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; AdditionalData?.Remove("experimental"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLink201ResponseExperimental? _explicitNullValueExperimental = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLink201ResponseExperimental Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLink201ResponseExperimental Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; AdditionalData?.Remove("experimental"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsLink201ResponseExperimental _explicitNullValueExperimental = default!;
 #endif
         /// <summary>ISO timestamp when the link expires</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        public string? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
         private string? _explicitNullValueExpiresAt = default!;
 #nullable restore
 #else
-        public string ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        public string ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
         private string _explicitNullValueExpiresAt = default!;
 #endif
         /// <summary>The generated link token for the auth session</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LinkToken { get => _explicitNullValueLinkToken; set { _explicitNullValueLinkToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_token"); else _explicitNullProperties?.Remove("link_token"); } }
+        public string? LinkToken { get => _explicitNullValueLinkToken; set { _explicitNullValueLinkToken = value; AdditionalData?.Remove("link_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_token"); else _explicitNullProperties?.Remove("link_token"); } }
         private string? _explicitNullValueLinkToken = default!;
 #nullable restore
 #else
-        public string LinkToken { get => _explicitNullValueLinkToken; set { _explicitNullValueLinkToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_token"); else _explicitNullProperties?.Remove("link_token"); } }
+        public string LinkToken { get => _explicitNullValueLinkToken; set { _explicitNullValueLinkToken = value; AdditionalData?.Remove("link_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("link_token"); else _explicitNullProperties?.Remove("link_token"); } }
         private string _explicitNullValueLinkToken = default!;
 #endif
         /// <summary>The redirect URI to send users to for authentication</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirect_url"); else _explicitNullProperties?.Remove("redirect_url"); } }
+        public string? RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; AdditionalData?.Remove("redirect_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirect_url"); else _explicitNullProperties?.Remove("redirect_url"); } }
         private string? _explicitNullValueRedirectUrl = default!;
 #nullable restore
 #else
-        public string RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirect_url"); else _explicitNullProperties?.Remove("redirect_url"); } }
+        public string RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; AdditionalData?.Remove("redirect_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirect_url"); else _explicitNullProperties?.Remove("redirect_url"); } }
         private string _explicitNullValueRedirectUrl = default!;
 #endif
         /// <summary>

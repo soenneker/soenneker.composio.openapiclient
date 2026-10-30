@@ -17,11 +17,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api_key_allowed_ips") is { } nullNodeApiKeyAllowedIps && nullNodeApiKeyAllowedIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyAllowedIps = null;
-            if (parseNode.GetChildNode("api_key_permissions") is { } nullNodeApiKeyPermissions && nullNodeApiKeyPermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyPermissions = null;
-            if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("should_create_api_key") is { } nullNodeShouldCreateApiKey && nullNodeShouldCreateApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldCreateApiKey = null;
+            if (parseNode.GetChildNode("api_key_allowed_ips") is null) { _explicitNullValueApiKeyAllowedIps = default!; _explicitNullProperties?.Remove("api_key_allowed_ips"); }
+            else if (parseNode.GetChildNode("api_key_allowed_ips") is { } nullNodeApiKeyAllowedIps && nullNodeApiKeyAllowedIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyAllowedIps = null;
+            if (parseNode.GetChildNode("api_key_permissions") is null) { _explicitNullValueApiKeyPermissions = default!; _explicitNullProperties?.Remove("api_key_permissions"); }
+            else if (parseNode.GetChildNode("api_key_permissions") is { } nullNodeApiKeyPermissions && nullNodeApiKeyPermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyPermissions = null;
+            if (parseNode.GetChildNode("config") is null) { _explicitNullValueConfig = default!; _explicitNullProperties?.Remove("config"); }
+            else if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("should_create_api_key") is null) { _explicitNullValueShouldCreateApiKey = default!; _explicitNullProperties?.Remove("should_create_api_key"); }
+            else if (parseNode.GetChildNode("should_create_api_key") is { } nullNodeShouldCreateApiKey && nullNodeShouldCreateApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShouldCreateApiKey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,45 +34,45 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>IPv4 or IPv6 addresses allowed to use the project API key. Requires should_create_api_key to be true. Omit to allow requests from any IP address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ApiKeyAllowedIps { get => _explicitNullValueApiKeyAllowedIps; set { _explicitNullValueApiKeyAllowedIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_allowed_ips"); else _explicitNullProperties?.Remove("api_key_allowed_ips"); } }
+        public List<string>? ApiKeyAllowedIps { get => _explicitNullValueApiKeyAllowedIps; set { _explicitNullValueApiKeyAllowedIps = value; AdditionalData?.Remove("api_key_allowed_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_allowed_ips"); else _explicitNullProperties?.Remove("api_key_allowed_ips"); } }
         private List<string>? _explicitNullValueApiKeyAllowedIps = default!;
 #nullable restore
 #else
-        public List<string> ApiKeyAllowedIps { get => _explicitNullValueApiKeyAllowedIps; set { _explicitNullValueApiKeyAllowedIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_allowed_ips"); else _explicitNullProperties?.Remove("api_key_allowed_ips"); } }
+        public List<string> ApiKeyAllowedIps { get => _explicitNullValueApiKeyAllowedIps; set { _explicitNullValueApiKeyAllowedIps = value; AdditionalData?.Remove("api_key_allowed_ips"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_allowed_ips"); else _explicitNullProperties?.Remove("api_key_allowed_ips"); } }
         private List<string> _explicitNullValueApiKeyAllowedIps = default!;
 #endif
         /// <summary>Permission levels for the project API key. Requires should_create_api_key to be true. Omit to create a full-access API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem>? ApiKeyPermissions { get => _explicitNullValueApiKeyPermissions; set { _explicitNullValueApiKeyPermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_permissions"); else _explicitNullProperties?.Remove("api_key_permissions"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem>? ApiKeyPermissions { get => _explicitNullValueApiKeyPermissions; set { _explicitNullValueApiKeyPermissions = value; AdditionalData?.Remove("api_key_permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_permissions"); else _explicitNullProperties?.Remove("api_key_permissions"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem>? _explicitNullValueApiKeyPermissions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem> ApiKeyPermissions { get => _explicitNullValueApiKeyPermissions; set { _explicitNullValueApiKeyPermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_permissions"); else _explicitNullProperties?.Remove("api_key_permissions"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem> ApiKeyPermissions { get => _explicitNullValueApiKeyPermissions; set { _explicitNullValueApiKeyPermissions = value; AdditionalData?.Remove("api_key_permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_permissions"); else _explicitNullProperties?.Remove("api_key_permissions"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem> _explicitNullValueApiKeyPermissions = default!;
 #endif
         /// <summary>Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig? _explicitNullValueConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig _explicitNullValueConfig = default!;
 #endif
         /// <summary>A unique name for your project that follows the required format rules</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Whether to create an API key for the project. If true, the API key will be created and returned in the response.</summary>
-        public bool? ShouldCreateApiKey { get => _explicitNullValueShouldCreateApiKey; set { _explicitNullValueShouldCreateApiKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_create_api_key"); else _explicitNullProperties?.Remove("should_create_api_key"); } }
+        public bool? ShouldCreateApiKey { get => _explicitNullValueShouldCreateApiKey; set { _explicitNullValueShouldCreateApiKey = value; AdditionalData?.Remove("should_create_api_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("should_create_api_key"); else _explicitNullProperties?.Remove("should_create_api_key"); } }
         private bool? _explicitNullValueShouldCreateApiKey = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequest"/> and sets the default values.

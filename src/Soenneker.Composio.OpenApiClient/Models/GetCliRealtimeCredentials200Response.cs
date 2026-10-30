@@ -17,9 +17,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("project_id") is { } nullNodeProjectId && nullNodeProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectId = null;
-            if (parseNode.GetChildNode("pusher_cluster") is { } nullNodePusherCluster && nullNodePusherCluster.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PusherCluster = null;
-            if (parseNode.GetChildNode("pusher_key") is { } nullNodePusherKey && nullNodePusherKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PusherKey = null;
+            if (parseNode.GetChildNode("project_id") is null) { _explicitNullValueProjectId = default!; _explicitNullProperties?.Remove("project_id"); }
+            else if (parseNode.GetChildNode("project_id") is { } nullNodeProjectId && nullNodeProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectId = null;
+            if (parseNode.GetChildNode("pusher_cluster") is null) { _explicitNullValuePusherCluster = default!; _explicitNullProperties?.Remove("pusher_cluster"); }
+            else if (parseNode.GetChildNode("pusher_cluster") is { } nullNodePusherCluster && nullNodePusherCluster.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PusherCluster = null;
+            if (parseNode.GetChildNode("pusher_key") is null) { _explicitNullValuePusherKey = default!; _explicitNullProperties?.Remove("pusher_key"); }
+            else if (parseNode.GetChildNode("pusher_key") is { } nullNodePusherKey && nullNodePusherKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PusherKey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The project nanoId associated with the API Key provided. Used as part of the CLI channel name: private-cli-{project_id}</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
+        public string? ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; AdditionalData?.Remove("project_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
         private string? _explicitNullValueProjectId = default!;
 #nullable restore
 #else
-        public string ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
+        public string ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; AdditionalData?.Remove("project_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
         private string _explicitNullValueProjectId = default!;
 #endif
         /// <summary>The Pusher cluster for subscribing to the trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PusherCluster { get => _explicitNullValuePusherCluster; set { _explicitNullValuePusherCluster = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_cluster"); else _explicitNullProperties?.Remove("pusher_cluster"); } }
+        public string? PusherCluster { get => _explicitNullValuePusherCluster; set { _explicitNullValuePusherCluster = value; AdditionalData?.Remove("pusher_cluster"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_cluster"); else _explicitNullProperties?.Remove("pusher_cluster"); } }
         private string? _explicitNullValuePusherCluster = default!;
 #nullable restore
 #else
-        public string PusherCluster { get => _explicitNullValuePusherCluster; set { _explicitNullValuePusherCluster = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_cluster"); else _explicitNullProperties?.Remove("pusher_cluster"); } }
+        public string PusherCluster { get => _explicitNullValuePusherCluster; set { _explicitNullValuePusherCluster = value; AdditionalData?.Remove("pusher_cluster"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_cluster"); else _explicitNullProperties?.Remove("pusher_cluster"); } }
         private string _explicitNullValuePusherCluster = default!;
 #endif
         /// <summary>The Pusher client key for subscribing to the trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PusherKey { get => _explicitNullValuePusherKey; set { _explicitNullValuePusherKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_key"); else _explicitNullProperties?.Remove("pusher_key"); } }
+        public string? PusherKey { get => _explicitNullValuePusherKey; set { _explicitNullValuePusherKey = value; AdditionalData?.Remove("pusher_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_key"); else _explicitNullProperties?.Remove("pusher_key"); } }
         private string? _explicitNullValuePusherKey = default!;
 #nullable restore
 #else
-        public string PusherKey { get => _explicitNullValuePusherKey; set { _explicitNullValuePusherKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_key"); else _explicitNullProperties?.Remove("pusher_key"); } }
+        public string PusherKey { get => _explicitNullValuePusherKey; set { _explicitNullValuePusherKey = value; AdditionalData?.Remove("pusher_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pusher_key"); else _explicitNullProperties?.Remove("pusher_key"); } }
         private string _explicitNullValuePusherKey = default!;
 #endif
         /// <summary>

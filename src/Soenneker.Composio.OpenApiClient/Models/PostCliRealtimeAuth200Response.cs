@@ -17,8 +17,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auth") is { } nullNodeAuth && nullNodeAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Auth = null;
-            if (parseNode.GetChildNode("channel_data") is { } nullNodeChannelData && nullNodeChannelData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelData = null;
+            if (parseNode.GetChildNode("auth") is null) { _explicitNullValueAuth = default!; _explicitNullProperties?.Remove("auth"); }
+            else if (parseNode.GetChildNode("auth") is { } nullNodeAuth && nullNodeAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Auth = null;
+            if (parseNode.GetChildNode("channel_data") is null) { _explicitNullValueChannelData = default!; _explicitNullProperties?.Remove("channel_data"); }
+            else if (parseNode.GetChildNode("channel_data") is { } nullNodeChannelData && nullNodeChannelData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelData = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The authentication string for Pusher</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
+        public string? Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; AdditionalData?.Remove("auth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
         private string? _explicitNullValueAuth = default!;
 #nullable restore
 #else
-        public string Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
+        public string Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; AdditionalData?.Remove("auth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
         private string _explicitNullValueAuth = default!;
 #endif
         /// <summary>Channel data for presence channels</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChannelData { get => _explicitNullValueChannelData; set { _explicitNullValueChannelData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_data"); else _explicitNullProperties?.Remove("channel_data"); } }
+        public string? ChannelData { get => _explicitNullValueChannelData; set { _explicitNullValueChannelData = value; AdditionalData?.Remove("channel_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_data"); else _explicitNullProperties?.Remove("channel_data"); } }
         private string? _explicitNullValueChannelData = default!;
 #nullable restore
 #else
-        public string ChannelData { get => _explicitNullValueChannelData; set { _explicitNullValueChannelData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_data"); else _explicitNullProperties?.Remove("channel_data"); } }
+        public string ChannelData { get => _explicitNullValueChannelData; set { _explicitNullValueChannelData = value; AdditionalData?.Remove("channel_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel_data"); else _explicitNullProperties?.Remove("channel_data"); } }
         private string _explicitNullValueChannelData = default!;
 #endif
         /// <summary>

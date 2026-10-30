@@ -17,14 +17,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("binary_body") is { } nullNodeBinaryBody && nullNodeBinaryBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BinaryBody = null;
-            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
-            if (parseNode.GetChildNode("connected_account_id") is { } nullNodeConnectedAccountId && nullNodeConnectedAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountId = null;
-            if (parseNode.GetChildNode("custom_connection_data") is { } nullNodeCustomConnectionData && nullNodeCustomConnectionData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomConnectionData = null;
-            if (parseNode.GetChildNode("endpoint") is { } nullNodeEndpoint && nullNodeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Endpoint = null;
-            if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
-            if (parseNode.GetChildNode("parameters") is { } nullNodeParameters && nullNodeParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parameters = null;
-            if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("binary_body") is null) { _explicitNullValueBinaryBody = default!; _explicitNullProperties?.Remove("binary_body"); }
+            else if (parseNode.GetChildNode("binary_body") is { } nullNodeBinaryBody && nullNodeBinaryBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BinaryBody = null;
+            if (parseNode.GetChildNode("body") is null) { _explicitNullValueBody = default!; _explicitNullProperties?.Remove("body"); }
+            else if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("connected_account_id") is null) { _explicitNullValueConnectedAccountId = default!; _explicitNullProperties?.Remove("connected_account_id"); }
+            else if (parseNode.GetChildNode("connected_account_id") is { } nullNodeConnectedAccountId && nullNodeConnectedAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountId = null;
+            if (parseNode.GetChildNode("custom_connection_data") is null) { _explicitNullValueCustomConnectionData = default!; _explicitNullProperties?.Remove("custom_connection_data"); }
+            else if (parseNode.GetChildNode("custom_connection_data") is { } nullNodeCustomConnectionData && nullNodeCustomConnectionData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomConnectionData = null;
+            if (parseNode.GetChildNode("endpoint") is null) { _explicitNullValueEndpoint = default!; _explicitNullProperties?.Remove("endpoint"); }
+            else if (parseNode.GetChildNode("endpoint") is { } nullNodeEndpoint && nullNodeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Endpoint = null;
+            if (parseNode.GetChildNode("method") is null) { _explicitNullValueMethod = default!; _explicitNullProperties?.Remove("method"); }
+            else if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
+            if (parseNode.GetChildNode("parameters") is null) { _explicitNullValueParameters = default!; _explicitNullProperties?.Remove("parameters"); }
+            else if (parseNode.GetChildNode("parameters") is { } nullNodeParameters && nullNodeParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parameters = null;
+            if (parseNode.GetChildNode("user_id") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("user_id"); }
+            else if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,75 +40,75 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Binary body to send. For binary upload via URL: use {url: &quot;https://...&quot;, content_type?: &quot;...&quot;}. For binary upload via base64: use {base64: &quot;...&quot;, content_type?: &quot;...&quot;}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody? BinaryBody { get => _explicitNullValueBinaryBody; set { _explicitNullValueBinaryBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_body"); else _explicitNullProperties?.Remove("binary_body"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody? BinaryBody { get => _explicitNullValueBinaryBody; set { _explicitNullValueBinaryBody = value; AdditionalData?.Remove("binary_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_body"); else _explicitNullProperties?.Remove("binary_body"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody? _explicitNullValueBinaryBody = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody BinaryBody { get => _explicitNullValueBinaryBody; set { _explicitNullValueBinaryBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_body"); else _explicitNullProperties?.Remove("binary_body"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody BinaryBody { get => _explicitNullValueBinaryBody; set { _explicitNullValueBinaryBody = value; AdditionalData?.Remove("binary_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_body"); else _explicitNullProperties?.Remove("binary_body"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBody _explicitNullValueBinaryBody = default!;
 #endif
         /// <summary>The request body (for POST, PUT, and PATCH requests)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public UntypedNode? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private UntypedNode? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public UntypedNode Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public UntypedNode Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private UntypedNode _explicitNullValueBody = default!;
 #endif
         /// <summary>The ID of the connected account to use for authentication (if not provided, will use the default account for the project)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
+        public string? ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; AdditionalData?.Remove("connected_account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
         private string? _explicitNullValueConnectedAccountId = default!;
 #nullable restore
 #else
-        public string ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
+        public string ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; AdditionalData?.Remove("connected_account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
         private string _explicitNullValueConnectedAccountId = default!;
 #endif
         /// <summary>The custom_connection_data property</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData? CustomConnectionData { get => _explicitNullValueCustomConnectionData; set { _explicitNullValueCustomConnectionData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_connection_data"); else _explicitNullProperties?.Remove("custom_connection_data"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData? CustomConnectionData { get => _explicitNullValueCustomConnectionData; set { _explicitNullValueCustomConnectionData = value; AdditionalData?.Remove("custom_connection_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_connection_data"); else _explicitNullProperties?.Remove("custom_connection_data"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData? _explicitNullValueCustomConnectionData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData CustomConnectionData { get => _explicitNullValueCustomConnectionData; set { _explicitNullValueCustomConnectionData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_connection_data"); else _explicitNullProperties?.Remove("custom_connection_data"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData CustomConnectionData { get => _explicitNullValueCustomConnectionData; set { _explicitNullValueCustomConnectionData = value; AdditionalData?.Remove("custom_connection_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_connection_data"); else _explicitNullProperties?.Remove("custom_connection_data"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData _explicitNullValueCustomConnectionData = default!;
 #endif
         /// <summary>The API endpoint to call (absolute URL or path relative to base URL of the connected account)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
+        public string? Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; AdditionalData?.Remove("endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
         private string? _explicitNullValueEndpoint = default!;
 #nullable restore
 #else
-        public string Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
+        public string Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; AdditionalData?.Remove("endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
         private string _explicitNullValueEndpoint = default!;
 #endif
         /// <summary>The HTTP method to use for the request</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestMethod? _explicitNullValueMethod = default!;
         /// <summary>Additional HTTP headers or query parameters to include in the request</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem>? Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem>? Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; AdditionalData?.Remove("parameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem>? _explicitNullValueParameters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem> Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem> Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; AdditionalData?.Remove("parameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem> _explicitNullValueParameters = default!;
 #endif
         /// <summary>The user id (entity id) acting on connected_account_id. Required for a SHARED connection, where it is checked against the connection&apos;s ACL. When the project has 2FA enabled, it is also validated against the owner of a PRIVATE connection. Also selects which custom toolkits the request may use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
         private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
         private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>
@@ -133,7 +141,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "connected_account_id", n => { ConnectedAccountId = n.GetStringValue(); } },
                 { "custom_connection_data", n => { CustomConnectionData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData.CreateFromDiscriminatorValue); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
-                { "method", n => { Method = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestMethod>(); } },
+                { "method", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMethod = default; _explicitNullProperties?.Remove("method"); AdditionalData["method"] = unknown; } else { Method = parsed; AdditionalData.Remove("method"); } } },
                 { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestParametersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };

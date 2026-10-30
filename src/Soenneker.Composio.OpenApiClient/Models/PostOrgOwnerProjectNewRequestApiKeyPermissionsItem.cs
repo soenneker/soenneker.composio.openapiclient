@@ -17,17 +17,19 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("access") is { } nullNodeAccess && nullNodeAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Access = null;
-            if (parseNode.GetChildNode("preset") is { } nullNodePreset && nullNodePreset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Preset = null;
+            if (parseNode.GetChildNode("access") is null) { _explicitNullValueAccess = default!; _explicitNullProperties?.Remove("access"); }
+            else if (parseNode.GetChildNode("access") is { } nullNodeAccess && nullNodeAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Access = null;
+            if (parseNode.GetChildNode("preset") is null) { _explicitNullValuePreset = default!; _explicitNullProperties?.Remove("preset"); }
+            else if (parseNode.GetChildNode("preset") is { } nullNodePreset && nullNodePreset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Preset = null;
         }
 
         /// <summary>The access property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemAccess? Access { get => _explicitNullValueAccess; set { _explicitNullValueAccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access"); else _explicitNullProperties?.Remove("access"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemAccess? Access { get => _explicitNullValueAccess; set { _explicitNullValueAccess = value; AdditionalData?.Remove("access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access"); else _explicitNullProperties?.Remove("access"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemAccess? _explicitNullValueAccess = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The preset property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemPreset? Preset { get => _explicitNullValuePreset; set { _explicitNullValuePreset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset"); else _explicitNullProperties?.Remove("preset"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemPreset? Preset { get => _explicitNullValuePreset; set { _explicitNullValuePreset = value; AdditionalData?.Remove("preset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preset"); else _explicitNullProperties?.Remove("preset"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemPreset? _explicitNullValuePreset = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem"/> and sets the default values.
@@ -54,8 +56,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "access", n => { Access = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemAccess>(); } },
-                { "preset", n => { Preset = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemPreset>(); } },
+                { "access", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemAccess>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAccess = default; _explicitNullProperties?.Remove("access"); AdditionalData["access"] = unknown; } else { Access = parsed; AdditionalData.Remove("access"); } } },
+                { "preset", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItemPreset>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePreset = default; _explicitNullProperties?.Remove("preset"); AdditionalData["preset"] = unknown; } else { Preset = parsed; AdditionalData.Remove("preset"); } } },
             };
         }
         /// <summary>

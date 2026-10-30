@@ -17,20 +17,34 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("clientId") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
-            if (parseNode.GetChildNode("connectionId") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
-            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
-            if (parseNode.GetChildNode("triggerClientError") is { } nullNodeTriggerClientError && nullNodeTriggerClientError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerClientError = null;
-            if (parseNode.GetChildNode("triggerClientPayload") is { } nullNodeTriggerClientPayload && nullNodeTriggerClientPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerClientPayload = null;
-            if (parseNode.GetChildNode("triggerClientResponse") is { } nullNodeTriggerClientResponse && nullNodeTriggerClientResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerClientResponse = null;
-            if (parseNode.GetChildNode("triggerId") is { } nullNodeTriggerId && nullNodeTriggerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerId = null;
-            if (parseNode.GetChildNode("triggerName") is { } nullNodeTriggerName && nullNodeTriggerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerName = null;
-            if (parseNode.GetChildNode("triggerNanoId") is { } nullNodeTriggerNanoId && nullNodeTriggerNanoId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerNanoId = null;
-            if (parseNode.GetChildNode("triggerProviderPayload") is { } nullNodeTriggerProviderPayload && nullNodeTriggerProviderPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerProviderPayload = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("clientId") is null) { _explicitNullValueClientId = default!; _explicitNullProperties?.Remove("clientId"); }
+            else if (parseNode.GetChildNode("clientId") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
+            if (parseNode.GetChildNode("connectionId") is null) { _explicitNullValueConnectionId = default!; _explicitNullProperties?.Remove("connectionId"); }
+            else if (parseNode.GetChildNode("connectionId") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("createdAt") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("createdAt"); }
+            else if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("provider") is null) { _explicitNullValueProvider = default!; _explicitNullProperties?.Remove("provider"); }
+            else if (parseNode.GetChildNode("provider") is { } nullNodeProvider && nullNodeProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provider = null;
+            if (parseNode.GetChildNode("triggerClientError") is null) { _explicitNullValueTriggerClientError = default!; _explicitNullProperties?.Remove("triggerClientError"); }
+            else if (parseNode.GetChildNode("triggerClientError") is { } nullNodeTriggerClientError && nullNodeTriggerClientError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerClientError = null;
+            if (parseNode.GetChildNode("triggerClientPayload") is null) { _explicitNullValueTriggerClientPayload = default!; _explicitNullProperties?.Remove("triggerClientPayload"); }
+            else if (parseNode.GetChildNode("triggerClientPayload") is { } nullNodeTriggerClientPayload && nullNodeTriggerClientPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerClientPayload = null;
+            if (parseNode.GetChildNode("triggerClientResponse") is null) { _explicitNullValueTriggerClientResponse = default!; _explicitNullProperties?.Remove("triggerClientResponse"); }
+            else if (parseNode.GetChildNode("triggerClientResponse") is { } nullNodeTriggerClientResponse && nullNodeTriggerClientResponse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerClientResponse = null;
+            if (parseNode.GetChildNode("triggerId") is null) { _explicitNullValueTriggerId = default!; _explicitNullProperties?.Remove("triggerId"); }
+            else if (parseNode.GetChildNode("triggerId") is { } nullNodeTriggerId && nullNodeTriggerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerId = null;
+            if (parseNode.GetChildNode("triggerName") is null) { _explicitNullValueTriggerName = default!; _explicitNullProperties?.Remove("triggerName"); }
+            else if (parseNode.GetChildNode("triggerName") is { } nullNodeTriggerName && nullNodeTriggerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerName = null;
+            if (parseNode.GetChildNode("triggerNanoId") is null) { _explicitNullValueTriggerNanoId = default!; _explicitNullProperties?.Remove("triggerNanoId"); }
+            else if (parseNode.GetChildNode("triggerNanoId") is { } nullNodeTriggerNanoId && nullNodeTriggerNanoId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerNanoId = null;
+            if (parseNode.GetChildNode("triggerProviderPayload") is null) { _explicitNullValueTriggerProviderPayload = default!; _explicitNullProperties?.Remove("triggerProviderPayload"); }
+            else if (parseNode.GetChildNode("triggerProviderPayload") is { } nullNodeTriggerProviderPayload && nullNodeTriggerProviderPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerProviderPayload = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("updatedAt") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updatedAt"); }
+            else if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,134 +52,134 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The clientId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clientId"); else _explicitNullProperties?.Remove("clientId"); } }
+        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; AdditionalData?.Remove("clientId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clientId"); else _explicitNullProperties?.Remove("clientId"); } }
         private string? _explicitNullValueClientId = default!;
 #nullable restore
 #else
-        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clientId"); else _explicitNullProperties?.Remove("clientId"); } }
+        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; AdditionalData?.Remove("clientId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clientId"); else _explicitNullProperties?.Remove("clientId"); } }
         private string _explicitNullValueClientId = default!;
 #endif
         /// <summary>The connectionId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectionId"); else _explicitNullProperties?.Remove("connectionId"); } }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; AdditionalData?.Remove("connectionId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectionId"); else _explicitNullProperties?.Remove("connectionId"); } }
         private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectionId"); else _explicitNullProperties?.Remove("connectionId"); } }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; AdditionalData?.Remove("connectionId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectionId"); else _explicitNullProperties?.Remove("connectionId"); } }
         private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>The createdAt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("createdAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
         private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("createdAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
         private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        public string? Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
         private string? _explicitNullValueProvider = default!;
 #nullable restore
 #else
-        public string Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
+        public string Provider { get => _explicitNullValueProvider; set { _explicitNullValueProvider = value; AdditionalData?.Remove("provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider"); else _explicitNullProperties?.Remove("provider"); } }
         private string _explicitNullValueProvider = default!;
 #endif
         /// <summary>The triggerClientError property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerClientError { get => _explicitNullValueTriggerClientError; set { _explicitNullValueTriggerClientError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientError"); else _explicitNullProperties?.Remove("triggerClientError"); } }
+        public string? TriggerClientError { get => _explicitNullValueTriggerClientError; set { _explicitNullValueTriggerClientError = value; AdditionalData?.Remove("triggerClientError"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientError"); else _explicitNullProperties?.Remove("triggerClientError"); } }
         private string? _explicitNullValueTriggerClientError = default!;
 #nullable restore
 #else
-        public string TriggerClientError { get => _explicitNullValueTriggerClientError; set { _explicitNullValueTriggerClientError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientError"); else _explicitNullProperties?.Remove("triggerClientError"); } }
+        public string TriggerClientError { get => _explicitNullValueTriggerClientError; set { _explicitNullValueTriggerClientError = value; AdditionalData?.Remove("triggerClientError"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientError"); else _explicitNullProperties?.Remove("triggerClientError"); } }
         private string _explicitNullValueTriggerClientError = default!;
 #endif
         /// <summary>The triggerClientPayload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerClientPayload { get => _explicitNullValueTriggerClientPayload; set { _explicitNullValueTriggerClientPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientPayload"); else _explicitNullProperties?.Remove("triggerClientPayload"); } }
+        public string? TriggerClientPayload { get => _explicitNullValueTriggerClientPayload; set { _explicitNullValueTriggerClientPayload = value; AdditionalData?.Remove("triggerClientPayload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientPayload"); else _explicitNullProperties?.Remove("triggerClientPayload"); } }
         private string? _explicitNullValueTriggerClientPayload = default!;
 #nullable restore
 #else
-        public string TriggerClientPayload { get => _explicitNullValueTriggerClientPayload; set { _explicitNullValueTriggerClientPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientPayload"); else _explicitNullProperties?.Remove("triggerClientPayload"); } }
+        public string TriggerClientPayload { get => _explicitNullValueTriggerClientPayload; set { _explicitNullValueTriggerClientPayload = value; AdditionalData?.Remove("triggerClientPayload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientPayload"); else _explicitNullProperties?.Remove("triggerClientPayload"); } }
         private string _explicitNullValueTriggerClientPayload = default!;
 #endif
         /// <summary>The triggerClientResponse property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerClientResponse { get => _explicitNullValueTriggerClientResponse; set { _explicitNullValueTriggerClientResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientResponse"); else _explicitNullProperties?.Remove("triggerClientResponse"); } }
+        public string? TriggerClientResponse { get => _explicitNullValueTriggerClientResponse; set { _explicitNullValueTriggerClientResponse = value; AdditionalData?.Remove("triggerClientResponse"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientResponse"); else _explicitNullProperties?.Remove("triggerClientResponse"); } }
         private string? _explicitNullValueTriggerClientResponse = default!;
 #nullable restore
 #else
-        public string TriggerClientResponse { get => _explicitNullValueTriggerClientResponse; set { _explicitNullValueTriggerClientResponse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientResponse"); else _explicitNullProperties?.Remove("triggerClientResponse"); } }
+        public string TriggerClientResponse { get => _explicitNullValueTriggerClientResponse; set { _explicitNullValueTriggerClientResponse = value; AdditionalData?.Remove("triggerClientResponse"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerClientResponse"); else _explicitNullProperties?.Remove("triggerClientResponse"); } }
         private string _explicitNullValueTriggerClientResponse = default!;
 #endif
         /// <summary>The triggerId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerId { get => _explicitNullValueTriggerId; set { _explicitNullValueTriggerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerId"); else _explicitNullProperties?.Remove("triggerId"); } }
+        public string? TriggerId { get => _explicitNullValueTriggerId; set { _explicitNullValueTriggerId = value; AdditionalData?.Remove("triggerId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerId"); else _explicitNullProperties?.Remove("triggerId"); } }
         private string? _explicitNullValueTriggerId = default!;
 #nullable restore
 #else
-        public string TriggerId { get => _explicitNullValueTriggerId; set { _explicitNullValueTriggerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerId"); else _explicitNullProperties?.Remove("triggerId"); } }
+        public string TriggerId { get => _explicitNullValueTriggerId; set { _explicitNullValueTriggerId = value; AdditionalData?.Remove("triggerId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerId"); else _explicitNullProperties?.Remove("triggerId"); } }
         private string _explicitNullValueTriggerId = default!;
 #endif
         /// <summary>The triggerName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerName { get => _explicitNullValueTriggerName; set { _explicitNullValueTriggerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerName"); else _explicitNullProperties?.Remove("triggerName"); } }
+        public string? TriggerName { get => _explicitNullValueTriggerName; set { _explicitNullValueTriggerName = value; AdditionalData?.Remove("triggerName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerName"); else _explicitNullProperties?.Remove("triggerName"); } }
         private string? _explicitNullValueTriggerName = default!;
 #nullable restore
 #else
-        public string TriggerName { get => _explicitNullValueTriggerName; set { _explicitNullValueTriggerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerName"); else _explicitNullProperties?.Remove("triggerName"); } }
+        public string TriggerName { get => _explicitNullValueTriggerName; set { _explicitNullValueTriggerName = value; AdditionalData?.Remove("triggerName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerName"); else _explicitNullProperties?.Remove("triggerName"); } }
         private string _explicitNullValueTriggerName = default!;
 #endif
         /// <summary>The triggerNanoId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerNanoId { get => _explicitNullValueTriggerNanoId; set { _explicitNullValueTriggerNanoId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerNanoId"); else _explicitNullProperties?.Remove("triggerNanoId"); } }
+        public string? TriggerNanoId { get => _explicitNullValueTriggerNanoId; set { _explicitNullValueTriggerNanoId = value; AdditionalData?.Remove("triggerNanoId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerNanoId"); else _explicitNullProperties?.Remove("triggerNanoId"); } }
         private string? _explicitNullValueTriggerNanoId = default!;
 #nullable restore
 #else
-        public string TriggerNanoId { get => _explicitNullValueTriggerNanoId; set { _explicitNullValueTriggerNanoId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerNanoId"); else _explicitNullProperties?.Remove("triggerNanoId"); } }
+        public string TriggerNanoId { get => _explicitNullValueTriggerNanoId; set { _explicitNullValueTriggerNanoId = value; AdditionalData?.Remove("triggerNanoId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerNanoId"); else _explicitNullProperties?.Remove("triggerNanoId"); } }
         private string _explicitNullValueTriggerNanoId = default!;
 #endif
         /// <summary>The triggerProviderPayload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerProviderPayload { get => _explicitNullValueTriggerProviderPayload; set { _explicitNullValueTriggerProviderPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerProviderPayload"); else _explicitNullProperties?.Remove("triggerProviderPayload"); } }
+        public string? TriggerProviderPayload { get => _explicitNullValueTriggerProviderPayload; set { _explicitNullValueTriggerProviderPayload = value; AdditionalData?.Remove("triggerProviderPayload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerProviderPayload"); else _explicitNullProperties?.Remove("triggerProviderPayload"); } }
         private string? _explicitNullValueTriggerProviderPayload = default!;
 #nullable restore
 #else
-        public string TriggerProviderPayload { get => _explicitNullValueTriggerProviderPayload; set { _explicitNullValueTriggerProviderPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerProviderPayload"); else _explicitNullProperties?.Remove("triggerProviderPayload"); } }
+        public string TriggerProviderPayload { get => _explicitNullValueTriggerProviderPayload; set { _explicitNullValueTriggerProviderPayload = value; AdditionalData?.Remove("triggerProviderPayload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerProviderPayload"); else _explicitNullProperties?.Remove("triggerProviderPayload"); } }
         private string _explicitNullValueTriggerProviderPayload = default!;
 #endif
         /// <summary>Log entity type (trigger or action)</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostInternalTriggerLogs200ResponseDataItemMetaType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostInternalTriggerLogs200ResponseDataItemMetaType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostInternalTriggerLogs200ResponseDataItemMetaType? _explicitNullValueType = default!;
         /// <summary>The updatedAt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        public string? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updatedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
         private string? _explicitNullValueUpdatedAt = default!;
 #nullable restore
 #else
-        public string UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        public string UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updatedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
         private string _explicitNullValueUpdatedAt = default!;
 #endif
         /// <summary>
@@ -205,7 +219,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "triggerName", n => { TriggerName = n.GetStringValue(); } },
                 { "triggerNanoId", n => { TriggerNanoId = n.GetStringValue(); } },
                 { "triggerProviderPayload", n => { TriggerProviderPayload = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalTriggerLogs200ResponseDataItemMetaType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalTriggerLogs200ResponseDataItemMetaType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }

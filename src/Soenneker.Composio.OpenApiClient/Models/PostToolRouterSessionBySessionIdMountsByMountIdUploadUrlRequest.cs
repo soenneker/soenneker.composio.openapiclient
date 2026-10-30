@@ -17,8 +17,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mimetype") is { } nullNodeMimetype && nullNodeMimetype.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mimetype = null;
-            if (parseNode.GetChildNode("mount_relative_path") is { } nullNodeMountRelativePath && nullNodeMountRelativePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MountRelativePath = null;
+            if (parseNode.GetChildNode("mimetype") is null) { _explicitNullValueMimetype = default!; _explicitNullProperties?.Remove("mimetype"); }
+            else if (parseNode.GetChildNode("mimetype") is { } nullNodeMimetype && nullNodeMimetype.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mimetype = null;
+            if (parseNode.GetChildNode("mount_relative_path") is null) { _explicitNullValueMountRelativePath = default!; _explicitNullProperties?.Remove("mount_relative_path"); }
+            else if (parseNode.GetChildNode("mount_relative_path") is { } nullNodeMountRelativePath && nullNodeMountRelativePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MountRelativePath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>MIME type of the file being uploaded</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mimetype { get => _explicitNullValueMimetype; set { _explicitNullValueMimetype = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimetype"); else _explicitNullProperties?.Remove("mimetype"); } }
+        public string? Mimetype { get => _explicitNullValueMimetype; set { _explicitNullValueMimetype = value; AdditionalData?.Remove("mimetype"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimetype"); else _explicitNullProperties?.Remove("mimetype"); } }
         private string? _explicitNullValueMimetype = default!;
 #nullable restore
 #else
-        public string Mimetype { get => _explicitNullValueMimetype; set { _explicitNullValueMimetype = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimetype"); else _explicitNullProperties?.Remove("mimetype"); } }
+        public string Mimetype { get => _explicitNullValueMimetype; set { _explicitNullValueMimetype = value; AdditionalData?.Remove("mimetype"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimetype"); else _explicitNullProperties?.Remove("mimetype"); } }
         private string _explicitNullValueMimetype = default!;
 #endif
         /// <summary>Supports subdirectories (e.g. &quot;data/output.csv&quot;, &quot;images/charts/chart.png&quot;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
+        public string? MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; AdditionalData?.Remove("mount_relative_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
         private string? _explicitNullValueMountRelativePath = default!;
 #nullable restore
 #else
-        public string MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
+        public string MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; AdditionalData?.Remove("mount_relative_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
         private string _explicitNullValueMountRelativePath = default!;
 #endif
         /// <summary>

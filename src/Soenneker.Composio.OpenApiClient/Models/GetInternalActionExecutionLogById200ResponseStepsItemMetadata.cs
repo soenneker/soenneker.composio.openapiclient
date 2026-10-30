@@ -17,7 +17,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("encryption") is { } nullNodeEncryption && nullNodeEncryption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Encryption = null;
+            if (parseNode.GetChildNode("encryption") is null) { _explicitNullValueEncryption = default!; _explicitNullProperties?.Remove("encryption"); }
+            else if (parseNode.GetChildNode("encryption") is { } nullNodeEncryption && nullNodeEncryption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Encryption = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The encryption property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Encryption { get => _explicitNullValueEncryption; set { _explicitNullValueEncryption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryption"); else _explicitNullProperties?.Remove("encryption"); } }
+        public string? Encryption { get => _explicitNullValueEncryption; set { _explicitNullValueEncryption = value; AdditionalData?.Remove("encryption"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryption"); else _explicitNullProperties?.Remove("encryption"); } }
         private string? _explicitNullValueEncryption = default!;
 #nullable restore
 #else
-        public string Encryption { get => _explicitNullValueEncryption; set { _explicitNullValueEncryption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryption"); else _explicitNullProperties?.Remove("encryption"); } }
+        public string Encryption { get => _explicitNullValueEncryption; set { _explicitNullValueEncryption = value; AdditionalData?.Remove("encryption"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryption"); else _explicitNullProperties?.Remove("encryption"); } }
         private string _explicitNullValueEncryption = default!;
 #endif
         /// <summary>

@@ -18,23 +18,25 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("default") is { } nullNodeDefault && nullNodeDefault.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Default = null;
-            if (parseNode.GetChildNode("overrides") is { } nullNodeOverrides && nullNodeOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Overrides = null;
+            if (parseNode.GetChildNode("default") is null) { _explicitNullValueDefault = default!; _explicitNullProperties?.Remove("default"); }
+            else if (parseNode.GetChildNode("default") is { } nullNodeDefault && nullNodeDefault.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Default = null;
+            if (parseNode.GetChildNode("overrides") is null) { _explicitNullValueOverrides = default!; _explicitNullProperties?.Remove("overrides"); }
+            else if (parseNode.GetChildNode("overrides") is { } nullNodeOverrides && nullNodeOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Overrides = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Default elicitation behavior when no override matches. `allow_all` runs every tool without prompting; `ask_every_call` prompts on each invocation; `ask_once_per_session` prompts once and remembers the answer for the rest of the session.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsDefault? Default { get => _explicitNullValueDefault; set { _explicitNullValueDefault = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default"); else _explicitNullProperties?.Remove("default"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsDefault? Default { get => _explicitNullValueDefault; set { _explicitNullValueDefault = value; AdditionalData?.Remove("default"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default"); else _explicitNullProperties?.Remove("default"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsDefault? _explicitNullValueDefault = default!;
         /// <summary>Per-tool overrides keyed by `${toolSlug}:${connectedAccountId ?? &quot;__none__&quot;}`, plus account-wide overrides keyed by `*:${connectedAccountId ?? &quot;__none__&quot;}`. Exact tool overrides take precedence over account-wide overrides. `always_allow` skips the prompt and runs the tool; `always_deny` blocks the tool; `ask_once` prompts once per session (allow/deny) and remembers; `ask_always` prompts on every call with allow-once/allow-session/deny, ignoring any cached session allow. Overrides take precedence over `default`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsOverrides? Overrides { get => _explicitNullValueOverrides; set { _explicitNullValueOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overrides"); else _explicitNullProperties?.Remove("overrides"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsOverrides? Overrides { get => _explicitNullValueOverrides; set { _explicitNullValueOverrides = value; AdditionalData?.Remove("overrides"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overrides"); else _explicitNullProperties?.Remove("overrides"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsOverrides? _explicitNullValueOverrides = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsOverrides Overrides { get => _explicitNullValueOverrides; set { _explicitNullValueOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overrides"); else _explicitNullProperties?.Remove("overrides"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsOverrides Overrides { get => _explicitNullValueOverrides; set { _explicitNullValueOverrides = value; AdditionalData?.Remove("overrides"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overrides"); else _explicitNullProperties?.Remove("overrides"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsOverrides _explicitNullValueOverrides = default!;
 #endif
         /// <summary>
@@ -62,7 +64,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "default", n => { Default = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsDefault>(); } },
+                { "default", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsDefault>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDefault = default; _explicitNullProperties?.Remove("default"); AdditionalData["default"] = unknown; } else { Default = parsed; AdditionalData.Remove("default"); } } },
                 { "overrides", n => { Overrides = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsOverrides>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalPermissionsOverrides.CreateFromDiscriminatorValue); } },
             };
         }

@@ -17,8 +17,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auth_config") is { } nullNodeAuthConfig && nullNodeAuthConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthConfig = null;
-            if (parseNode.GetChildNode("toolkit") is { } nullNodeToolkit && nullNodeToolkit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkit = null;
+            if (parseNode.GetChildNode("auth_config") is null) { _explicitNullValueAuthConfig = default!; _explicitNullProperties?.Remove("auth_config"); }
+            else if (parseNode.GetChildNode("auth_config") is { } nullNodeAuthConfig && nullNodeAuthConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthConfig = null;
+            if (parseNode.GetChildNode("toolkit") is null) { _explicitNullValueToolkit = default!; _explicitNullProperties?.Remove("toolkit"); }
+            else if (parseNode.GetChildNode("toolkit") is { } nullNodeToolkit && nullNodeToolkit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkit = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The auth_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseAuthConfig? AuthConfig { get => _explicitNullValueAuthConfig; set { _explicitNullValueAuthConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config"); else _explicitNullProperties?.Remove("auth_config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseAuthConfig? AuthConfig { get => _explicitNullValueAuthConfig; set { _explicitNullValueAuthConfig = value; AdditionalData?.Remove("auth_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config"); else _explicitNullProperties?.Remove("auth_config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseAuthConfig? _explicitNullValueAuthConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseAuthConfig AuthConfig { get => _explicitNullValueAuthConfig; set { _explicitNullValueAuthConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config"); else _explicitNullProperties?.Remove("auth_config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseAuthConfig AuthConfig { get => _explicitNullValueAuthConfig; set { _explicitNullValueAuthConfig = value; AdditionalData?.Remove("auth_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config"); else _explicitNullProperties?.Remove("auth_config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseAuthConfig _explicitNullValueAuthConfig = default!;
 #endif
         /// <summary>The toolkit property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseToolkit? Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseToolkit? Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; AdditionalData?.Remove("toolkit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseToolkit? _explicitNullValueToolkit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseToolkit Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseToolkit Toolkit { get => _explicitNullValueToolkit; set { _explicitNullValueToolkit = value; AdditionalData?.Remove("toolkit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit"); else _explicitNullProperties?.Remove("toolkit"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostAuthConfigs201ResponseToolkit _explicitNullValueToolkit = default!;
 #endif
         /// <summary>

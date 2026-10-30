@@ -18,7 +18,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("user_timezone") is { } nullNodeUserTimezone && nullNodeUserTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserTimezone = null;
+            if (parseNode.GetChildNode("user_timezone") is null) { _explicitNullValueUserTimezone = default!; _explicitNullProperties?.Remove("user_timezone"); }
+            else if (parseNode.GetChildNode("user_timezone") is { } nullNodeUserTimezone && nullNodeUserTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserTimezone = null;
         }
 
         /// <summary>IANA timezone identifier (e.g., &apos;America/New_York&apos;, &apos;Europe/London&apos;). Used to customize the system prompt with timezone-aware instructions.</summary>

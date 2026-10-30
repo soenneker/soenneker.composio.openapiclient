@@ -17,9 +17,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
-            if (parseNode.GetChildNode("queries") is { } nullNodeQueries && nullNodeQueries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queries = null;
-            if (parseNode.GetChildNode("search_strategy") is { } nullNodeSearchStrategy && nullNodeSearchStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchStrategy = null;
+            if (parseNode.GetChildNode("model") is null) { _explicitNullValueModel = default!; _explicitNullProperties?.Remove("model"); }
+            else if (parseNode.GetChildNode("model") is { } nullNodeModel && nullNodeModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Model = null;
+            if (parseNode.GetChildNode("queries") is null) { _explicitNullValueQueries = default!; _explicitNullProperties?.Remove("queries"); }
+            else if (parseNode.GetChildNode("queries") is { } nullNodeQueries && nullNodeQueries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queries = null;
+            if (parseNode.GetChildNode("search_strategy") is null) { _explicitNullValueSearchStrategy = default!; _explicitNullProperties?.Remove("search_strategy"); }
+            else if (parseNode.GetChildNode("search_strategy") is { } nullNodeSearchStrategy && nullNodeSearchStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchStrategy = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Optional model hint for search/planning behavior (e.g., &quot;gpt-4o&quot;). Ignored if invalid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string? _explicitNullValueModel = default!;
 #nullable restore
 #else
-        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
+        public string Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }
         private string _explicitNullValueModel = default!;
 #endif
         /// <summary>List of search queries to execute in parallel. Up to 7 queries supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem>? Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem>? Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; AdditionalData?.Remove("queries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem>? _explicitNullValueQueries = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem> Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem> Queries { get => _explicitNullValueQueries; set { _explicitNullValueQueries = value; AdditionalData?.Remove("queries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queries"); else _explicitNullProperties?.Remove("queries"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem> _explicitNullValueQueries = default!;
 #endif
         /// <summary>Search path to use. Defaults to auto. Use tool_search to bypass cached plans and run direct tool search.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy? SearchStrategy { get => _explicitNullValueSearchStrategy; set { _explicitNullValueSearchStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_strategy"); else _explicitNullProperties?.Remove("search_strategy"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy? SearchStrategy { get => _explicitNullValueSearchStrategy; set { _explicitNullValueSearchStrategy = value; AdditionalData?.Remove("search_strategy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search_strategy"); else _explicitNullProperties?.Remove("search_strategy"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy? _explicitNullValueSearchStrategy = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequest"/> and sets the default values.
@@ -74,7 +77,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "queries", n => { Queries = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestQueriesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "search_strategy", n => { SearchStrategy = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy>(); } },
+                { "search_strategy", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSearchStrategy = default; _explicitNullProperties?.Remove("search_strategy"); AdditionalData["search_strategy"] = unknown; } else { SearchStrategy = parsed; AdditionalData.Remove("search_strategy"); } } },
             };
         }
         /// <summary>

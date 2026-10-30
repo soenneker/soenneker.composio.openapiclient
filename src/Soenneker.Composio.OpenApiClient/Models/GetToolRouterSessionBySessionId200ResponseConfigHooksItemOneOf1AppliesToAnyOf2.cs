@@ -17,7 +17,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("toolkits") is { } nullNodeToolkits && nullNodeToolkits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkits = null;
+            if (parseNode.GetChildNode("toolkits") is null) { _explicitNullValueToolkits = default!; _explicitNullProperties?.Remove("toolkits"); }
+            else if (parseNode.GetChildNode("toolkits") is { } nullNodeToolkits && nullNodeToolkits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkits = null;
         }
 
         /// <summary>Toolkit slugs</summary>

@@ -19,8 +19,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("tools_available_for_execution") is { } nullNodeToolsAvailableForExecution && nullNodeToolsAvailableForExecution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolsAvailableForExecution = null;
-            if (parseNode.GetChildNode("tools_for_connected_account_creation") is { } nullNodeToolsForConnectedAccountCreation && nullNodeToolsForConnectedAccountCreation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolsForConnectedAccountCreation = null;
+            if (parseNode.GetChildNode("tools_available_for_execution") is null) { _explicitNullValueToolsAvailableForExecution = default!; _explicitNullProperties?.Remove("tools_available_for_execution"); }
+            else if (parseNode.GetChildNode("tools_available_for_execution") is { } nullNodeToolsAvailableForExecution && nullNodeToolsAvailableForExecution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolsAvailableForExecution = null;
+            if (parseNode.GetChildNode("tools_for_connected_account_creation") is null) { _explicitNullValueToolsForConnectedAccountCreation = default!; _explicitNullProperties?.Remove("tools_for_connected_account_creation"); }
+            else if (parseNode.GetChildNode("tools_for_connected_account_creation") is { } nullNodeToolsForConnectedAccountCreation && nullNodeToolsForConnectedAccountCreation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolsForConnectedAccountCreation = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,22 +31,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ToolsAvailableForExecution { get => _explicitNullValueToolsAvailableForExecution; set { _explicitNullValueToolsAvailableForExecution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_available_for_execution"); else _explicitNullProperties?.Remove("tools_available_for_execution"); } }
+        public List<string>? ToolsAvailableForExecution { get => _explicitNullValueToolsAvailableForExecution; set { _explicitNullValueToolsAvailableForExecution = value; AdditionalData?.Remove("tools_available_for_execution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_available_for_execution"); else _explicitNullProperties?.Remove("tools_available_for_execution"); } }
         private List<string>? _explicitNullValueToolsAvailableForExecution = default!;
 #nullable restore
 #else
-        public List<string> ToolsAvailableForExecution { get => _explicitNullValueToolsAvailableForExecution; set { _explicitNullValueToolsAvailableForExecution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_available_for_execution"); else _explicitNullProperties?.Remove("tools_available_for_execution"); } }
+        public List<string> ToolsAvailableForExecution { get => _explicitNullValueToolsAvailableForExecution; set { _explicitNullValueToolsAvailableForExecution = value; AdditionalData?.Remove("tools_available_for_execution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_available_for_execution"); else _explicitNullProperties?.Remove("tools_available_for_execution"); } }
         private List<string> _explicitNullValueToolsAvailableForExecution = default!;
 #endif
         /// <summary>Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ToolsForConnectedAccountCreation { get => _explicitNullValueToolsForConnectedAccountCreation; set { _explicitNullValueToolsForConnectedAccountCreation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_for_connected_account_creation"); else _explicitNullProperties?.Remove("tools_for_connected_account_creation"); } }
+        public List<string>? ToolsForConnectedAccountCreation { get => _explicitNullValueToolsForConnectedAccountCreation; set { _explicitNullValueToolsForConnectedAccountCreation = value; AdditionalData?.Remove("tools_for_connected_account_creation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_for_connected_account_creation"); else _explicitNullProperties?.Remove("tools_for_connected_account_creation"); } }
         private List<string>? _explicitNullValueToolsForConnectedAccountCreation = default!;
 #nullable restore
 #else
-        public List<string> ToolsForConnectedAccountCreation { get => _explicitNullValueToolsForConnectedAccountCreation; set { _explicitNullValueToolsForConnectedAccountCreation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_for_connected_account_creation"); else _explicitNullProperties?.Remove("tools_for_connected_account_creation"); } }
+        public List<string> ToolsForConnectedAccountCreation { get => _explicitNullValueToolsForConnectedAccountCreation; set { _explicitNullValueToolsForConnectedAccountCreation = value; AdditionalData?.Remove("tools_for_connected_account_creation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools_for_connected_account_creation"); else _explicitNullProperties?.Remove("tools_for_connected_account_creation"); } }
         private List<string> _explicitNullValueToolsForConnectedAccountCreation = default!;
 #endif
         /// <summary>

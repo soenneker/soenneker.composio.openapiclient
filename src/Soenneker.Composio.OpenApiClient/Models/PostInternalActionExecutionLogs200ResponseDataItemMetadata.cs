@@ -17,7 +17,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("recipe_id") is { } nullNodeRecipeId && nullNodeRecipeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipeId = null;
+            if (parseNode.GetChildNode("recipe_id") is null) { _explicitNullValueRecipeId = default!; _explicitNullProperties?.Remove("recipe_id"); }
+            else if (parseNode.GetChildNode("recipe_id") is { } nullNodeRecipeId && nullNodeRecipeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecipeId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The recipe_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecipeId { get => _explicitNullValueRecipeId; set { _explicitNullValueRecipeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipe_id"); else _explicitNullProperties?.Remove("recipe_id"); } }
+        public string? RecipeId { get => _explicitNullValueRecipeId; set { _explicitNullValueRecipeId = value; AdditionalData?.Remove("recipe_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipe_id"); else _explicitNullProperties?.Remove("recipe_id"); } }
         private string? _explicitNullValueRecipeId = default!;
 #nullable restore
 #else
-        public string RecipeId { get => _explicitNullValueRecipeId; set { _explicitNullValueRecipeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipe_id"); else _explicitNullProperties?.Remove("recipe_id"); } }
+        public string RecipeId { get => _explicitNullValueRecipeId; set { _explicitNullValueRecipeId = value; AdditionalData?.Remove("recipe_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipe_id"); else _explicitNullProperties?.Remove("recipe_id"); } }
         private string _explicitNullValueRecipeId = default!;
 #endif
         /// <summary>

@@ -18,7 +18,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("disable") is { } nullNodeDisable && nullNodeDisable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disable = null;
+            if (parseNode.GetChildNode("disable") is null) { _explicitNullValueDisable = default!; _explicitNullProperties?.Remove("disable"); }
+            else if (parseNode.GetChildNode("disable") is { } nullNodeDisable && nullNodeDisable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disable = null;
         }
 
         /// <summary>These specific toolkits will be disabled</summary>

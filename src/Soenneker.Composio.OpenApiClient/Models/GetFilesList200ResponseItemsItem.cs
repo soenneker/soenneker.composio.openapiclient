@@ -17,11 +17,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
-            if (parseNode.GetChildNode("md5") is { } nullNodeMd5 && nullNodeMd5.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Md5 = null;
-            if (parseNode.GetChildNode("mimetype") is { } nullNodeMimetype && nullNodeMimetype.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mimetype = null;
-            if (parseNode.GetChildNode("toolkit_slug") is { } nullNodeToolkitSlug && nullNodeToolkitSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitSlug = null;
-            if (parseNode.GetChildNode("tool_slug") is { } nullNodeToolSlug && nullNodeToolSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolSlug = null;
+            if (parseNode.GetChildNode("filename") is null) { _explicitNullValueFilename = default!; _explicitNullProperties?.Remove("filename"); }
+            else if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
+            if (parseNode.GetChildNode("md5") is null) { _explicitNullValueMd5 = default!; _explicitNullProperties?.Remove("md5"); }
+            else if (parseNode.GetChildNode("md5") is { } nullNodeMd5 && nullNodeMd5.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Md5 = null;
+            if (parseNode.GetChildNode("mimetype") is null) { _explicitNullValueMimetype = default!; _explicitNullProperties?.Remove("mimetype"); }
+            else if (parseNode.GetChildNode("mimetype") is { } nullNodeMimetype && nullNodeMimetype.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mimetype = null;
+            if (parseNode.GetChildNode("toolkit_slug") is null) { _explicitNullValueToolkitSlug = default!; _explicitNullProperties?.Remove("toolkit_slug"); }
+            else if (parseNode.GetChildNode("toolkit_slug") is { } nullNodeToolkitSlug && nullNodeToolkitSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitSlug = null;
+            if (parseNode.GetChildNode("tool_slug") is null) { _explicitNullValueToolSlug = default!; _explicitNullProperties?.Remove("tool_slug"); }
+            else if (parseNode.GetChildNode("tool_slug") is { } nullNodeToolSlug && nullNodeToolSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Name of the original file. Example: &quot;document.docx&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; AdditionalData?.Remove("filename"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
         private string? _explicitNullValueFilename = default!;
 #nullable restore
 #else
-        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; AdditionalData?.Remove("filename"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
         private string _explicitNullValueFilename = default!;
 #endif
         /// <summary>MD5 hash of the file for integrity verification. Example: &quot;d41d8cd98f00b204e9800998ecf8427e&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Md5 { get => _explicitNullValueMd5; set { _explicitNullValueMd5 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("md5"); else _explicitNullProperties?.Remove("md5"); } }
+        public string? Md5 { get => _explicitNullValueMd5; set { _explicitNullValueMd5 = value; AdditionalData?.Remove("md5"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("md5"); else _explicitNullProperties?.Remove("md5"); } }
         private string? _explicitNullValueMd5 = default!;
 #nullable restore
 #else
-        public string Md5 { get => _explicitNullValueMd5; set { _explicitNullValueMd5 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("md5"); else _explicitNullProperties?.Remove("md5"); } }
+        public string Md5 { get => _explicitNullValueMd5; set { _explicitNullValueMd5 = value; AdditionalData?.Remove("md5"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("md5"); else _explicitNullProperties?.Remove("md5"); } }
         private string _explicitNullValueMd5 = default!;
 #endif
         /// <summary>Mime type of the original file. Example: &quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mimetype { get => _explicitNullValueMimetype; set { _explicitNullValueMimetype = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimetype"); else _explicitNullProperties?.Remove("mimetype"); } }
+        public string? Mimetype { get => _explicitNullValueMimetype; set { _explicitNullValueMimetype = value; AdditionalData?.Remove("mimetype"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimetype"); else _explicitNullProperties?.Remove("mimetype"); } }
         private string? _explicitNullValueMimetype = default!;
 #nullable restore
 #else
-        public string Mimetype { get => _explicitNullValueMimetype; set { _explicitNullValueMimetype = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimetype"); else _explicitNullProperties?.Remove("mimetype"); } }
+        public string Mimetype { get => _explicitNullValueMimetype; set { _explicitNullValueMimetype = value; AdditionalData?.Remove("mimetype"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimetype"); else _explicitNullProperties?.Remove("mimetype"); } }
         private string _explicitNullValueMimetype = default!;
 #endif
         /// <summary>Slug of the app where this file belongs to. Example: &quot;file-converter&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_slug"); else _explicitNullProperties?.Remove("toolkit_slug"); } }
+        public string? ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; AdditionalData?.Remove("toolkit_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_slug"); else _explicitNullProperties?.Remove("toolkit_slug"); } }
         private string? _explicitNullValueToolkitSlug = default!;
 #nullable restore
 #else
-        public string ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_slug"); else _explicitNullProperties?.Remove("toolkit_slug"); } }
+        public string ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; AdditionalData?.Remove("toolkit_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_slug"); else _explicitNullProperties?.Remove("toolkit_slug"); } }
         private string _explicitNullValueToolkitSlug = default!;
 #endif
         /// <summary>Slug of the action where this file belongs to. Example: &quot;convert-to-pdf&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolSlug { get => _explicitNullValueToolSlug; set { _explicitNullValueToolSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_slug"); else _explicitNullProperties?.Remove("tool_slug"); } }
+        public string? ToolSlug { get => _explicitNullValueToolSlug; set { _explicitNullValueToolSlug = value; AdditionalData?.Remove("tool_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_slug"); else _explicitNullProperties?.Remove("tool_slug"); } }
         private string? _explicitNullValueToolSlug = default!;
 #nullable restore
 #else
-        public string ToolSlug { get => _explicitNullValueToolSlug; set { _explicitNullValueToolSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_slug"); else _explicitNullProperties?.Remove("tool_slug"); } }
+        public string ToolSlug { get => _explicitNullValueToolSlug; set { _explicitNullValueToolSlug = value; AdditionalData?.Remove("tool_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_slug"); else _explicitNullProperties?.Remove("tool_slug"); } }
         private string _explicitNullValueToolSlug = default!;
 #endif
         /// <summary>

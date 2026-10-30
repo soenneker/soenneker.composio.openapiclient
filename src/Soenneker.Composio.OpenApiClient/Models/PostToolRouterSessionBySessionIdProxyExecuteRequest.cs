@@ -17,13 +17,20 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("binary_body") is { } nullNodeBinaryBody && nullNodeBinaryBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BinaryBody = null;
-            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
-            if (parseNode.GetChildNode("custom_connection_data") is { } nullNodeCustomConnectionData && nullNodeCustomConnectionData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomConnectionData = null;
-            if (parseNode.GetChildNode("endpoint") is { } nullNodeEndpoint && nullNodeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Endpoint = null;
-            if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
-            if (parseNode.GetChildNode("parameters") is { } nullNodeParameters && nullNodeParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parameters = null;
-            if (parseNode.GetChildNode("toolkit_slug") is { } nullNodeToolkitSlug && nullNodeToolkitSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitSlug = null;
+            if (parseNode.GetChildNode("binary_body") is null) { _explicitNullValueBinaryBody = default!; _explicitNullProperties?.Remove("binary_body"); }
+            else if (parseNode.GetChildNode("binary_body") is { } nullNodeBinaryBody && nullNodeBinaryBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BinaryBody = null;
+            if (parseNode.GetChildNode("body") is null) { _explicitNullValueBody = default!; _explicitNullProperties?.Remove("body"); }
+            else if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("custom_connection_data") is null) { _explicitNullValueCustomConnectionData = default!; _explicitNullProperties?.Remove("custom_connection_data"); }
+            else if (parseNode.GetChildNode("custom_connection_data") is { } nullNodeCustomConnectionData && nullNodeCustomConnectionData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomConnectionData = null;
+            if (parseNode.GetChildNode("endpoint") is null) { _explicitNullValueEndpoint = default!; _explicitNullProperties?.Remove("endpoint"); }
+            else if (parseNode.GetChildNode("endpoint") is { } nullNodeEndpoint && nullNodeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Endpoint = null;
+            if (parseNode.GetChildNode("method") is null) { _explicitNullValueMethod = default!; _explicitNullProperties?.Remove("method"); }
+            else if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
+            if (parseNode.GetChildNode("parameters") is null) { _explicitNullValueParameters = default!; _explicitNullProperties?.Remove("parameters"); }
+            else if (parseNode.GetChildNode("parameters") is { } nullNodeParameters && nullNodeParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parameters = null;
+            if (parseNode.GetChildNode("toolkit_slug") is null) { _explicitNullValueToolkitSlug = default!; _explicitNullProperties?.Remove("toolkit_slug"); }
+            else if (parseNode.GetChildNode("toolkit_slug") is { } nullNodeToolkitSlug && nullNodeToolkitSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitSlug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,65 +38,65 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Binary body to send. For binary upload via URL: use {url: &quot;https://...&quot;, content_type?: &quot;...&quot;}. For binary upload via base64: use {base64: &quot;...&quot;, content_type?: &quot;...&quot;}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestBinaryBody? BinaryBody { get => _explicitNullValueBinaryBody; set { _explicitNullValueBinaryBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_body"); else _explicitNullProperties?.Remove("binary_body"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestBinaryBody? BinaryBody { get => _explicitNullValueBinaryBody; set { _explicitNullValueBinaryBody = value; AdditionalData?.Remove("binary_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_body"); else _explicitNullProperties?.Remove("binary_body"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestBinaryBody? _explicitNullValueBinaryBody = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestBinaryBody BinaryBody { get => _explicitNullValueBinaryBody; set { _explicitNullValueBinaryBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_body"); else _explicitNullProperties?.Remove("binary_body"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestBinaryBody BinaryBody { get => _explicitNullValueBinaryBody; set { _explicitNullValueBinaryBody = value; AdditionalData?.Remove("binary_body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("binary_body"); else _explicitNullProperties?.Remove("binary_body"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestBinaryBody _explicitNullValueBinaryBody = default!;
 #endif
         /// <summary>The request body (for POST, PUT, and PATCH requests)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public UntypedNode? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private UntypedNode? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public UntypedNode Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public UntypedNode Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private UntypedNode _explicitNullValueBody = default!;
 #endif
         /// <summary>The custom_connection_data property</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData? CustomConnectionData { get => _explicitNullValueCustomConnectionData; set { _explicitNullValueCustomConnectionData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_connection_data"); else _explicitNullProperties?.Remove("custom_connection_data"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData? CustomConnectionData { get => _explicitNullValueCustomConnectionData; set { _explicitNullValueCustomConnectionData = value; AdditionalData?.Remove("custom_connection_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_connection_data"); else _explicitNullProperties?.Remove("custom_connection_data"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData? _explicitNullValueCustomConnectionData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData CustomConnectionData { get => _explicitNullValueCustomConnectionData; set { _explicitNullValueCustomConnectionData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_connection_data"); else _explicitNullProperties?.Remove("custom_connection_data"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData CustomConnectionData { get => _explicitNullValueCustomConnectionData; set { _explicitNullValueCustomConnectionData = value; AdditionalData?.Remove("custom_connection_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_connection_data"); else _explicitNullProperties?.Remove("custom_connection_data"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData _explicitNullValueCustomConnectionData = default!;
 #endif
         /// <summary>The API endpoint to call (absolute URL or path relative to base URL of the connected account)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
+        public string? Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; AdditionalData?.Remove("endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
         private string? _explicitNullValueEndpoint = default!;
 #nullable restore
 #else
-        public string Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
+        public string Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; AdditionalData?.Remove("endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
         private string _explicitNullValueEndpoint = default!;
 #endif
         /// <summary>The HTTP method to use for the request</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestMethod? _explicitNullValueMethod = default!;
         /// <summary>Additional HTTP headers or query parameters to include in the request</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestParametersItem>? Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestParametersItem>? Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; AdditionalData?.Remove("parameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestParametersItem>? _explicitNullValueParameters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestParametersItem> Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestParametersItem> Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; AdditionalData?.Remove("parameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestParametersItem> _explicitNullValueParameters = default!;
 #endif
         /// <summary>The slug of the toolkit to use for the request</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_slug"); else _explicitNullProperties?.Remove("toolkit_slug"); } }
+        public string? ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; AdditionalData?.Remove("toolkit_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_slug"); else _explicitNullProperties?.Remove("toolkit_slug"); } }
         private string? _explicitNullValueToolkitSlug = default!;
 #nullable restore
 #else
-        public string ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_slug"); else _explicitNullProperties?.Remove("toolkit_slug"); } }
+        public string ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; AdditionalData?.Remove("toolkit_slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_slug"); else _explicitNullProperties?.Remove("toolkit_slug"); } }
         private string _explicitNullValueToolkitSlug = default!;
 #endif
         /// <summary>
@@ -121,7 +128,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "body", n => { Body = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "custom_connection_data", n => { CustomConnectionData = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData.CreateFromDiscriminatorValue); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
-                { "method", n => { Method = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestMethod>(); } },
+                { "method", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMethod = default; _explicitNullProperties?.Remove("method"); AdditionalData["method"] = unknown; } else { Method = parsed; AdditionalData.Remove("method"); } } },
                 { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestParametersItem>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestParametersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "toolkit_slug", n => { ToolkitSlug = n.GetStringValue(); } },
             };

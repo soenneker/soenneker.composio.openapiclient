@@ -17,8 +17,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("proxy_auth_key") is { } nullNodeProxyAuthKey && nullNodeProxyAuthKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyAuthKey = null;
-            if (parseNode.GetChildNode("proxy_url") is { } nullNodeProxyUrl && nullNodeProxyUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyUrl = null;
+            if (parseNode.GetChildNode("proxy_auth_key") is null) { _explicitNullValueProxyAuthKey = default!; _explicitNullProperties?.Remove("proxy_auth_key"); }
+            else if (parseNode.GetChildNode("proxy_auth_key") is { } nullNodeProxyAuthKey && nullNodeProxyAuthKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyAuthKey = null;
+            if (parseNode.GetChildNode("proxy_url") is null) { _explicitNullValueProxyUrl = default!; _explicitNullProperties?.Remove("proxy_url"); }
+            else if (parseNode.GetChildNode("proxy_url") is { } nullNodeProxyUrl && nullNodeProxyUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The auth key for the auth proxy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProxyAuthKey { get => _explicitNullValueProxyAuthKey; set { _explicitNullValueProxyAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_auth_key"); else _explicitNullProperties?.Remove("proxy_auth_key"); } }
+        public string? ProxyAuthKey { get => _explicitNullValueProxyAuthKey; set { _explicitNullValueProxyAuthKey = value; AdditionalData?.Remove("proxy_auth_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_auth_key"); else _explicitNullProperties?.Remove("proxy_auth_key"); } }
         private string? _explicitNullValueProxyAuthKey = default!;
 #nullable restore
 #else
-        public string ProxyAuthKey { get => _explicitNullValueProxyAuthKey; set { _explicitNullValueProxyAuthKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_auth_key"); else _explicitNullProperties?.Remove("proxy_auth_key"); } }
+        public string ProxyAuthKey { get => _explicitNullValueProxyAuthKey; set { _explicitNullValueProxyAuthKey = value; AdditionalData?.Remove("proxy_auth_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_auth_key"); else _explicitNullProperties?.Remove("proxy_auth_key"); } }
         private string _explicitNullValueProxyAuthKey = default!;
 #endif
         /// <summary>The url of the auth proxy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProxyUrl { get => _explicitNullValueProxyUrl; set { _explicitNullValueProxyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_url"); else _explicitNullProperties?.Remove("proxy_url"); } }
+        public string? ProxyUrl { get => _explicitNullValueProxyUrl; set { _explicitNullValueProxyUrl = value; AdditionalData?.Remove("proxy_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_url"); else _explicitNullProperties?.Remove("proxy_url"); } }
         private string? _explicitNullValueProxyUrl = default!;
 #nullable restore
 #else
-        public string ProxyUrl { get => _explicitNullValueProxyUrl; set { _explicitNullValueProxyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_url"); else _explicitNullProperties?.Remove("proxy_url"); } }
+        public string ProxyUrl { get => _explicitNullValueProxyUrl; set { _explicitNullValueProxyUrl = value; AdditionalData?.Remove("proxy_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_url"); else _explicitNullProperties?.Remove("proxy_url"); } }
         private string _explicitNullValueProxyUrl = default!;
 #endif
         /// <summary>

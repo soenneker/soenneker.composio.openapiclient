@@ -18,9 +18,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("current_time_utc") is { } nullNodeCurrentTimeUtc && nullNodeCurrentTimeUtc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentTimeUtc = null;
-            if (parseNode.GetChildNode("current_time_utc_epoch_seconds") is { } nullNodeCurrentTimeUtcEpochSeconds && nullNodeCurrentTimeUtcEpochSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentTimeUtcEpochSeconds = null;
-            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("current_time_utc") is null) { _explicitNullValueCurrentTimeUtc = default!; _explicitNullProperties?.Remove("current_time_utc"); }
+            else if (parseNode.GetChildNode("current_time_utc") is { } nullNodeCurrentTimeUtc && nullNodeCurrentTimeUtc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentTimeUtc = null;
+            if (parseNode.GetChildNode("current_time_utc_epoch_seconds") is null) { _explicitNullValueCurrentTimeUtcEpochSeconds = default!; _explicitNullProperties?.Remove("current_time_utc_epoch_seconds"); }
+            else if (parseNode.GetChildNode("current_time_utc_epoch_seconds") is { } nullNodeCurrentTimeUtcEpochSeconds && nullNodeCurrentTimeUtcEpochSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentTimeUtcEpochSeconds = null;
+            if (parseNode.GetChildNode("message") is null) { _explicitNullValueMessage = default!; _explicitNullProperties?.Remove("message"); }
+            else if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,24 +31,24 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Current time in ISO format (UTC)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentTimeUtc { get => _explicitNullValueCurrentTimeUtc; set { _explicitNullValueCurrentTimeUtc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_time_utc"); else _explicitNullProperties?.Remove("current_time_utc"); } }
+        public string? CurrentTimeUtc { get => _explicitNullValueCurrentTimeUtc; set { _explicitNullValueCurrentTimeUtc = value; AdditionalData?.Remove("current_time_utc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_time_utc"); else _explicitNullProperties?.Remove("current_time_utc"); } }
         private string? _explicitNullValueCurrentTimeUtc = default!;
 #nullable restore
 #else
-        public string CurrentTimeUtc { get => _explicitNullValueCurrentTimeUtc; set { _explicitNullValueCurrentTimeUtc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_time_utc"); else _explicitNullProperties?.Remove("current_time_utc"); } }
+        public string CurrentTimeUtc { get => _explicitNullValueCurrentTimeUtc; set { _explicitNullValueCurrentTimeUtc = value; AdditionalData?.Remove("current_time_utc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_time_utc"); else _explicitNullProperties?.Remove("current_time_utc"); } }
         private string _explicitNullValueCurrentTimeUtc = default!;
 #endif
         /// <summary>Current time as Unix epoch timestamp in seconds</summary>
-        public double? CurrentTimeUtcEpochSeconds { get => _explicitNullValueCurrentTimeUtcEpochSeconds; set { _explicitNullValueCurrentTimeUtcEpochSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_time_utc_epoch_seconds"); else _explicitNullProperties?.Remove("current_time_utc_epoch_seconds"); } }
+        public double? CurrentTimeUtcEpochSeconds { get => _explicitNullValueCurrentTimeUtcEpochSeconds; set { _explicitNullValueCurrentTimeUtcEpochSeconds = value; AdditionalData?.Remove("current_time_utc_epoch_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_time_utc_epoch_seconds"); else _explicitNullProperties?.Remove("current_time_utc_epoch_seconds"); } }
         private double? _explicitNullValueCurrentTimeUtcEpochSeconds = default!;
         /// <summary>Important message about time handling and timezone considerations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public string? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private string? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public string Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private string _explicitNullValueMessage = default!;
 #endif
         /// <summary>

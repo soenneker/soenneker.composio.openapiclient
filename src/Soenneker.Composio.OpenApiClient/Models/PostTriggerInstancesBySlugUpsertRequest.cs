@@ -17,14 +17,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connected_account_id") is { } nullNodeConnectedAccountId && nullNodeConnectedAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountId = null;
-            if (parseNode.GetChildNode("connectedAuthId") is { } nullNodeConnectedAuthId && nullNodeConnectedAuthId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAuthId = null;
-            if (parseNode.GetChildNode("egress_url") is { } nullNodeEgressUrl && nullNodeEgressUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EgressUrl = null;
-            if (parseNode.GetChildNode("toolkit_versions") is { } nullNodeToolkitVersions && nullNodeToolkitVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitVersions = null;
-            if (parseNode.GetChildNode("trigger_config") is { } nullNodeTrigger_config && nullNodeTrigger_config.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trigger_config = null;
-            if (parseNode.GetChildNode("triggerConfig") is { } nullNodeTriggerConfig && nullNodeTriggerConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerConfig = null;
-            if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
-            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("connected_account_id") is null) { _explicitNullValueConnectedAccountId = default!; _explicitNullProperties?.Remove("connected_account_id"); }
+            else if (parseNode.GetChildNode("connected_account_id") is { } nullNodeConnectedAccountId && nullNodeConnectedAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAccountId = null;
+            if (parseNode.GetChildNode("connectedAuthId") is null) { _explicitNullValueConnectedAuthId = default!; _explicitNullProperties?.Remove("connectedAuthId"); }
+            else if (parseNode.GetChildNode("connectedAuthId") is { } nullNodeConnectedAuthId && nullNodeConnectedAuthId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAuthId = null;
+            if (parseNode.GetChildNode("egress_url") is null) { _explicitNullValueEgressUrl = default!; _explicitNullProperties?.Remove("egress_url"); }
+            else if (parseNode.GetChildNode("egress_url") is { } nullNodeEgressUrl && nullNodeEgressUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EgressUrl = null;
+            if (parseNode.GetChildNode("toolkit_versions") is null) { _explicitNullValueToolkitVersions = default!; _explicitNullProperties?.Remove("toolkit_versions"); }
+            else if (parseNode.GetChildNode("toolkit_versions") is { } nullNodeToolkitVersions && nullNodeToolkitVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitVersions = null;
+            if (parseNode.GetChildNode("trigger_config") is null) { _explicitNullValueTrigger_config = default!; _explicitNullProperties?.Remove("trigger_config"); }
+            else if (parseNode.GetChildNode("trigger_config") is { } nullNodeTrigger_config && nullNodeTrigger_config.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trigger_config = null;
+            if (parseNode.GetChildNode("triggerConfig") is null) { _explicitNullValueTriggerConfig = default!; _explicitNullProperties?.Remove("triggerConfig"); }
+            else if (parseNode.GetChildNode("triggerConfig") is { } nullNodeTriggerConfig && nullNodeTriggerConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerConfig = null;
+            if (parseNode.GetChildNode("user_id") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("user_id"); }
+            else if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("version") is null) { _explicitNullValueVersion = default!; _explicitNullProperties?.Remove("version"); }
+            else if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,84 +40,84 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Connected account nanoid. Optional when user_id is provided — the first active connection for that user and the trigger&apos;s toolkit is auto-resolved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
+        public string? ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; AdditionalData?.Remove("connected_account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
         private string? _explicitNullValueConnectedAccountId = default!;
 #nullable restore
 #else
-        public string ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
+        public string ConnectedAccountId { get => _explicitNullValueConnectedAccountId; set { _explicitNullValueConnectedAccountId = value; AdditionalData?.Remove("connected_account_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_account_id"); else _explicitNullProperties?.Remove("connected_account_id"); } }
         private string _explicitNullValueConnectedAccountId = default!;
 #endif
         /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectedAuthId { get => _explicitNullValueConnectedAuthId; set { _explicitNullValueConnectedAuthId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedAuthId"); else _explicitNullProperties?.Remove("connectedAuthId"); } }
+        public string? ConnectedAuthId { get => _explicitNullValueConnectedAuthId; set { _explicitNullValueConnectedAuthId = value; AdditionalData?.Remove("connectedAuthId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedAuthId"); else _explicitNullProperties?.Remove("connectedAuthId"); } }
         private string? _explicitNullValueConnectedAuthId = default!;
 #nullable restore
 #else
-        public string ConnectedAuthId { get => _explicitNullValueConnectedAuthId; set { _explicitNullValueConnectedAuthId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedAuthId"); else _explicitNullProperties?.Remove("connectedAuthId"); } }
+        public string ConnectedAuthId { get => _explicitNullValueConnectedAuthId; set { _explicitNullValueConnectedAuthId = value; AdditionalData?.Remove("connectedAuthId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectedAuthId"); else _explicitNullProperties?.Remove("connectedAuthId"); } }
         private string _explicitNullValueConnectedAuthId = default!;
 #endif
         /// <summary>Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EgressUrl { get => _explicitNullValueEgressUrl; set { _explicitNullValueEgressUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_url"); else _explicitNullProperties?.Remove("egress_url"); } }
+        public string? EgressUrl { get => _explicitNullValueEgressUrl; set { _explicitNullValueEgressUrl = value; AdditionalData?.Remove("egress_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_url"); else _explicitNullProperties?.Remove("egress_url"); } }
         private string? _explicitNullValueEgressUrl = default!;
 #nullable restore
 #else
-        public string EgressUrl { get => _explicitNullValueEgressUrl; set { _explicitNullValueEgressUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_url"); else _explicitNullProperties?.Remove("egress_url"); } }
+        public string EgressUrl { get => _explicitNullValueEgressUrl; set { _explicitNullValueEgressUrl = value; AdditionalData?.Remove("egress_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_url"); else _explicitNullProperties?.Remove("egress_url"); } }
         private string _explicitNullValueEgressUrl = default!;
 #endif
         /// <summary>Toolkit version specification. Supports &quot;latest&quot; string or a record mapping toolkit slugs to specific versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions? ToolkitVersions { get => _explicitNullValueToolkitVersions; set { _explicitNullValueToolkitVersions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_versions"); else _explicitNullProperties?.Remove("toolkit_versions"); } }
-        private global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions? _explicitNullValueToolkitVersions = default!;
+        public UntypedNode? ToolkitVersions { get => _explicitNullValueToolkitVersions; set { _explicitNullValueToolkitVersions = value; AdditionalData?.Remove("toolkit_versions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_versions"); else _explicitNullProperties?.Remove("toolkit_versions"); } }
+        private UntypedNode? _explicitNullValueToolkitVersions = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions ToolkitVersions { get => _explicitNullValueToolkitVersions; set { _explicitNullValueToolkitVersions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_versions"); else _explicitNullProperties?.Remove("toolkit_versions"); } }
-        private global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions _explicitNullValueToolkitVersions = default!;
+        public UntypedNode ToolkitVersions { get => _explicitNullValueToolkitVersions; set { _explicitNullValueToolkitVersions = value; AdditionalData?.Remove("toolkit_versions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_versions"); else _explicitNullProperties?.Remove("toolkit_versions"); } }
+        private UntypedNode _explicitNullValueToolkitVersions = default!;
 #endif
         /// <summary>Trigger configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty? Trigger_config { get => _explicitNullValueTrigger_config; set { _explicitNullValueTrigger_config = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty? Trigger_config { get => _explicitNullValueTrigger_config; set { _explicitNullValueTrigger_config = value; AdditionalData?.Remove("trigger_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty? _explicitNullValueTrigger_config = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty Trigger_config { get => _explicitNullValueTrigger_config; set { _explicitNullValueTrigger_config = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty Trigger_config { get => _explicitNullValueTrigger_config; set { _explicitNullValueTrigger_config = value; AdditionalData?.Remove("trigger_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty _explicitNullValueTrigger_config = default!;
 #endif
         /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig? TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerConfig"); else _explicitNullProperties?.Remove("triggerConfig"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig? TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; AdditionalData?.Remove("triggerConfig"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerConfig"); else _explicitNullProperties?.Remove("triggerConfig"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig? _explicitNullValueTriggerConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerConfig"); else _explicitNullProperties?.Remove("triggerConfig"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; AdditionalData?.Remove("triggerConfig"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerConfig"); else _explicitNullProperties?.Remove("triggerConfig"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig _explicitNullValueTriggerConfig = default!;
 #endif
         /// <summary>The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger&apos;s toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided, user_id is checked against that connection: always against a SHARED connection&apos;s ACL (user_id is then required), and against a PRIVATE connection&apos;s owner when the project has 2FA enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
         private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("user_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
         private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>DEPRECATED: This parameter will be removed in a future version. Please use toolkit_versions instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private string? _explicitNullValueVersion = default!;
 #nullable restore
 #else
-        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; AdditionalData?.Remove("version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
         private string _explicitNullValueVersion = default!;
 #endif
         /// <summary>
@@ -140,7 +148,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "connected_account_id", n => { ConnectedAccountId = n.GetStringValue(); } },
                 { "connectedAuthId", n => { ConnectedAuthId = n.GetStringValue(); } },
                 { "egress_url", n => { EgressUrl = n.GetStringValue(); } },
-                { "toolkit_versions", n => { ToolkitVersions = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions.CreateFromDiscriminatorValue); } },
+                { "toolkit_versions", n => { ToolkitVersions = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "triggerConfig", n => { TriggerConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig.CreateFromDiscriminatorValue); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
@@ -157,7 +165,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("connected_account_id", ConnectedAccountId);
             writer.WriteStringValue("connectedAuthId", ConnectedAuthId);
             writer.WriteStringValue("egress_url", EgressUrl);
-            writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestToolkitVersions>("toolkit_versions", ToolkitVersions);
+            writer.WriteObjectValue<UntypedNode>("toolkit_versions", ToolkitVersions);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty>("trigger_config", Trigger_config);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig>("triggerConfig", TriggerConfig);
             writer.WriteStringValue("user_id", UserId);

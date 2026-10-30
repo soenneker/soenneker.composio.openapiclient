@@ -18,7 +18,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("generic_id") is { } nullNodeGenericId && nullNodeGenericId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenericId = null;
+            if (parseNode.GetChildNode("generic_id") is null) { _explicitNullValueGenericId = default!; _explicitNullProperties?.Remove("generic_id"); }
+            else if (parseNode.GetChildNode("generic_id") is { } nullNodeGenericId && nullNodeGenericId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenericId = null;
         }
 
         /// <summary>The generic_id property</summary>

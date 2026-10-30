@@ -19,7 +19,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("toolkitId") is { } nullNodeToolkitId && nullNodeToolkitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitId = null;
+            if (parseNode.GetChildNode("toolkitId") is null) { _explicitNullValueToolkitId = default!; _explicitNullProperties?.Remove("toolkitId"); }
+            else if (parseNode.GetChildNode("toolkitId") is { } nullNodeToolkitId && nullNodeToolkitId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,11 +28,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The toolkitId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolkitId { get => _explicitNullValueToolkitId; set { _explicitNullValueToolkitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitId"); else _explicitNullProperties?.Remove("toolkitId"); } }
+        public string? ToolkitId { get => _explicitNullValueToolkitId; set { _explicitNullValueToolkitId = value; AdditionalData?.Remove("toolkitId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitId"); else _explicitNullProperties?.Remove("toolkitId"); } }
         private string? _explicitNullValueToolkitId = default!;
 #nullable restore
 #else
-        public string ToolkitId { get => _explicitNullValueToolkitId; set { _explicitNullValueToolkitId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitId"); else _explicitNullProperties?.Remove("toolkitId"); } }
+        public string ToolkitId { get => _explicitNullValueToolkitId; set { _explicitNullValueToolkitId = value; AdditionalData?.Remove("toolkitId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitId"); else _explicitNullProperties?.Remove("toolkitId"); } }
         private string _explicitNullValueToolkitId = default!;
 #endif
         /// <summary>

@@ -47,10 +47,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
             
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("url") != null))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("base64") != null))();
-            if (result.PostToolsExecuteProxyRequestBinaryBodyAnyOf1 == null && result.PostToolsExecuteProxyRequestBinaryBodyAnyOf2 == null && matchesUnionBranch0 && !matchesUnionBranch1) result.PostToolsExecuteProxyRequestBinaryBodyAnyOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBodyAnyOf1(), parseNode);
-            if (result.PostToolsExecuteProxyRequestBinaryBodyAnyOf1 == null && result.PostToolsExecuteProxyRequestBinaryBodyAnyOf2 == null && matchesUnionBranch1 && !matchesUnionBranch0) result.PostToolsExecuteProxyRequestBinaryBodyAnyOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBodyAnyOf2(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("url") && (!shapeMembers1.ContainsKey("url") || (((shapeMembers1["url"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("content_type") || (((shapeMembers1["content_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("base64") && (!shapeMembers1.ContainsKey("base64") || (((shapeMembers1["base64"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("content_type") || (((shapeMembers1["content_type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.PostToolsExecuteProxyRequestBinaryBodyAnyOf1 == null && result.PostToolsExecuteProxyRequestBinaryBodyAnyOf2 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.PostToolsExecuteProxyRequestBinaryBodyAnyOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBodyAnyOf1(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.PostToolsExecuteProxyRequestBinaryBodyAnyOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBodyAnyOf2(), parseNode);
             if (result.PostToolsExecuteProxyRequestBinaryBodyAnyOf1 == null && result.PostToolsExecuteProxyRequestBinaryBodyAnyOf2 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -60,6 +64,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(PostToolsExecuteProxyRequestBinaryBodyAnyOf1 != null || PostToolsExecuteProxyRequestBinaryBodyAnyOf2 != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostToolsExecuteProxyRequestBinaryBodyAnyOf1, PostToolsExecuteProxyRequestBinaryBodyAnyOf2);
@@ -74,8 +80,11 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (PostToolsExecuteProxyRequestBinaryBodyAnyOf1 == null && PostToolsExecuteProxyRequestBinaryBodyAnyOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (PostToolsExecuteProxyRequestBinaryBodyAnyOf1 != null && PostToolsExecuteProxyRequestBinaryBodyAnyOf2 == null) { if (PostToolsExecuteProxyRequestBinaryBodyAnyOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PostToolsExecuteProxyRequestBinaryBodyAnyOf1); return; }
-            if (PostToolsExecuteProxyRequestBinaryBodyAnyOf2 != null && PostToolsExecuteProxyRequestBinaryBodyAnyOf1 == null) { if (PostToolsExecuteProxyRequestBinaryBodyAnyOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PostToolsExecuteProxyRequestBinaryBodyAnyOf2); return; }
+            int selectedUnionBranches = 0;
+            if (PostToolsExecuteProxyRequestBinaryBodyAnyOf1 != null) selectedUnionBranches++;
+            if (PostToolsExecuteProxyRequestBinaryBodyAnyOf2 != null) selectedUnionBranches++;
+            if (PostToolsExecuteProxyRequestBinaryBodyAnyOf1 != null && selectedUnionBranches == 1) { if (PostToolsExecuteProxyRequestBinaryBodyAnyOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PostToolsExecuteProxyRequestBinaryBodyAnyOf1); return; }
+            if (PostToolsExecuteProxyRequestBinaryBodyAnyOf2 != null && selectedUnionBranches == 1) { if (PostToolsExecuteProxyRequestBinaryBodyAnyOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PostToolsExecuteProxyRequestBinaryBodyAnyOf2); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestBinaryBodyAnyOf1>(null, PostToolsExecuteProxyRequestBinaryBodyAnyOf1, PostToolsExecuteProxyRequestBinaryBodyAnyOf2);

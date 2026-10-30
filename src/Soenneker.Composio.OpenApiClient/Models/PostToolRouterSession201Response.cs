@@ -17,13 +17,20 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
-            if (parseNode.GetChildNode("config_version") is { } nullNodeConfigVersion && nullNodeConfigVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfigVersion = null;
-            if (parseNode.GetChildNode("experimental") is { } nullNodeExperimental && nullNodeExperimental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Experimental = null;
-            if (parseNode.GetChildNode("mcp") is { } nullNodeMcp && nullNodeMcp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mcp = null;
-            if (parseNode.GetChildNode("session_id") is { } nullNodeSessionId && nullNodeSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionId = null;
-            if (parseNode.GetChildNode("tool_router_tools") is { } nullNodeToolRouterTools && nullNodeToolRouterTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolRouterTools = null;
-            if (parseNode.GetChildNode("warnings") is { } nullNodeWarnings && nullNodeWarnings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warnings = null;
+            if (parseNode.GetChildNode("config") is null) { _explicitNullValueConfig = default!; _explicitNullProperties?.Remove("config"); }
+            else if (parseNode.GetChildNode("config") is { } nullNodeConfig && nullNodeConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Config = null;
+            if (parseNode.GetChildNode("config_version") is null) { _explicitNullValueConfigVersion = default!; _explicitNullProperties?.Remove("config_version"); }
+            else if (parseNode.GetChildNode("config_version") is { } nullNodeConfigVersion && nullNodeConfigVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConfigVersion = null;
+            if (parseNode.GetChildNode("experimental") is null) { _explicitNullValueExperimental = default!; _explicitNullProperties?.Remove("experimental"); }
+            else if (parseNode.GetChildNode("experimental") is { } nullNodeExperimental && nullNodeExperimental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Experimental = null;
+            if (parseNode.GetChildNode("mcp") is null) { _explicitNullValueMcp = default!; _explicitNullProperties?.Remove("mcp"); }
+            else if (parseNode.GetChildNode("mcp") is { } nullNodeMcp && nullNodeMcp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mcp = null;
+            if (parseNode.GetChildNode("session_id") is null) { _explicitNullValueSessionId = default!; _explicitNullProperties?.Remove("session_id"); }
+            else if (parseNode.GetChildNode("session_id") is { } nullNodeSessionId && nullNodeSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionId = null;
+            if (parseNode.GetChildNode("tool_router_tools") is null) { _explicitNullValueToolRouterTools = default!; _explicitNullProperties?.Remove("tool_router_tools"); }
+            else if (parseNode.GetChildNode("tool_router_tools") is { } nullNodeToolRouterTools && nullNodeToolRouterTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolRouterTools = null;
+            if (parseNode.GetChildNode("warnings") is null) { _explicitNullValueWarnings = default!; _explicitNullProperties?.Remove("warnings"); }
+            else if (parseNode.GetChildNode("warnings") is { } nullNodeWarnings && nullNodeWarnings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warnings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,64 +38,64 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The session configuration including user, toolkits, and overrides</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfig? _explicitNullValueConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfig Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfig _explicitNullValueConfig = default!;
 #endif
         /// <summary>Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control.</summary>
-        public int? ConfigVersion { get => _explicitNullValueConfigVersion; set { _explicitNullValueConfigVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config_version"); else _explicitNullProperties?.Remove("config_version"); } }
+        public int? ConfigVersion { get => _explicitNullValueConfigVersion; set { _explicitNullValueConfigVersion = value; AdditionalData?.Remove("config_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config_version"); else _explicitNullProperties?.Remove("config_version"); } }
         private int? _explicitNullValueConfigVersion = default!;
         /// <summary>Experimental features including the generated system prompt. Only returned on session creation, not on GET.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseExperimental? Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseExperimental? Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; AdditionalData?.Remove("experimental"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseExperimental? _explicitNullValueExperimental = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseExperimental Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseExperimental Experimental { get => _explicitNullValueExperimental; set { _explicitNullValueExperimental = value; AdditionalData?.Remove("experimental"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experimental"); else _explicitNullProperties?.Remove("experimental"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseExperimental _explicitNullValueExperimental = default!;
 #endif
         /// <summary>The mcp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseMcp? Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseMcp? Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; AdditionalData?.Remove("mcp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseMcp? _explicitNullValueMcp = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseMcp Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseMcp Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; AdditionalData?.Remove("mcp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseMcp _explicitNullValueMcp = default!;
 #endif
         /// <summary>The identifier of the session</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        public string? SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; AdditionalData?.Remove("session_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
         private string? _explicitNullValueSessionId = default!;
 #nullable restore
 #else
-        public string SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
+        public string SessionId { get => _explicitNullValueSessionId; set { _explicitNullValueSessionId = value; AdditionalData?.Remove("session_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_id"); else _explicitNullProperties?.Remove("session_id"); } }
         private string _explicitNullValueSessionId = default!;
 #endif
         /// <summary>List of available tools in this session</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ToolRouterTools { get => _explicitNullValueToolRouterTools; set { _explicitNullValueToolRouterTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_router_tools"); else _explicitNullProperties?.Remove("tool_router_tools"); } }
+        public List<string>? ToolRouterTools { get => _explicitNullValueToolRouterTools; set { _explicitNullValueToolRouterTools = value; AdditionalData?.Remove("tool_router_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_router_tools"); else _explicitNullProperties?.Remove("tool_router_tools"); } }
         private List<string>? _explicitNullValueToolRouterTools = default!;
 #nullable restore
 #else
-        public List<string> ToolRouterTools { get => _explicitNullValueToolRouterTools; set { _explicitNullValueToolRouterTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_router_tools"); else _explicitNullProperties?.Remove("tool_router_tools"); } }
+        public List<string> ToolRouterTools { get => _explicitNullValueToolRouterTools; set { _explicitNullValueToolRouterTools = value; AdditionalData?.Remove("tool_router_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_router_tools"); else _explicitNullProperties?.Remove("tool_router_tools"); } }
         private List<string> _explicitNullValueToolRouterTools = default!;
 #endif
         /// <summary>Advisory list — the session exists and is usable, but the listed issues may warrant attention.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseWarningsItem>? Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseWarningsItem>? Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; AdditionalData?.Remove("warnings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseWarningsItem>? _explicitNullValueWarnings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseWarningsItem> Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseWarningsItem> Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; AdditionalData?.Remove("warnings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseWarningsItem> _explicitNullValueWarnings = default!;
 #endif
         /// <summary>

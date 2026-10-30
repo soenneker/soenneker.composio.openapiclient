@@ -17,10 +17,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auth_scheme") is { } nullNodeAuthScheme && nullNodeAuthScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthScheme = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("is_composio_managed") is { } nullNodeIsComposioManaged && nullNodeIsComposioManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsComposioManaged = null;
-            if (parseNode.GetChildNode("restrict_to_following_tools") is { } nullNodeRestrictToFollowingTools && nullNodeRestrictToFollowingTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictToFollowingTools = null;
+            if (parseNode.GetChildNode("auth_scheme") is null) { _explicitNullValueAuthScheme = default!; _explicitNullProperties?.Remove("auth_scheme"); }
+            else if (parseNode.GetChildNode("auth_scheme") is { } nullNodeAuthScheme && nullNodeAuthScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthScheme = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("is_composio_managed") is null) { _explicitNullValueIsComposioManaged = default!; _explicitNullProperties?.Remove("is_composio_managed"); }
+            else if (parseNode.GetChildNode("is_composio_managed") is { } nullNodeIsComposioManaged && nullNodeIsComposioManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsComposioManaged = null;
+            if (parseNode.GetChildNode("restrict_to_following_tools") is null) { _explicitNullValueRestrictToFollowingTools = default!; _explicitNullProperties?.Remove("restrict_to_following_tools"); }
+            else if (parseNode.GetChildNode("restrict_to_following_tools") is { } nullNodeRestrictToFollowingTools && nullNodeRestrictToFollowingTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictToFollowingTools = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The authentication mode of the toolkit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_scheme"); else _explicitNullProperties?.Remove("auth_scheme"); } }
+        public string? AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; AdditionalData?.Remove("auth_scheme"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_scheme"); else _explicitNullProperties?.Remove("auth_scheme"); } }
         private string? _explicitNullValueAuthScheme = default!;
 #nullable restore
 #else
-        public string AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_scheme"); else _explicitNullProperties?.Remove("auth_scheme"); } }
+        public string AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; AdditionalData?.Remove("auth_scheme"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_scheme"); else _explicitNullProperties?.Remove("auth_scheme"); } }
         private string _explicitNullValueAuthScheme = default!;
 #endif
         /// <summary>The auth config id of the toolkit (must be a valid auth config id)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>Whether the auth config is managed by Composio</summary>
-        public bool? IsComposioManaged { get => _explicitNullValueIsComposioManaged; set { _explicitNullValueIsComposioManaged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_composio_managed"); else _explicitNullProperties?.Remove("is_composio_managed"); } }
+        public bool? IsComposioManaged { get => _explicitNullValueIsComposioManaged; set { _explicitNullValueIsComposioManaged = value; AdditionalData?.Remove("is_composio_managed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_composio_managed"); else _explicitNullProperties?.Remove("is_composio_managed"); } }
         private bool? _explicitNullValueIsComposioManaged = default!;
         /// <summary>The tools that the user can use with the auth config. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RestrictToFollowingTools { get => _explicitNullValueRestrictToFollowingTools; set { _explicitNullValueRestrictToFollowingTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrict_to_following_tools"); else _explicitNullProperties?.Remove("restrict_to_following_tools"); } }
+        public List<string>? RestrictToFollowingTools { get => _explicitNullValueRestrictToFollowingTools; set { _explicitNullValueRestrictToFollowingTools = value; AdditionalData?.Remove("restrict_to_following_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrict_to_following_tools"); else _explicitNullProperties?.Remove("restrict_to_following_tools"); } }
         private List<string>? _explicitNullValueRestrictToFollowingTools = default!;
 #nullable restore
 #else
-        public List<string> RestrictToFollowingTools { get => _explicitNullValueRestrictToFollowingTools; set { _explicitNullValueRestrictToFollowingTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrict_to_following_tools"); else _explicitNullProperties?.Remove("restrict_to_following_tools"); } }
+        public List<string> RestrictToFollowingTools { get => _explicitNullValueRestrictToFollowingTools; set { _explicitNullValueRestrictToFollowingTools = value; AdditionalData?.Remove("restrict_to_following_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restrict_to_following_tools"); else _explicitNullProperties?.Remove("restrict_to_following_tools"); } }
         private List<string> _explicitNullValueRestrictToFollowingTools = default!;
 #endif
         /// <summary>

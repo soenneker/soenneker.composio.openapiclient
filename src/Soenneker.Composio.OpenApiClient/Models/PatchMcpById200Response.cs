@@ -18,19 +18,32 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allowed_tools") is { } nullNodeAllowedTools && nullNodeAllowedTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedTools = null;
-            if (parseNode.GetChildNode("auth_config_ids") is { } nullNodeAuthConfigIds && nullNodeAuthConfigIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthConfigIds = null;
-            if (parseNode.GetChildNode("commands") is { } nullNodeCommands && nullNodeCommands.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Commands = null;
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("deleted") is { } nullNodeDeleted && nullNodeDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deleted = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("managed_auth_via_composio") is { } nullNodeManagedAuthViaComposio && nullNodeManagedAuthViaComposio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAuthViaComposio = null;
-            if (parseNode.GetChildNode("mcp_url") is { } nullNodeMcpUrl && nullNodeMcpUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpUrl = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("server_instance_count") is { } nullNodeServerInstanceCount && nullNodeServerInstanceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerInstanceCount = null;
-            if (parseNode.GetChildNode("toolkit_icons") is { } nullNodeToolkitIcons && nullNodeToolkitIcons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitIcons = null;
-            if (parseNode.GetChildNode("toolkits") is { } nullNodeToolkits && nullNodeToolkits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkits = null;
-            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("allowed_tools") is null) { _explicitNullValueAllowedTools = default!; _explicitNullProperties?.Remove("allowed_tools"); }
+            else if (parseNode.GetChildNode("allowed_tools") is { } nullNodeAllowedTools && nullNodeAllowedTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedTools = null;
+            if (parseNode.GetChildNode("auth_config_ids") is null) { _explicitNullValueAuthConfigIds = default!; _explicitNullProperties?.Remove("auth_config_ids"); }
+            else if (parseNode.GetChildNode("auth_config_ids") is { } nullNodeAuthConfigIds && nullNodeAuthConfigIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthConfigIds = null;
+            if (parseNode.GetChildNode("commands") is null) { _explicitNullValueCommands = default!; _explicitNullProperties?.Remove("commands"); }
+            else if (parseNode.GetChildNode("commands") is { } nullNodeCommands && nullNodeCommands.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Commands = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("deleted") is null) { _explicitNullValueDeleted = default!; _explicitNullProperties?.Remove("deleted"); }
+            else if (parseNode.GetChildNode("deleted") is { } nullNodeDeleted && nullNodeDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deleted = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("managed_auth_via_composio") is null) { _explicitNullValueManagedAuthViaComposio = default!; _explicitNullProperties?.Remove("managed_auth_via_composio"); }
+            else if (parseNode.GetChildNode("managed_auth_via_composio") is { } nullNodeManagedAuthViaComposio && nullNodeManagedAuthViaComposio.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAuthViaComposio = null;
+            if (parseNode.GetChildNode("mcp_url") is null) { _explicitNullValueMcpUrl = default!; _explicitNullProperties?.Remove("mcp_url"); }
+            else if (parseNode.GetChildNode("mcp_url") is { } nullNodeMcpUrl && nullNodeMcpUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpUrl = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("server_instance_count") is null) { _explicitNullValueServerInstanceCount = default!; _explicitNullProperties?.Remove("server_instance_count"); }
+            else if (parseNode.GetChildNode("server_instance_count") is { } nullNodeServerInstanceCount && nullNodeServerInstanceCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerInstanceCount = null;
+            if (parseNode.GetChildNode("toolkit_icons") is null) { _explicitNullValueToolkitIcons = default!; _explicitNullProperties?.Remove("toolkit_icons"); }
+            else if (parseNode.GetChildNode("toolkit_icons") is { } nullNodeToolkitIcons && nullNodeToolkitIcons.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitIcons = null;
+            if (parseNode.GetChildNode("toolkits") is null) { _explicitNullValueToolkits = default!; _explicitNullProperties?.Remove("toolkits"); }
+            else if (parseNode.GetChildNode("toolkits") is { } nullNodeToolkits && nullNodeToolkits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Toolkits = null;
+            if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
+            else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,112 +51,112 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Array of tool slugs that this MCP server is allowed to use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
+        public List<string>? AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; AdditionalData?.Remove("allowed_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
         private List<string>? _explicitNullValueAllowedTools = default!;
 #nullable restore
 #else
-        public List<string> AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
+        public List<string> AllowedTools { get => _explicitNullValueAllowedTools; set { _explicitNullValueAllowedTools = value; AdditionalData?.Remove("allowed_tools"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_tools"); else _explicitNullProperties?.Remove("allowed_tools"); } }
         private List<string> _explicitNullValueAllowedTools = default!;
 #endif
         /// <summary>ID references to the auth configurations used by this server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AuthConfigIds { get => _explicitNullValueAuthConfigIds; set { _explicitNullValueAuthConfigIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config_ids"); else _explicitNullProperties?.Remove("auth_config_ids"); } }
+        public List<string>? AuthConfigIds { get => _explicitNullValueAuthConfigIds; set { _explicitNullValueAuthConfigIds = value; AdditionalData?.Remove("auth_config_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config_ids"); else _explicitNullProperties?.Remove("auth_config_ids"); } }
         private List<string>? _explicitNullValueAuthConfigIds = default!;
 #nullable restore
 #else
-        public List<string> AuthConfigIds { get => _explicitNullValueAuthConfigIds; set { _explicitNullValueAuthConfigIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config_ids"); else _explicitNullProperties?.Remove("auth_config_ids"); } }
+        public List<string> AuthConfigIds { get => _explicitNullValueAuthConfigIds; set { _explicitNullValueAuthConfigIds = value; AdditionalData?.Remove("auth_config_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_config_ids"); else _explicitNullProperties?.Remove("auth_config_ids"); } }
         private List<string> _explicitNullValueAuthConfigIds = default!;
 #endif
         /// <summary>Set of command line instructions for connecting various clients to this MCP server</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseCommands? Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseCommands? Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; AdditionalData?.Remove("commands"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseCommands? _explicitNullValueCommands = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseCommands Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseCommands Commands { get => _explicitNullValueCommands; set { _explicitNullValueCommands = value; AdditionalData?.Remove("commands"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commands"); else _explicitNullProperties?.Remove("commands"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseCommands _explicitNullValueCommands = default!;
 #endif
         /// <summary>Date and time when this server was initially created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>Whether the MCP server is deleted</summary>
-        public bool? Deleted { get => _explicitNullValueDeleted; set { _explicitNullValueDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deleted"); else _explicitNullProperties?.Remove("deleted"); } }
+        public bool? Deleted { get => _explicitNullValueDeleted; set { _explicitNullValueDeleted = value; AdditionalData?.Remove("deleted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deleted"); else _explicitNullProperties?.Remove("deleted"); } }
         private bool? _explicitNullValueDeleted = default!;
         /// <summary>UUID of the MCP server instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>Whether the MCP server is managed by Composio</summary>
-        public bool? ManagedAuthViaComposio { get => _explicitNullValueManagedAuthViaComposio; set { _explicitNullValueManagedAuthViaComposio = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_auth_via_composio"); else _explicitNullProperties?.Remove("managed_auth_via_composio"); } }
+        public bool? ManagedAuthViaComposio { get => _explicitNullValueManagedAuthViaComposio; set { _explicitNullValueManagedAuthViaComposio = value; AdditionalData?.Remove("managed_auth_via_composio"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_auth_via_composio"); else _explicitNullProperties?.Remove("managed_auth_via_composio"); } }
         private bool? _explicitNullValueManagedAuthViaComposio = default!;
         /// <summary>[DEPRECATED] Please use the URL with user_id or connected_account_id query param</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? McpUrl { get => _explicitNullValueMcpUrl; set { _explicitNullValueMcpUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_url"); else _explicitNullProperties?.Remove("mcp_url"); } }
+        public string? McpUrl { get => _explicitNullValueMcpUrl; set { _explicitNullValueMcpUrl = value; AdditionalData?.Remove("mcp_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_url"); else _explicitNullProperties?.Remove("mcp_url"); } }
         private string? _explicitNullValueMcpUrl = default!;
 #nullable restore
 #else
-        public string McpUrl { get => _explicitNullValueMcpUrl; set { _explicitNullValueMcpUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_url"); else _explicitNullProperties?.Remove("mcp_url"); } }
+        public string McpUrl { get => _explicitNullValueMcpUrl; set { _explicitNullValueMcpUrl = value; AdditionalData?.Remove("mcp_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_url"); else _explicitNullProperties?.Remove("mcp_url"); } }
         private string _explicitNullValueMcpUrl = default!;
 #endif
         /// <summary>User-defined descriptive name for this MCP server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Total count of active user instances connected to this server</summary>
-        public double? ServerInstanceCount { get => _explicitNullValueServerInstanceCount; set { _explicitNullValueServerInstanceCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_instance_count"); else _explicitNullProperties?.Remove("server_instance_count"); } }
+        public double? ServerInstanceCount { get => _explicitNullValueServerInstanceCount; set { _explicitNullValueServerInstanceCount = value; AdditionalData?.Remove("server_instance_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_instance_count"); else _explicitNullProperties?.Remove("server_instance_count"); } }
         private double? _explicitNullValueServerInstanceCount = default!;
         /// <summary>Object mapping each toolkit slug to its icon/logo URL for display purposes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseToolkitIcons? ToolkitIcons { get => _explicitNullValueToolkitIcons; set { _explicitNullValueToolkitIcons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_icons"); else _explicitNullProperties?.Remove("toolkit_icons"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseToolkitIcons? ToolkitIcons { get => _explicitNullValueToolkitIcons; set { _explicitNullValueToolkitIcons = value; AdditionalData?.Remove("toolkit_icons"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_icons"); else _explicitNullProperties?.Remove("toolkit_icons"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseToolkitIcons? _explicitNullValueToolkitIcons = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseToolkitIcons ToolkitIcons { get => _explicitNullValueToolkitIcons; set { _explicitNullValueToolkitIcons = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_icons"); else _explicitNullProperties?.Remove("toolkit_icons"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseToolkitIcons ToolkitIcons { get => _explicitNullValueToolkitIcons; set { _explicitNullValueToolkitIcons = value; AdditionalData?.Remove("toolkit_icons"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_icons"); else _explicitNullProperties?.Remove("toolkit_icons"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PatchMcpById200ResponseToolkitIcons _explicitNullValueToolkitIcons = default!;
 #endif
         /// <summary>Array of toolkit slugs that this MCP server is allowed to use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Toolkits { get => _explicitNullValueToolkits; set { _explicitNullValueToolkits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkits"); else _explicitNullProperties?.Remove("toolkits"); } }
+        public List<string>? Toolkits { get => _explicitNullValueToolkits; set { _explicitNullValueToolkits = value; AdditionalData?.Remove("toolkits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkits"); else _explicitNullProperties?.Remove("toolkits"); } }
         private List<string>? _explicitNullValueToolkits = default!;
 #nullable restore
 #else
-        public List<string> Toolkits { get => _explicitNullValueToolkits; set { _explicitNullValueToolkits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkits"); else _explicitNullProperties?.Remove("toolkits"); } }
+        public List<string> Toolkits { get => _explicitNullValueToolkits; set { _explicitNullValueToolkits = value; AdditionalData?.Remove("toolkits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkits"); else _explicitNullProperties?.Remove("toolkits"); } }
         private List<string> _explicitNullValueToolkits = default!;
 #endif
         /// <summary>Date and time when this server configuration was last modified</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        public string? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private string? _explicitNullValueUpdatedAt = default!;
 #nullable restore
 #else
-        public string UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        public string UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private string _explicitNullValueUpdatedAt = default!;
 #endif
         /// <summary>

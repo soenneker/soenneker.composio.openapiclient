@@ -17,34 +17,37 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("authScheme") is { } nullNodeAuthScheme && nullNodeAuthScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthScheme = null;
-            if (parseNode.GetChildNode("toolkitSlug") is { } nullNodeToolkitSlug && nullNodeToolkitSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitSlug = null;
-            if (parseNode.GetChildNode("val") is { } nullNodeVal && nullNodeVal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Val = null;
+            if (parseNode.GetChildNode("authScheme") is null) { _explicitNullValueAuthScheme = default!; _explicitNullProperties?.Remove("authScheme"); }
+            else if (parseNode.GetChildNode("authScheme") is { } nullNodeAuthScheme && nullNodeAuthScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthScheme = null;
+            if (parseNode.GetChildNode("toolkitSlug") is null) { _explicitNullValueToolkitSlug = default!; _explicitNullProperties?.Remove("toolkitSlug"); }
+            else if (parseNode.GetChildNode("toolkitSlug") is { } nullNodeToolkitSlug && nullNodeToolkitSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitSlug = null;
+            if (parseNode.GetChildNode("val") is null) { _explicitNullValueVal = default!; _explicitNullProperties?.Remove("val"); }
+            else if (parseNode.GetChildNode("val") is { } nullNodeVal && nullNodeVal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Val = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The authScheme property</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.BearerTokenAuthScheme? AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authScheme"); else _explicitNullProperties?.Remove("authScheme"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.BearerTokenAuthScheme? AuthScheme { get => _explicitNullValueAuthScheme; set { _explicitNullValueAuthScheme = value; AdditionalData?.Remove("authScheme"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authScheme"); else _explicitNullProperties?.Remove("authScheme"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.BearerTokenAuthScheme? _explicitNullValueAuthScheme = default!;
         /// <summary>The toolkitSlug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitSlug"); else _explicitNullProperties?.Remove("toolkitSlug"); } }
+        public string? ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; AdditionalData?.Remove("toolkitSlug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitSlug"); else _explicitNullProperties?.Remove("toolkitSlug"); } }
         private string? _explicitNullValueToolkitSlug = default!;
 #nullable restore
 #else
-        public string ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitSlug"); else _explicitNullProperties?.Remove("toolkitSlug"); } }
+        public string ToolkitSlug { get => _explicitNullValueToolkitSlug; set { _explicitNullValueToolkitSlug = value; AdditionalData?.Remove("toolkitSlug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkitSlug"); else _explicitNullProperties?.Remove("toolkitSlug"); } }
         private string _explicitNullValueToolkitSlug = default!;
 #endif
         /// <summary>The val property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6Val? Val { get => _explicitNullValueVal; set { _explicitNullValueVal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("val"); else _explicitNullProperties?.Remove("val"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6Val? Val { get => _explicitNullValueVal; set { _explicitNullValueVal = value; AdditionalData?.Remove("val"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("val"); else _explicitNullProperties?.Remove("val"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6Val? _explicitNullValueVal = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6Val Val { get => _explicitNullValueVal; set { _explicitNullValueVal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("val"); else _explicitNullProperties?.Remove("val"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6Val Val { get => _explicitNullValueVal; set { _explicitNullValueVal = value; AdditionalData?.Remove("val"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("val"); else _explicitNullProperties?.Remove("val"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6Val _explicitNullValueVal = default!;
 #endif
         /// <summary>
@@ -72,7 +75,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "authScheme", n => { AuthScheme = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BearerTokenAuthScheme>(); } },
+                { "authScheme", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.BearerTokenAuthScheme>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthScheme = default; _explicitNullProperties?.Remove("authScheme"); AdditionalData["authScheme"] = unknown; } else { AuthScheme = parsed; AdditionalData.Remove("authScheme"); } } },
                 { "toolkitSlug", n => { ToolkitSlug = n.GetStringValue(); } },
                 { "val", n => { Val = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6Val>(global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6Val.CreateFromDiscriminatorValue); } },
             };

@@ -17,10 +17,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("arguments") is { } nullNodeArguments && nullNodeArguments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Arguments = null;
-            if (parseNode.GetChildNode("input_responses") is { } nullNodeInputResponses && nullNodeInputResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputResponses = null;
-            if (parseNode.GetChildNode("request_state") is { } nullNodeRequestState && nullNodeRequestState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestState = null;
-            if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("arguments") is null) { _explicitNullValueArguments = default!; _explicitNullProperties?.Remove("arguments"); }
+            else if (parseNode.GetChildNode("arguments") is { } nullNodeArguments && nullNodeArguments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Arguments = null;
+            if (parseNode.GetChildNode("input_responses") is null) { _explicitNullValueInputResponses = default!; _explicitNullProperties?.Remove("input_responses"); }
+            else if (parseNode.GetChildNode("input_responses") is { } nullNodeInputResponses && nullNodeInputResponses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputResponses = null;
+            if (parseNode.GetChildNode("request_state") is null) { _explicitNullValueRequestState = default!; _explicitNullProperties?.Remove("request_state"); }
+            else if (parseNode.GetChildNode("request_state") is { } nullNodeRequestState && nullNodeRequestState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestState = null;
+            if (parseNode.GetChildNode("slug") is null) { _explicitNullValueSlug = default!; _explicitNullProperties?.Remove("slug"); }
+            else if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>The arguments required by the meta tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments? Arguments { get => _explicitNullValueArguments; set { _explicitNullValueArguments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("arguments"); else _explicitNullProperties?.Remove("arguments"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments? Arguments { get => _explicitNullValueArguments; set { _explicitNullValueArguments = value; AdditionalData?.Remove("arguments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("arguments"); else _explicitNullProperties?.Remove("arguments"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments? _explicitNullValueArguments = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments Arguments { get => _explicitNullValueArguments; set { _explicitNullValueArguments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("arguments"); else _explicitNullProperties?.Remove("arguments"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments Arguments { get => _explicitNullValueArguments; set { _explicitNullValueArguments = value; AdditionalData?.Remove("arguments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("arguments"); else _explicitNullProperties?.Remove("arguments"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments _explicitNullValueArguments = default!;
 #endif
         /// <summary>The user&apos;s answers to an `input_required` response, keyed by the ids in its `input_requests`. Send them by repeating the same call (same tool and arguments) with this field added, along with the response&apos;s `request_state` if present. An approved call runs; a denied or declined one returns `failed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses? InputResponses { get => _explicitNullValueInputResponses; set { _explicitNullValueInputResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_responses"); else _explicitNullProperties?.Remove("input_responses"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses? InputResponses { get => _explicitNullValueInputResponses; set { _explicitNullValueInputResponses = value; AdditionalData?.Remove("input_responses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_responses"); else _explicitNullProperties?.Remove("input_responses"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses? _explicitNullValueInputResponses = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses InputResponses { get => _explicitNullValueInputResponses; set { _explicitNullValueInputResponses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_responses"); else _explicitNullProperties?.Remove("input_responses"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses InputResponses { get => _explicitNullValueInputResponses; set { _explicitNullValueInputResponses = value; AdditionalData?.Remove("input_responses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_responses"); else _explicitNullProperties?.Remove("input_responses"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses _explicitNullValueInputResponses = default!;
 #endif
         /// <summary>The `request_state` from the `input_required` response, sent back unchanged with `input_responses`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestState { get => _explicitNullValueRequestState; set { _explicitNullValueRequestState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_state"); else _explicitNullProperties?.Remove("request_state"); } }
+        public string? RequestState { get => _explicitNullValueRequestState; set { _explicitNullValueRequestState = value; AdditionalData?.Remove("request_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_state"); else _explicitNullProperties?.Remove("request_state"); } }
         private string? _explicitNullValueRequestState = default!;
 #nullable restore
 #else
-        public string RequestState { get => _explicitNullValueRequestState; set { _explicitNullValueRequestState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_state"); else _explicitNullProperties?.Remove("request_state"); } }
+        public string RequestState { get => _explicitNullValueRequestState; set { _explicitNullValueRequestState = value; AdditionalData?.Remove("request_state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request_state"); else _explicitNullProperties?.Remove("request_state"); } }
         private string _explicitNullValueRequestState = default!;
 #endif
         /// <summary>The unique slug identifier of the meta tool to execute</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug? _explicitNullValueSlug = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequest"/> and sets the default values.
@@ -86,7 +90,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments.CreateFromDiscriminatorValue); } },
                 { "input_responses", n => { InputResponses = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses.CreateFromDiscriminatorValue); } },
                 { "request_state", n => { RequestState = n.GetStringValue(); } },
-                { "slug", n => { Slug = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug>(); } },
+                { "slug", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSlug = default; _explicitNullProperties?.Remove("slug"); AdditionalData["slug"] = unknown; } else { Slug = parsed; AdditionalData.Remove("slug"); } } },
             };
         }
         /// <summary>

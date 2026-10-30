@@ -17,13 +17,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("storage_backend") is { } nullNodeStorageBackend && nullNodeStorageBackend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorageBackend = null;
+            if (parseNode.GetChildNode("storage_backend") is null) { _explicitNullValueStorageBackend = default!; _explicitNullProperties?.Remove("storage_backend"); }
+            else if (parseNode.GetChildNode("storage_backend") is { } nullNodeStorageBackend && nullNodeStorageBackend.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorageBackend = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Storage backend used for the file. If this is azure, use `x-ms-blob-type` header to set the blob type to `BlockBlob` while uploading the file</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadataStorageBackend? StorageBackend { get => _explicitNullValueStorageBackend; set { _explicitNullValueStorageBackend = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_backend"); else _explicitNullProperties?.Remove("storage_backend"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadataStorageBackend? StorageBackend { get => _explicitNullValueStorageBackend; set { _explicitNullValueStorageBackend = value; AdditionalData?.Remove("storage_backend"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_backend"); else _explicitNullProperties?.Remove("storage_backend"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadataStorageBackend? _explicitNullValueStorageBackend = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadata"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "storage_backend", n => { StorageBackend = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadataStorageBackend>(); } },
+                { "storage_backend", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200ResponseMetadataStorageBackend>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStorageBackend = default; _explicitNullProperties?.Remove("storage_backend"); AdditionalData["storage_backend"] = unknown; } else { StorageBackend = parsed; AdditionalData.Remove("storage_backend"); } } },
             };
         }
         /// <summary>

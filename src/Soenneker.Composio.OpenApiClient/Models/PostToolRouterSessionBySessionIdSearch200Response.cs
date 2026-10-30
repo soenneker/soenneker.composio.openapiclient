@@ -17,14 +17,22 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
-            if (parseNode.GetChildNode("next_steps_guidance") is { } nullNodeNextStepsGuidance && nullNodeNextStepsGuidance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextStepsGuidance = null;
-            if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
-            if (parseNode.GetChildNode("session") is { } nullNodeSession && nullNodeSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Session = null;
-            if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
-            if (parseNode.GetChildNode("time_info") is { } nullNodeTimeInfo && nullNodeTimeInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeInfo = null;
-            if (parseNode.GetChildNode("toolkit_connection_statuses") is { } nullNodeToolkitConnectionStatuses && nullNodeToolkitConnectionStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitConnectionStatuses = null;
-            if (parseNode.GetChildNode("tool_schemas") is { } nullNodeToolSchemas && nullNodeToolSchemas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolSchemas = null;
+            if (parseNode.GetChildNode("error") is null) { _explicitNullValueError = default!; _explicitNullProperties?.Remove("error"); }
+            else if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("next_steps_guidance") is null) { _explicitNullValueNextStepsGuidance = default!; _explicitNullProperties?.Remove("next_steps_guidance"); }
+            else if (parseNode.GetChildNode("next_steps_guidance") is { } nullNodeNextStepsGuidance && nullNodeNextStepsGuidance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextStepsGuidance = null;
+            if (parseNode.GetChildNode("results") is null) { _explicitNullValueResults = default!; _explicitNullProperties?.Remove("results"); }
+            else if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
+            if (parseNode.GetChildNode("session") is null) { _explicitNullValueSession = default!; _explicitNullProperties?.Remove("session"); }
+            else if (parseNode.GetChildNode("session") is { } nullNodeSession && nullNodeSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Session = null;
+            if (parseNode.GetChildNode("success") is null) { _explicitNullValueSuccess = default!; _explicitNullProperties?.Remove("success"); }
+            else if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
+            if (parseNode.GetChildNode("time_info") is null) { _explicitNullValueTimeInfo = default!; _explicitNullProperties?.Remove("time_info"); }
+            else if (parseNode.GetChildNode("time_info") is { } nullNodeTimeInfo && nullNodeTimeInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeInfo = null;
+            if (parseNode.GetChildNode("toolkit_connection_statuses") is null) { _explicitNullValueToolkitConnectionStatuses = default!; _explicitNullProperties?.Remove("toolkit_connection_statuses"); }
+            else if (parseNode.GetChildNode("toolkit_connection_statuses") is { } nullNodeToolkitConnectionStatuses && nullNodeToolkitConnectionStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitConnectionStatuses = null;
+            if (parseNode.GetChildNode("tool_schemas") is null) { _explicitNullValueToolSchemas = default!; _explicitNullProperties?.Remove("tool_schemas"); }
+            else if (parseNode.GetChildNode("tool_schemas") is { } nullNodeToolSchemas && nullNodeToolSchemas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolSchemas = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,74 +40,74 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Error message if any searches failed, null if all succeeded. Format: &quot;X out of Y searches failed, reasons: &lt;details&gt;&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
         private string? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
         private string _explicitNullValueError = default!;
 #endif
         /// <summary>Combined workflow guidance covering connections, planner, and memory usage. Each element is a step instruction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NextStepsGuidance { get => _explicitNullValueNextStepsGuidance; set { _explicitNullValueNextStepsGuidance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_steps_guidance"); else _explicitNullProperties?.Remove("next_steps_guidance"); } }
+        public List<string>? NextStepsGuidance { get => _explicitNullValueNextStepsGuidance; set { _explicitNullValueNextStepsGuidance = value; AdditionalData?.Remove("next_steps_guidance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_steps_guidance"); else _explicitNullProperties?.Remove("next_steps_guidance"); } }
         private List<string>? _explicitNullValueNextStepsGuidance = default!;
 #nullable restore
 #else
-        public List<string> NextStepsGuidance { get => _explicitNullValueNextStepsGuidance; set { _explicitNullValueNextStepsGuidance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_steps_guidance"); else _explicitNullProperties?.Remove("next_steps_guidance"); } }
+        public List<string> NextStepsGuidance { get => _explicitNullValueNextStepsGuidance; set { _explicitNullValueNextStepsGuidance = value; AdditionalData?.Remove("next_steps_guidance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_steps_guidance"); else _explicitNullProperties?.Remove("next_steps_guidance"); } }
         private List<string> _explicitNullValueNextStepsGuidance = default!;
 #endif
         /// <summary>Per-query search results with tools, reasoning, and memory. One entry per query in request order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem>? _explicitNullValueResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; AdditionalData?.Remove("results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseResultsItem> _explicitNullValueResults = default!;
 #endif
         /// <summary>Session info for correlating meta tool calls</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseSession? Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseSession? Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; AdditionalData?.Remove("session"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseSession? _explicitNullValueSession = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseSession Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseSession Session { get => _explicitNullValueSession; set { _explicitNullValueSession = value; AdditionalData?.Remove("session"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session"); else _explicitNullProperties?.Remove("session"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseSession _explicitNullValueSession = default!;
 #endif
         /// <summary>Whether all searches completed successfully. False if any query failed.</summary>
-        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
+        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; AdditionalData?.Remove("success"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
         private bool? _explicitNullValueSuccess = default!;
         /// <summary>Time information for the query</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseTimeInfo? TimeInfo { get => _explicitNullValueTimeInfo; set { _explicitNullValueTimeInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_info"); else _explicitNullProperties?.Remove("time_info"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseTimeInfo? TimeInfo { get => _explicitNullValueTimeInfo; set { _explicitNullValueTimeInfo = value; AdditionalData?.Remove("time_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_info"); else _explicitNullProperties?.Remove("time_info"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseTimeInfo? _explicitNullValueTimeInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseTimeInfo TimeInfo { get => _explicitNullValueTimeInfo; set { _explicitNullValueTimeInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_info"); else _explicitNullProperties?.Remove("time_info"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseTimeInfo TimeInfo { get => _explicitNullValueTimeInfo; set { _explicitNullValueTimeInfo = value; AdditionalData?.Remove("time_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("time_info"); else _explicitNullProperties?.Remove("time_info"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseTimeInfo _explicitNullValueTimeInfo = default!;
 #endif
         /// <summary>Connection status for all toolkits mentioned across all queries, with descriptions merged in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItem>? ToolkitConnectionStatuses { get => _explicitNullValueToolkitConnectionStatuses; set { _explicitNullValueToolkitConnectionStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_connection_statuses"); else _explicitNullProperties?.Remove("toolkit_connection_statuses"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItem>? ToolkitConnectionStatuses { get => _explicitNullValueToolkitConnectionStatuses; set { _explicitNullValueToolkitConnectionStatuses = value; AdditionalData?.Remove("toolkit_connection_statuses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_connection_statuses"); else _explicitNullProperties?.Remove("toolkit_connection_statuses"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItem>? _explicitNullValueToolkitConnectionStatuses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItem> ToolkitConnectionStatuses { get => _explicitNullValueToolkitConnectionStatuses; set { _explicitNullValueToolkitConnectionStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_connection_statuses"); else _explicitNullProperties?.Remove("toolkit_connection_statuses"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItem> ToolkitConnectionStatuses { get => _explicitNullValueToolkitConnectionStatuses; set { _explicitNullValueToolkitConnectionStatuses = value; AdditionalData?.Remove("toolkit_connection_statuses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_connection_statuses"); else _explicitNullProperties?.Remove("toolkit_connection_statuses"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItem> _explicitNullValueToolkitConnectionStatuses = default!;
 #endif
         /// <summary>Deduplicated tool definitions keyed by tool_slug for O(1) lookup. Each tool appears once even if used in multiple queries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolSchemas? ToolSchemas { get => _explicitNullValueToolSchemas; set { _explicitNullValueToolSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_schemas"); else _explicitNullProperties?.Remove("tool_schemas"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolSchemas? ToolSchemas { get => _explicitNullValueToolSchemas; set { _explicitNullValueToolSchemas = value; AdditionalData?.Remove("tool_schemas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_schemas"); else _explicitNullProperties?.Remove("tool_schemas"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolSchemas? _explicitNullValueToolSchemas = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolSchemas ToolSchemas { get => _explicitNullValueToolSchemas; set { _explicitNullValueToolSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_schemas"); else _explicitNullProperties?.Remove("tool_schemas"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolSchemas ToolSchemas { get => _explicitNullValueToolSchemas; set { _explicitNullValueToolSchemas = value; AdditionalData?.Remove("tool_schemas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_schemas"); else _explicitNullProperties?.Remove("tool_schemas"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolSchemas _explicitNullValueToolSchemas = default!;
 #endif
         /// <summary>

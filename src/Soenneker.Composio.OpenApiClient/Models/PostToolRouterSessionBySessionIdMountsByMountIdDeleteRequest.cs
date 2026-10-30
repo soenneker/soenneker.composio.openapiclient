@@ -17,7 +17,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mount_relative_path") is { } nullNodeMountRelativePath && nullNodeMountRelativePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MountRelativePath = null;
+            if (parseNode.GetChildNode("mount_relative_path") is null) { _explicitNullValueMountRelativePath = default!; _explicitNullProperties?.Remove("mount_relative_path"); }
+            else if (parseNode.GetChildNode("mount_relative_path") is { } nullNodeMountRelativePath && nullNodeMountRelativePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MountRelativePath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Relative file path within the mount</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
+        public string? MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; AdditionalData?.Remove("mount_relative_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
         private string? _explicitNullValueMountRelativePath = default!;
 #nullable restore
 #else
-        public string MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
+        public string MountRelativePath { get => _explicitNullValueMountRelativePath; set { _explicitNullValueMountRelativePath = value; AdditionalData?.Remove("mount_relative_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_relative_path"); else _explicitNullProperties?.Remove("mount_relative_path"); } }
         private string _explicitNullValueMountRelativePath = default!;
 #endif
         /// <summary>

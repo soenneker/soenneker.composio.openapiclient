@@ -46,7 +46,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.Boolean == null && result.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("toolkits") || (((((shapeMembers1["toolkits"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["toolkits"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject4 || (shapeObject4.GetValue() is var shapeMembers5 && (shapeMembers5.ContainsKey("enable") && (!shapeMembers5.ContainsKey("enable") || (((shapeMembers5["enable"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && global::System.Linq.Enumerable.All(shapeMembers5.Keys, key => key == "enable"))))) || (((shapeMembers1["toolkits"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["toolkits"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject8 || (shapeObject8.GetValue() is var shapeMembers9 && (shapeMembers9.ContainsKey("disable") && (!shapeMembers9.ContainsKey("disable") || (((shapeMembers9["disable"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && global::System.Linq.Enumerable.All(shapeMembers9.Keys, key => key == "disable")))))))) && (!shapeMembers1.ContainsKey("tools") || (((shapeMembers1["tools"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)))) && (!shapeMembers1.ContainsKey("return_instant_charge") || (((shapeMembers1["return_instant_charge"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && (!shapeMembers1.ContainsKey("return_prices_in_search") || (((shapeMembers1["return_prices_in_search"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedBoolean)))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "toolkits" || key == "tools" || key == "return_instant_charge" || key == "return_prices_in_search"))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.Boolean == null && result.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2(), parseNode);
             if (result.Boolean == null && result.PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -56,6 +60,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PatchToolRouterSessionBySessionIdRequestInstantAnyOf2);
@@ -70,7 +76,10 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (Boolean == null && PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 != null && Boolean == null) { if (PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PatchToolRouterSessionBySessionIdRequestInstantAnyOf2); return; }
+            int selectedUnionBranches = 0;
+            if (Boolean != null) selectedUnionBranches++;
+            if (PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 != null) selectedUnionBranches++;
+            if (PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 != null && selectedUnionBranches == 1) { if (PatchToolRouterSessionBySessionIdRequestInstantAnyOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PatchToolRouterSessionBySessionIdRequestInstantAnyOf2); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(Boolean != null)

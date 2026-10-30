@@ -18,21 +18,23 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("account_type") is { } nullNodeAccountType && nullNodeAccountType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountType = null;
-            if (parseNode.GetChildNode("acl_config_for_shared") is { } nullNodeAclConfigForShared && nullNodeAclConfigForShared.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AclConfigForShared = null;
+            if (parseNode.GetChildNode("account_type") is null) { _explicitNullValueAccountType = default!; _explicitNullProperties?.Remove("account_type"); }
+            else if (parseNode.GetChildNode("account_type") is { } nullNodeAccountType && nullNodeAccountType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountType = null;
+            if (parseNode.GetChildNode("acl_config_for_shared") is null) { _explicitNullValueAclConfigForShared = default!; _explicitNullProperties?.Remove("acl_config_for_shared"); }
+            else if (parseNode.GetChildNode("acl_config_for_shared") is { } nullNodeAclConfigForShared && nullNodeAclConfigForShared.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AclConfigForShared = null;
         }
 
         /// <summary>Sharing model for this connected account. PRIVATE is usable only by the owning user_id. SHARED is reachable from a tool-router session only when explicitly pinned in the session config.</summary>
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAccountType? AccountType { get => _explicitNullValueAccountType; set { _explicitNullValueAccountType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_type"); else _explicitNullProperties?.Remove("account_type"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAccountType? AccountType { get => _explicitNullValueAccountType; set { _explicitNullValueAccountType = value; AdditionalData?.Remove("account_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account_type"); else _explicitNullProperties?.Remove("account_type"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAccountType? _explicitNullValueAccountType = default!;
         /// <summary>Access control for SHARED connections. Visible only to the connection creator and project/org API key callers; non-creator cookie callers receive the response without this block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAclConfigForShared? AclConfigForShared { get => _explicitNullValueAclConfigForShared; set { _explicitNullValueAclConfigForShared = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl_config_for_shared"); else _explicitNullProperties?.Remove("acl_config_for_shared"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAclConfigForShared? AclConfigForShared { get => _explicitNullValueAclConfigForShared; set { _explicitNullValueAclConfigForShared = value; AdditionalData?.Remove("acl_config_for_shared"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl_config_for_shared"); else _explicitNullProperties?.Remove("acl_config_for_shared"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAclConfigForShared? _explicitNullValueAclConfigForShared = default!;
 #nullable restore
 #else
-        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAclConfigForShared AclConfigForShared { get => _explicitNullValueAclConfigForShared; set { _explicitNullValueAclConfigForShared = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl_config_for_shared"); else _explicitNullProperties?.Remove("acl_config_for_shared"); } }
+        public global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAclConfigForShared AclConfigForShared { get => _explicitNullValueAclConfigForShared; set { _explicitNullValueAclConfigForShared = value; AdditionalData?.Remove("acl_config_for_shared"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acl_config_for_shared"); else _explicitNullProperties?.Remove("acl_config_for_shared"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAclConfigForShared _explicitNullValueAclConfigForShared = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -62,7 +64,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account_type", n => { AccountType = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAccountType>(); } },
+                { "account_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAccountType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAccountType = default; _explicitNullProperties?.Remove("account_type"); AdditionalData["account_type"] = unknown; } else { AccountType = parsed; AdditionalData.Remove("account_type"); } } },
                 { "acl_config_for_shared", n => { AclConfigForShared = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAclConfigForShared>(global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseExperimentalAclConfigForShared.CreateFromDiscriminatorValue); } },
             };
         }

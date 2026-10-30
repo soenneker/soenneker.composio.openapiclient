@@ -18,50 +18,55 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("current_page") is { } nullNodeCurrentPage && nullNodeCurrentPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPage = null;
-            if (parseNode.GetChildNode("instances") is { } nullNodeInstances && nullNodeInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instances = null;
-            if (parseNode.GetChildNode("server_id") is { } nullNodeServerId && nullNodeServerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerId = null;
-            if (parseNode.GetChildNode("server_name") is { } nullNodeServerName && nullNodeServerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerName = null;
-            if (parseNode.GetChildNode("total_pages") is { } nullNodeTotalPages && nullNodeTotalPages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalPages = null;
+            if (parseNode.GetChildNode("current_page") is null) { _explicitNullValueCurrentPage = default!; _explicitNullProperties?.Remove("current_page"); }
+            else if (parseNode.GetChildNode("current_page") is { } nullNodeCurrentPage && nullNodeCurrentPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentPage = null;
+            if (parseNode.GetChildNode("instances") is null) { _explicitNullValueInstances = default!; _explicitNullProperties?.Remove("instances"); }
+            else if (parseNode.GetChildNode("instances") is { } nullNodeInstances && nullNodeInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instances = null;
+            if (parseNode.GetChildNode("server_id") is null) { _explicitNullValueServerId = default!; _explicitNullProperties?.Remove("server_id"); }
+            else if (parseNode.GetChildNode("server_id") is { } nullNodeServerId && nullNodeServerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerId = null;
+            if (parseNode.GetChildNode("server_name") is null) { _explicitNullValueServerName = default!; _explicitNullProperties?.Remove("server_name"); }
+            else if (parseNode.GetChildNode("server_name") is { } nullNodeServerName && nullNodeServerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerName = null;
+            if (parseNode.GetChildNode("total_pages") is null) { _explicitNullValueTotalPages = default!; _explicitNullProperties?.Remove("total_pages"); }
+            else if (parseNode.GetChildNode("total_pages") is { } nullNodeTotalPages && nullNodeTotalPages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalPages = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Current page number being returned</summary>
-        public double? CurrentPage { get => _explicitNullValueCurrentPage; set { _explicitNullValueCurrentPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_page"); else _explicitNullProperties?.Remove("current_page"); } }
+        public double? CurrentPage { get => _explicitNullValueCurrentPage; set { _explicitNullValueCurrentPage = value; AdditionalData?.Remove("current_page"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_page"); else _explicitNullProperties?.Remove("current_page"); } }
         private double? _explicitNullValueCurrentPage = default!;
         /// <summary>List of instance objects associated with this MCP server for the current page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServersByServerIdInstances200ResponseInstancesItem>? Instances { get => _explicitNullValueInstances; set { _explicitNullValueInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instances"); else _explicitNullProperties?.Remove("instances"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServersByServerIdInstances200ResponseInstancesItem>? Instances { get => _explicitNullValueInstances; set { _explicitNullValueInstances = value; AdditionalData?.Remove("instances"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instances"); else _explicitNullProperties?.Remove("instances"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServersByServerIdInstances200ResponseInstancesItem>? _explicitNullValueInstances = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServersByServerIdInstances200ResponseInstancesItem> Instances { get => _explicitNullValueInstances; set { _explicitNullValueInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instances"); else _explicitNullProperties?.Remove("instances"); } }
+        public List<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServersByServerIdInstances200ResponseInstancesItem> Instances { get => _explicitNullValueInstances; set { _explicitNullValueInstances = value; AdditionalData?.Remove("instances"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instances"); else _explicitNullProperties?.Remove("instances"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.GetMcpServersByServerIdInstances200ResponseInstancesItem> _explicitNullValueInstances = default!;
 #endif
         /// <summary>UUID of the MCP server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerId { get => _explicitNullValueServerId; set { _explicitNullValueServerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_id"); else _explicitNullProperties?.Remove("server_id"); } }
+        public string? ServerId { get => _explicitNullValueServerId; set { _explicitNullValueServerId = value; AdditionalData?.Remove("server_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_id"); else _explicitNullProperties?.Remove("server_id"); } }
         private string? _explicitNullValueServerId = default!;
 #nullable restore
 #else
-        public string ServerId { get => _explicitNullValueServerId; set { _explicitNullValueServerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_id"); else _explicitNullProperties?.Remove("server_id"); } }
+        public string ServerId { get => _explicitNullValueServerId; set { _explicitNullValueServerId = value; AdditionalData?.Remove("server_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_id"); else _explicitNullProperties?.Remove("server_id"); } }
         private string _explicitNullValueServerId = default!;
 #endif
         /// <summary>Name of the MCP server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerName { get => _explicitNullValueServerName; set { _explicitNullValueServerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_name"); else _explicitNullProperties?.Remove("server_name"); } }
+        public string? ServerName { get => _explicitNullValueServerName; set { _explicitNullValueServerName = value; AdditionalData?.Remove("server_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_name"); else _explicitNullProperties?.Remove("server_name"); } }
         private string? _explicitNullValueServerName = default!;
 #nullable restore
 #else
-        public string ServerName { get => _explicitNullValueServerName; set { _explicitNullValueServerName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_name"); else _explicitNullProperties?.Remove("server_name"); } }
+        public string ServerName { get => _explicitNullValueServerName; set { _explicitNullValueServerName = value; AdditionalData?.Remove("server_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_name"); else _explicitNullProperties?.Remove("server_name"); } }
         private string _explicitNullValueServerName = default!;
 #endif
         /// <summary>Total number of pages in the paginated response</summary>
-        public double? TotalPages { get => _explicitNullValueTotalPages; set { _explicitNullValueTotalPages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_pages"); else _explicitNullProperties?.Remove("total_pages"); } }
+        public double? TotalPages { get => _explicitNullValueTotalPages; set { _explicitNullValueTotalPages = value; AdditionalData?.Remove("total_pages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_pages"); else _explicitNullProperties?.Remove("total_pages"); } }
         private double? _explicitNullValueTotalPages = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetMcpServersByServerIdInstances200Response"/> and sets the default values.

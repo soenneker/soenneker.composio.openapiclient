@@ -36,7 +36,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
         /// <summary>
         /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This endpoint is kept for meta-tool compatibility; clients can also use the primary /execute endpoint.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -53,11 +53,11 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 502 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200Response?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200Response> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -78,7 +78,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMeta200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecute200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This endpoint is kept for meta-tool compatibility; clients can also use the primary /execute endpoint.
@@ -96,7 +96,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tool_router.Session.Item.Execu
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://backend.composio.dev", "/api/v3/tool_router/session/{sessionId}/execute_meta", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

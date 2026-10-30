@@ -80,7 +80,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Files.List
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Composio.OpenApiClient.Api.V3.Files.List.ListRequestBuilder.ListRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://backend.composio.dev", "/api/v3/files/list", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
