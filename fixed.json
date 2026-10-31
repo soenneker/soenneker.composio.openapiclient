@@ -167,6 +167,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successfully created auth config",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostAuthConfigs201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -745,6 +756,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "CLI session created successfully with a unique ID and temporary authentication code",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostCliCreateSession201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -1326,6 +1348,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successfully created connected account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostConnectedAccounts201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -2008,6 +2041,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successfully created auth link",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostConnectedAccountsLink201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -3237,6 +3281,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Webhook subscription created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostWebhookSubscriptions201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -6859,6 +6914,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "MCP server created successfully. Returns the complete server configuration including connection details and command instructions.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostMcpServers201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "deprecated": true,
@@ -6982,6 +7048,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Custom MCP server created successfully. Returns the complete server configuration including connection details and command instructions for all specified applications.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostMcpServersCustom201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "deprecated": true,
@@ -7852,6 +7929,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successfully created MCP server instance. Returns the created instance details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostMcpServersByServerIdInstances201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "deprecated": true,
@@ -8509,6 +8597,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Session successfully created. Returns the session ID and MCP server URL for the created session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostToolRouterSession201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -9181,6 +9280,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Successfully created link session. Returns link token, redirect URL, and connected account ID.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdLink201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -10034,6 +10144,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Download URL created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdMountsByMountIdDownloadUrl201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -10136,6 +10257,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Upload URL created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostToolRouterSessionBySessionIdMountsByMountIdUploadUrl201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
