@@ -31,8 +31,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("disabledAt") is { } nullNodeDisabledAt && nullNodeDisabledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabledAt = null;
             if (parseNode.GetChildNode("egress_url") is null) { _explicitNullValueEgressUrl = default!; _explicitNullProperties?.Remove("egress_url"); }
             else if (parseNode.GetChildNode("egress_url") is { } nullNodeEgressUrl && nullNodeEgressUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EgressUrl = null;
+            if (parseNode.GetChildNode("fallback_reason") is null) { _explicitNullValueFallbackReason = default!; _explicitNullProperties?.Remove("fallback_reason"); }
+            else if (parseNode.GetChildNode("fallback_reason") is { } nullNodeFallbackReason && nullNodeFallbackReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackReason = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("polling_interval") is null) { _explicitNullValuePollingInterval = default!; _explicitNullProperties?.Remove("polling_interval"); }
+            else if (parseNode.GetChildNode("polling_interval") is { } nullNodePollingInterval && nullNodePollingInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PollingInterval = null;
             if (parseNode.GetChildNode("state") is null) { _explicitNullValueState = default!; _explicitNullProperties?.Remove("state"); }
             else if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
             if (parseNode.GetChildNode("trigger_config") is null) { _explicitNullValueTrigger_config = default!; _explicitNullProperties?.Remove("trigger_config"); }
@@ -45,6 +49,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("trigger_data") is { } nullNodeTriggerData && nullNodeTriggerData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerData = null;
             if (parseNode.GetChildNode("triggerName") is null) { _explicitNullValueTriggerName = default!; _explicitNullProperties?.Remove("triggerName"); }
             else if (parseNode.GetChildNode("triggerName") is { } nullNodeTriggerName && nullNodeTriggerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerName = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdated_at = default!; _explicitNullProperties?.Remove("updated_at"); }
             else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdated_at && nullNodeUpdated_at.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Updated_at = null;
             if (parseNode.GetChildNode("updatedAt") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updatedAt"); }
@@ -131,6 +137,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string EgressUrl { get => _explicitNullValueEgressUrl; set { _explicitNullValueEgressUrl = value; AdditionalData?.Remove("egress_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_url"); else _explicitNullProperties?.Remove("egress_url"); } }
         private string _explicitNullValueEgressUrl = default!;
 #endif
+        /// <summary>Set when Composio downgraded to a poll-based mechanism instead of webhooks for this trigger.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FallbackReason { get => _explicitNullValueFallbackReason; set { _explicitNullValueFallbackReason = value; AdditionalData?.Remove("fallback_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_reason"); else _explicitNullProperties?.Remove("fallback_reason"); } }
+        private string? _explicitNullValueFallbackReason = default!;
+#nullable restore
+#else
+        public string FallbackReason { get => _explicitNullValueFallbackReason; set { _explicitNullValueFallbackReason = value; AdditionalData?.Remove("fallback_reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_reason"); else _explicitNullProperties?.Remove("fallback_reason"); } }
+        private string _explicitNullValueFallbackReason = default!;
+#endif
         /// <summary>Nano ID of the trigger instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,6 +157,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
+        /// <summary>Minutes between scheduled polls for a poll instance.</summary>
+        public int? PollingInterval { get => _explicitNullValuePollingInterval; set { _explicitNullValuePollingInterval = value; AdditionalData?.Remove("polling_interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("polling_interval"); else _explicitNullProperties?.Remove("polling_interval"); } }
+        private int? _explicitNullValuePollingInterval = default!;
         /// <summary>DEPRECATED: This field exposes internal state and will be removed in a future version.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -204,6 +223,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string TriggerName { get => _explicitNullValueTriggerName; set { _explicitNullValueTriggerName = value; AdditionalData?.Remove("triggerName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerName"); else _explicitNullProperties?.Remove("triggerName"); } }
         private string _explicitNullValueTriggerName = default!;
 #endif
+        /// <summary>How this trigger instance gets events: webhook (the provider notifies) or poll (a scheduled check).</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemType? _explicitNullValueType = default!;
         /// <summary>ISO 8601 timestamp when the trigger instance was updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -285,11 +307,14 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "deprecated", n => { Deprecated = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated>(global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemDeprecated.CreateFromDiscriminatorValue); } },
                 { "disabledAt", n => { DisabledAt = n.GetStringValue(); } },
                 { "egress_url", n => { EgressUrl = n.GetStringValue(); } },
+                { "fallback_reason", n => { FallbackReason = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "polling_interval", n => { PollingInterval = n.GetIntValue(); } },
                 { "state", n => { State = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState>(global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState.CreateFromDiscriminatorValue); } },
                 { "triggerConfig", n => { TriggerConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty>(global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty.CreateFromDiscriminatorValue); } },
                 { "trigger_data", n => { TriggerData = n.GetStringValue(); } },
                 { "triggerName", n => { TriggerName = n.GetStringValue(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "uuid", n => { Uuid = n.GetStringValue(); } },
@@ -315,13 +340,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("disabled_at", Disabled_at);
             writer.WriteStringValue("disabledAt", DisabledAt);
             writer.WriteStringValue("egress_url", EgressUrl);
+            writer.WriteStringValue("fallback_reason", FallbackReason);
             writer.WriteStringValue("id", Id);
+            writer.WriteIntValue("polling_interval", PollingInterval);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemState>("state", State);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfig>("trigger_config", Trigger_config);
             writer.WriteStringValue("trigger_name", Trigger_name);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemTriggerConfigProperty>("triggerConfig", TriggerConfig);
             writer.WriteStringValue("trigger_data", TriggerData);
             writer.WriteStringValue("triggerName", TriggerName);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetTriggerInstancesActive200ResponseItemsItemType>("type", Type);
             writer.WriteStringValue("updated_at", Updated_at);
             writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteStringValue("user_id", UserId);

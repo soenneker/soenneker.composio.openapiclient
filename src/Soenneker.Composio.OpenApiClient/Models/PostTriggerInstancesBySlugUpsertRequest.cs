@@ -23,12 +23,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("connectedAuthId") is { } nullNodeConnectedAuthId && nullNodeConnectedAuthId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAuthId = null;
             if (parseNode.GetChildNode("egress_url") is null) { _explicitNullValueEgressUrl = default!; _explicitNullProperties?.Remove("egress_url"); }
             else if (parseNode.GetChildNode("egress_url") is { } nullNodeEgressUrl && nullNodeEgressUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EgressUrl = null;
+            if (parseNode.GetChildNode("polling_interval") is null) { _explicitNullValuePollingInterval = default!; _explicitNullProperties?.Remove("polling_interval"); }
+            else if (parseNode.GetChildNode("polling_interval") is { } nullNodePollingInterval && nullNodePollingInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PollingInterval = null;
             if (parseNode.GetChildNode("toolkit_versions") is null) { _explicitNullValueToolkitVersions = default!; _explicitNullProperties?.Remove("toolkit_versions"); }
             else if (parseNode.GetChildNode("toolkit_versions") is { } nullNodeToolkitVersions && nullNodeToolkitVersions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitVersions = null;
             if (parseNode.GetChildNode("trigger_config") is null) { _explicitNullValueTrigger_config = default!; _explicitNullProperties?.Remove("trigger_config"); }
             else if (parseNode.GetChildNode("trigger_config") is { } nullNodeTrigger_config && nullNodeTrigger_config.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Trigger_config = null;
             if (parseNode.GetChildNode("triggerConfig") is null) { _explicitNullValueTriggerConfig = default!; _explicitNullProperties?.Remove("triggerConfig"); }
             else if (parseNode.GetChildNode("triggerConfig") is { } nullNodeTriggerConfig && nullNodeTriggerConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerConfig = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
             if (parseNode.GetChildNode("user_id") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("user_id"); }
             else if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
             if (parseNode.GetChildNode("version") is null) { _explicitNullValueVersion = default!; _explicitNullProperties?.Remove("version"); }
@@ -68,6 +72,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string EgressUrl { get => _explicitNullValueEgressUrl; set { _explicitNullValueEgressUrl = value; AdditionalData?.Remove("egress_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("egress_url"); else _explicitNullProperties?.Remove("egress_url"); } }
         private string _explicitNullValueEgressUrl = default!;
 #endif
+        /// <summary>Minutes between polls, for an instance that polls for its events. It is checked whenever the instance could poll, even when Composio tries a webhook first, so an interval outside the toolkit&apos;s allowed range fails the request.</summary>
+        public int? PollingInterval { get => _explicitNullValuePollingInterval; set { _explicitNullValuePollingInterval = value; AdditionalData?.Remove("polling_interval"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("polling_interval"); else _explicitNullProperties?.Remove("polling_interval"); } }
+        private int? _explicitNullValuePollingInterval = default!;
         /// <summary>Toolkit version specification. Supports &quot;latest&quot; string or a record mapping toolkit slugs to specific versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,6 +106,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; AdditionalData?.Remove("triggerConfig"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerConfig"); else _explicitNullProperties?.Remove("triggerConfig"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig _explicitNullValueTriggerConfig = default!;
 #endif
+        /// <summary>Whether this instance receives events by webhook or by polling, for a trigger that supports both. Omit it to let Composio choose the best one.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestType? _explicitNullValueType = default!;
         /// <summary>The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger&apos;s toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided, user_id is checked against that connection: always against a SHARED connection&apos;s ACL (user_id is then required), and against a PRIVATE connection&apos;s owner when the project has 2FA enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -148,8 +158,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "connected_account_id", n => { ConnectedAccountId = n.GetStringValue(); } },
                 { "connectedAuthId", n => { ConnectedAuthId = n.GetStringValue(); } },
                 { "egress_url", n => { EgressUrl = n.GetStringValue(); } },
+                { "polling_interval", n => { PollingInterval = n.GetIntValue(); } },
                 { "toolkit_versions", n => { ToolkitVersions = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "triggerConfig", n => { TriggerConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig.CreateFromDiscriminatorValue); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
                 { "trigger_config", n => { Trigger_config = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty>(global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty.CreateFromDiscriminatorValue); } },
@@ -165,9 +177,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("connected_account_id", ConnectedAccountId);
             writer.WriteStringValue("connectedAuthId", ConnectedAuthId);
             writer.WriteStringValue("egress_url", EgressUrl);
+            writer.WriteIntValue("polling_interval", PollingInterval);
             writer.WriteObjectValue<UntypedNode>("toolkit_versions", ToolkitVersions);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfigProperty>("trigger_config", Trigger_config);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestTriggerConfig>("triggerConfig", TriggerConfig);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostTriggerInstancesBySlugUpsertRequestType>("type", Type);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteStringValue("version", Version);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
