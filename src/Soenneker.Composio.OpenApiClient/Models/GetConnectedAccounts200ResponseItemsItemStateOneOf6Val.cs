@@ -51,11 +51,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             return mappingValue switch
             {
-                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValGetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf3(),
-                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValGetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf5(),
-                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValGetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf4(),
-                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValGetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf1(),
-                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValGetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf2(),
+                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf3Variant(),
+                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf5Variant(),
+                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf4Variant(),
+                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf1Variant(),
+                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6ValOneOf2Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf6Val(),
             };
         }

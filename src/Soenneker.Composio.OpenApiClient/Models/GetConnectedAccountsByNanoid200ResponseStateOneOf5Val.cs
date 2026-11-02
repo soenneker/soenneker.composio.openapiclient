@@ -51,11 +51,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             return mappingValue switch
             {
-                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValGetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf3(),
-                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValGetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf5(),
-                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValGetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf4(),
-                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValGetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf1(),
-                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValGetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf2(),
+                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf3Variant(),
+                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf5Variant(),
+                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf4Variant(),
+                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf1Variant(),
+                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5ValOneOf2Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf5Val(),
             };
         }

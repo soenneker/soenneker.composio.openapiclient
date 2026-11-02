@@ -51,12 +51,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             return mappingValue switch
             {
-                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValGetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3(),
-                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValGetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf6(),
-                "FAILED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValGetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf5(),
-                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValGetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4(),
-                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValGetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf1(),
-                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValGetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf2(),
+                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf3Variant(),
+                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf6Variant(),
+                "FAILED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf5Variant(),
+                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf4Variant(),
+                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf1Variant(),
+                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13ValOneOf2Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf13Val(),
             };
         }

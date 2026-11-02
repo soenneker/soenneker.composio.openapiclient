@@ -51,8 +51,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "request_blocked" => new global::Soenneker.Composio.OpenApiClient.Models.BlockReasonBlockReasonOneOf1(),
-                "response_blocked" => new global::Soenneker.Composio.OpenApiClient.Models.BlockReasonBlockReasonOneOf2(),
+                "request_blocked" => new global::Soenneker.Composio.OpenApiClient.Models.BlockReasonOneOf1Variant(),
+                "response_blocked" => new global::Soenneker.Composio.OpenApiClient.Models.BlockReasonOneOf2Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.BlockReason(),
             };
         }

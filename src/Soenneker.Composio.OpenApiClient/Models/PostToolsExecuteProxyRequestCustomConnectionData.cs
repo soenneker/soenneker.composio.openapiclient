@@ -52,17 +52,17 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("authScheme")?.GetStringValue();
             return mappingValue switch
             {
-                "API_KEY" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf3(),
-                "BASIC" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf5(),
-                "BASIC_WITH_JWT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf4(),
-                "BEARER_TOKEN" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf6(),
-                "DCR_OAUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf2(),
-                "GOOGLE_SERVICE_ACCOUNT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf10(),
-                "NO_AUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf8(),
-                "OAUTH1" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf7(),
-                "OAUTH2" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf1(),
-                "S2S_OAUTH2" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf11(),
-                "SERVICE_ACCOUNT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataPostToolsExecuteProxyRequestCustomConnectionDataOneOf9(),
+                "API_KEY" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf3Variant(),
+                "BASIC" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf5Variant(),
+                "BASIC_WITH_JWT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf4Variant(),
+                "BEARER_TOKEN" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf6Variant(),
+                "DCR_OAUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf2Variant(),
+                "GOOGLE_SERVICE_ACCOUNT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf10Variant(),
+                "NO_AUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf8Variant(),
+                "OAUTH1" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf7Variant(),
+                "OAUTH2" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf1Variant(),
+                "S2S_OAUTH2" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf11Variant(),
+                "SERVICE_ACCOUNT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionDataOneOf9Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.PostToolsExecuteProxyRequestCustomConnectionData(),
             };
         }

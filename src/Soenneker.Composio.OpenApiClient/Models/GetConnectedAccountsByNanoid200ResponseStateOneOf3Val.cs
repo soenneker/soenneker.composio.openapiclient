@@ -51,12 +51,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             return mappingValue switch
             {
-                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValGetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf3(),
-                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValGetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf6(),
-                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValGetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf4(),
-                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValGetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf1(),
-                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValGetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf2(),
-                "REVOKED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValGetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf5(),
+                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf3Variant(),
+                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf6Variant(),
+                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf4Variant(),
+                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf1Variant(),
+                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf2Variant(),
+                "REVOKED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3ValOneOf5Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccountsByNanoid200ResponseStateOneOf3Val(),
             };
         }

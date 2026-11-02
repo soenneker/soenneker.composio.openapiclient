@@ -51,9 +51,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("mode")?.GetStringValue();
             return mappingValue switch
             {
-                "API_KEY" => new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemPostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2(),
-                "DCR_OAUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemPostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3(),
-                "NO_AUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemPostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1(),
+                "API_KEY" => new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf2Variant(),
+                "DCR_OAUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf3Variant(),
+                "NO_AUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItemOneOf1Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem(),
             };
         }

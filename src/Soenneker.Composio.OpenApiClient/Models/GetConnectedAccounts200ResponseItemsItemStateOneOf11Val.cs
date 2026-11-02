@@ -51,11 +51,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             return mappingValue switch
             {
-                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValGetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf3(),
-                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValGetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf5(),
-                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValGetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf4(),
-                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValGetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf1(),
-                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValGetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf2(),
+                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf3Variant(),
+                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf5Variant(),
+                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf4Variant(),
+                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf1Variant(),
+                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11ValOneOf2Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.GetConnectedAccounts200ResponseItemsItemStateOneOf11Val(),
             };
         }

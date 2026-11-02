@@ -51,12 +51,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             return mappingValue switch
             {
-                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValPostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3(),
-                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValPostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf6(),
-                "FAILED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValPostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf5(),
-                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValPostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4(),
-                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValPostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf1(),
-                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValPostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf2(),
+                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf3Variant(),
+                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf6Variant(),
+                "FAILED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf5Variant(),
+                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf4Variant(),
+                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf1Variant(),
+                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13ValOneOf2Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccounts201ResponseConnectionDataOneOf13Val(),
             };
         }

@@ -51,11 +51,11 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             return mappingValue switch
             {
-                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValPostConnectedAccountsRequestConnectionStateOneOf6ValOneOf3(),
-                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValPostConnectedAccountsRequestConnectionStateOneOf6ValOneOf5(),
-                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValPostConnectedAccountsRequestConnectionStateOneOf6ValOneOf4(),
-                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValPostConnectedAccountsRequestConnectionStateOneOf6ValOneOf1(),
-                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValPostConnectedAccountsRequestConnectionStateOneOf6ValOneOf2(),
+                "ACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValOneOf3Variant(),
+                "EXPIRED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValOneOf5Variant(),
+                "INACTIVE" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValOneOf4Variant(),
+                "INITIALIZING" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValOneOf1Variant(),
+                "INITIATED" => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6ValOneOf2Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.PostConnectedAccountsRequestConnectionStateOneOf6Val(),
             };
         }

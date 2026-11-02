@@ -52,17 +52,17 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("authScheme")?.GetStringValue();
             return mappingValue switch
             {
-                "API_KEY" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf3(),
-                "BASIC" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf5(),
-                "BASIC_WITH_JWT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf4(),
-                "BEARER_TOKEN" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf6(),
-                "DCR_OAUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2(),
-                "GOOGLE_SERVICE_ACCOUNT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf10(),
-                "NO_AUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf8(),
-                "OAUTH1" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf7(),
-                "OAUTH2" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1(),
-                "S2S_OAUTH2" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11(),
-                "SERVICE_ACCOUNT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataPostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf9(),
+                "API_KEY" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf3Variant(),
+                "BASIC" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf5Variant(),
+                "BASIC_WITH_JWT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf4Variant(),
+                "BEARER_TOKEN" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf6Variant(),
+                "DCR_OAUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf2Variant(),
+                "GOOGLE_SERVICE_ACCOUNT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf10Variant(),
+                "NO_AUTH" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf8Variant(),
+                "OAUTH1" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf7Variant(),
+                "OAUTH2" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1Variant(),
+                "S2S_OAUTH2" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf11Variant(),
+                "SERVICE_ACCOUNT" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf9Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionData(),
             };
         }

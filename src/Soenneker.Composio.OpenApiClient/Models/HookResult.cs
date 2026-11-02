@@ -51,8 +51,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("status")?.GetStringValue();
             return mappingValue switch
             {
-                "evaluated" => new global::Soenneker.Composio.OpenApiClient.Models.HookResultHookResultOneOf1(),
-                "unavailable" => new global::Soenneker.Composio.OpenApiClient.Models.HookResultHookResultOneOf2(),
+                "evaluated" => new global::Soenneker.Composio.OpenApiClient.Models.HookResultOneOf1Variant(),
+                "unavailable" => new global::Soenneker.Composio.OpenApiClient.Models.HookResultOneOf2Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.HookResult(),
             };
         }

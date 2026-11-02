@@ -51,8 +51,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "after_execute" => new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestHooksItemPatchToolRouterSessionBySessionIdRequestHooksItemOneOf2(),
-                "before_execute" => new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestHooksItemPatchToolRouterSessionBySessionIdRequestHooksItemOneOf1(),
+                "after_execute" => new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2Variant(),
+                "before_execute" => new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestHooksItem(),
             };
         }
