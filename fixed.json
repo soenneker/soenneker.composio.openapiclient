@@ -4931,7 +4931,7 @@
           "Tools"
         ],
         "summary": "Get tool enum list",
-        "description": "Retrieve a list of all available tool enumeration values (tool slugs) from latest version of each toolkit. This endpoint returns a comma-separated string of tool slugs that can be used in other API calls.",
+        "description": "Lists the slug of every tool in the latest version of each Composio-managed toolkit, such as GMAIL_SEND_EMAIL. Tools of custom toolkits are not included.",
         "operationId": "GetToolsEnum",
         "responses": {
           "200": {
@@ -10410,6 +10410,21 @@
         "summary": "Get toolkits changelog",
         "description": "Retrieves the last 10 versions changelog for all toolkits. This endpoint provides version history and changelog information for each toolkit.",
         "operationId": "GetToolkitsChangelog",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "[EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are included.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string",
+              "description": "[EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are included.",
+              "example": "user_123",
+              "x-experimental": true
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Toolkits changelog retrieved successfully",
@@ -16572,7 +16587,7 @@
         "items": {
           "type": "string"
         },
-        "description": "JSON string containing all tool enum values from latest version of each toolkit"
+        "description": "Tool slugs"
       },
       "PostTriggerInstancesBySlugUpsert204ResponseSchema": {
         "type": "object"
@@ -86228,7 +86243,7 @@
       "items": {
         "type": "string"
       },
-      "description": "JSON string containing all tool enum values from latest version of each toolkit"
+      "description": "Tool slugs"
     },
     "PostTriggerInstancesBySlugUpsert204Response": {
       "type": "object"
