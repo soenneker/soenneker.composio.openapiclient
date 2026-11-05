@@ -17,26 +17,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("app_url") is null) { _explicitNullValueAppUrl = default!; _explicitNullProperties?.Remove("app_url"); }
-            else if (parseNode.GetChildNode("app_url") is { } nullNodeAppUrl && nullNodeAppUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppUrl = null;
             if (parseNode.GetChildNode("auth_schemes") is null) { _explicitNullValueAuthSchemes = default!; _explicitNullProperties?.Remove("auth_schemes"); }
             else if (parseNode.GetChildNode("auth_schemes") is { } nullNodeAuthSchemes && nullNodeAuthSchemes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthSchemes = null;
             if (parseNode.GetChildNode("logo_file") is null) { _explicitNullValueLogoFile = default!; _explicitNullProperties?.Remove("logo_file"); }
             else if (parseNode.GetChildNode("logo_file") is { } nullNodeLogoFile && nullNodeLogoFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoFile = null;
+            if (parseNode.GetChildNode("mcp_url") is null) { _explicitNullValueMcpUrl = default!; _explicitNullProperties?.Remove("mcp_url"); }
+            else if (parseNode.GetChildNode("mcp_url") is { } nullNodeMcpUrl && nullNodeMcpUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpUrl = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
-        /// <summary>MCP server URL. Must use https.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AppUrl { get => _explicitNullValueAppUrl; set { _explicitNullValueAppUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_url"); else _explicitNullProperties?.Remove("app_url"); } }
-        private string? _explicitNullValueAppUrl = default!;
-#nullable restore
-#else
-        public string AppUrl { get => _explicitNullValueAppUrl; set { _explicitNullValueAppUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app_url"); else _explicitNullProperties?.Remove("app_url"); } }
-        private string _explicitNullValueAppUrl = default!;
-#endif
         /// <summary>How users authenticate to the MCP server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +46,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile LogoFile { get => _explicitNullValueLogoFile; set { _explicitNullValueLogoFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_file"); else _explicitNullProperties?.Remove("logo_file"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile _explicitNullValueLogoFile = default!;
+#endif
+        /// <summary>MCP server URL. Must use https.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? McpUrl { get => _explicitNullValueMcpUrl; set { _explicitNullValueMcpUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_url"); else _explicitNullProperties?.Remove("mcp_url"); } }
+        private string? _explicitNullValueMcpUrl = default!;
+#nullable restore
+#else
+        public string McpUrl { get => _explicitNullValueMcpUrl; set { _explicitNullValueMcpUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_url"); else _explicitNullProperties?.Remove("mcp_url"); } }
+        private string _explicitNullValueMcpUrl = default!;
 #endif
         /// <summary>Display name of the toolkit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,9 +85,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "app_url", n => { AppUrl = n.GetStringValue(); } },
                 { "auth_schemes", n => { AuthSchemes = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "logo_file", n => { LogoFile = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile.CreateFromDiscriminatorValue); } },
+                { "mcp_url", n => { McpUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -98,9 +98,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("app_url", AppUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem>("auth_schemes", AuthSchemes);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile>("logo_file", LogoFile);
+            writer.WriteStringValue("mcp_url", McpUrl);
             writer.WriteStringValue("name", Name);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
