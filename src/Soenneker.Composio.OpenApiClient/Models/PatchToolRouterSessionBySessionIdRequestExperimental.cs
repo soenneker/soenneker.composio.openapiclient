@@ -17,6 +17,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("disable_plan_search") is null) { _explicitNullValueDisablePlanSearch = default!; _explicitNullProperties?.Remove("disable_plan_search"); }
+            else if (parseNode.GetChildNode("disable_plan_search") is { } nullNodeDisablePlanSearch && nullNodeDisablePlanSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisablePlanSearch = null;
             if (parseNode.GetChildNode("fast_mode") is null) { _explicitNullValueFastMode = default!; _explicitNullProperties?.Remove("fast_mode"); }
             else if (parseNode.GetChildNode("fast_mode") is { } nullNodeFastMode && nullNodeFastMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FastMode = null;
             if (parseNode.GetChildNode("link_url_overwrite") is null) { _explicitNullValueLinkUrlOverwrite = default!; _explicitNullProperties?.Remove("link_url_overwrite"); }
@@ -29,6 +31,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("submit_feedback") is { } nullNodeSubmitFeedback && nullNodeSubmitFeedback.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmitFeedback = null;
         }
 
+        /// <summary>Set to true to stop tool search from returning cached plans (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) in this session, false to return them again. Unlike fast_mode, tool search quality is unaffected.</summary>
+        public bool? DisablePlanSearch { get => _explicitNullValueDisablePlanSearch; set { _explicitNullValueDisablePlanSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_plan_search"); else _explicitNullProperties?.Remove("disable_plan_search"); } }
+        private bool? _explicitNullValueDisablePlanSearch = default!;
         /// <summary>Fast mode reduces search latency. It is experimental, so tool search quality may be affected.</summary>
         public bool? FastMode { get => _explicitNullValueFastMode; set { _explicitNullValueFastMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fast_mode"); else _explicitNullProperties?.Remove("fast_mode"); } }
         private bool? _explicitNullValueFastMode = default!;
@@ -85,6 +90,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "disable_plan_search", n => { DisablePlanSearch = n.GetBoolValue(); } },
                 { "fast_mode", n => { FastMode = n.GetBoolValue(); } },
                 { "link_url_overwrite", n => { LinkUrlOverwrite = n.GetStringValue(); } },
                 { "no_elicitation_support_fallback", n => { NoElicitationSupportFallback = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback>(); } },
@@ -99,6 +105,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("disable_plan_search", DisablePlanSearch);
             writer.WriteBoolValue("fast_mode", FastMode);
             writer.WriteStringValue("link_url_overwrite", LinkUrlOverwrite);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback>("no_elicitation_support_fallback", NoElicitationSupportFallback);

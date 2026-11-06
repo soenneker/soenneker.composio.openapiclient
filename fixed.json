@@ -33569,6 +33569,8 @@
           "slug",
           "name",
           "type",
+          "app",
+          "toolkit_type",
           "is_local_toolkit",
           "deprecated",
           "meta"
@@ -33587,6 +33589,14 @@
           },
           "type": {
             "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemType"
+          },
+          "app": {
+            "type": "string",
+            "description": "Name used to group related toolkits. Falls back to the toolkit name.",
+            "example": "GitHub"
+          },
+          "toolkit_type": {
+            "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemToolkitType"
           },
           "instant": {
             "$ref": "#/components/schemas/GetToolkits200ResponseItemsItemInstant"
@@ -33724,9 +33734,7 @@
         "type": "object",
         "properties": {
           "mode": {
-            "type": "string",
-            "description": "The type of authentication mode (e.g., oauth2, basic_auth, api_key)",
-            "example": "oauth2"
+            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode"
           },
           "required_scopes": {
             "type": "array",
@@ -33874,6 +33882,8 @@
           "slug",
           "name",
           "type",
+          "app",
+          "toolkit_type",
           "is_local_toolkit",
           "deprecated",
           "meta"
@@ -33892,6 +33902,14 @@
           },
           "type": {
             "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemType"
+          },
+          "app": {
+            "type": "string",
+            "description": "Name used to group related toolkits. Falls back to the toolkit name.",
+            "example": "GitHub"
+          },
+          "toolkit_type": {
+            "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemToolkitType"
           },
           "instant": {
             "$ref": "#/components/schemas/PostToolkitsMulti200ResponseItemsItemInstant"
@@ -34961,6 +34979,11 @@
             "description": "Fast mode reduces search latency. It is experimental, so tool search quality may be affected.",
             "x-experimental": true
           },
+          "disable_plan_search": {
+            "type": "boolean",
+            "description": "Set to true to stop tool search from returning cached plans (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) in this session. Unlike fast_mode, tool search quality is unaffected. Defaults to false.",
+            "x-experimental": true
+          },
           "submit_feedback": {
             "$ref": "#/components/schemas/PostToolRouterSessionRequestExperimentalSubmitFeedback"
           },
@@ -35462,6 +35485,11 @@
           "fast_mode": {
             "type": "boolean",
             "description": "Fast mode reduces search latency. It is experimental, so tool search quality may be affected.",
+            "x-experimental": true
+          },
+          "disable_plan_search": {
+            "type": "boolean",
+            "description": "Set to true to stop tool search from returning cached plans (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) in this session, false to return them again. Unlike fast_mode, tool search quality is unaffected.",
             "x-experimental": true
           },
           "submit_feedback": {
@@ -46070,6 +46098,29 @@
           ]
         }
       },
+      "GetToolkits200ResponseItemsItemToolkitType": {
+        "enum": [
+          "api",
+          "mcp"
+        ],
+        "type": "string",
+        "description": "How the toolkit is implemented: \u0022api\u0022 for an API integration, \u0022mcp\u0022 for an MCP server",
+        "example": "api",
+        "x-ms-enum": {
+          "name": "GetToolkits200ResponseItemsItemToolkitType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "api",
+              "name": "Api"
+            },
+            {
+              "value": "mcp",
+              "name": "Mcp"
+            }
+          ]
+        }
+      },
       "GetToolkits200ResponseItemsItemAccess": {
         "enum": [
           "all",
@@ -46094,6 +46145,94 @@
           ]
         }
       },
+      "GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode": {
+        "enum": [
+          "OAUTH2",
+          "OAUTH1",
+          "API_KEY",
+          "BASIC",
+          "BILLCOM_AUTH",
+          "BEARER_TOKEN",
+          "GOOGLE_SERVICE_ACCOUNT",
+          "NO_AUTH",
+          "BASIC_WITH_JWT",
+          "CALCOM_AUTH",
+          "SERVICE_ACCOUNT",
+          "SAML",
+          "DCR_OAUTH",
+          "CIMD_OAUTH",
+          "S2S_OAUTH2"
+        ],
+        "type": "string",
+        "description": "The type of authentication mode (e.g., OAUTH2, BASIC, API_KEY)",
+        "example": "OAUTH2",
+        "x-ms-enum": {
+          "name": "GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "OAUTH2",
+              "name": "OAuth2"
+            },
+            {
+              "value": "OAUTH1",
+              "name": "OAuth1"
+            },
+            {
+              "value": "API_KEY",
+              "name": "ApiKey"
+            },
+            {
+              "value": "BASIC",
+              "name": "Basic"
+            },
+            {
+              "value": "BILLCOM_AUTH",
+              "name": "BillcomAuth"
+            },
+            {
+              "value": "BEARER_TOKEN",
+              "name": "BearerToken"
+            },
+            {
+              "value": "GOOGLE_SERVICE_ACCOUNT",
+              "name": "GoogleServiceAccount"
+            },
+            {
+              "value": "NO_AUTH",
+              "name": "NoAuth"
+            },
+            {
+              "value": "BASIC_WITH_JWT",
+              "name": "BasicWithJwt"
+            },
+            {
+              "value": "CALCOM_AUTH",
+              "name": "CalcomAuth"
+            },
+            {
+              "value": "SERVICE_ACCOUNT",
+              "name": "ServiceAccount"
+            },
+            {
+              "value": "SAML",
+              "name": "Saml"
+            },
+            {
+              "value": "DCR_OAUTH",
+              "name": "DcrOAuth"
+            },
+            {
+              "value": "CIMD_OAUTH",
+              "name": "CimdOAuth"
+            },
+            {
+              "value": "S2S_OAUTH2",
+              "name": "S2SOAuth2"
+            }
+          ]
+        }
+      },
       "PostToolkitsMulti200ResponseItemsItemType": {
         "enum": [
           "native",
@@ -46113,6 +46252,29 @@
             {
               "value": "custom",
               "name": "Custom"
+            }
+          ]
+        }
+      },
+      "PostToolkitsMulti200ResponseItemsItemToolkitType": {
+        "enum": [
+          "api",
+          "mcp"
+        ],
+        "type": "string",
+        "description": "How the toolkit is implemented: \u0022api\u0022 for an API integration, \u0022mcp\u0022 for an MCP server",
+        "example": "api",
+        "x-ms-enum": {
+          "name": "PostToolkitsMulti200ResponseItemsItemToolkitType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "api",
+              "name": "Api"
+            },
+            {
+              "value": "mcp",
+              "name": "Mcp"
             }
           ]
         }

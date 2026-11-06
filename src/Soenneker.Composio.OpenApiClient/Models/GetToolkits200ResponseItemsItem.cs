@@ -20,6 +20,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("access") is null) { _explicitNullValueAccess = default!; _explicitNullProperties?.Remove("access"); }
             else if (parseNode.GetChildNode("access") is { } nullNodeAccess && nullNodeAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Access = null;
+            if (parseNode.GetChildNode("app") is null) { _explicitNullValueApp = default!; _explicitNullProperties?.Remove("app"); }
+            else if (parseNode.GetChildNode("app") is { } nullNodeApp && nullNodeApp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) App = null;
             if (parseNode.GetChildNode("auth_guide_url") is null) { _explicitNullValueAuthGuideUrl = default!; _explicitNullProperties?.Remove("auth_guide_url"); }
             else if (parseNode.GetChildNode("auth_guide_url") is { } nullNodeAuthGuideUrl && nullNodeAuthGuideUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthGuideUrl = null;
             if (parseNode.GetChildNode("auth_schemes") is null) { _explicitNullValueAuthSchemes = default!; _explicitNullProperties?.Remove("auth_schemes"); }
@@ -40,6 +42,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("no_auth") is { } nullNodeNoAuth && nullNodeNoAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoAuth = null;
             if (parseNode.GetChildNode("slug") is null) { _explicitNullValueSlug = default!; _explicitNullProperties?.Remove("slug"); }
             else if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("toolkit_type") is null) { _explicitNullValueToolkitType = default!; _explicitNullProperties?.Remove("toolkit_type"); }
+            else if (parseNode.GetChildNode("toolkit_type") is { } nullNodeToolkitType && nullNodeToolkitType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolkitType = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
@@ -49,6 +53,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
         private global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemAccess? _explicitNullValueAccess = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Name used to group related toolkits. Falls back to the toolkit name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; AdditionalData?.Remove("app"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
+        private string? _explicitNullValueApp = default!;
+#nullable restore
+#else
+        public string App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; AdditionalData?.Remove("app"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
+        private string _explicitNullValueApp = default!;
+#endif
         /// <summary>URL to a guide page with authentication setup instructions for this toolkit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,6 +151,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
         private string _explicitNullValueSlug = default!;
 #endif
+        /// <summary>How the toolkit is implemented: &quot;api&quot; for an API integration, &quot;mcp&quot; for an MCP server</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemToolkitType? ToolkitType { get => _explicitNullValueToolkitType; set { _explicitNullValueToolkitType = value; AdditionalData?.Remove("toolkit_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toolkit_type"); else _explicitNullProperties?.Remove("toolkit_type"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemToolkitType? _explicitNullValueToolkitType = default!;
         /// <summary>Toolkit provenance: &quot;native&quot; for Composio-managed toolkits, &quot;custom&quot; for a project-registered custom (MCP) toolkit</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemType? _explicitNullValueType = default!;
@@ -166,6 +183,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "access", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemAccess>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAccess = default; _explicitNullProperties?.Remove("access"); AdditionalData["access"] = unknown; } else { Access = parsed; AdditionalData.Remove("access"); } } },
+                { "app", n => { App = n.GetStringValue(); } },
                 { "auth_guide_url", n => { AuthGuideUrl = n.GetStringValue(); } },
                 { "auth_schemes", n => { AuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "composio_managed_auth_schemes", n => { ComposioManagedAuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -176,6 +194,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "no_auth", n => { NoAuth = n.GetBoolValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
+                { "toolkit_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemToolkitType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueToolkitType = default; _explicitNullProperties?.Remove("toolkit_type"); AdditionalData["toolkit_type"] = unknown; } else { ToolkitType = parsed; AdditionalData.Remove("toolkit_type"); } } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
@@ -187,6 +206,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemAccess>("access", Access);
+            writer.WriteStringValue("app", App);
             writer.WriteStringValue("auth_guide_url", AuthGuideUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("auth_schemes", AuthSchemes);
             writer.WriteCollectionOfPrimitiveValues<string>("composio_managed_auth_schemes", ComposioManagedAuthSchemes);
@@ -197,6 +217,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("no_auth", NoAuth);
             writer.WriteStringValue("slug", Slug);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemToolkitType>("toolkit_type", ToolkitType);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkits200ResponseItemsItemType>("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

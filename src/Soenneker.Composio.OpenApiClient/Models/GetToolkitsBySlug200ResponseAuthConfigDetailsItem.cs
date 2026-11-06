@@ -67,16 +67,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields _explicitNullValueFields = default!;
 #endif
-        /// <summary>The type of authentication mode (e.g., oauth2, basic_auth, api_key)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
-        private string? _explicitNullValueMode = default!;
-#nullable restore
-#else
-        public string Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
-        private string _explicitNullValueMode = default!;
-#endif
+        /// <summary>The type of authentication mode (e.g., OAUTH2, BASIC, API_KEY)</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode? _explicitNullValueMode = default!;
         /// <summary>Display name for this authentication method</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,7 +128,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "auth_hint_url", n => { AuthHintUrl = n.GetStringValue(); } },
                 { "deprecated_auth_provider_details", n => { DeprecatedAuthProviderDetails = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemDeprecatedAuthProviderDetails>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemDeprecatedAuthProviderDetails.CreateFromDiscriminatorValue); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields.CreateFromDiscriminatorValue); } },
-                { "mode", n => { Mode = n.GetStringValue(); } },
+                { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "proxy", n => { Proxy = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy.CreateFromDiscriminatorValue); } },
                 { "required_scopes", n => { RequiredScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -151,7 +144,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("auth_hint_url", AuthHintUrl);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemDeprecatedAuthProviderDetails>("deprecated_auth_provider_details", DeprecatedAuthProviderDetails);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields>("fields", Fields);
-            writer.WriteStringValue("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode>("mode", Mode);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy>("proxy", Proxy);
             writer.WriteCollectionOfPrimitiveValues<string>("required_scopes", RequiredScopes);
