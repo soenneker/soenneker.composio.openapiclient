@@ -4259,14 +4259,13 @@
           {
             "name": "user_id",
             "in": "query",
-            "description": "[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are listed.",
+            "description": "List the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are listed.",
             "schema": {
               "maxLength": 256,
               "minLength": 1,
               "type": "string",
-              "description": "[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are listed.",
-              "example": "user_123",
-              "x-experimental": true
+              "description": "List the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are listed.",
+              "example": "user_123"
             }
           },
           {
@@ -4432,8 +4431,8 @@
         "tags": [
           "Toolkits"
         ],
-        "summary": "Upsert a custom toolkit",
-        "description": "Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. A toolkit created here is shared with every user in the project; an existing toolkit keeps its access. mcp_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).",
+        "summary": "Upsert a custom toolkit (DEPRECATED)",
+        "description": "DEPRECATED: use POST /api/v3.1/custom/toolkits to create a toolkit and PATCH /api/v3.1/custom/toolkits/{slug} to update it. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. A toolkit created here is shared with every user in the project; an existing toolkit keeps its access. mcp_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).",
         "operationId": "PostCustomToolkitsUpsert",
         "requestBody": {
           "description": "Toolkit creation data",
@@ -4528,6 +4527,7 @@
             }
           }
         },
+        "deprecated": true,
         "security": [
           {
             "ApiKeyAuth": []
@@ -4544,7 +4544,7 @@
           "Toolkits"
         ],
         "summary": "Sync a custom toolkit",
-        "description": "Experimental: custom toolkits are in pilot and this contract may change. Re-fetches tool definitions from the remote MCP server for the custom toolkit with the provided slug. Call it when automatic sync fails or the remote tool definitions change.",
+        "description": "Re-fetches tool definitions from the remote MCP server for the custom toolkit with the provided slug. Call it when automatic sync fails or the remote tool definitions change.",
         "operationId": "PostCustomToolkitsSync",
         "requestBody": {
           "description": "Toolkit sync data",
@@ -10494,14 +10494,13 @@
           {
             "name": "user_id",
             "in": "query",
-            "description": "[EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are included.",
+            "description": "Include the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are included.",
             "schema": {
               "maxLength": 256,
               "minLength": 1,
               "type": "string",
-              "description": "[EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are included.",
-              "example": "user_123",
-              "x-experimental": true
+              "description": "Include the custom toolkits this user can use. Without it, only custom toolkits with access \u0022all\u0022 are included.",
+              "example": "user_123"
             }
           }
         ],
@@ -43774,9 +43773,8 @@
           "user"
         ],
         "type": "string",
-        "description": "[EXPERIMENTAL] Custom toolkits only. \u0022all\u0022: every user in the project can use it. \u0022user\u0022: only the user it was created for can.",
+        "description": "Custom toolkits only. \u0022all\u0022: every user in the project can use it. \u0022user\u0022: only the user it was created for can.",
         "example": "all",
-        "x-experimental": true,
         "x-ms-enum": {
           "name": "GetToolkitsBySlug200ResponseAccess",
           "modelAsString": false,
@@ -46127,9 +46125,8 @@
           "user"
         ],
         "type": "string",
-        "description": "[EXPERIMENTAL] Custom toolkits only. \u0022all\u0022: every user in the project can use it. \u0022user\u0022: only the user it was created for can.",
+        "description": "Custom toolkits only. \u0022all\u0022: every user in the project can use it. \u0022user\u0022: only the user it was created for can.",
         "example": "all",
-        "x-experimental": true,
         "x-ms-enum": {
           "name": "GetToolkits200ResponseItemsItemAccess",
           "modelAsString": false,
@@ -46285,9 +46282,8 @@
           "user"
         ],
         "type": "string",
-        "description": "[EXPERIMENTAL] Custom toolkits only. \u0022all\u0022: every user in the project can use it. \u0022user\u0022: only the user it was created for can.",
+        "description": "Custom toolkits only. \u0022all\u0022: every user in the project can use it. \u0022user\u0022: only the user it was created for can.",
         "example": "all",
-        "x-experimental": true,
         "x-ms-enum": {
           "name": "PostToolkitsMulti200ResponseItemsItemAccess",
           "modelAsString": false,

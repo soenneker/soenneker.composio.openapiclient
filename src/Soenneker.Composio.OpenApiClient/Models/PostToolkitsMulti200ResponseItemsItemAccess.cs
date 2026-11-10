@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
-    /// <summary>[EXPERIMENTAL] Custom toolkits only. &quot;all&quot;: every user in the project can use it. &quot;user&quot;: only the user it was created for can.</summary>
+    /// <summary>Custom toolkits only. &quot;all&quot;: every user in the project can use it. &quot;user&quot;: only the user it was created for can.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PostToolkitsMulti200ResponseItemsItemAccess
     {

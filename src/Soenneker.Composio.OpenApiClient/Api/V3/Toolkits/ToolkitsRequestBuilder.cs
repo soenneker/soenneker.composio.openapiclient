@@ -177,7 +177,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits
             /// <summary>Filter toolkits by provenance (alias over managed_by)</summary>
             [QueryParameter("type")]
             public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsTypeParameter? Type { get; set; }
-            /// <summary>[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access &quot;all&quot; are listed.</summary>
+            /// <summary>List the custom toolkits this user can use. Without it, only custom toolkits with access &quot;all&quot; are listed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("user_id")]

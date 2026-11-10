@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Upsert
         {
         }
         /// <summary>
-        /// Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. A toolkit created here is shared with every user in the project; an existing toolkit keeps its access. mcp_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).
+        /// DEPRECATED: use POST /api/v3.1/custom/toolkits to create a toolkit and PATCH /api/v3.1/custom/toolkits/{slug} to update it. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. A toolkit created here is shared with every user in the project; an existing toolkit keeps its access. mcp_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsert200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -47,6 +47,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Upsert
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsert200Response?> PostAsync(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -73,11 +74,12 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Upsert
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsert200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsert200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. A toolkit created here is shared with every user in the project; an existing toolkit keeps its access. mcp_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).
+        /// DEPRECATED: use POST /api/v3.1/custom/toolkits to create a toolkit and PATCH /api/v3.1/custom/toolkits/{slug} to update it. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. A toolkit created here is shared with every user in the project; an existing toolkit keeps its access. mcp_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -99,6 +101,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Upsert
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Upsert.UpsertRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Upsert.UpsertRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Upsert.UpsertRequestBuilder(rawUrl, RequestAdapter);

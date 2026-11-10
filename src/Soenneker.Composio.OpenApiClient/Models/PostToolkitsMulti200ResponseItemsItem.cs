@@ -48,7 +48,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
-        /// <summary>[EXPERIMENTAL] Custom toolkits only. &quot;all&quot;: every user in the project can use it. &quot;user&quot;: only the user it was created for can.</summary>
+        /// <summary>Custom toolkits only. &quot;all&quot;: every user in the project can use it. &quot;user&quot;: only the user it was created for can.</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemAccess? Access { get => _explicitNullValueAccess; set { _explicitNullValueAccess = value; AdditionalData?.Remove("access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access"); else _explicitNullProperties?.Remove("access"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.PostToolkitsMulti200ResponseItemsItemAccess? _explicitNullValueAccess = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

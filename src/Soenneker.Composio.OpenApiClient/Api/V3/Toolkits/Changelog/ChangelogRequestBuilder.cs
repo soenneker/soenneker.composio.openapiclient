@@ -98,7 +98,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Toolkits.Changelog
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ChangelogRequestBuilderGetQueryParameters 
         {
-            /// <summary>[EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access &quot;all&quot; are included.</summary>
+            /// <summary>Include the custom toolkits this user can use. Without it, only custom toolkits with access &quot;all&quot; are included.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("user_id")]

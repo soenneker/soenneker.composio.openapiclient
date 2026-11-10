@@ -22,6 +22,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Sync.SyncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The upsert property</summary>
+        [Obsolete("")]
         public global::Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Upsert.UpsertRequestBuilder Upsert
         {
             get => new global::Soenneker.Composio.OpenApiClient.Api.V3.Custom.Toolkits.Upsert.UpsertRequestBuilder(PathParameters, RequestAdapter);
