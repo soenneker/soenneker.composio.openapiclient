@@ -41,7 +41,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; AdditionalData?.Remove("filename"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
         private string _explicitNullValueFilename = default!;
 #endif
-        /// <summary>MD5 hash of the file for deduplication and integrity verification. Example: &quot;a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6&quot;</summary>
+        /// <summary>MD5 hash of the file for integrity verification. Example: &quot;a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Md5 { get => _explicitNullValueMd5; set { _explicitNullValueMd5 = value; AdditionalData?.Remove("md5"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("md5"); else _explicitNullProperties?.Remove("md5"); } }

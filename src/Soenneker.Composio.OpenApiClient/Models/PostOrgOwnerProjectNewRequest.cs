@@ -51,7 +51,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem> ApiKeyPermissions { get => _explicitNullValueApiKeyPermissions; set { _explicitNullValueApiKeyPermissions = value; AdditionalData?.Remove("api_key_permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_key_permissions"); else _explicitNullProperties?.Remove("api_key_permissions"); } }
         private List<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem> _explicitNullValueApiKeyPermissions = default!;
 #endif
-        /// <summary>Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.</summary>
+        /// <summary>Configuration for the project. Use display_name and logo_url to brand the hosted Connect Link page. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestConfig? Config { get => _explicitNullValueConfig; set { _explicitNullValueConfig = value; AdditionalData?.Remove("config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("config"); else _explicitNullProperties?.Remove("config"); } }

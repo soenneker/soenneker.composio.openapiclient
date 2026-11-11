@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Composio.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
+    /// Configuration for the project. Use display_name and logo_url to brand the hosted Connect Link page. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostOrgOwnerProjectNewRequestConfig : IAdditionalDataHolder, IParsable
@@ -44,7 +44,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The display_name property</summary>
+        /// <summary>App name shown to end users on the hosted Connect Link page, up to 75 characters. The page shows Composio when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
@@ -63,7 +63,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don&apos;t use this key.</summary>
         public bool? IsComposioLinkEnabledForManagedAuth { get => _explicitNullValueIsComposioLinkEnabledForManagedAuth; set { _explicitNullValueIsComposioLinkEnabledForManagedAuth = value; AdditionalData?.Remove("is_composio_link_enabled_for_managed_auth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_composio_link_enabled_for_managed_auth"); else _explicitNullProperties?.Remove("is_composio_link_enabled_for_managed_auth"); } }
         private bool? _explicitNullValueIsComposioLinkEnabledForManagedAuth = default!;
-        /// <summary>The logo_url property</summary>
+        /// <summary>URL of the logo shown to end users on the hosted Connect Link page. Use a publicly reachable https image URL. The Composio logo is shown when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; AdditionalData?.Remove("logo_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo_url"); else _explicitNullProperties?.Remove("logo_url"); } }

@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Files.Upload.Request
         {
         }
         /// <summary>
-        /// Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.
+        /// Generates a presigned URL for uploading a file to S3. Every request returns a new file ID and storage key, including repeat uploads of the same file.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -75,7 +75,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Files.Upload.Request
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostFilesUploadRequest200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.
+        /// Generates a presigned URL for uploading a file to S3. Every request returns a new file ID and storage key, including repeat uploads of the same file.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
