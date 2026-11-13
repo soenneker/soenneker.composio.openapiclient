@@ -85,7 +85,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; AdditionalData?.Remove("base_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
         private string _explicitNullValueBaseUrl = default!;
 #endif
-        /// <summary>Managed-auth-only metadata, including the supported OAuth scope ceiling.</summary>
+        /// <summary>One entry per Composio-managed app, the default first, each with its supported OAuth scope ceiling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItem>? ComposioManagedAuth { get => _explicitNullValueComposioManagedAuth; set { _explicitNullValueComposioManagedAuth = value; AdditionalData?.Remove("composio_managed_auth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("composio_managed_auth"); else _explicitNullProperties?.Remove("composio_managed_auth"); } }

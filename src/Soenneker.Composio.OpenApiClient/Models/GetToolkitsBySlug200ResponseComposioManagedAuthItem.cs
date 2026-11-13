@@ -17,6 +17,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("is_default") is null) { _explicitNullValueIsDefault = default!; _explicitNullProperties?.Remove("is_default"); }
+            else if (parseNode.GetChildNode("is_default") is { } nullNodeIsDefault && nullNodeIsDefault.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDefault = null;
+            if (parseNode.GetChildNode("managed_app_id") is null) { _explicitNullValueManagedAppId = default!; _explicitNullProperties?.Remove("managed_app_id"); }
+            else if (parseNode.GetChildNode("managed_app_id") is { } nullNodeManagedAppId && nullNodeManagedAppId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAppId = null;
             if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
             else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
             if (parseNode.GetChildNode("scopes") is null) { _explicitNullValueScopes = default!; _explicitNullProperties?.Remove("scopes"); }
@@ -27,6 +31,19 @@ namespace Soenneker.Composio.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether this is the toolkit&apos;s default Composio-managed app.</summary>
+        public bool? IsDefault { get => _explicitNullValueIsDefault; set { _explicitNullValueIsDefault = value; AdditionalData?.Remove("is_default"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_default"); else _explicitNullProperties?.Remove("is_default"); } }
+        private bool? _explicitNullValueIsDefault = default!;
+        /// <summary>Unique id of this Composio-managed app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ManagedAppId { get => _explicitNullValueManagedAppId; set { _explicitNullValueManagedAppId = value; AdditionalData?.Remove("managed_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_app_id"); else _explicitNullProperties?.Remove("managed_app_id"); } }
+        private string? _explicitNullValueManagedAppId = default!;
+#nullable restore
+#else
+        public string ManagedAppId { get => _explicitNullValueManagedAppId; set { _explicitNullValueManagedAppId = value; AdditionalData?.Remove("managed_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_app_id"); else _explicitNullProperties?.Remove("managed_app_id"); } }
+        private string _explicitNullValueManagedAppId = default!;
+#endif
         /// <summary>Authentication mode for the Composio-managed auth config</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,6 +99,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "is_default", n => { IsDefault = n.GetBoolValue(); } },
+                { "managed_app_id", n => { ManagedAppId = n.GetStringValue(); } },
                 { "mode", n => { Mode = n.GetStringValue(); } },
                 { "scopes", n => { Scopes = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItemScopes>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItemScopes.CreateFromDiscriminatorValue); } },
                 { "user_scopes", n => { UserScopes = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItemUserScopes>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItemUserScopes.CreateFromDiscriminatorValue); } },
@@ -94,6 +113,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("is_default", IsDefault);
+            writer.WriteStringValue("managed_app_id", ManagedAppId);
             writer.WriteStringValue("mode", Mode);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItemScopes>("scopes", Scopes);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseComposioManagedAuthItemUserScopes>("user_scopes", UserScopes);
