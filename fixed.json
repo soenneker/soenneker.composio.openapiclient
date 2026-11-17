@@ -149,6 +149,16 @@
               }
             }
           },
+          "403": {
+            "description": "Forbidden - Your role does not allow modifying auth configs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Not found",
             "content": {
@@ -8744,11 +8754,11 @@
           {
             "name": "sessionId",
             "in": "path",
-            "description": "Tool router session ID (required for public API, optional for internal - injected by middleware)",
+            "description": "Tool router session ID",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.",
+              "description": "The unique identifier of the tool router session.",
               "example": "trs_LX9uJKBinWWr",
               "x-client-original-format": "toolRouterSessionId"
             }
@@ -8904,11 +8914,11 @@
           {
             "name": "sessionId",
             "in": "path",
-            "description": "Tool router session ID (required for public API, optional for internal - injected by middleware)",
+            "description": "Tool router session ID",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.",
+              "description": "The unique identifier of the tool router session.",
               "example": "trs_LX9uJKBinWWr",
               "x-client-original-format": "toolRouterSessionId"
             }
@@ -9424,11 +9434,11 @@
           {
             "name": "sessionId",
             "in": "path",
-            "description": "Tool router session ID (required for public API, optional for internal - injected by middleware)",
+            "description": "Tool router session ID",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.",
+              "description": "The unique identifier of the tool router session.",
               "example": "trs_LX9uJKBinWWr",
               "x-client-original-format": "toolRouterSessionId"
             }
@@ -10599,6 +10609,11 @@
             "maxLength": 255,
             "type": "string",
             "description": "The name of the integration"
+          },
+          "managed_app_id": {
+            "type": "string",
+            "description": "The Composio-managed app to use, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Omit to use the toolkit\u0027s default app.",
+            "x-client-original-format": "managedAppId"
           },
           "credentials": {
             "$ref": "#/components/schemas/ComposioManagedAuthConfigCreateCredentials"
@@ -12291,9 +12306,11 @@
           "type",
           "toolkit",
           "name",
+          "managed_app_id",
           "status",
           "no_of_connections",
-          "tool_access_config"
+          "tool_access_config",
+          "keyring_routed"
         ],
         "type": "object",
         "properties": {
@@ -12323,6 +12340,11 @@
           "is_composio_managed": {
             "type": "boolean",
             "description": "Whether this authentication configuration is managed by Composio or the user"
+          },
+          "managed_app_id": {
+            "type": "string",
+            "description": "The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom.",
+            "nullable": true
           },
           "credentials": {
             "$ref": "#/components/schemas/GetAuthConfigsByNanoid200ResponseCredentials"
@@ -12376,6 +12398,11 @@
           "is_enabled_for_tool_router": {
             "type": "boolean",
             "description": "Whether this auth config is enabled for tool router"
+          },
+          "keyring_routed": {
+            "type": "boolean",
+            "description": "[EXPERIMENTAL] Whether the auth config is bound to a keyring encryption key, customer-hosted or Composio-operated.",
+            "x-experimental": true
           }
         }
       },
@@ -32150,7 +32177,8 @@
         "required": [
           "id",
           "auth_scheme",
-          "is_composio_managed"
+          "is_composio_managed",
+          "managed_app_id"
         ],
         "type": "object",
         "properties": {
@@ -32166,6 +32194,11 @@
           "is_composio_managed": {
             "type": "boolean",
             "description": "Whether the auth config is managed by Composio"
+          },
+          "managed_app_id": {
+            "type": "string",
+            "description": "The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom.",
+            "nullable": true
           },
           "restrict_to_following_tools": {
             "type": "array",
@@ -32185,6 +32218,7 @@
           "type",
           "toolkit",
           "name",
+          "managed_app_id",
           "status",
           "no_of_connections",
           "tool_access_config"
@@ -32217,6 +32251,11 @@
           "is_composio_managed": {
             "type": "boolean",
             "description": "Whether this authentication configuration is managed by Composio or the user"
+          },
+          "managed_app_id": {
+            "type": "string",
+            "description": "The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom.",
+            "nullable": true
           },
           "credentials": {
             "$ref": "#/components/schemas/GetAuthConfigs200ResponseItemsItemCredentials"

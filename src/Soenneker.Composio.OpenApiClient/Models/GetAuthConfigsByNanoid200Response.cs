@@ -33,8 +33,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("is_composio_managed") is { } nullNodeIsComposioManaged && nullNodeIsComposioManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsComposioManaged = null;
             if (parseNode.GetChildNode("is_enabled_for_tool_router") is null) { _explicitNullValueIsEnabledForToolRouter = default!; _explicitNullProperties?.Remove("is_enabled_for_tool_router"); }
             else if (parseNode.GetChildNode("is_enabled_for_tool_router") is { } nullNodeIsEnabledForToolRouter && nullNodeIsEnabledForToolRouter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsEnabledForToolRouter = null;
+            if (parseNode.GetChildNode("keyring_routed") is null) { _explicitNullValueKeyringRouted = default!; _explicitNullProperties?.Remove("keyring_routed"); }
+            else if (parseNode.GetChildNode("keyring_routed") is { } nullNodeKeyringRouted && nullNodeKeyringRouted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyringRouted = null;
             if (parseNode.GetChildNode("last_updated_at") is null) { _explicitNullValueLastUpdatedAt = default!; _explicitNullProperties?.Remove("last_updated_at"); }
             else if (parseNode.GetChildNode("last_updated_at") is { } nullNodeLastUpdatedAt && nullNodeLastUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUpdatedAt = null;
+            if (parseNode.GetChildNode("managed_app_id") is null) { _explicitNullValueManagedAppId = default!; _explicitNullProperties?.Remove("managed_app_id"); }
+            else if (parseNode.GetChildNode("managed_app_id") is { } nullNodeManagedAppId && nullNodeManagedAppId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAppId = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("no_of_connections") is null) { _explicitNullValueNoOfConnections = default!; _explicitNullProperties?.Remove("no_of_connections"); }
@@ -120,6 +124,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Whether this auth config is enabled for tool router</summary>
         public bool? IsEnabledForToolRouter { get => _explicitNullValueIsEnabledForToolRouter; set { _explicitNullValueIsEnabledForToolRouter = value; AdditionalData?.Remove("is_enabled_for_tool_router"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_enabled_for_tool_router"); else _explicitNullProperties?.Remove("is_enabled_for_tool_router"); } }
         private bool? _explicitNullValueIsEnabledForToolRouter = default!;
+        /// <summary>[EXPERIMENTAL] Whether the auth config is bound to a keyring encryption key, customer-hosted or Composio-operated.</summary>
+        public bool? KeyringRouted { get => _explicitNullValueKeyringRouted; set { _explicitNullValueKeyringRouted = value; AdditionalData?.Remove("keyring_routed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyring_routed"); else _explicitNullProperties?.Remove("keyring_routed"); } }
+        private bool? _explicitNullValueKeyringRouted = default!;
         /// <summary>ISO 8601 date-time when the auth config was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -129,6 +136,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
 #else
         public string LastUpdatedAt { get => _explicitNullValueLastUpdatedAt; set { _explicitNullValueLastUpdatedAt = value; AdditionalData?.Remove("last_updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_updated_at"); else _explicitNullProperties?.Remove("last_updated_at"); } }
         private string _explicitNullValueLastUpdatedAt = default!;
+#endif
+        /// <summary>The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ManagedAppId { get => _explicitNullValueManagedAppId; set { _explicitNullValueManagedAppId = value; AdditionalData?.Remove("managed_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_app_id"); else _explicitNullProperties?.Remove("managed_app_id"); } }
+        private string? _explicitNullValueManagedAppId = default!;
+#nullable restore
+#else
+        public string ManagedAppId { get => _explicitNullValueManagedAppId; set { _explicitNullValueManagedAppId = value; AdditionalData?.Remove("managed_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_app_id"); else _explicitNullProperties?.Remove("managed_app_id"); } }
+        private string _explicitNullValueManagedAppId = default!;
 #endif
         /// <summary>The display name of the authentication configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -256,7 +273,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_composio_managed", n => { IsComposioManaged = n.GetBoolValue(); } },
                 { "is_enabled_for_tool_router", n => { IsEnabledForToolRouter = n.GetBoolValue(); } },
+                { "keyring_routed", n => { KeyringRouted = n.GetBoolValue(); } },
                 { "last_updated_at", n => { LastUpdatedAt = n.GetStringValue(); } },
+                { "managed_app_id", n => { ManagedAppId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "no_of_connections", n => { NoOfConnections = n.GetDoubleValue(); } },
                 { "proxy_config", n => { ProxyConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig>(global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig.CreateFromDiscriminatorValue); } },
@@ -285,7 +304,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_composio_managed", IsComposioManaged);
             writer.WriteBoolValue("is_enabled_for_tool_router", IsEnabledForToolRouter);
+            writer.WriteBoolValue("keyring_routed", KeyringRouted);
             writer.WriteStringValue("last_updated_at", LastUpdatedAt);
+            writer.WriteStringValue("managed_app_id", ManagedAppId);
             writer.WriteStringValue("name", Name);
             writer.WriteDoubleValue("no_of_connections", NoOfConnections);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigsByNanoid200ResponseProxyConfig>("proxy_config", ProxyConfig);

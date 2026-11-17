@@ -23,6 +23,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("is_composio_managed") is null) { _explicitNullValueIsComposioManaged = default!; _explicitNullProperties?.Remove("is_composio_managed"); }
             else if (parseNode.GetChildNode("is_composio_managed") is { } nullNodeIsComposioManaged && nullNodeIsComposioManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsComposioManaged = null;
+            if (parseNode.GetChildNode("managed_app_id") is null) { _explicitNullValueManagedAppId = default!; _explicitNullProperties?.Remove("managed_app_id"); }
+            else if (parseNode.GetChildNode("managed_app_id") is { } nullNodeManagedAppId && nullNodeManagedAppId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAppId = null;
             if (parseNode.GetChildNode("restrict_to_following_tools") is null) { _explicitNullValueRestrictToFollowingTools = default!; _explicitNullProperties?.Remove("restrict_to_following_tools"); }
             else if (parseNode.GetChildNode("restrict_to_following_tools") is { } nullNodeRestrictToFollowingTools && nullNodeRestrictToFollowingTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictToFollowingTools = null;
         }
@@ -52,6 +54,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Whether the auth config is managed by Composio</summary>
         public bool? IsComposioManaged { get => _explicitNullValueIsComposioManaged; set { _explicitNullValueIsComposioManaged = value; AdditionalData?.Remove("is_composio_managed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_composio_managed"); else _explicitNullProperties?.Remove("is_composio_managed"); } }
         private bool? _explicitNullValueIsComposioManaged = default!;
+        /// <summary>The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ManagedAppId { get => _explicitNullValueManagedAppId; set { _explicitNullValueManagedAppId = value; AdditionalData?.Remove("managed_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_app_id"); else _explicitNullProperties?.Remove("managed_app_id"); } }
+        private string? _explicitNullValueManagedAppId = default!;
+#nullable restore
+#else
+        public string ManagedAppId { get => _explicitNullValueManagedAppId; set { _explicitNullValueManagedAppId = value; AdditionalData?.Remove("managed_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_app_id"); else _explicitNullProperties?.Remove("managed_app_id"); } }
+        private string _explicitNullValueManagedAppId = default!;
+#endif
         /// <summary>The tools that the user can use with the auth config. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,6 +103,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
                 { "auth_scheme", n => { AuthScheme = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_composio_managed", n => { IsComposioManaged = n.GetBoolValue(); } },
+                { "managed_app_id", n => { ManagedAppId = n.GetStringValue(); } },
                 { "restrict_to_following_tools", n => { RestrictToFollowingTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -104,6 +117,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("auth_scheme", AuthScheme);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_composio_managed", IsComposioManaged);
+            writer.WriteStringValue("managed_app_id", ManagedAppId);
             writer.WriteCollectionOfPrimitiveValues<string>("restrict_to_following_tools", RestrictToFollowingTools);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

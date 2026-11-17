@@ -21,6 +21,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("credentials") is { } nullNodeCredentials && nullNodeCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credentials = null;
             if (parseNode.GetChildNode("is_enabled_for_tool_router") is null) { _explicitNullValueIsEnabledForToolRouter = default!; _explicitNullProperties?.Remove("is_enabled_for_tool_router"); }
             else if (parseNode.GetChildNode("is_enabled_for_tool_router") is { } nullNodeIsEnabledForToolRouter && nullNodeIsEnabledForToolRouter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsEnabledForToolRouter = null;
+            if (parseNode.GetChildNode("managed_app_id") is null) { _explicitNullValueManagedAppId = default!; _explicitNullProperties?.Remove("managed_app_id"); }
+            else if (parseNode.GetChildNode("managed_app_id") is { } nullNodeManagedAppId && nullNodeManagedAppId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManagedAppId = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("restrict_to_following_tools") is null) { _explicitNullValueRestrictToFollowingTools = default!; _explicitNullProperties?.Remove("restrict_to_following_tools"); }
@@ -50,6 +52,16 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <summary>Whether this auth config is enabled for tool router</summary>
         public bool? IsEnabledForToolRouter { get => _explicitNullValueIsEnabledForToolRouter; set { _explicitNullValueIsEnabledForToolRouter = value; AdditionalData?.Remove("is_enabled_for_tool_router"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_enabled_for_tool_router"); else _explicitNullProperties?.Remove("is_enabled_for_tool_router"); } }
         private bool? _explicitNullValueIsEnabledForToolRouter = default!;
+        /// <summary>The Composio-managed app to use, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Omit to use the toolkit&apos;s default app.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ManagedAppId { get => _explicitNullValueManagedAppId; set { _explicitNullValueManagedAppId = value; AdditionalData?.Remove("managed_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_app_id"); else _explicitNullProperties?.Remove("managed_app_id"); } }
+        private string? _explicitNullValueManagedAppId = default!;
+#nullable restore
+#else
+        public string ManagedAppId { get => _explicitNullValueManagedAppId; set { _explicitNullValueManagedAppId = value; AdditionalData?.Remove("managed_app_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("managed_app_id"); else _explicitNullProperties?.Remove("managed_app_id"); } }
+        private string _explicitNullValueManagedAppId = default!;
+#endif
         /// <summary>The name of the integration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -133,6 +145,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 { "credentials", n => { Credentials = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentials>(global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentials.CreateFromDiscriminatorValue); } },
                 { "is_enabled_for_tool_router", n => { IsEnabledForToolRouter = n.GetBoolValue(); } },
+                { "managed_app_id", n => { ManagedAppId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "restrict_to_following_tools", n => { RestrictToFollowingTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "shared_connection_fields", n => { SharedConnectionFields = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty>(global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty.CreateFromDiscriminatorValue); } },
@@ -150,6 +163,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateCredentials>("credentials", Credentials);
             writer.WriteBoolValue("is_enabled_for_tool_router", IsEnabledForToolRouter);
+            writer.WriteStringValue("managed_app_id", ManagedAppId);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("restrict_to_following_tools", RestrictToFollowingTools);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ComposioManagedAuthConfigCreateSharedConnectionFieldsProperty>("shared_connection_fields", SharedConnectionFields);
