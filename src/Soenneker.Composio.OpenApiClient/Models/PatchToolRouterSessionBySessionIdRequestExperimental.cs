@@ -88,7 +88,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "disable_plan_search", n => { DisablePlanSearch = n.GetBoolValue(); } },
                 { "fast_mode", n => { FastMode = n.GetBoolValue(); } },

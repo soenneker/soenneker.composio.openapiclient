@@ -100,7 +100,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "auth_config", n => { AuthConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponseItemsItemConnectedAccountAuthConfig>(global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponseItemsItemConnectedAccountAuthConfig.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },

@@ -404,7 +404,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(30)
             {
                 { "access_token", n => { AccessToken = n.GetStringValue(); } },
                 { "account_id", n => { AccountId = n.GetStringValue(); } },

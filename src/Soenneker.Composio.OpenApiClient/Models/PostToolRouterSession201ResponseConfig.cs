@@ -213,7 +213,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "all_connected_accounts", n => { AllConnectedAccounts = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigAllConnectedAccounts>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigAllConnectedAccounts.CreateFromDiscriminatorValue); } },
                 { "auth_configs", n => { AuthConfigs = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigAuthConfigs>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSession201ResponseConfigAuthConfigs.CreateFromDiscriminatorValue); } },

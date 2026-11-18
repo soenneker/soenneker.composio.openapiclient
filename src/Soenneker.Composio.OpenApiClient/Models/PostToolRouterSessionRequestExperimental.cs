@@ -138,7 +138,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "assistive_prompt_config", n => { AssistivePromptConfig = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalAssistivePromptConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalAssistivePromptConfig.CreateFromDiscriminatorValue); } },
                 { "custom_toolkits", n => { CustomToolkits = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolkitsItem>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestExperimentalCustomToolkitsItem.CreateFromDiscriminatorValue)?.AsList(); } },

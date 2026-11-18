@@ -97,7 +97,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "ctx", n => { Ctx = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestCtx>(global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestCtx.CreateFromDiscriminatorValue); } },
                 { "failure_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostCliCodactFailuresRequestFailureType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFailureType = default; _explicitNullProperties?.Remove("failure_type"); AdditionalData["failure_type"] = unknown; } else { FailureType = parsed; AdditionalData.Remove("failure_type"); } } },

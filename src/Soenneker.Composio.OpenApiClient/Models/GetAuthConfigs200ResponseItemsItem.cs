@@ -258,7 +258,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(21)
             {
                 { "auth_scheme", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetAuthConfigs200ResponseItemsItemAuthScheme>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthScheme = default; _explicitNullProperties?.Remove("auth_scheme"); AdditionalData["auth_scheme"] = unknown; } else { AuthScheme = parsed; AdditionalData.Remove("auth_scheme"); } } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },

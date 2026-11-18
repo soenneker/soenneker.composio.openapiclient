@@ -53,13 +53,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions
         {
         }
         /// <summary>
-        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project.
+        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project. Viewers get a 403.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetWebhookSubscriptions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +76,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions
             {
                 { "400", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -117,7 +119,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostWebhookSubscriptions201Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostWebhookSubscriptions201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project.
+        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project. Viewers get a 403.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -167,7 +169,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Webhook_subscriptions.Webhook_subscriptionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project.
+        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project. Viewers get a 403.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Webhook_subscriptionsRequestBuilderGetQueryParameters 

@@ -98,7 +98,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "api_key_allowed_ips", n => { ApiKeyAllowedIps = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "api_key_permissions", n => { ApiKeyPermissions = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem>(global::Soenneker.Composio.OpenApiClient.Models.PostOrgOwnerProjectNewRequestApiKeyPermissionsItem.CreateFromDiscriminatorValue)?.AsList(); } },

@@ -126,7 +126,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig>(global::Soenneker.Composio.OpenApiClient.Models.PostOrgConsumerProjectResolve200ResponseConfig.CreateFromDiscriminatorValue); } },
                 { "consumer_user_id", n => { ConsumerUserId = n.GetStringValue(); } },

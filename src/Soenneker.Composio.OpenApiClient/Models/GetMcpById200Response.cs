@@ -182,7 +182,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
                 { "allowed_tools", n => { AllowedTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "auth_config_ids", n => { AuthConfigIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

@@ -143,7 +143,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "account_selection", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.RequiredAccountSelection>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAccountSelection = default; _explicitNullProperties?.Remove("account_selection"); AdditionalData["account_selection"] = unknown; } else { AccountSelection = parsed; AdditionalData.Remove("account_selection"); } } },
                 { "account_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdSearch200ResponseToolkitConnectionStatusesItemAccountType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAccountType = default; _explicitNullProperties?.Remove("account_type"); AdditionalData["account_type"] = unknown; } else { AccountType = parsed; AdditionalData.Remove("account_type"); } } },

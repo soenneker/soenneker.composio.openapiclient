@@ -83,7 +83,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "auth_schemes", n => { AuthSchemes = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "logo_file", n => { LogoFile = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile>(global::Soenneker.Composio.OpenApiClient.Models.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile.CreateFromDiscriminatorValue); } },

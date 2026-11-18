@@ -85,7 +85,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestArguments.CreateFromDiscriminatorValue); } },
                 { "input_responses", n => { InputResponses = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses>(global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionBySessionIdExecuteMetaRequestInputResponses.CreateFromDiscriminatorValue); } },

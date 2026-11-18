@@ -114,7 +114,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "composio_managed_auth_schemes", n => { ComposioManagedAuthSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "connected_account", n => { ConnectedAccount = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponseItemsItemConnectedAccount>(global::Soenneker.Composio.OpenApiClient.Models.ToolRouterToolkitsListResponseItemsItemConnectedAccount.CreateFromDiscriminatorValue); } },

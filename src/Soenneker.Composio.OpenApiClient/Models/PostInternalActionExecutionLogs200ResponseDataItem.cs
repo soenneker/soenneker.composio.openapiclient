@@ -173,7 +173,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
                 { "actionKey", n => { ActionKey = n.GetStringValue(); } },
                 { "app", n => { App = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemApp>(global::Soenneker.Composio.OpenApiClient.Models.PostInternalActionExecutionLogs200ResponseDataItemApp.CreateFromDiscriminatorValue); } },

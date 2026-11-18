@@ -105,7 +105,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "endTime", n => { EndTime = n.GetDoubleValue(); } },
                 { "logs", n => { Logs = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseStepsItemLogsItem>(global::Soenneker.Composio.OpenApiClient.Models.GetInternalActionExecutionLogById200ResponseStepsItemLogsItem.CreateFromDiscriminatorValue)?.AsList(); } },

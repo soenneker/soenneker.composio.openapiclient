@@ -85,7 +85,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "hook_results", n => { HookResults = n.GetCollectionOfObjectValues<global::Soenneker.Composio.OpenApiClient.Models.HookResult>(global::Soenneker.Composio.OpenApiClient.Models.HookResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
