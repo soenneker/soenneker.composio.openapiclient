@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.CreateSession
         {
         }
         /// <summary>
-        /// Generates a new CLI session with a random 6-character code. This endpoint is the first step in the CLI authentication flow, creating a session that can later be linked to a user account. The generated code is displayed to the user in the CLI and should be entered in the web interface to complete authentication. Optionally accepts a scope (&apos;project&apos; or &apos;user&apos;) and a source string.
+        /// Generates a new CLI session with a UUID v4 ID and a random 6-character display code. Use the session ID in the web interface to approve the login and when polling for its API key. The display code cannot approve or retrieve a session. Optionally accepts a scope (&apos;project&apos; or &apos;user&apos;) and a source string.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.PostCliCreateSession201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.CreateSession
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.PostCliCreateSession201Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.PostCliCreateSession201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Generates a new CLI session with a random 6-character code. This endpoint is the first step in the CLI authentication flow, creating a session that can later be linked to a user account. The generated code is displayed to the user in the CLI and should be entered in the web interface to complete authentication. Optionally accepts a scope (&apos;project&apos; or &apos;user&apos;) and a source string.
+        /// Generates a new CLI session with a UUID v4 ID and a random 6-character display code. Use the session ID in the web interface to approve the login and when polling for its API key. The display code cannot approve or retrieve a session. Optionally accepts a scope (&apos;project&apos; or &apos;user&apos;) and a source string.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

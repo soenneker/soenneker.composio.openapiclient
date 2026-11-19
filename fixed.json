@@ -755,8 +755,8 @@
           "CLI Authentication",
           "x-internal"
         ],
-        "summary": "Create a new CLI session with auth code",
-        "description": "Generates a new CLI session with a random 6-character code. This endpoint is the first step in the CLI authentication flow, creating a session that can later be linked to a user account. The generated code is displayed to the user in the CLI and should be entered in the web interface to complete authentication. Optionally accepts a scope (\u0027project\u0027 or \u0027user\u0027) and a source string.",
+        "summary": "Create a new CLI session",
+        "description": "Generates a new CLI session with a UUID v4 ID and a random 6-character display code. Use the session ID in the web interface to approve the login and when polling for its API key. The display code cannot approve or retrieve a session. Optionally accepts a scope (\u0027project\u0027 or \u0027user\u0027) and a source string.",
         "operationId": "PostCliCreateSession",
         "requestBody": {
           "content": {
@@ -769,7 +769,7 @@
         },
         "responses": {
           "201": {
-            "description": "CLI session created successfully with a unique ID and temporary authentication code",
+            "description": "CLI session created successfully with a unique ID and temporary display code",
             "content": {
               "application/json": {
                 "schema": {
@@ -799,7 +799,7 @@
             }
           },
           "200": {
-            "description": "CLI session created successfully with a unique ID and temporary authentication code",
+            "description": "CLI session created successfully with a unique ID and temporary display code",
             "content": {
               "application/json": {
                 "schema": {
@@ -919,19 +919,20 @@
           "CLI Authentication",
           "x-internal"
         ],
-        "summary": "Get CLI session details by ID or code",
-        "description": "Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.",
+        "summary": "Get CLI session details by ID",
+        "description": "Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.",
         "operationId": "GetCliGetSession",
         "parameters": [
           {
             "name": "id",
             "in": "query",
-            "description": "CLI session ID (UUID format) or 6-character code to check. Both formats are supported for flexibility in client implementations.",
+            "description": "CLI session ID (UUID format) to check.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The CLI session ID or code to check",
-              "example": "ABC123"
+              "description": "The CLI session ID (UUID) to check",
+              "format": "uuid",
+              "example": "123e4567-e89b-42d3-a456-426614174000"
             }
           }
         ],
@@ -947,7 +948,7 @@
             }
           },
           "400": {
-            "description": "Invalid session ID or code format. The ID must be either a valid UUID or a 6-character hexadecimal code.",
+            "description": "Invalid session ID format. The ID must be a valid UUID.",
             "content": {
               "application/json": {
                 "schema": {
@@ -977,7 +978,7 @@
             }
           },
           "429": {
-            "description": "Rate limited: too many lookups for this IP or session code. Re-run the CLI login flow.",
+            "description": "Rate limited: too many lookups for this IP or session ID. Re-run the CLI login flow.",
             "content": {
               "application/json": {
                 "schema": {
@@ -12599,7 +12600,7 @@
           },
           "code": {
             "type": "string",
-            "description": "The 6-character hexadecimal code used for CLI login",
+            "description": "The 6-character hexadecimal display code",
             "example": "ABC123"
           },
           "expiresAt": {
@@ -12677,12 +12678,12 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The CLI session ID, or the code for a lookup by code",
-            "example": "123e4567-e89b-12d3-a456-426614174000"
+            "description": "The CLI session ID",
+            "example": "123e4567-e89b-42d3-a456-426614174000"
           },
           "code": {
             "type": "string",
-            "description": "The 6-character hexadecimal code used for CLI login",
+            "description": "The 6-character hexadecimal display code",
             "example": "ABC123"
           },
           "status": {

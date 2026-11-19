@@ -34,7 +34,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.GetSession
         {
         }
         /// <summary>
-        /// Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetCliGetSession200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -67,7 +67,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.GetSession
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetCliGetSession200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetCliGetSession200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -95,21 +95,14 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.GetSession
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Cli.GetSession.GetSessionRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class GetSessionRequestBuilderGetQueryParameters 
         {
-            /// <summary>CLI session ID (UUID format) or 6-character code to check. Both formats are supported for flexibility in client implementations.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            /// <summary>CLI session ID (UUID format) to check.</summary>
             [QueryParameter("id")]
-            public string? Id { get; set; }
-#nullable restore
-#else
-            [QueryParameter("id")]
-            public string Id { get; set; }
-#endif
+            public Guid? Id { get; set; }
         }
     }
 }
