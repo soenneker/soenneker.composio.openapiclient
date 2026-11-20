@@ -19,6 +19,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("code") is null) { _explicitNullValueCode = default!; _explicitNullProperties?.Remove("code"); }
             else if (parseNode.GetChildNode("code") is { } nullNodeCode && nullNodeCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Code = null;
+            if (parseNode.GetChildNode("code_challenge_method") is null) { _explicitNullValueCodeChallengeMethod = default!; _explicitNullProperties?.Remove("code_challenge_method"); }
+            else if (parseNode.GetChildNode("code_challenge_method") is { } nullNodeCodeChallengeMethod && nullNodeCodeChallengeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeChallengeMethod = null;
             if (parseNode.GetChildNode("expiresAt") is null) { _explicitNullValueExpiresAt = default!; _explicitNullProperties?.Remove("expiresAt"); }
             else if (parseNode.GetChildNode("expiresAt") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
@@ -41,6 +43,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string Code { get => _explicitNullValueCode; set { _explicitNullValueCode = value; AdditionalData?.Remove("code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code"); else _explicitNullProperties?.Remove("code"); } }
         private string _explicitNullValueCode = default!;
 #endif
+        /// <summary>Method used to derive code_challenge from the verifier. Only S256 is supported. Send together with code_challenge.</summary>
+        public global::Soenneker.Composio.OpenApiClient.Models.S256CodeChallengeMethod? CodeChallengeMethod { get => _explicitNullValueCodeChallengeMethod; set { _explicitNullValueCodeChallengeMethod = value; AdditionalData?.Remove("code_challenge_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_challenge_method"); else _explicitNullProperties?.Remove("code_challenge_method"); } }
+        private global::Soenneker.Composio.OpenApiClient.Models.S256CodeChallengeMethod? _explicitNullValueCodeChallengeMethod = default!;
         /// <summary>The ISO timestamp when the session expires</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,9 +95,10 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(5)
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "code", n => { Code = n.GetStringValue(); } },
+                { "code_challenge_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.S256CodeChallengeMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCodeChallengeMethod = default; _explicitNullProperties?.Remove("code_challenge_method"); AdditionalData["code_challenge_method"] = unknown; } else { CodeChallengeMethod = parsed; AdditionalData.Remove("code_challenge_method"); } } },
                 { "expiresAt", n => { ExpiresAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "scope", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostCliCreateSession201ResponseScope>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueScope = default; _explicitNullProperties?.Remove("scope"); AdditionalData["scope"] = unknown; } else { Scope = parsed; AdditionalData.Remove("scope"); } } },
@@ -107,6 +113,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
+            writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.S256CodeChallengeMethod>("code_challenge_method", CodeChallengeMethod);
             writer.WriteStringValue("expiresAt", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.PostCliCreateSession201ResponseScope>("scope", Scope);

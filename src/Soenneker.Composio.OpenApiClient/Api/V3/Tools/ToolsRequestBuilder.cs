@@ -47,7 +47,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools{?auth_config_ids*,cursor*,important*,include_deprecated*,include_pricing*,limit*,query*,scopes*,search*,tags*,tool_slugs*,toolkit_slug*,toolkit_versions*}", pathParameters)
+        public ToolsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools{?auth_config_ids*,cursor*,important*,include_deprecated*,include_pricing*,limit*,query*,scopes*,search*,tags*,tool_slugs*,toolkit_slug*,toolkit_versions*,user_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ToolsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools{?auth_config_ids*,cursor*,important*,include_deprecated*,include_pricing*,limit*,query*,scopes*,search*,tags*,tool_slugs*,toolkit_slug*,toolkit_versions*}", rawUrl)
+        public ToolsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/api/v3/tools{?auth_config_ids*,cursor*,important*,include_deprecated*,include_pricing*,limit*,query*,scopes*,search*,tags*,tool_slugs*,toolkit_slug*,toolkit_versions*,user_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -230,6 +230,16 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Tools
 #else
             [QueryParameter("tool_slugs")]
             public string ToolSlugs { get; set; }
+#endif
+            /// <summary>Include the tools of the custom toolkits this user can use. Without it, only tools of custom toolkits with access &quot;all&quot; are listed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("user_id")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("user_id")]
+            public string UserId { get; set; }
 #endif
         }
     }

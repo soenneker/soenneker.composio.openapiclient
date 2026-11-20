@@ -34,12 +34,13 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.GetSession
         {
         }
         /// <summary>
-        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted. For a session created with a code_challenge, every lookup must send the verifier in the x-cli-session-secret header; a session created without one rejects any lookup that sends the header.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Composio.OpenApiClient.Models.GetCliGetSession200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Composio.OpenApiClient.Models.Error">When receiving a 429 status code</exception>
@@ -57,6 +58,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.GetSession
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Composio.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -67,7 +69,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.GetSession
             return await RequestAdapter.SendAsync<global::Soenneker.Composio.OpenApiClient.Models.GetCliGetSession200Response>(requestInfo, global::Soenneker.Composio.OpenApiClient.Models.GetCliGetSession200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted. For a session created with a code_challenge, every lookup must send the verifier in the x-cli-session-secret header; a session created without one rejects any lookup that sends the header.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -95,7 +97,7 @@ namespace Soenneker.Composio.OpenApiClient.Api.V3.Cli.GetSession
             return new global::Soenneker.Composio.OpenApiClient.Api.V3.Cli.GetSession.GetSessionRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted. For a session created with a code_challenge, every lookup must send the verifier in the x-cli-session-secret header; a session created without one rejects any lookup that sends the header.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class GetSessionRequestBuilderGetQueryParameters 

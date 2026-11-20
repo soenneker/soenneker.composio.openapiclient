@@ -24,6 +24,8 @@ namespace Soenneker.Composio.OpenApiClient.Models
             else if (parseNode.GetChildNode("deprecated_auth_provider_details") is { } nullNodeDeprecatedAuthProviderDetails && nullNodeDeprecatedAuthProviderDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeprecatedAuthProviderDetails = null;
             if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
             else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("is_connection_revoke_supported") is null) { _explicitNullValueIsConnectionRevokeSupported = default!; _explicitNullProperties?.Remove("is_connection_revoke_supported"); }
+            else if (parseNode.GetChildNode("is_connection_revoke_supported") is { } nullNodeIsConnectionRevokeSupported && nullNodeIsConnectionRevokeSupported.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsConnectionRevokeSupported = null;
             if (parseNode.GetChildNode("mode") is null) { _explicitNullValueMode = default!; _explicitNullProperties?.Remove("mode"); }
             else if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
@@ -67,6 +69,9 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields _explicitNullValueFields = default!;
 #endif
+        /// <summary>Whether a connection made with this authentication method can be revoked at the provider</summary>
+        public bool? IsConnectionRevokeSupported { get => _explicitNullValueIsConnectionRevokeSupported; set { _explicitNullValueIsConnectionRevokeSupported = value; AdditionalData?.Remove("is_connection_revoke_supported"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_connection_revoke_supported"); else _explicitNullProperties?.Remove("is_connection_revoke_supported"); } }
+        private bool? _explicitNullValueIsConnectionRevokeSupported = default!;
         /// <summary>The type of authentication mode (e.g., OAUTH2, BASIC, API_KEY)</summary>
         public global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; AdditionalData?.Remove("mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode? _explicitNullValueMode = default!;
@@ -123,11 +128,12 @@ namespace Soenneker.Composio.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(7)
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "auth_hint_url", n => { AuthHintUrl = n.GetStringValue(); } },
                 { "deprecated_auth_provider_details", n => { DeprecatedAuthProviderDetails = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemDeprecatedAuthProviderDetails>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemDeprecatedAuthProviderDetails.CreateFromDiscriminatorValue); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields.CreateFromDiscriminatorValue); } },
+                { "is_connection_revoke_supported", n => { IsConnectionRevokeSupported = n.GetBoolValue(); } },
                 { "mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMode = default; _explicitNullProperties?.Remove("mode"); AdditionalData["mode"] = unknown; } else { Mode = parsed; AdditionalData.Remove("mode"); } } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "proxy", n => { Proxy = n.GetObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy>(global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy.CreateFromDiscriminatorValue); } },
@@ -144,6 +150,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             writer.WriteStringValue("auth_hint_url", AuthHintUrl);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemDeprecatedAuthProviderDetails>("deprecated_auth_provider_details", DeprecatedAuthProviderDetails);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemFields>("fields", Fields);
+            writer.WriteBoolValue("is_connection_revoke_supported", IsConnectionRevokeSupported);
             writer.WriteEnumValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode>("mode", Mode);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Composio.OpenApiClient.Models.GetToolkitsBySlug200ResponseAuthConfigDetailsItemProxy>("proxy", Proxy);

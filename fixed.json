@@ -920,7 +920,7 @@
           "x-internal"
         ],
         "summary": "Get CLI session details by ID",
-        "description": "Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.",
+        "description": "Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted. For a session created with a code_challenge, every lookup must send the verifier in the x-cli-session-secret header; a session created without one rejects any lookup that sends the header.",
         "operationId": "GetCliGetSession",
         "parameters": [
           {
@@ -933,6 +933,14 @@
               "description": "The CLI session ID (UUID) to check",
               "format": "uuid",
               "example": "123e4567-e89b-42d3-a456-426614174000"
+            }
+          },
+          {
+            "name": "x-cli-session-secret",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "description": "The code_verifier whose S256 hash is the session\u0027s code_challenge. Required on every UUID lookup of a session created with a code_challenge; omit it for a session created without one."
             }
           }
         ],
@@ -949,6 +957,16 @@
           },
           "400": {
             "description": "Invalid session ID format. The ID must be a valid UUID.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The x-cli-session-secret header is missing, malformed or does not match the session. Re-run the CLI login flow.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4953,6 +4971,18 @@
                 "summary": "No version specified (uses 00000000_00)",
                 "value": null
               }
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "Include the tools of the custom toolkits this user can use. Without it, only tools of custom toolkits with access \u0022all\u0022 are listed.",
+            "schema": {
+              "maxLength": 256,
+              "minLength": 1,
+              "type": "string",
+              "description": "Include the tools of the custom toolkits this user can use. Without it, only tools of custom toolkits with access \u0022all\u0022 are listed.",
+              "example": "user_123"
             }
           },
           {
@@ -12581,6 +12611,14 @@
           "source": {
             "type": "string",
             "description": "Free-form string describing the source, e.g. \u0027Johns MacBook (darwin, v1.2.3)\u0027"
+          },
+          "code_challenge": {
+            "pattern": "^[A-Za-z0-9_-]{43}$",
+            "type": "string",
+            "description": "PKCE-style S256 challenge: the base64url encoding, without padding, of the SHA-256 digest of a random verifier the client keeps. Send together with code_challenge_method."
+          },
+          "code_challenge_method": {
+            "$ref": "#/components/schemas/S256CodeChallengeMethod"
           }
         }
       },
@@ -12613,6 +12651,9 @@
           },
           "scope": {
             "$ref": "#/components/schemas/PostCliCreateSession201ResponseScope"
+          },
+          "code_challenge_method": {
+            "$ref": "#/components/schemas/S256CodeChallengeMethod"
           }
         }
       },
@@ -14371,9 +14412,11 @@
           "slug",
           "name",
           "type",
+          "toolkit_type",
           "enabled",
           "composio_managed_auth",
           "is_local_toolkit",
+          "docs_url",
           "meta",
           "deprecated"
         ],
@@ -14391,6 +14434,12 @@
           },
           "type": {
             "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseType"
+          },
+          "toolkit_type": {
+            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseToolkitType"
+          },
+          "instant": {
+            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseInstant"
           },
           "enabled": {
             "type": "boolean",
@@ -14435,6 +14484,11 @@
             "description": "URL to a guide page with authentication setup instructions for this toolkit",
             "nullable": true,
             "example": "https://composio.dev/auth/github"
+          },
+          "docs_url": {
+            "type": "string",
+            "description": "The provider\u0027s own documentation URL for this toolkit, or null when it has none",
+            "nullable": true
           },
           "base_url": {
             "type": "string",
@@ -33816,6 +33870,18 @@
         },
         "additionalProperties": false
       },
+      "GetToolkitsBySlug200ResponseInstant": {
+        "required": [
+          "supported"
+        ],
+        "type": "object",
+        "properties": {
+          "supported": {
+            "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseInstantSupported"
+          }
+        },
+        "description": "Present when the latest version of this toolkit supports Instant accounts. See the tools endpoint for support on individual tools."
+      },
       "GetToolkitsBySlug200ResponseComposioManagedAuthItem": {
         "required": [
           "managed_app_id",
@@ -33853,7 +33919,8 @@
           "mode",
           "required_scopes",
           "fields",
-          "name"
+          "name",
+          "is_connection_revoke_supported"
         ],
         "type": "object",
         "properties": {
@@ -33887,6 +33954,10 @@
             "description": "URL to a page where users can obtain or configure credentials for this authentication method",
             "nullable": true,
             "example": "https://github.com/settings/tokens"
+          },
+          "is_connection_revoke_supported": {
+            "type": "boolean",
+            "description": "Whether a connection made with this authentication method can be revoked at the provider"
           },
           "deprecated_auth_provider_details": {
             "$ref": "#/components/schemas/GetToolkitsBySlug200ResponseAuthConfigDetailsItemDeprecatedAuthProviderDetails"
@@ -43295,6 +43366,13 @@
           ]
         }
       },
+      "S256CodeChallengeMethod": {
+        "enum": [
+          "S256"
+        ],
+        "type": "string",
+        "description": "Method used to derive code_challenge from the verifier. Only S256 is supported. Send together with code_challenge."
+      },
       "PostCliCreateSession201ResponseStatus": {
         "enum": [
           "pending",
@@ -43888,6 +43966,29 @@
             {
               "value": "custom",
               "name": "Custom"
+            }
+          ]
+        }
+      },
+      "GetToolkitsBySlug200ResponseToolkitType": {
+        "enum": [
+          "api",
+          "mcp"
+        ],
+        "type": "string",
+        "description": "How the toolkit is implemented: \u0022api\u0022 for an API integration, \u0022mcp\u0022 for an MCP server",
+        "example": "api",
+        "x-ms-enum": {
+          "name": "GetToolkitsBySlug200ResponseToolkitType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "api",
+              "name": "Api"
+            },
+            {
+              "value": "mcp",
+              "name": "Mcp"
             }
           ]
         }
@@ -46266,6 +46367,12 @@
             }
           ]
         }
+      },
+      "GetToolkitsBySlug200ResponseInstantSupported": {
+        "enum": [
+          true
+        ],
+        "type": "boolean"
       },
       "GetToolkitsBySlug200ResponseAuthConfigDetailsItemMode": {
         "enum": [
