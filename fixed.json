@@ -11261,7 +11261,7 @@
             "items": {
               "$ref": "#/components/schemas/HookResult"
             },
-            "description": "Every session hook that applied to this request. Omitted when none applied."
+            "description": "The session hooks that ran on this request, each with its result. Omitted when none applied."
           }
         }
       },
@@ -11289,7 +11289,7 @@
             "items": {
               "$ref": "#/components/schemas/HookResult"
             },
-            "description": "Every session hook that applied to this call. Omitted when none applied."
+            "description": "The session hooks that ran on this call, each with its result. Omitted when none applied."
           }
         }
       },
@@ -30581,6 +30581,41 @@
         ],
         "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
       },
+      "PostToolRouterSessionRequestHooksItemOneOf1Handler": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "condition_check": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf1Variant",
+            "webhook": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf2Variant"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf1"
+            },
+            {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf2"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "condition_check": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf1",
+              "webhook": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf2"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
       "PostToolRouterSessionRequestHooksItemOneOf2AppliesTo": {
         "anyOf": [
           {
@@ -30597,7 +30632,8 @@
           "propertyName": "type",
           "mapping": {
             "condition_check": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf1Variant",
-            "prompt_injection_check": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf2Variant"
+            "prompt_injection_check": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf2Variant",
+            "webhook": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -30607,13 +30643,17 @@
             },
             {
               "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf2"
+            },
+            {
+              "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3"
             }
           ],
           "discriminator": {
             "propertyName": "type",
             "mapping": {
               "condition_check": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf1",
-              "prompt_injection_check": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf2"
+              "prompt_injection_check": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf2",
+              "webhook": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3"
             }
           }
         },
@@ -30659,6 +30699,41 @@
         ],
         "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
       },
+      "PostToolRouterSession201ResponseConfigHooksItemOneOf1Handler": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "condition_check": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf1Variant",
+            "webhook": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf2Variant"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf1"
+            },
+            {
+              "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf2"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "condition_check": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf1",
+              "webhook": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf2"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
       "PostToolRouterSession201ResponseConfigHooksItemOneOf2AppliesTo": {
         "anyOf": [
           {
@@ -30675,7 +30750,8 @@
           "propertyName": "type",
           "mapping": {
             "condition_check": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf1Variant",
-            "prompt_injection_check": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf2Variant"
+            "prompt_injection_check": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf2Variant",
+            "webhook": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -30685,13 +30761,17 @@
             },
             {
               "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf2"
+            },
+            {
+              "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf3"
             }
           ],
           "discriminator": {
             "propertyName": "type",
             "mapping": {
               "condition_check": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf1",
-              "prompt_injection_check": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf2"
+              "prompt_injection_check": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf2",
+              "webhook": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf3"
             }
           }
         },
@@ -30737,6 +30817,41 @@
         ],
         "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
       },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1Handler": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "condition_check": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1Variant",
+            "webhook": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2Variant"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1"
+            },
+            {
+              "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "condition_check": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1",
+              "webhook": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
       "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2AppliesTo": {
         "anyOf": [
           {
@@ -30753,7 +30868,8 @@
           "propertyName": "type",
           "mapping": {
             "condition_check": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf1Variant",
-            "prompt_injection_check": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2Variant"
+            "prompt_injection_check": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2Variant",
+            "webhook": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -30763,13 +30879,17 @@
             },
             {
               "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2"
+            },
+            {
+              "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3"
             }
           ],
           "discriminator": {
             "propertyName": "type",
             "mapping": {
               "condition_check": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf1",
-              "prompt_injection_check": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2"
+              "prompt_injection_check": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2",
+              "webhook": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3"
             }
           }
         },
@@ -30875,6 +30995,41 @@
         ],
         "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
       },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1Handler": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "condition_check": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf1Variant",
+            "webhook": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf2Variant"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf1"
+            },
+            {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf2"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "condition_check": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf1",
+              "webhook": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf2"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
       "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2AppliesTo": {
         "anyOf": [
           {
@@ -30891,7 +31046,8 @@
           "propertyName": "type",
           "mapping": {
             "condition_check": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf1Variant",
-            "prompt_injection_check": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf2Variant"
+            "prompt_injection_check": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf2Variant",
+            "webhook": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -30901,13 +31057,17 @@
             },
             {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf2"
+            },
+            {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf3"
             }
           ],
           "discriminator": {
             "propertyName": "type",
             "mapping": {
               "condition_check": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf1",
-              "prompt_injection_check": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf2"
+              "prompt_injection_check": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf2",
+              "webhook": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf3"
             }
           }
         },
@@ -30953,6 +31113,41 @@
         ],
         "description": "Which tools the hook covers: \u0022all\u0022 for all of them, or only the listed toolkits."
       },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1Handler": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "condition_check": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1Variant",
+            "webhook": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2Variant"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1"
+            },
+            {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "condition_check": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1",
+              "webhook": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
       "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2AppliesTo": {
         "anyOf": [
           {
@@ -30969,7 +31164,8 @@
           "propertyName": "type",
           "mapping": {
             "condition_check": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf1Variant",
-            "prompt_injection_check": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2Variant"
+            "prompt_injection_check": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2Variant",
+            "webhook": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -30979,13 +31175,17 @@
             },
             {
               "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2"
+            },
+            {
+              "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3"
             }
           ],
           "discriminator": {
             "propertyName": "type",
             "mapping": {
               "condition_check": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf1",
-              "prompt_injection_check": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2"
+              "prompt_injection_check": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf2",
+              "webhook": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3"
             }
           }
         },
@@ -38296,29 +38496,6 @@
         },
         "description": "Per-toolkit enable or disable lists that restrict instant usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
       },
-      "PostToolRouterSessionRequestHooksItemOneOf1Handler": {
-        "required": [
-          "type",
-          "condition",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/ConditionCheckType"
-          },
-          "condition": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
-          },
-          "action": {
-            "$ref": "#/components/schemas/BlockAction"
-          }
-        },
-        "additionalProperties": false
-      },
       "PostToolRouterSession201ResponseConfigInstantAnyOf2Tools": {
         "type": "object",
         "additionalProperties": {
@@ -38352,29 +38529,6 @@
             "x-experimental": true
           }
         }
-      },
-      "PostToolRouterSession201ResponseConfigHooksItemOneOf1Handler": {
-        "required": [
-          "type",
-          "condition",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/ConditionCheckType"
-          },
-          "condition": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
-          },
-          "action": {
-            "$ref": "#/components/schemas/BlockAction"
-          }
-        },
-        "additionalProperties": false
       },
       "GetToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Tools": {
         "type": "object",
@@ -38410,58 +38564,12 @@
           }
         }
       },
-      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1Handler": {
-        "required": [
-          "type",
-          "condition",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/ConditionCheckType"
-          },
-          "condition": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
-          },
-          "action": {
-            "$ref": "#/components/schemas/BlockAction"
-          }
-        },
-        "additionalProperties": false
-      },
       "PatchToolRouterSessionBySessionIdRequestInstantAnyOf2Tools": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestInstantAnyOf2ToolsAdditionalProperties"
         },
         "description": "Per-toolkit enable or disable lists that restrict instant usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
-      },
-      "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1Handler": {
-        "required": [
-          "type",
-          "condition",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/ConditionCheckType"
-          },
-          "condition": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
-          },
-          "action": {
-            "$ref": "#/components/schemas/BlockAction"
-          }
-        },
-        "additionalProperties": false
       },
       "PatchToolRouterSessionBySessionId200ResponseConfigInstantAnyOf2Tools": {
         "type": "object",
@@ -38496,29 +38604,6 @@
             "x-experimental": true
           }
         }
-      },
-      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1Handler": {
-        "required": [
-          "type",
-          "condition",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/ConditionCheckType"
-          },
-          "condition": {
-            "maxLength": 2000,
-            "minLength": 1,
-            "type": "string",
-            "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
-          },
-          "action": {
-            "$ref": "#/components/schemas/BlockAction"
-          }
-        },
-        "additionalProperties": false
       },
       "PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataOneOf1Val": {
         "required": [
@@ -45394,6 +45479,44 @@
           ]
         }
       },
+      "WebhookType": {
+        "enum": [
+          "webhook"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "WebhookType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "webhook",
+              "name": "Webhook"
+            }
+          ]
+        }
+      },
+      "PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf2FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf2FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
+            }
+          ]
+        }
+      },
       "PromptInjectionCheckType": {
         "enum": [
           "prompt_injection_check"
@@ -45406,6 +45529,116 @@
             {
               "value": "prompt_injection_check",
               "name": "PromptInjectionCheck"
+            }
+          ]
+        }
+      },
+      "PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
+            }
+          ]
+        }
+      },
+      "PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
+            }
+          ]
+        }
+      },
+      "PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
+            }
+          ]
+        }
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
+            }
+          ]
+        }
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
             }
           ]
         }
@@ -45529,6 +45762,94 @@
             {
               "value": "openWorldHint",
               "name": "OpenWorldHint"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf2FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf2FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf3FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf3FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
+            }
+          ]
+        }
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction": {
+        "enum": [
+          "block",
+          "continue"
+        ],
+        "type": "string",
+        "description": "What happens to the call when your endpoint times out, can\u0027t be reached, or sends an answer that can\u0027t be read.",
+        "x-ms-enum": {
+          "name": "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "block",
+              "name": "Block"
+            },
+            {
+              "value": "continue",
+              "name": "ContinueValue"
             }
           ]
         }
@@ -48709,6 +49030,10 @@
               },
               "status": {
                 "$ref": "#/components/schemas/UnavailableStatus"
+              },
+              "detail": {
+                "type": "string",
+                "description": "The reason the hook is unavailable, for example \u0060The webhook endpoint timed out\u0060."
               }
             }
           }
@@ -48901,7 +49226,7 @@
                 "items": {
                   "$ref": "#/components/schemas/HookResult"
                 },
-                "description": "Every session hook that applied to this call. Omitted when none applied."
+                "description": "The session hooks that ran on this call, each with its result. Omitted when none applied."
               }
             }
           }
@@ -48945,7 +49270,7 @@
                 "items": {
                   "$ref": "#/components/schemas/HookResult"
                 },
-                "description": "Every session hook that applied to this call. Omitted when none applied."
+                "description": "The session hooks that ran on this call, each with its result. Omitted when none applied."
               }
             }
           }
@@ -48987,7 +49312,7 @@
                 "items": {
                   "$ref": "#/components/schemas/HookResult"
                 },
-                "description": "Every session hook that applied to this call. Omitted when none applied."
+                "description": "The session hooks that ran on this call, each with its result. Omitted when none applied."
               }
             }
           }
@@ -85750,6 +86075,66 @@
           }
         ]
       },
+      "PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf1Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "condition",
+              "action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ConditionCheckType"
+              },
+              "condition": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string",
+                "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+              },
+              "action": {
+                "$ref": "#/components/schemas/BlockAction"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf2Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf2FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+          }
+        ]
+      },
       "PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf1Variant": {
         "allOf": [
           {
@@ -85801,6 +86186,96 @@
             },
             "additionalProperties": false,
             "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
+          }
+        ]
+      },
+      "PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+          }
+        ]
+      },
+      "PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf1Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "condition",
+              "action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ConditionCheckType"
+              },
+              "condition": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string",
+                "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+              },
+              "action": {
+                "$ref": "#/components/schemas/BlockAction"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf2Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
           }
         ]
       },
@@ -85858,6 +86333,96 @@
           }
         ]
       },
+      "PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf3Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+          }
+        ]
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "condition",
+              "action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ConditionCheckType"
+              },
+              "condition": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string",
+                "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+              },
+              "action": {
+                "$ref": "#/components/schemas/BlockAction"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+          }
+        ]
+      },
       "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf1Variant": {
         "allOf": [
           {
@@ -85909,6 +86474,96 @@
             },
             "additionalProperties": false,
             "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
+          }
+        ]
+      },
+      "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+          }
+        ]
+      },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf1Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "condition",
+              "action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ConditionCheckType"
+              },
+              "condition": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string",
+                "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+              },
+              "action": {
+                "$ref": "#/components/schemas/BlockAction"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf2Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf2FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
           }
         ]
       },
@@ -85966,6 +86621,96 @@
           }
         ]
       },
+      "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf3Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf3FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+          }
+        ]
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "condition",
+              "action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ConditionCheckType"
+              },
+              "condition": {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string",
+                "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+              },
+              "action": {
+                "$ref": "#/components/schemas/BlockAction"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+          }
+        ]
+      },
       "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf1Variant": {
         "allOf": [
           {
@@ -86017,6 +86762,36 @@
             },
             "additionalProperties": false,
             "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
+          }
+        ]
+      },
+      "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2Handler"
+          },
+          {
+            "required": [
+              "type",
+              "fallback_action"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/WebhookType"
+              },
+              "timeout_ms": {
+                "maximum": 5000,
+                "minimum": 100,
+                "type": "integer",
+                "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+              },
+              "fallback_action": {
+                "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction"
+              }
+            },
+            "additionalProperties": false,
+            "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
           }
         ]
       }
@@ -86291,7 +87066,7 @@
           "items": {
             "$ref": "#/components/schemas/HookResult"
           },
-          "description": "Every session hook that applied to this call. Omitted when none applied."
+          "description": "The session hooks that ran on this call, each with its result. Omitted when none applied."
         }
       }
     },
@@ -86328,7 +87103,7 @@
           "items": {
             "$ref": "#/components/schemas/HookResult"
           },
-          "description": "Every session hook that applied to this call. Omitted when none applied."
+          "description": "The session hooks that ran on this call, each with its result. Omitted when none applied."
         }
       }
     },
@@ -86363,7 +87138,7 @@
           "items": {
             "$ref": "#/components/schemas/HookResult"
           },
-          "description": "Every session hook that applied to this call. Omitted when none applied."
+          "description": "The session hooks that ran on this call, each with its result. Omitted when none applied."
         }
       }
     },
@@ -86428,6 +87203,10 @@
         },
         "status": {
           "$ref": "#/components/schemas/UnavailableStatus"
+        },
+        "detail": {
+          "type": "string",
+          "description": "The reason the hook is unavailable, for example \u0060The webhook endpoint timed out\u0060."
         }
       }
     },
@@ -120393,6 +121172,52 @@
         "nullable": true
       }
     },
+    "PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf1": {
+      "required": [
+        "type",
+        "condition",
+        "action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConditionCheckType"
+        },
+        "condition": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string",
+          "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+        },
+        "action": {
+          "$ref": "#/components/schemas/BlockAction"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf2": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf1HandlerOneOf2FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+    },
     "PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf1": {
       "required": [
         "type",
@@ -120432,6 +121257,75 @@
       },
       "additionalProperties": false,
       "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
+    },
+    "PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+    },
+    "PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf1": {
+      "required": [
+        "type",
+        "condition",
+        "action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConditionCheckType"
+        },
+        "condition": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string",
+          "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+        },
+        "action": {
+          "$ref": "#/components/schemas/BlockAction"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf2": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
     },
     "PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf1": {
       "required": [
@@ -120473,6 +121367,75 @@
       "additionalProperties": false,
       "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
     },
+    "PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf3": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/PostToolRouterSession201ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+    },
+    "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1": {
+      "required": [
+        "type",
+        "condition",
+        "action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConditionCheckType"
+        },
+        "condition": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string",
+          "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+        },
+        "action": {
+          "$ref": "#/components/schemas/BlockAction"
+        }
+      },
+      "additionalProperties": false
+    },
+    "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+    },
     "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf1": {
       "required": [
         "type",
@@ -120512,6 +121475,75 @@
       },
       "additionalProperties": false,
       "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
+    },
+    "GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/GetToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+    },
+    "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf1": {
+      "required": [
+        "type",
+        "condition",
+        "action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConditionCheckType"
+        },
+        "condition": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string",
+          "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+        },
+        "action": {
+          "$ref": "#/components/schemas/BlockAction"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf2": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf1HandlerOneOf2FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
     },
     "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf1": {
       "required": [
@@ -120553,6 +121585,75 @@
       "additionalProperties": false,
       "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
     },
+    "PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf3": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionIdRequestHooksItemOneOf2HandlerOneOf3FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+    },
+    "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf1": {
+      "required": [
+        "type",
+        "condition",
+        "action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConditionCheckType"
+        },
+        "condition": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string",
+          "description": "What to block, written as a plain sentence. For example: \u0022Sending email to anyone outside example.org\u0022."
+        },
+        "action": {
+          "$ref": "#/components/schemas/BlockAction"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf1HandlerOneOf2FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
+    },
     "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf1": {
       "required": [
         "type",
@@ -120592,6 +121693,29 @@
       },
       "additionalProperties": false,
       "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn\u0027t ask for."
+    },
+    "PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3": {
+      "required": [
+        "type",
+        "fallback_action"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/WebhookType"
+        },
+        "timeout_ms": {
+          "maximum": 5000,
+          "minimum": 100,
+          "type": "integer",
+          "description": "How long to wait for your endpoint to answer, in milliseconds. Defaults to 3000."
+        },
+        "fallback_action": {
+          "$ref": "#/components/schemas/PatchToolRouterSessionBySessionId200ResponseConfigHooksItemOneOf2HandlerOneOf3FallbackAction"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Experimental. Sends the call to the project\u0027s session webhook URL and waits for your endpoint to answer. The answer can let the call run, block it, or change it."
     },
     "PostToolRouterSessionRequestInstantAnyOf1": {
       "enum": [

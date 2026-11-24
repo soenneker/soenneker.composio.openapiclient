@@ -50,7 +50,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
         private string _explicitNullValueError = default!;
 #endif
-        /// <summary>Every session hook that applied to this call. Omitted when none applied.</summary>
+        /// <summary>The session hooks that ran on this call, each with its result. Omitted when none applied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? HookResults { get => _explicitNullValueHookResults; set { _explicitNullValueHookResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_results"); else _explicitNullProperties?.Remove("hook_results"); } }

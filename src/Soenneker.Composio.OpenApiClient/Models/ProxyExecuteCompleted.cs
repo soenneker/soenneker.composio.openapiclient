@@ -63,7 +63,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
         public global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; AdditionalData?.Remove("headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
         private global::Soenneker.Composio.OpenApiClient.Models.ProxyExecuteCompletedHeadersProperty _explicitNullValueHeaders = default!;
 #endif
-        /// <summary>Every session hook that applied to this request. Omitted when none applied.</summary>
+        /// <summary>The session hooks that ran on this request, each with its result. Omitted when none applied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Composio.OpenApiClient.Models.HookResult>? HookResults { get => _explicitNullValueHookResults; set { _explicitNullValueHookResults = value; AdditionalData?.Remove("hook_results"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hook_results"); else _explicitNullProperties?.Remove("hook_results"); } }

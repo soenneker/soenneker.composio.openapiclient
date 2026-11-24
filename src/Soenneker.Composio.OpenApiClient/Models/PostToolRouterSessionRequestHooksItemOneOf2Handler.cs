@@ -53,6 +53,7 @@ namespace Soenneker.Composio.OpenApiClient.Models
             {
                 "condition_check" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf1Variant(),
                 "prompt_injection_check" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf2Variant(),
+                "webhook" => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItemOneOf2HandlerOneOf3Variant(),
                 _ => new global::Soenneker.Composio.OpenApiClient.Models.PostToolRouterSessionRequestHooksItemOneOf2Handler(),
             };
         }
