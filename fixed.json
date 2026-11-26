@@ -975,6 +975,16 @@
               }
             }
           },
+          "403": {
+            "description": "The linked account cannot receive a project API key: its role in the organization does not allow creating one, or it is no longer a member. Ask an admin or developer to log in, or use a user-scoped login.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
             "description": "CLI session not found or expired. Sessions expire after 10 minutes from creation. Re-run the CLI login flow to create a new session.",
             "content": {
